@@ -1,18 +1,14 @@
 # ChtiJS Website
 
-## Dev
-Install the livereload add-on corresponding to your browser.
-
+## To participate :
 Type the following in a shell :
-```sh
-git clone git@github.com:ChtiJS/chtijs.francejs.org.git
-cd chtijs.francejs.org
-npm install
-su npm install -g grunt-cli
-grunt dev&
-```
+- `git clone git@github.com:ChtiJS/chtijs.francejs.org.git` Clone the repository
+- `cd chtijs.francejs.org` Go into the new directory.
+- If you have never used grunt before : `npm install -g grunt-cli` or `su npm install -g grunt-cli` (It depends on how node.js was installed on your system).
+- `npm install` Install the tools of work
 
-## Build
-```sh
-grunt dist
-```
+## Grunt tasks :
+
+Develop with `grunt dev` or `grunt dev&`. It launches a livereload server and your browser.
+
+Type `grunt dist` to build the website ready for production.
