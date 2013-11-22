@@ -21,6 +21,9 @@
     "grunt-contrib-imagemin": "latest",
     "grunt-contrib-jshint": "latest",
     "grunt-svgmin": "latest",
-    "grunt-browserify": "latest"
+    "grunt-browserify": "latest",
+    "grunt": "latest",
+    "grunt-contrib-connect": "latest",
+    "jshint-stylish": "latest"
   }
 }
