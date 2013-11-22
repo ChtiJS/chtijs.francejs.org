@@ -1,0 +1,26 @@
+{
+  "name": "chtijs",
+  "version": "0.0.0",
+  "description": "The ChtiJS website",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicolas Froidure",
+  "license": "MIT",
+  "devDependencies": {
+    "matchdep": "~0.3.0",
+    "grunt-svgicons2svgfont": "latest",
+    "grunt-svg2ttf": "latest",
+    "grunt-ttf2eot": "latest",
+    "grunt-ttf2woff": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-svgmin": "latest",
+    "grunt-browserify": "latest"
+  }
+}
