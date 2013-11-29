@@ -1,6 +1,6 @@
 # Site ChtiJs
 
-## Pour récupérer le code chez vous, et installer le site :
+## Pour installer le site chez vous :
 
 Vous devez avoir nodeJS installé sur votre machine ;)
 
@@ -19,9 +19,9 @@ Celà lancera un petit serveur et ouvrira votre navigateur sur l'accueil du site
 
 Toutes les modifications que vous ferez dans le code ou le contenu du site, une fois sauvegardées seront prises en comptes et votre navigateur se reachargera tout seul.
 
-### Editer le site :
+## Editer le site :
 
-## Contenu :
+### Contenu :
 
 Le contenu du site est dans le répertoire `/documents/contenu/`.
 
@@ -34,7 +34,7 @@ Ces fichiers markdown peuvent comporter des metadatas, qui seront transformées 
 Par défaut les fichiers markdown sont rendus via la template `/documents/templates/index.tpl`. Vous pouvez y associer une autre template via ces metadata.
 
 
-## Forme du site :
+### Forme du site :
 
 Les templates sont dans le répertoire `/documents/templates/`
 
@@ -43,7 +43,7 @@ Le langage utilisé pour l'instant est nunjucks (doc: http://jlongster.github.io
 Les CSS sont dans... `/documents/css/`et `documents/less/` (pour les CSS générées par le plugin grunt d'icônes de nicolas).
 
 
-## Construction du site :
+### Construction du site :
 
 TODO.
 
