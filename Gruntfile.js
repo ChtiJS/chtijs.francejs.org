@@ -2,11 +2,108 @@
 // - svgmin / svg rasterize 
 // - improve the generated stylesheet
 // - concatening the generated stylesheet to a user stylesheet
-// - deciding about a build system for markdown content
 
 module.exports = function(grunt) {
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
+  grunt.registerMultiTask('icons2fonts', 'Converts svg icons to webfonts', function() {
+    var targetStr = "";
+    if (this.target) {
+      targetStr = ":" + this.target;
+    }
+    grunt.task.run([
+      'svgicons2svgfont' + targetStr,
+      'svg2ttf' + targetStr,
+      'ttf2eot' + targetStr,
+      'ttf2woff' + targetStr
+    ]);
+  });
+
+  grunt.registerTask('dev', 'Run website locally and start watch process (living document).', function() {
+    
+    grunt.task.run('clean:dev');
+    
+    grunt.file.mkdir('./www/images');
+    grunt.file.mkdir('./www/fonts');
+    grunt.file.mkdir('./www/css');
+    grunt.file.mkdir('./www/js');
+    
+    grunt.task.run([
+      'icons2fonts:dev',
+      'less:dev',
+      'copy:images_dev',
+      'copy:css_dev',
+      'build_content:dev',
+      'connect:livereload',
+      'watch'
+    ]);
+  });
+
+  grunt.registerTask('dist', 'Build the website ready for production', function() {
+    
+    grunt.task.run('clean:dist');
+    
+    grunt.file.mkdir('./dist/images');
+    grunt.file.mkdir('./dist/fonts');
+    grunt.file.mkdir('./dist/css');
+    grunt.file.mkdir('./dist/js');
+    
+    grunt.task.run([
+      'icons2fonts:dist',
+      'less:dist',
+      'copy:css_dist',
+      'cssmin:dist',
+      'imagemin:dist',
+      'svgmin:dist',
+      'build_content:dist'
+    ]);
+  });
+
+  grunt.registerTask('default', [
+    'jshint:gruntfile'
+  ]);
+
+  /* HTML page builder */
+  grunt.registerMultiTask('build_content', 'build the website html pages', function() {
+    // Merge task-specific and/or target-specific options with these defaults.
+    var options = this.options({
+      base_url: grunt.option('base_url') ? grunt.option('base_url') : ""
+    });
+
+    //chargeur et convertisseur de fichiers markdown
+    var marked = require('marked');
+
+    //moteur de templates
+    var nunjucks = require('nunjucks');
+    nunjucks.configure('documents/templates/', {
+      autoescape: true
+    });
+
+    //charger les metadata du site
+    //var metadata_site =;  
+
+    //pour chaque fichier ramassé par la configuration
+    this.files.forEach(function(file) {
+      //convertir le mardown en html
+      var html = marked(grunt.file.read(file.src));
+
+      // transmettre le tout aux templates
+      var finalHtml = nunjucks.render('index.tpl', {
+        env: grunt.task.target,
+        content: html,
+        metadata: {}, //TODO
+        metadata_site: options
+      });
+
+      // écrire le fichier
+      grunt.file.write(file.dest, finalHtml);
+
+      // Print a success message.
+      grunt.log.writeln('File "' + file.dest + '" created.');
+    });
+  });
+
 
   grunt.initConfig({
 
@@ -265,97 +362,4 @@ module.exports = function(grunt) {
       }
     }
   });
-
-  grunt.registerMultiTask('icons2fonts', 'Converts svg icons to webfonts', function() {
-    var targetStr = "";
-    if (this.target) {
-      targetStr = ":" + this.target;
-    }
-    grunt.task.run([
-      'svgicons2svgfont' + targetStr,
-      'svg2ttf' + targetStr,
-      'ttf2eot' + targetStr,
-      'ttf2woff' + targetStr
-    ]);
-  });
-
-  grunt.registerTask('dev', 'Run website locally and start watch process (living document).', function() {
-    grunt.task.run('clean:dev');
-    grunt.file.mkdir('./www/images');
-    grunt.file.mkdir('./www/fonts');
-    grunt.file.mkdir('./www/css');
-    grunt.file.mkdir('./www/js');
-    grunt.task.run([
-      'icons2fonts:dev',
-      'less:dev',
-      'copy:images_dev',
-      'copy:css_dev',
-      'build_content:dev',
-      'connect:livereload',
-      'watch'
-    ]);
-  });
-
-  grunt.registerTask('dist', 'Build the website ready for production', function() {
-    grunt.task.run('clean:dist');
-    grunt.file.mkdir('./dist/images');
-    grunt.file.mkdir('./dist/fonts');
-    grunt.file.mkdir('./dist/css');
-    grunt.file.mkdir('./dist/js');
-    grunt.task.run([
-      'icons2fonts:dist',
-      'less:dist',
-      'copy:css_dist',
-      'cssmin:dist',
-      'imagemin:dist',
-      'svgmin:dist',
-      'build_content:dist'
-    ]);
-  });
-
-
-  grunt.registerTask('default', [
-    'jshint:gruntfile'
-  ]);
-
-  /* HTML page builder */
-  grunt.registerMultiTask('build_content', 'build the website html pages', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      base_url: grunt.option('base_url') ? grunt.option('base_url') : ""
-    });
-
-    //chargeur et convertisseur de fichiers markdown
-    var marked = require('marked');
-
-    //moteur de templates
-    var nunjucks = require('nunjucks');
-    nunjucks.configure('documents/templates/', {
-      autoescape: true
-    });
-
-    //charger les metadata du site
-    //var metadata_site =;  
-
-    //pour chaque fichier ramassé par la configuration
-    this.files.forEach(function(file) {
-      //convertir le mardown en html
-      var html = marked(grunt.file.read(file.src));
-
-      // transmettre le tout aux templates
-      var finalHtml = nunjucks.render('index.tpl', {
-        env: grunt.task.target,
-        content: html,
-        metadata: {}, //TODO
-        metadata_site: options
-      });
-
-      // écrire le fichier
-      grunt.file.write(file.dest, finalHtml);
-
-      // Print a success message.
-      grunt.log.writeln('File "' + file.dest + '" created.');
-    });
-  });
-
 };
