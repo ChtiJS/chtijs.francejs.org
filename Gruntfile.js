@@ -10,66 +10,141 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+    clean: {
+      //nettoyer les répertoires de build
+      dev: ["www/**/*.*"],
+      dist: ["dist/**/*.*"]
+      // fonts: ['www/fonts/**/*.*'],
+      // images_all: ['www/images/**/*.*'],
+      // images_svg: ['www/images/**/*.svg'],
+      // css: ['www/css/**/*.*'],
+      // html: ['www/**/*.html']
+    },
+
+    copy: {
+      images_dev: {
+        expand: true,
+        cwd: 'documents/images/',
+        src: '**',
+        dest: 'www/images/',
+        flatten: true,
+        filter: 'isFile'
+      },
+      images_dist: {
+        expand: true,
+        cwd: 'documents/images/',
+        src: '**',
+        dest: 'dist/images/',
+        flatten: true,
+        filter: 'isFile'
+      },
+      css_dev: {
+        expand: true,
+        cwd: 'documents/css',
+        src: '**',
+        dest: 'www/css/',
+        flatten: true,
+        filter: 'isFile'
+      },
+      css_dist: {
+        expand: true,
+        cwd: 'documents/css',
+        src: '**',
+        dest: 'dist/css/',
+        flatten: true,
+        filter: 'isFile'
+      }
+    },
+
+    // linting js avec reporter ameliore
     jshint: {
       options: {
         reporter: require('jshint-stylish')
       },
+      //vérification du gruntfile
       gruntfile: {
         src: ['Gruntfile.js']
       }
     },
 
+    /**** Tâches de conversion SVG -> webfonts **************/
+    icons2fonts: {
+      dev: {},
+      dist: {}
+    },
+
     svgicons2svgfont: {
-      icons: {
-        options: {
-          font: 'iconsfont',
-          appendCodepoints: true
-        },
+      options: {
+        font: 'iconsfont',
+        appendCodepoints: true
+      },
+      dev: {
         src: 'documents/icons/*.svg',
         dest: 'www/fonts'
+      },
+      dist: {
+        src: 'documents/icons/*.svg',
+        dest: 'dist/fonts'
       }
     },
 
     svg2ttf: {
-      icons: {
+      dev: {
         src: 'www/fonts/*.svg',
         dest: 'www/fonts'
+      },
+      dist: {
+        src: 'dist/fonts/*.svg',
+        dest: 'dist/fonts'
       }
     },
 
     ttf2eot: {
-      icons: {
+      dev: {
         src: 'www/fonts/*.ttf',
         dest: 'www/fonts'
+      },
+      dist: {
+        src: 'dist/fonts/*.ttf',
+        dest: 'dist/fonts'
       }
     },
 
     ttf2woff: {
-      icons: {
+      dev: {
         src: 'www/fonts/*.ttf',
         dest: 'www/fonts'
+      },
+      dist: {
+        src: 'dist/fonts/*.ttf',
+        dest: 'dist/fonts'
       }
     },
 
+    /* Compilation Less */
     less: {
-      main: {
+      dev: {
         src: 'documents/less/main.less',
         dest: 'www/css/pictofont.css'
+      },
+      dist: {
+        src: 'documents/less/main.less',
+        dest: 'dist/css/pictofont.css'
       }
     },
 
     cssmin: {
-      minify: {
+      dist: {
         expand: true,
-        cwd: 'www/css/',
+        cwd: 'dist/css/',
         src: ['*.css', '!*.min.css'],
-        dest: 'www/css/',
+        dest: 'dist/css/',
         ext: '.min.css'
       }
     },
 
     imagemin: {
-      minify: {
+      dev: {
         options: {
           optimizationLevel: 3
         },
@@ -77,6 +152,15 @@ module.exports = function(grunt) {
         cwd: 'documents/images',
         src: ['**/*.{png,gif,jpg}'],
         dest: 'www/images/'
+      },
+      dist: {
+        options: {
+          optimizationLevel: 3
+        },
+        expand: true,
+        cwd: 'documents/images',
+        src: ['**/*.{png,gif,jpg}'],
+        dest: 'dist/images/'
       }
     },
 
@@ -86,7 +170,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'documents/images',
           src: ['**/*.svg'],
-          dest: 'www/images/',
+          dest: 'dist/images/',
           ext: '.svg'
         }]
       }
@@ -101,26 +185,32 @@ module.exports = function(grunt) {
         }
       }
     },
+    /* Serveur pour le livereload */
     connect: {
       livereload: {
-          options: {
-            port: 9001,
-            // Change hostname to '0.0.0.0' to access
-            // the server from outside.
-            hostname: 'localhost',
-            base: 'www/',
-            open: true,
-            livereload: true
-          }
+        options: {
+          port: 9001,
+          // Change hostname to '0.0.0.0' to access
+          // the server from outside.
+          hostname: 'localhost',
+          base: 'www/',
+          open: true,
+          livereload: true
+        }
       }
     },
+
+    /* 
+      Surveiller les fichiers, si changement, retraitement 
+      et reload automatique du navigateur 
+    */
     watch: {
       options: {
         livereload: true
       },
       icons: {
         files: ['documents/icons/*.svg'],
-        tasks: ['icons2fonts']
+        tasks: ['icons2fonts:dev']
       },
       less: {
         files: ['documents/less/*.less'],
@@ -135,7 +225,14 @@ module.exports = function(grunt) {
         tasks: ['imagemin:dist']
       },
       css: {
-        files: ['www/css/*.css','!www/css/screen.css'] //on ramasse les CSS, mais on exclut les fichiers générés du watch
+        files: ['www/css/*.css', '!www/css/pictofont.css'] //on ramasse les CSS, mais on exclut les fichiers générés par la tâche less
+      },
+      content: {
+        files: ['documents/contenu/**/*.md'],
+        tasks: ['build_content']
+      },
+      templates: {
+        files: ['documents/templates/**/*.tpl']
       },
       frontscripts: {
         files: ['src/frontend.js', 'src/front/**/*.js'],
@@ -144,32 +241,121 @@ module.exports = function(grunt) {
       backscripts: {
         files: ['src/backend.js', 'src/back/**/*.js']
       }
+    },
+    build_content: {
+      options: {
+        base_url: ""
+      },
+      dev: {
+        expand: true,
+        cwd: 'documents/contenu',
+        src: ['**/*.md'],
+        dest: 'www/',
+        ext: '.html'
+      },
+      dist: {
+        expand: true,
+        cwd: 'documents/contenu',
+        src: ['**/*.md'],
+        dest: 'dist/',
+        ext: '.html',
+        options: {
+          base_url: "http://smdlsld.fr"
+        }
+      }
     }
   });
 
-  grunt.registerTask('icons2fonts', 'Converts svg icons to webfonts', [
-    'svgicons2svgfont:icons',
-    'svg2ttf:icons',
-    'ttf2eot:icons',
-    'ttf2woff:icons'
-  ]);
+  grunt.registerMultiTask('icons2fonts', 'Converts svg icons to webfonts', function() {
+    var targetStr = "";
+    if (this.target) {
+      targetStr = ":" + this.target;
+    }
+    grunt.task.run([
+      'svgicons2svgfont' + targetStr,
+      'svg2ttf' + targetStr,
+      'ttf2eot' + targetStr,
+      'ttf2woff' + targetStr
+    ]);
+  });
 
-  grunt.registerTask('dev', 'Run website locally and start watch process (living document).', [
-    'icons2fonts',
-    'less:main',
-    'connect:livereload',
-    'watch'
-  ]);
+  grunt.registerTask('dev', 'Run website locally and start watch process (living document).', function() {
+    grunt.task.run('clean:dev');
+    grunt.file.mkdir('./www/images');
+    grunt.file.mkdir('./www/fonts');
+    grunt.file.mkdir('./www/css');
+    grunt.file.mkdir('./www/js');
+    grunt.task.run([
+      'icons2fonts:dev',
+      'less:dev',
+      'copy:images_dev',
+      'copy:css_dev',
+      'build_content:dev',
+      'connect:livereload',
+      'watch'
+    ]);
+  });
 
-  grunt.registerTask('dist','Build the website ready for production', [
-    'icons2fonts',
-    'less:main',
-    'cssmin',
-    'imagemin',
-    'svgmin'
-  ]);
+  grunt.registerTask('dist', 'Build the website ready for production', function() {
+    grunt.task.run('clean:dist');
+    grunt.file.mkdir('./dist/images');
+    grunt.file.mkdir('./dist/fonts');
+    grunt.file.mkdir('./dist/css');
+    grunt.file.mkdir('./dist/js');
+    grunt.task.run([
+      'icons2fonts:dist',
+      'less:dist',
+      'copy:css_dist',
+      'cssmin:dist',
+      'imagemin:dist',
+      'svgmin:dist',
+      'build_content:dist'
+    ]);
+  });
+
 
   grunt.registerTask('default', [
     'jshint:gruntfile'
   ]);
+
+  /* HTML page builder */
+  grunt.registerMultiTask('build_content', 'build the website html pages', function() {
+    // Merge task-specific and/or target-specific options with these defaults.
+    var options = this.options({
+      base_url: grunt.option('base_url') ? grunt.option('base_url') : ""
+    });
+
+    //chargeur et convertisseur de fichiers markdown
+    var marked = require('marked');
+
+    //moteur de templates
+    var nunjucks = require('nunjucks');
+    nunjucks.configure('documents/templates/', {
+      autoescape: true
+    });
+
+    //charger les metadata du site
+    //var metadata_site =;  
+
+    //pour chaque fichier ramassé par la configuration
+    this.files.forEach(function(file) {
+      //convertir le mardown en html
+      var html = marked(grunt.file.read(file.src));
+
+      // transmettre le tout aux templates
+      var finalHtml = nunjucks.render('index.tpl', {
+        env: grunt.task.target,
+        content: html,
+        metadata: {}, //TODO
+        metadata_site: options
+      });
+
+      // écrire le fichier
+      grunt.file.write(file.dest, finalHtml);
+
+      // Print a success message.
+      grunt.log.writeln('File "' + file.dest + '" created.');
+    });
+  });
+
 };
