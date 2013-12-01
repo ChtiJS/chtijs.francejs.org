@@ -28,3 +28,7 @@ Notre envie est de favoriser les échanges, bonnes pratiques et découvertes de 
 ## Site web
 
 Notre site web est aussi ouvert aux contributions, contenus comme code : https://github.com/ChtiJS/chtijs.francejs.org
+
+<span class="webfont-test">
+&#xe001; &#xe002; &#xe003; &#xe004; &#xe005; &#xe006; &#xe007; &#xe008;
+</span>
