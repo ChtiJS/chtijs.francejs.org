@@ -348,7 +348,7 @@ module.exports = function(grunt) {
         files: ['www/css/*.css', '!www/css/pictofont.css'] //on ramasse les CSS, mais on exclut les fichiers générés par la tâche less
       },
       content: {
-        files: ['documents/contenu/**/*.md'],
+        files: ['documents/contents/**/*.md'],
         tasks: ['build_content']
       },
       templates: {
@@ -386,7 +386,7 @@ module.exports = function(grunt) {
     build_content: {
       dev: {
         expand: true,
-        cwd: 'documents/contenu',
+        cwd: 'documents/contents',
         src: ['**/*.md'],
         dest: 'www/',
         ext: '.html',
@@ -396,7 +396,7 @@ module.exports = function(grunt) {
       },
       dist: {
         expand: true,
-        cwd: 'documents/contenu',
+        cwd: 'documents/contents',
         src: ['**/*.md'],
         dest: 'dist/',
         ext: '.html',
