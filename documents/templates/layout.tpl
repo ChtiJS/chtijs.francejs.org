@@ -9,8 +9,9 @@
         <title>ChtiJS</title>
         <meta name="description" content="Communauté des développeurs JavaScript du Nord de la France">
         <meta name="viewport" content="width=device-width">
-
-        <link rel="stylesheet" href="css/screen.css">
+        
+        <link rel="stylesheet" href="css/pictofont.css">
+        <link rel="stylesheet" href="css/perso.css">
         {% if metadata.stylesheet %}<link rel="stylesheet" href="{{ metadata.stylesheet }}">{% endif %}
     </head>
     <body>
@@ -43,7 +44,7 @@
                             <a href="">ChtiJS sur twitter</a>
                         </li>
                         <li class="main-footer__github">
-                            <a href="">ChtiJS sur github</a>
+                            <a href="https://github.com/ChtiJS/">ChtiJS sur github</a>
                         </li>
                         <li class="main-footer__gg-group">
                             <a href="">Google group ChtiJS</a>

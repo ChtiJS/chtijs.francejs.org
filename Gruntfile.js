@@ -7,6 +7,7 @@ module.exports = function(grunt) {
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
+
   grunt.registerMultiTask('icons2fonts', 'Converts svg icons to webfonts', function() {
     var targetStr = "";
     if (this.target) {
@@ -20,16 +21,31 @@ module.exports = function(grunt) {
     ]);
   });
 
+  grunt.registerMultiTask('init_env', 'create directories for dev and build', function() {
+    var options = this.options();
+    var base = options.targetBase+'/';
+    grunt.log.writeln("directory creation...");
+    
+    grunt.log.writeln(base+options.targetImages);
+    grunt.file.mkdir(base+options.targetImages);
+
+    grunt.log.writeln(base+options.targetFonts);
+    grunt.file.mkdir(base+options.targetFonts);
+    
+    grunt.log.writeln(base+options.targetCSS);
+    grunt.file.mkdir(base+options.targetCSS);
+
+    grunt.log.writeln(base+options.targetScripts);
+    grunt.file.mkdir(base+options.targetScripts);
+
+  });
+
+
   grunt.registerTask('dev', 'Run website locally and start watch process (living document).', function() {
-    
-    grunt.task.run('clean:dev');
-    
-    grunt.file.mkdir('./www/images');
-    grunt.file.mkdir('./www/fonts');
-    grunt.file.mkdir('./www/css');
-    grunt.file.mkdir('./www/js');
-    
+
     grunt.task.run([
+      'clean:dev',
+      'init_env:dev',
       'icons2fonts:dev',
       'less:dev',
       'copy:images_dev',
@@ -41,15 +57,10 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('dist', 'Build the website ready for production', function() {
-    
-    grunt.task.run('clean:dist');
-    
-    grunt.file.mkdir('./dist/images');
-    grunt.file.mkdir('./dist/fonts');
-    grunt.file.mkdir('./dist/css');
-    grunt.file.mkdir('./dist/js');
-    
+
     grunt.task.run([
+      'clean:dist',
+      'init_env:dist',
       'icons2fonts:dist',
       'less:dist',
       'copy:css_dist',
@@ -66,6 +77,7 @@ module.exports = function(grunt) {
 
   /* HTML page builder */
   grunt.registerMultiTask('build_content', 'build the website html pages', function() {
+
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       base_url: grunt.option('base_url') ? grunt.option('base_url') : ""
@@ -85,21 +97,32 @@ module.exports = function(grunt) {
 
     //pour chaque fichier ramassé par la configuration
     this.files.forEach(function(file) {
+
+      var md_content = grunt.file.read(file.src);
+
       //convertir le mardown en html
-      var html = marked(grunt.file.read(file.src));
+      var html = marked(md_content);
+
+      // var VarStreamReader = require('varstream'),
+      //   Fs = require('fs');
+      // var obj = {};
+
+      // var reader = new VarStreamReader(obj, 'meta');
+      // reader.read(md_content);
+
+      // Fs.createReadStream(file.src).pipe(new VarStream(obj, 'meta'));
+      // console.log(obj.meta);
 
       // transmettre le tout aux templates
       var finalHtml = nunjucks.render('index.tpl', {
         env: grunt.task.target,
         content: html,
-        metadata: {}, //TODO
+        metadata: {},//obj.meta,
         metadata_site: options
       });
 
       // écrire le fichier
       grunt.file.write(file.dest, finalHtml);
-
-      // Print a success message.
       grunt.log.writeln('File "' + file.dest + '" created.');
     });
   });
@@ -109,8 +132,8 @@ module.exports = function(grunt) {
 
     clean: {
       //nettoyer les répertoires de build
-      dev: ["www/**/*.*"],
-      dist: ["dist/**/*.*"]
+      dev: ["www/*"],
+      dist: ["dist/*"]
       // fonts: ['www/fonts/**/*.*'],
       // images_all: ['www/images/**/*.*'],
       // images_svg: ['www/images/**/*.svg'],
@@ -329,7 +352,8 @@ module.exports = function(grunt) {
         tasks: ['build_content']
       },
       templates: {
-        files: ['documents/templates/**/*.tpl']
+        files: ['documents/templates/**/*.tpl'],
+        tasks: ['build_content']
       },
       frontscripts: {
         files: ['src/frontend.js', 'src/front/**/*.js'],
@@ -339,16 +363,36 @@ module.exports = function(grunt) {
         files: ['src/backend.js', 'src/back/**/*.js']
       }
     },
-    build_content: {
-      options: {
-        base_url: ""
+    
+    init_env:{
+      options:{
+          targetImages: "images",
+          targetScripts: "js",
+          targetFonts: "fonts",
+          targetCSS: "css"
       },
+      dist:{
+        options:{
+          targetBase: "./dist",
+        }
+      },
+      dev:{
+        options:{
+          targetBase: "./www",
+        }
+      }
+    },
+
+    build_content: {
       dev: {
         expand: true,
         cwd: 'documents/contenu',
         src: ['**/*.md'],
         dest: 'www/',
-        ext: '.html'
+        ext: '.html',
+        options: {
+          targetBase: ""
+        }
       },
       dist: {
         expand: true,
@@ -357,6 +401,7 @@ module.exports = function(grunt) {
         dest: 'dist/',
         ext: '.html',
         options: {
+          targetBase: "./dist",
           base_url: "http://smdlsld.fr"
         }
       }
