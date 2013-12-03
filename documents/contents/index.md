@@ -1,3 +1,13 @@
+<!-- varstream
+title=Communauté des déceloppeurs JavaScript du Nord-Pas-de-Calais
+description=ChtiJS est un groupe de développeurs JavaScript passionnés qui \
+échangent régulièrement découvertes et bonnes pratiques autour d'une bière dans \
+une ambiance décontractée.
+keywords.+=JavaScript
+keywords.+=groupe
+keywords.+=Nord
+keywords.+=Pas-de-Calais
+-->
 # Bienvenue chez les chtis codeux ed' javascript
 
 ## Prochain apéro :

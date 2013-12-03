@@ -86,6 +86,9 @@ module.exports = function(grunt) {
     //chargeur et convertisseur de fichiers markdown
     var marked = require('marked');
 
+    //chargeur méta données
+    var VarStream = require('varstream');
+
     //moteur de templates
     var nunjucks = require('nunjucks');
     nunjucks.configure('documents/templates/', {
@@ -98,28 +101,24 @@ module.exports = function(grunt) {
     //pour chaque fichier ramassé par la configuration
     this.files.forEach(function(file) {
 
-      var md_content = grunt.file.read(file.src);
+      var nunjucksOptions = {
+        env: grunt.task.target,
+        metadata_site: options
+      };
 
-      //convertir le mardown en html
-      var html = marked(md_content);
+      var aMDContent = grunt.file.read(file.src);
 
-      // var VarStreamReader = require('varstream'),
-      //   Fs = require('fs');
-      // var obj = {};
+      // lis les méta-données
+      var matches = aMDContent.match(/^([^]*)<!-- varstream([^]*)-->([^]*)$/im);
+      if(matches) {
+        new VarStream(nunjucksOptions,'metadata').write(matches[2]);
+      }
 
-      // var reader = new VarStreamReader(obj, 'meta');
-      // reader.read(md_content);
-
-      // Fs.createReadStream(file.src).pipe(new VarStream(obj, 'meta'));
-      // console.log(obj.meta);
+      // convertir le mardown en html
+      nunjucksOptions.content = marked(matches ? matches[1]+matches[3] : aMDContent);
 
       // transmettre le tout aux templates
-      var finalHtml = nunjucks.render('index.tpl', {
-        env: grunt.task.target,
-        content: html,
-        metadata: {},//obj.meta,
-        metadata_site: options
-      });
+      var finalHtml = nunjucks.render('index.tpl', nunjucksOptions);
 
       // écrire le fichier
       grunt.file.write(file.dest, finalHtml);

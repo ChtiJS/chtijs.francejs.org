@@ -27,6 +27,7 @@
     "jshint-stylish": "latest",
     "nunjucks": "~1.0.0",
     "marked": "~0.2.10",
-    "grunt-contrib-copy": "~0.4.1"
+    "grunt-contrib-copy": "~0.4.1",
+    "varstream": "~0.2.0"
   }
 }

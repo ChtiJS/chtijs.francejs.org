@@ -6,8 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>ChtiJS</title>
-        <meta name="description" content="Communauté des développeurs JavaScript du Nord de la France">
+        <title>ChtiJS{% if metadata.title %} : {{ metadata.title }}{% endif %}</title>
+        <meta name="description" content="{% if metadata.title %}{{ metadata.title }}{% else %}Communauté des développeurs JavaScript du Nord de la France{% endif %}">
         <meta name="viewport" content="width=device-width">
         
         <link rel="stylesheet" href="css/pictofont.css">
