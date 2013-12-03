@@ -2,10 +2,49 @@
 @import "_mixins.less";
 @import "_icons.less";
 
-/* Test */
-h1:before {
-  .icon('\e004   ');
-  font-size:0.8em;
+
+body {
+  font-family: @sans-serif;
+  margin: 0;
 }
 
+h1 {
+  color: #BADA55;
+  &:before {
+    .icon('\e004');
+    font-size: 0.8em;
+  }
+}
 
+.webfont-test {
+  font-family: 'iconsfont', sans;
+}
+
+.main-nav,
+.main-container,
+.main-footer {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.main-nav {
+  ul {
+    padding: 0;
+    margin: 0;
+    margin-top: 0.5em;
+    height: 2em;
+    text-align: right;
+  }
+  li {
+    display: inline-block;
+    list-style-type: none;
+  }
+  a {
+    padding: 0.5em 1em;
+    background-color: #333;
+    color:#BADA55;
+    border-bottom: 1px solid #111;
+    border-left: 1px solid #111;
+    text-decoration: none;
+  }
+}
