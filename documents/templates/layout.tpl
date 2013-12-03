@@ -9,9 +9,7 @@
         <title>ChtiJS{% if metadata.title %} : {{ metadata.title }}{% endif %}</title>
         <meta name="description" content="{% if metadata.title %}{{ metadata.title }}{% else %}Communauté des développeurs JavaScript du Nord de la France{% endif %}">
         <meta name="viewport" content="width=device-width">
-        
-        <link rel="stylesheet" href="css/pictofont.css">
-        <link rel="stylesheet" href="css/perso.css">
+        <link rel="stylesheet" href="css/main.css">
         {% if metadata.stylesheet %}<link rel="stylesheet" href="{{ metadata.stylesheet }}">{% endif %}
     </head>
     <body>
@@ -34,7 +32,7 @@
                     </nav>
                 </header>
 
-                <section>
+                <section class="main-container">
                     {% block body %}{% endblock %}
                 </section>
 

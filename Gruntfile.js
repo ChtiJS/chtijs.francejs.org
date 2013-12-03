@@ -244,21 +244,14 @@ module.exports = function(grunt) {
     less: {
       dev: {
         src: 'documents/less/main.less',
-        dest: 'www/css/pictofont.css'
+        dest: 'www/css/main.css',
+        options: {
+          cssmin: true
+        }
       },
       dist: {
         src: 'documents/less/main.less',
-        dest: 'dist/css/pictofont.css'
-      }
-    },
-
-    cssmin: {
-      dist: {
-        expand: true,
-        cwd: 'dist/css/',
-        src: ['*.css', '!*.min.css'],
-        dest: 'dist/css/',
-        ext: '.min.css'
+        dest: 'dist/css/main.css'
       }
     },
 
@@ -333,7 +326,7 @@ module.exports = function(grunt) {
       },
       less: {
         files: ['documents/less/*.less'],
-        tasks: ['less:main']
+        tasks: ['less:dev']
       },
       svgimages: {
         files: ['documents/images/*.svg'],

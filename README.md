@@ -13,7 +13,7 @@ Entrez les commandes suivante dans un terminal :
 
 ## Pour travailler dessus :
 
-Placez vous dans le répertoire du projet et entrez : `grunt-dev`.
+Placez vous dans le répertoire du projet et entrez : `grunt dev`.
 
 Celà lancera un petit serveur et ouvrira votre navigateur sur l'accueil du site.
 
