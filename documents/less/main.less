@@ -11,7 +11,7 @@ body {
 h1 {
   color: #BADA55;
   &:before {
-    .icon('\e004');
+    .icon('\e004  ');
     font-size: 0.8em;
   }
 }
@@ -46,5 +46,58 @@ h1 {
     border-bottom: 1px solid #111;
     border-left: 1px solid #111;
     text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+.main-footer__body {
+  list-style-type: none;
+}
+
+.main-footer__twitter {
+  display:inline-block;
+  a:before {
+    .icon('\e008');
+    font-size: (@vrythm*2);
+    line-height: (@vrythm*3);
+  }
+  span {
+    display: none;
+  }
+  a {
+    text-decoration: none;
+    color: @link;
+  }
+}
+
+.main-footer__github {
+  display:inline-block;
+  a:before {
+    .icon('\e001');
+    font-size: (@vrythm*2);
+    line-height: (@vrythm*3);
+  }
+  span {
+    display: none;
+  }
+  a {
+    text-decoration: none;
+    color: @link;
+  }
+}
+
+.main-footer__gg-group {
+  display:inline-block;
+  a:before {
+    .icon('\e006');
+    font-size: (@vrythm*2);
+    line-height: (@vrythm*3);
+  }
+  span {
+    display: none;
+  }
+  a {
+    text-decoration: none;
+    color: @link;
   }
 }

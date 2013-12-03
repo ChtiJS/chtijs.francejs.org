@@ -1,5 +1,5 @@
 <!-- varstream
-title=Communauté des déceloppeurs JavaScript du Nord-Pas-de-Calais
+title=La communauté JavaScript du Nord
 description=ChtiJS est un groupe de développeurs JavaScript passionnés qui \
 échangent régulièrement découvertes et bonnes pratiques autour d'une bière dans \
 une ambiance décontractée.
@@ -8,37 +8,57 @@ keywords.+=groupe
 keywords.+=Nord
 keywords.+=Pas-de-Calais
 -->
-# Bienvenue chez les chtis codeux ed' javascript
+# ChtiJS
+**Bienvenue sur le site de la Communauté des développeurs JavaScript du Nord
+ Pas-de-Calais.**
 
-## Prochain apéro :
+ChtiJs est une réunion informelle de personnes passionnées de JavaScript. Notre
+ but est de favoriser les échanges et la découverte dans une atmosphère ouverte
+ et détendue.
 
-lien doodle : http://
+## Concept
 
-Sujets :
+JavaScript est un langage de programmation incontournable pour la création
+ de sites webs. Il est également de plus en plus utilisé dans des domaines aussi
+ divers que la robotique, l'électronique, les bases de données ou encore
+ les services web.
 
-- "MEAN stack" par @JbPionnier 
-- Partage entre client et serveur avec @nfroidure
-- Site ChtiJs 
+Pour rester informés des récentes évolutions du langage, de ses outils et de ses
+ champs d'application, nous nous réunissons dans une ambiance détendue et un
+ esprit de partage.
 
-## Ou ?
-Todo : paragraphe mutualab
+La communauté ChtiJS est ouverte à toutes les bonnes volontés, débutants ou
+ experts.
 
-## Proposer un sujet ? 
+## Prochaine rencontre
 
-N'hésitez pas à proposer vos sujets autour de javascript, peu importe le niveau et le format (de 5m à 1h).
+### Date
 
-Signalez vous sur twitter auprès de @chtijs, ou, inscrivez vous sur le google group.
+La date de la prochaine édition n'est pas encore fixée.
+ [Donnez votre avis !](http://doodle.com/uqrqwhsxbyfuafie)
 
-## Notre devise : pas de pression 
-_sauf, éventuellement, celle qui se boit_
+### Sujets
 
-ChtiJs est une réunion informelle de personnes passionnées de javascript. 
-Notre envie est de favoriser les échanges, bonnes pratiques et découvertes de tous ; et celà dans une atmoshpère ouverte et détendue.
+- La stack MEAN par @JbPionnier 
+- Partage de code et données entre client et serveur par @nfroidure
+- Site ChtiJs (animé par @0gust1 et @TomPanier)
+
+### Ou ?
+
+Comme toujours ChtiJS aura lieu dans les locaux du Mutualab. Nous vous remercions
+ une fois encore pour rendre possible ChtiJS dans un cadre aussi sympa :).
+
+## Proposer un sujet ?
+
+Vous souhaitez partager votre expérience de JavaScript ? ChtiJS est fait pour
+ ça ! N'hésitez pas à proposer votre sujet.
+
+Signalez vous sur Twitter auprès de [@chtijs](https://twitter.com/chtijs), ou,
+ inscrivez vous sur la
+ [liste de diffusion](https://groups.google.com/forum/#!forum/chtijs).
 
 ## Site web
 
-Notre site web est aussi ouvert aux contributions, contenus comme code : https://github.com/ChtiJS/chtijs.francejs.org
-
-<span class="webfont-test">
-&#xe001; &#xe002; &#xe003; &#xe004; &#xe005; &#xe006; &#xe007; &#xe008;
-</span>
+Notre site web est aussi ouvert aux contributions, contenus comme code. Il vous
+ suffit de faire un pull request sur
+ [le dépôt GitHub](https://github.com/ChtiJS/chtijs.francejs.org).
