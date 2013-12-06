@@ -12,7 +12,7 @@ keywords.+=Pas-de-Calais
 **Bienvenue sur le site de la Communauté des développeurs JavaScript du Nord
  Pas-de-Calais.**
 
-ChtiJs est une réunion informelle de personnes passionnées de JavaScript. Notre
+ChtiJS est une réunion informelle de personnes passionnées de JavaScript. Notre
  but est de favoriser les échanges et la découverte dans une atmosphère ouverte
  et détendue.
 
@@ -39,9 +39,9 @@ La date de la prochaine édition n'est pas encore fixée.
 
 ### Sujets
 
-- La stack MEAN par @JbPionnier 
+- La stack MEAN par @JbPionnier
 - Partage de code et données entre client et serveur par @nfroidure
-- Site ChtiJs (animé par @0gust1 et @TomPanier)
+- Site ChtiJS (animé par @0gust1 et @TomPanier)
 
 ### Ou ?
 
