@@ -41,7 +41,7 @@ La date de la prochaine édition n'est pas encore fixée.
 
 - La stack MEAN par @JbPionnier
 - Partage de code et données entre client et serveur par @nfroidure
-- Site ChtiJS (animé par @0gust1 et @TomPanier)
+- Site ChtiJS (animé par @0gust1 et @enzymezum)
 
 ### Ou ?
 
