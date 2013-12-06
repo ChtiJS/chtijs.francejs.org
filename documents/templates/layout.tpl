@@ -10,7 +10,7 @@
     <title>ChtiJS{% if metadata.title %} : {{ metadata.title }}{% endif %}</title>
     <meta name="description" content="{% if metadata.title %}{{ metadata.title }}{% else %}Communauté des développeurs JavaScript du Nord de la France{% endif %}">
     <meta name="robots" content="index,follow">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{{metadata_site.base_url}}/css/main.css">
     {% if metadata.stylesheet %}<link rel="stylesheet" href="{{ metadata.stylesheet }}">{% endif %}
 </head>
 <body>
