@@ -1,4 +1,4 @@
-# Site ChtiJs
+# Site ChtiJS
 
 ## Pour installer le site chez vous :
 

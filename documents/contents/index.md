@@ -12,7 +12,7 @@ keywords.+=Pas-de-Calais
 **Bienvenue sur le site de la Communauté des développeurs JavaScript du Nord
  Pas-de-Calais.**
 
-ChtiJs est une réunion informelle de personnes passionnées de JavaScript. Notre
+ChtiJS est une réunion informelle de personnes passionnées de JavaScript. Notre
  but est de favoriser les échanges et la découverte dans une atmosphère ouverte
  et détendue.
 
@@ -34,19 +34,19 @@ La communauté ChtiJS est ouverte à toutes les bonnes volontés, débutants ou
 
 ### Date
 
-La date de la prochaine édition n'est pas encore fixée.
- [Donnez votre avis !](http://doodle.com/uqrqwhsxbyfuafie)
+La prochaine édition de ChtiJS aura lieu le 19 décembre, à partir de 19h. Retrouvez
+ la liste des participants sur le [Doodle !](http://doodle.com/uqrqwhsxbyfuafie)
 
 ### Sujets
 
-- La stack MEAN par @JbPionnier 
-- Partage de code et données entre client et serveur par @nfroidure
-- Site ChtiJs (animé par @0gust1 et @TomPanier)
+- La stack MEAN par [@JbPionnier](https://twitter.com/JbPionnier)
+- Partage de code et données entre client et serveur par [@nfroidure](https://twitter.com/nfroidure)
+- Site ChtiJS (animé par [@0gust1](https://twitter.com/0gust1) et [@enzymezum](https://twitter.com/enzymezum)
 
 ### Ou ?
 
-Comme toujours ChtiJS aura lieu dans les locaux du Mutualab. Nous vous remercions
- une fois encore pour rendre possible ChtiJS dans un cadre aussi sympa :).
+Comme toujours ChtiJS aura lieu dans les locaux du [Mutualab](http://www.mutualab.org/).
+Nous vous remercions une fois encore pour rendre possible ChtiJS dans un cadre aussi sympa :).
 
 ## Proposer un sujet ?
 

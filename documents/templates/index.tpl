@@ -1,5 +1,5 @@
 {% extends 'layout.tpl' %}
 
 {% block body %}
-        	{{ content | safe }}
+  {{ content | safe }}
 {% endblock %}

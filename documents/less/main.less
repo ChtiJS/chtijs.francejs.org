@@ -6,10 +6,21 @@
 body {
   font-family: @sans-serif;
   margin: 0;
+  background-color: @background;
+  color: @text;
+}
+
+a {
+  color: @link;
+  .transition(color, .1s);
+
+  &:hover {
+    color: darken(@link, 10%);
+  }
 }
 
 h1 {
-  color: #BADA55;
+  color: @link;
   &:before {
     .icon('\e004  ');
     font-size: 0.8em;
@@ -42,7 +53,6 @@ h1 {
   a {
     padding: 0.5em 1em;
     background-color: #333;
-    color:#BADA55;
     border-bottom: 1px solid #111;
     border-left: 1px solid #111;
     text-decoration: none;
@@ -61,12 +71,9 @@ h1 {
     font-size: (@vrythm*2);
     line-height: (@vrythm*3);
   }
-  span {
-    display: none;
-  }
   a {
+    .text-hide();
     text-decoration: none;
-    color: @link;
   }
 }
 
@@ -77,12 +84,9 @@ h1 {
     font-size: (@vrythm*2);
     line-height: (@vrythm*3);
   }
-  span {
-    display: none;
-  }
   a {
+    .text-hide();
     text-decoration: none;
-    color: @link;
   }
 }
 
@@ -93,11 +97,8 @@ h1 {
     font-size: (@vrythm*2);
     line-height: (@vrythm*3);
   }
-  span {
-    display: none;
-  }
   a {
+    .text-hide();
     text-decoration: none;
-    color: @link;
   }
 }
