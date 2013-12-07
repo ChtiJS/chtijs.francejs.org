@@ -83,20 +83,20 @@ module.exports = function(grunt) {
       base_url: grunt.option('base_url') ? grunt.option('base_url') : ""
     });
 
-    //chargeur et convertisseur de fichiers markdown
+    // chargeur et convertisseur de fichiers markdown
     var marked = require('marked');
 
-    //chargeur méta données
+    // chargeur méta données
     var VarStream = require('varstream');
 
-    //moteur de templates
+    // moteur de templates
     var nunjucks = require('nunjucks');
     nunjucks.configure('documents/templates/', {
       autoescape: true
     });
 
-    //charger les metadata du site
-    //var metadata_site =;  
+    // chargement du menu
+    var menuDatas = grunt.file.read('documents/data/menu.dat');
 
     //pour chaque fichier ramassé par la configuration
     this.files.forEach(function(file) {
@@ -113,6 +113,31 @@ module.exports = function(grunt) {
       if(matches) {
         new VarStream(nunjucksOptions,'metadata').write(matches[2]);
       }
+      
+      // ajoute le menu
+      new VarStream(nunjucksOptions,'menu').write(menuDatas);
+      
+      // marque l'item sélectioné
+      // Pas de récursion dans NunJucks:(, mais prêt pour plus tard
+      function setSelected(parent) {
+        parent.forEach(function(item) {
+          var href = item.href.indexOf('/') === item.href.length - 1 ?
+            item.href + 'index.html' :
+            item.href;
+          item.parent = parent;
+          if(file.dest.indexOf(href) === file.dest.length - href.length) {
+            do {
+              item.selected = true;
+              item = item.parent&&item !== nunjucksOptions.menu ?
+                item.parent :
+                null;
+            } while(item)
+          } else if(item.childs) {
+            item.childs.forEach(setSelected(item));
+          }
+        });
+      }
+      setSelected(nunjucksOptions.menu);
 
       // convertir le mardown en html
       nunjucksOptions.content = marked(matches ? matches[1]+matches[3] : aMDContent);
@@ -338,6 +363,10 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['www/css/*.css', '!www/css/pictofont.css'] //on ramasse les CSS, mais on exclut les fichiers générés par la tâche less
+      },
+      data: {
+        files: ['documents/data/**/*.dat'],
+        tasks: ['build_content']
       },
       content: {
         files: ['documents/contents/**/*.md'],

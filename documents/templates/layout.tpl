@@ -19,16 +19,12 @@
     <![endif]-->
     <header>
         <nav class="main-nav">
-            <ul class="main-nav__body">
-                <li class="main-nav__accueil">
-                    <a href="{{metadata_site.base_url}}/">Accueil</a>
-                </li>
-                <li class="main-nav__archives">
-                    <a href="{{metadata_site.base_url}}/archives/">Archives</a>
-                </li>
-                <li class="main-nav__about">
-                    <a href="{{metadata_site.base_url}}/about.html">À propos</a>
-                </li>
+        	  <ul class="main-nav__body">{% for item in menu %}
+                <li class="main-nav__{{item.name}}">
+                    <a href="{{item.href}}"
+                      title="{{item.title}}"{% if item.selected %}
+                      selected="selected"{% endif %}>{{item.link}}</a>
+                </li>{% endfor %}
             </ul>
         </nav>
     </header>
