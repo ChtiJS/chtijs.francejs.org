@@ -1,0 +1,12 @@
+!.href=/
+*.name=accueil
+*.link=Accueil
+*.title=Retour à l'accueil
++.href=archives/
+*.name=archives
+*.link=Blog
+*.title=Voir les entrées du blog
++.href=about.html
+*.name=about
+*.link=À propos
+*.title=En savoir plus sur ChtiJS

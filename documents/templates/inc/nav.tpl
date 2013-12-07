@@ -1,13 +1,8 @@
 <nav class="main-nav">
-	<ul class="main-nav__body">
-		<li class="main-nav__accueil">
-			<a href="/">Accueil</a>
+	<ul class="main-nav__body">{% for name, item in menu %}
+		<li class="main-nav__{{item.name}}">
+			<a href="{{item.href}}" title="{{item.title}}">{{item.link}}</a>
 		</li>
-		<li class="main-nav__archives">
-			<a href="/archives/">Archives</a>
-		</li>
-		<li class="main-nav__about">
-			<a href="/about.html">À propos</a>
-		</li>
+  {% endfor %}
 	</ul>
 </nav>
