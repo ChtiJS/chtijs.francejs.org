@@ -1,6 +1,6 @@
 <!-- varstream
 title=ChtiJS #3
-description=Découvrez le contenu du ChtiJS n°1 avec la présentation de \
+description=Découvrez le contenu du ChtiJS n°3 avec la présentation de \
 Nicolas Froidure sur les promises et une table ronde sur la mise en production \
 d'applications NodeJS.
 keywords.+=promises
