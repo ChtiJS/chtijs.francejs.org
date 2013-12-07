@@ -41,19 +41,15 @@
         <ul class="main-footer__body">
             <li class="main-footer__twitter">
                 <a href="http://twitter.com/ChtiJS"
-                  title="Suivre ChtiJS sur Twitter"><span>
-                  ChtiJS sur twitter
-                </span></a>
+                  title="Suivre ChtiJS sur Twitter">ChtiJS sur Twitter</a>
             </li>
             <li class="main-footer__github">
                 <a href="https://github.com/ChtiJS/"
-                  title="Voir le compte GitHub de ChtiJS"><span>
-                  ChtiJS sur github</span></a>
+                  title="Voir le compte GitHub de ChtiJS">ChtiJS sur GitHub</a>
             </li>
             <li class="main-footer__gg-group">
                 <a href="https://groups.google.com/forum/#!forum/chtijs"
-                  title="S'abonner à notre liste de diffusion"><span>
-                  Google group ChtiJS</span></a>
+                  title="S'abonner à notre liste de diffusion">Google Group ChtiJS</a>
             </li>
         </ul>
     </footer>
