@@ -32,21 +32,21 @@ La communauté ChtiJS est ouverte à toutes les bonnes volontés, débutants ou
 
 ## Prochaine rencontre
 
-### Date
+### Quand
 
 La prochaine édition de ChtiJS aura lieu le 19 décembre, à partir de 19h. Retrouvez
  la liste des participants sur le [Doodle !](http://doodle.com/uqrqwhsxbyfuafie)
+
+### Où ?
+
+Comme toujours ChtiJS aura lieu dans les locaux du [Mutualab](http://www.mutualab.org/).
+Nous vous remercions une fois encore pour rendre possible ChtiJS dans un cadre aussi sympa :).
 
 ### Sujets
 
 - La stack MEAN par [@JbPionnier](https://twitter.com/JbPionnier)
 - Partage de code et données entre client et serveur par [@nfroidure](https://twitter.com/nfroidure)
-- Site ChtiJS (animé par [@0gust1](https://twitter.com/0gust1) et [@enzymezum](https://twitter.com/enzymezum)
-
-### Ou ?
-
-Comme toujours ChtiJS aura lieu dans les locaux du [Mutualab](http://www.mutualab.org/).
-Nous vous remercions une fois encore pour rendre possible ChtiJS dans un cadre aussi sympa :).
+- Site ChtiJS (animé par [@0gust1](https://twitter.com/0gust1) et [@enzymezum](https://twitter.com/enzymezum))
 
 ## Proposer un sujet ?
 
