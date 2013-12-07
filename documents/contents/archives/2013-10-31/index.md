@@ -17,7 +17,7 @@ Au menu de ce ChtiJS :
 * présentation de GruntJS, un outil d'automatisation des tâches récurrentes
  avec JavaScript et NodeJS par 0gust1  ([@0gust1](https://twitter.com/0gust1)).
 * présentation de la Web Notification API par Tom Panier
- ([@enzymezum](https://twitter.com/enzymezum)) - [slides](http://slid.es/neemzy/web-notifications-api),
+ ([@_neemzy](https://twitter.com/_neemzy)) - [slides](http://slid.es/neemzy/web-notifications-api),
  [démo](https://github.com/ChtiJS/messenger.io)
 * échanges et retours d'XP sur les tests unitaires : venez avec votre bout de
  code et mettons les tests en place ensemble. Merci à Raphaël Rougeron pour le
