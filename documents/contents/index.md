@@ -32,7 +32,7 @@ La communauté ChtiJS est ouverte à toutes les bonnes volontés, débutants ou
 
 ## Prochaine rencontre
 
-### Quand
+### Quand ?
 
 La prochaine édition de ChtiJS aura lieu le 19 décembre, à partir de 19h. Retrouvez
  la liste des participants sur le [Doodle !](http://doodle.com/uqrqwhsxbyfuafie)
