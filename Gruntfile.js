@@ -142,14 +142,14 @@ module.exports = function(grunt) {
       // Pas de récursion dans NunJucks:(, mais prêt pour plus tard
       function setSelected(parent) {
         parent.forEach(function(item) {
-          var href = item.href.indexOf('/') === item.href.length - 1 ?
+          var href = item.href.lastIndexOf('/') === item.href.length - 1 ?
             item.href + 'index.html' :
             item.href;
           item.parent = parent;
-          if(file.dest.indexOf(href) === file.dest.length - href.length) {
+          if(file.dest.substr(3) === href) {
             do {
               item.selected = true;
-              item = item.parent&&item !== nunjucksOptions.menu ?
+              item = item.parent && item !== nunjucksOptions.menu ?
                 item.parent :
                 null;
             } while(item)

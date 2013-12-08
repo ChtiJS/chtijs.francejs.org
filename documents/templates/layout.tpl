@@ -23,7 +23,7 @@
                 <li class="main-nav__{{item.name}}">
                     <a href="{{item.href}}"
                       title="{{item.title}}"{% if item.selected %}
-                      selected="selected"{% endif %}>{{item.link}}</a>
+                      class="selected"{% endif %}>{{item.link}}</a>
                 </li>{% endfor %}
             </ul>
         </nav>
