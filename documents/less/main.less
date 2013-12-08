@@ -15,7 +15,7 @@ body {
   margin: 0;
   background-color: @background;
   color: @text;
-  font-size: (@vrythm/1.2);
+  font-size: @fontsize;
   line-height: @vrythm;
 }
 
@@ -32,9 +32,9 @@ h1 {
   color: @link;
   &:before {
     .icon('\e004  ');
-    font-size: (@vrythm);
+    font-size: @fontsize;
   }
-  font-size: (@vrythm*2/1.5);
+  font-size: (@fontsize*1.3);
   line-height: (@vrythm*2);
 }
 
@@ -42,14 +42,14 @@ h2 {
   a {
     color: @text;
   }
-  font-size: (@vrythm*2/1.8);
+  font-size: (@fontsize*1.1);
   line-height: (@vrythm*2);
 }
 
 hr {
   color: @text;
   height:0;
-  border:@border solid @text;
+  border:@border solid @hr;
   margin: (@vrythm/2) 0 (@vrythm/2-@border) 0;
 }
 
@@ -91,7 +91,7 @@ hr {
   }
   a {
     display: block;
-    line-height: ((@vrythm*2) - (@border*2));
+    line-height: (@vrythm*2);
     text-align: center;
     width: (@gutter*10);
     text-decoration: none;
@@ -111,7 +111,7 @@ hr {
 
 /* Text contents */
 .main-text {
-  h1, h2, h3, h4, p, ul, ol {
+  h1, p, ul, ol {
     margin:0 0 @vrythm 0;
   }
 }
@@ -141,7 +141,7 @@ hr {
   display:inline-block;
   a:before {
     .icon('\e008');
-    font-size: (@vrythm*1.2);
+    font-size: (@fontsize*1.3);
     line-height: (@vrythm*2);
   }
   a {
@@ -156,7 +156,7 @@ hr {
   display:inline-block;
   a:before {
     .icon('\e001');
-    font-size: (@vrythm*1.2);
+    font-size: (@fontsize*1.3);
     line-height: (@vrythm*2);
   }
   a {
@@ -171,7 +171,7 @@ hr {
   display:inline-block;
   a:before {
     .icon('\e006');
-    font-size: (@vrythm*1.2);
+    font-size: (@fontsize*1.3);
     line-height: (@vrythm*2);
   }
   a {
