@@ -27,7 +27,7 @@ Retrouvons-nous une nouvelle fois pour parler de JavaScript avec une soirée tr�
  [@nfroidure](https://twitter.com/nfroidure)
 * débat sur comment générer le site statique de ChtiJS avec NodeJS animé par
  0gust1 ([@0gust1](https://twitter.com/0gust1)) et Tom Panier
- ([@neemzy](https://twitter.com/neemzy))
+ ([@_neemzy](https://twitter.com/_neemzy))
 
 ## Compte rendu
 

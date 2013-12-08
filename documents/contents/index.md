@@ -46,7 +46,7 @@ Nous vous remercions une fois encore pour rendre possible ChtiJS dans un cadre a
 
 - La stack MEAN par [@JbPionnier](https://twitter.com/JbPionnier)
 - Partage de code et données entre client et serveur par [@nfroidure](https://twitter.com/nfroidure)
-- Site ChtiJS (animé par [@0gust1](https://twitter.com/0gust1) et [@enzymezum](https://twitter.com/enzymezum))
+- Site ChtiJS (animé par [@0gust1](https://twitter.com/0gust1) et [@_neemzy](https://twitter.com/_neemzy))
 
 ## Proposer un sujet ?
 
