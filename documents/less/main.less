@@ -134,6 +134,7 @@ hr {
   margin: @vrythm 0 0 0;
   text-align: right;
   list-style-type: none;
+  list-style-type: none;
 }
 
 .main-footer__twitter {
@@ -196,11 +197,15 @@ hr {
     padding:@vrythm;
     ul {
       height: auto;
-      text-align: center;
     }
     li {
       display: block;
       margin:(@vrythm/2) 0
+    }
+    a {
+      text-align: left;
+      width: auto;
+      padding:0 0 0  (@gutter*2);
     }
   }
 
@@ -236,9 +241,7 @@ hr {
   }
 
   .main-articles {
-
     .column(2, (@gutter*2));
-
   }
 
 }
