@@ -76,6 +76,26 @@ module.exports = function(grunt) {
   ]);
 
   /* HTML page builder */
+  grunt.registerMultiTask('rem2px', 'Replace any rem unit by it\'s'
+    + ' px equivalent', function() {
+    var options = this.options({
+      rootSize: grunt.option('rootSize') || ""
+    });
+
+    this.files.forEach(function(file) {
+      grunt.file.write(file.dest,
+        grunt.file.read(file.src).replace(/([0-9]+(?:.[0-9]*)?|[0-9]*.[0-9]+?)rem/g,
+          function(i, value) {
+            return (value*options.rootSize)+'px';
+          }
+        )
+      );
+      grunt.log.writeln('File "' + file.dest + '" created.');
+    });
+
+  });
+
+  /* HTML page builder */
   grunt.registerMultiTask('build_content', 'build the website html pages', function() {
 
     // Merge task-specific and/or target-specific options with these defaults.
@@ -118,7 +138,7 @@ module.exports = function(grunt) {
     // chargement du menu
     var menuDatas = grunt.file.read('documents/data/menu.dat');
 
-    //pour chaque fichier ramassé par la configuration
+    // pour chaque fichier ramassé par la configuration
     this.files.forEach(function(file) {
 
       var nunjucksOptions = {
@@ -385,7 +405,8 @@ module.exports = function(grunt) {
         tasks: ['imagemin:dist']
       },
       css: {
-        files: ['www/css/*.css', '!www/css/pictofont.css'] //on ramasse les CSS, mais on exclut les fichiers générés par la tâche less
+        files: ['www/css/*.css', '!www/css/*.min.css', '!www/css/*.ie.css'],
+        tasks: ['rem2px:dist']
       },
       data: {
         files: ['documents/data/**/*.dat'],
@@ -427,6 +448,29 @@ module.exports = function(grunt) {
       }
     },
 
+    rem2px: {
+      dev: {
+        expand: true,
+        cwd: 'www/css',
+        src: ['**/*.css','!**/*.*.css'],
+        dest: 'www/css',
+        ext: '.ie.css',
+        options: {
+          rootSize: 16 // taille de base en px
+        }
+      },
+      dist: {
+        expand: true,
+        cwd: 'www/css',
+        src: ['**/*.css','!**/*.*.css'],
+        dest: 'www/css',
+        ext: '.ie.css',
+        options: {
+          rootSize: 16 // taille de base en px
+        }
+      }
+    },
+
     build_content: {
       dev: {
         expand: true,
@@ -438,6 +482,7 @@ module.exports = function(grunt) {
           targetBase: ""
         }
       },
+
       dist: {
         expand: true,
         cwd: 'documents/contents',

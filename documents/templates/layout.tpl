@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+<html class="no-js" lang="fr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -10,8 +7,8 @@
     <title>ChtiJS{% if metadata.title %} : {{ metadata.title }}{% endif %}</title>
     <meta name="description" content="{% if metadata.title %}{{ metadata.title }}{% else %}Communauté des développeurs JavaScript du Nord de la France{% endif %}">
     <meta name="robots" content="index,follow">
-    <link rel="stylesheet" href="{{metadata_site.base_url}}/css/main.css">
-    {% if metadata.stylesheet %}<link rel="stylesheet" href="{{ metadata.stylesheet }}">{% endif %}
+    <!--[if IE 8]><link rel="stylesheet" href="{{metadata_site.base_url}}/css/main.ie.css"><![endif]-->
+    <!--[if gt IE 8]><!--><link rel="stylesheet" href="{{metadata_site.base_url}}/css/main.css"><!--<![endif]-->
 </head>
 <body>
     <!--[if lt IE 7]>
