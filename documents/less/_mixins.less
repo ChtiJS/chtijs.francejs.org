@@ -12,3 +12,16 @@
   background-color: transparent;
   border: 0;
 }
+
+.column(@count: 2, @gap: @gutter) {
+  -moz-column-count:@count;
+  -webkit-column-count:@count;
+  -o-column-count:@count;
+  -ms-column-count:@count;
+  column-count:@count;
+  -moz-column-gap:@gap;
+  -webkit-column-gap:@gap;
+  -o-column-gap:@gap;
+  -ms-column-gap:@gap;
+  column-gap:@gap;
+}
