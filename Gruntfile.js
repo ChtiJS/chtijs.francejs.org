@@ -89,6 +89,26 @@ module.exports = function(grunt) {
     // chargeur méta données
     var VarStream = require('varstream');
 
+    // listing des billets de blog
+    var posts = [];
+    grunt.file.expand('documents/contents/archives/*/*.md').forEach(function(file) {
+      var matches = grunt.file.read(file).match(/^(?:[^]*)<!-- varstream([^]*)-->(?:[^]*)$/im);
+      if(matches) {
+        new VarStream(posts, ''+posts.length).write(matches[1]);
+      } else {
+        throw Error('No metadatas found for the post in the file "' + file + '".');
+      }
+      posts[posts.length-1].href = file.substring(28,39);
+    });
+    
+    // tri par date
+    posts.sort(function(post1, post2) {
+      if(new Date(post1.created).getTime() < new Date(post2.created).getTime()) {
+        return 1;
+      }
+      return -1;
+    });
+
     // moteur de templates
     var nunjucks = require('nunjucks');
     nunjucks.configure('documents/templates/', {
@@ -103,7 +123,8 @@ module.exports = function(grunt) {
 
       var nunjucksOptions = {
         env: grunt.task.target,
-        metadata_site: options
+        metadata_site: options,
+        posts: posts
       };
 
       var aMDContent = grunt.file.read(file.src);
@@ -143,7 +164,9 @@ module.exports = function(grunt) {
       nunjucksOptions.content = marked(matches ? matches[1]+matches[3] : aMDContent);
 
       // transmettre le tout aux templates
-      var finalHtml = nunjucks.render('index.tpl', nunjucksOptions);
+      var finalHtml = nunjucks.render(
+        (nunjucksOptions.metadata.template || 'index') + '.tpl',
+        nunjucksOptions);
 
       // écrire le fichier
       grunt.file.write(file.dest, finalHtml);

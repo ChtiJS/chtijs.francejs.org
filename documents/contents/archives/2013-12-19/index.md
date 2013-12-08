@@ -4,6 +4,7 @@ description=Découvrez le contenu du ChtiJS n°6 avec les présentations de Jean
 Baptiste Pionnier sur la stack MEAN, de Nicolas Froidure sur le partage de code \
 entre front et back, et le retour d'0gust1 et Tom Panier sur la création du \
 site du groupe.
+created=2013-12-12 12:00:00
 keywords.+=NodeJS
 keywords.+=GruntJS
 keywords.+=Browserify
