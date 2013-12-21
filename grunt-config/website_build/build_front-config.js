@@ -5,35 +5,35 @@ module.exports = function(grunt) {
 		/* Compilation Less */
 		less: {
 			dev: {
-				src: 'documents/less/main.less',
-				dest: 'www/css/main.css',
+				src: '<%= conf.src.stylesheets %>/main.less',
+				dest: '<%= conf.dev.css %>/main.css',
 				options: {
 					cssmin: true
 				}
 			},
 			dist: {
-				src: 'documents/less/main.less',
-				dest: 'dist/css/main.css'
+				src: '<%= conf.src.stylesheets %>/main.less',
+				dest: '<%= conf.dist.css %>/main.css'
 			}
 		},
 
-		browserify: {
-			frontend: {
-				src: 'src/frontend.js',
-				dest: 'www/javascript/script.js',
-				options: {
-					standalone: 'chtijs'
-				}
-			}
-		},
+		// browserify: {
+		// 	frontend: {
+		// 		src: 'src/frontend.js',
+		// 		dest: 'www/javascript/script.js',
+		// 		options: {
+		// 			standalone: 'chtijs'
+		// 		}
+		// 	}
+		// },
 
 
 		rem2px: {
 			dev: {
 				expand: true,
-				cwd: 'www/css',
+				cwd: '<%= conf.dev.css %>',
 				src: ['**/*.css', '!**/*.*.css'],
-				dest: 'www/css',
+				dest: '<%= conf.dev.css %>',
 				ext: '.ie.css',
 				options: {
 					rootSize: 16 // taille de base en px
@@ -41,9 +41,9 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				expand: true,
-				cwd: 'www/css',
+				cwd: '<%= conf.dist.css %>',
 				src: ['**/*.css', '!**/*.*.css'],
-				dest: 'www/css',
+				dest: '<%= conf.dist.css %>',
 				ext: '.ie.css',
 				options: {
 					rootSize: 16 // taille de base en px

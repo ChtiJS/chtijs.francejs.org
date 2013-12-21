@@ -5,9 +5,9 @@ module.exports = function(grunt) {
     build_content: {
       dev: {
         expand: true,
-        cwd: 'documents/contents',
+        cwd: '<%= conf.src.content %>',
         src: ['**/*.md'],
-        dest: 'www/',
+        dest: '<%= conf.dev.root %>',
         ext: '.html',
         options: {
           targetBase: ""
@@ -15,13 +15,13 @@ module.exports = function(grunt) {
       },
       dist: {
         expand: true,
-        cwd: 'documents/contents',
+        cwd: '<%= conf.src.content %>',
         src: ['**/*.md'],
-        dest: 'dist/',
+        dest: '<%= conf.dist.root %>',
         ext: '.html',
         options: {
-          targetBase: "./dist",
-          base_url: "http://smdlsld.fr"
+          targetBase: "<%= conf.dist.root %>",
+          base_url: "<%= conf.baseURL %>"
         }
       }
 

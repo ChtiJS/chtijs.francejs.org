@@ -32,10 +32,7 @@ La communauté ChtiJS est ouverte à toutes les bonnes volontés, débutants ou
 
 ## Prochaine rencontre
 
-### Quand ?
-
-La prochaine édition de ChtiJS aura lieu le 19 décembre, à partir de 19h. Retrouvez
- la liste des participants sur le [Doodle !](http://doodle.com/uqrqwhsxbyfuafie)
+La date de la prochaine édition de ChtiJS reste à déterminer. En attendant, consultez [le compte rendu du ChtiJS#6](/archives/2013-12-19/) du 19 décembre, et [suivez nous sur twitter](https://twitter.com/chtiJS) pour être au courant de la mise en place du doodle.
 
 ### Où ?
 
@@ -44,9 +41,10 @@ Nous vous remercions une fois encore pour rendre possible ChtiJS dans un cadre a
 
 ### Sujets
 
-- La stack MEAN par [@JbPionnier](https://twitter.com/JbPionnier)
-- Partage de code et données entre client et serveur par [@nfroidure](https://twitter.com/nfroidure)
-- Site ChtiJS (animé par [@0gust1](https://twitter.com/0gust1) et [@_neemzy](https://twitter.com/_neemzy))
+La liste des sujets n'est pas encore fixée. Peut-être une présentation sur yeoman, et une sur les techniques d'obfuscation du javascript. 
+
+*N'hésitez pas à proposer vos sujets !*
+
 
 ## Proposer un sujet ?
 
