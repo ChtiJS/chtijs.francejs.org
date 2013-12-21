@@ -242,6 +242,11 @@ hr {
 
   .main-articles {
     .column(2, (@gutter*2));
+
+    &__article {
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+    }
   }
 
 }
