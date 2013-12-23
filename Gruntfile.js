@@ -37,6 +37,9 @@ module.exports = function(grunt) {
     config = _.merge(config, element);
   });
 
+  grunt.verbose.subhead('* Generated config file: *');
+  grunt.verbose.writeln(JSON.stringify(config, undefined, 2));
+
   grunt.initConfig(config);
 
   /** Task loading & registering **/
@@ -64,8 +67,8 @@ module.exports = function(grunt) {
 
   //write the generated configuration (for debug)
   grunt.registerTask('logConfig', 'Output the generated configuration object', function() {
-    grunt.verbose.subhead('* Generated config file: *');
-    grunt.verbose.writeln(JSON.stringify(config, undefined, 2));
+    grunt.log.subhead('* Generated config file: *');
+    grunt.log.writeln(JSON.stringify(config, undefined, 2));
   });
 
 

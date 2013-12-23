@@ -1,7 +1,7 @@
 module.exports = function(grunt, env) {
 
 	var defaults = config = {
-		
+
 		icons2fonts: {
 			dev: {},
 			dist: {}
@@ -13,45 +13,45 @@ module.exports = function(grunt, env) {
 				appendCodepoints: true
 			},
 			dev: {
-				src: 'documents/icons/*.svg',
-				dest: 'www/fonts'
+				src: '<%= conf.src.icons %>/*.svg',
+				dest: '<%= conf.dev.fonts %>'
 			},
 			dist: {
-				src: 'documents/icons/*.svg',
-				dest: 'dist/fonts'
+				src: '<%= conf.src.icons %>/*.svg',
+				dest: '<%= conf.dist.fonts %>'
 			}
 		},
 
 		svg2ttf: {
 			dev: {
-				src: 'www/fonts/*.svg',
-				dest: 'www/fonts'
+				src: '<%= conf.dev.fonts %>/*.svg',
+				dest: '<%= conf.dev.fonts %>'
 			},
 			dist: {
-				src: 'dist/fonts/*.svg',
-				dest: 'dist/fonts'
+				src: '<%= conf.dist.fonts %>/*.svg',
+				dest: '<%= conf.dist.fonts %>'
 			}
 		},
 
 		ttf2eot: {
 			dev: {
-				src: 'www/fonts/*.ttf',
-				dest: 'www/fonts'
+				src: '<%= conf.dev.fonts %>/*.ttf',
+				dest: '<%= conf.dev.fonts %>'
 			},
 			dist: {
-				src: 'dist/fonts/*.ttf',
-				dest: 'dist/fonts'
+				src: '<%= conf.dist.fonts %>/*.ttf',
+				dest: '<%= conf.dist.fonts %>'
 			}
 		},
 
 		ttf2woff: {
 			dev: {
-				src: 'www/fonts/*.ttf',
-				dest: 'www/fonts'
+				src: '<%= conf.dev.fonts %>/*.ttf',
+				dest: '<%= conf.dev.fonts %>'
 			},
 			dist: {
-				src: 'dist/fonts/*.ttf',
-				dest: 'dist/fonts'
+				src: '<%= conf.dist.fonts %>/*.ttf',
+				dest: '<%= conf.dist.fonts %>'
 			}
 		}
 	};

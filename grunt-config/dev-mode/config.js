@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 					// Change hostname to '0.0.0.0' to access
 					// the server from outside.
 					hostname: 'localhost',
-					base: 'www/',
+					base: '<%= conf.dev.root %>/',
 					open: true,
 					livereload: true
 				}
@@ -24,43 +24,43 @@ module.exports = function(grunt) {
 				livereload: true
 			},
 			icons: {
-				files: ['documents/icons/*.svg'],
+				files: ['<%= conf.src.icons %>/*.svg'],
 				tasks: ['icons2fonts:dev']
 			},
 			less: {
-				files: ['documents/less/*.less'],
+				files: ['<%= conf.src.stylesheets %>/*.less'],
 				tasks: ['less:dev']
 			},
 			svgimages: {
-				files: ['documents/images/*.svg'],
-				tasks: ['svgmin:dist']
+				files: ['<%= conf.src.images %>/*.svg'],
+				tasks: ['svgmin:dev']
 			},
 			bitmapimages: {
-				files: ['documents/images/*.{png,gif,jpg}'],
-				tasks: ['imagemin:dist']
+				files: ['<%= conf.src.images %>/*.{png,gif,jpg}'],
+				tasks: ['imagemin:dev']
 			},
 			css: {
-				files: ['www/css/*.css', '!www/css/*.min.css', '!www/css/*.ie.css'],
-				tasks: ['rem2px:dist']
+				files: ['<%= conf.dev.css %>/*.css', '!<%= conf.dev.css %>/*.min.css', '!<%= conf.dev.css %>/*.ie.css'],
+				tasks: ['rem2px:dev']
 			},
 			data: {
-				files: ['documents/data/**/*.dat'],
-				tasks: ['build_content']
+				files: ['<%= conf.src.data %>/**/*.dat'],
+				tasks: ['build_content:dev']
 			},
 			content: {
-				files: ['documents/contents/**/*.md'],
-				tasks: ['build_content']
+				files: ['<%= conf.src.content %>/**/*.md'],
+				tasks: ['build_content:dev']
 			},
 			templates: {
-				files: ['documents/templates/**/*.tpl'],
-				tasks: ['build_content']
+				files: ['<%= conf.src.templates %>/**/*.tpl'],
+				tasks: ['build_content:dev']
 			},
 			frontscripts: {
-				files: ['src/frontend.js', 'src/front/**/*.js'],
+				files: ['<%= conf.src.scripts %>/frontend.js', '<%= conf.src.scripts %>/front/**/*.js'],
 				tasks: ['browserify:frontend']
 			},
 			backscripts: {
-				files: ['src/backend.js', 'src/back/**/*.js']
+				files: ['<%= conf.src.scripts %>/backend.js', '<%= conf.src.scripts %>/back/**/*.js']
 			}
 		}
 	};

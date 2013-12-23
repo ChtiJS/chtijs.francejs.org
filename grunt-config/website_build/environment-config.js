@@ -4,25 +4,27 @@ module.exports = function(grunt) {
 	defaults = config = {
 		//nettoyer les répertoires de build
 		clean: {
-			dev: ['./www/*'],
-			dist: ['./dist/*']
+			dev: ['<%= conf.dev.root %>/*'],
+			dist: ['<%= conf.dist.root %>/*']
 		},
 
 		init_env: {
-			options: {
-				targetImages: "images",
-				targetScripts: "js",
-				targetFonts: "fonts",
-				targetCSS: "css"
-			},
 			dist: {
 				options: {
-					targetBase: "./dist",
+					targetBase: "<%= conf.dist.root %>",
+					targetImages: "<%= conf.dist.images %>",
+					targetScripts: "<%= conf.dist.scripts %>",
+					targetFonts: "<%= conf.dist.fonts %>",
+					targetCSS: "<%= conf.dist.css %>"
 				}
 			},
 			dev: {
 				options: {
-					targetBase: "./www",
+					targetBase: "<%= conf.dev.root %>",
+					targetImages: "<%= conf.dev.images %>",
+					targetScripts: "<%= conf.dev.scripts %>",
+					targetFonts: "<%= conf.dev.fonts %>",
+					targetCSS: "<%= conf.dev.css %>"
 				}
 			}
 		},
@@ -30,33 +32,33 @@ module.exports = function(grunt) {
 		copy: {
 			images_dev: {
 				expand: true,
-				cwd: 'documents/images/',
+				cwd: '<%= conf.src.images %>',
 				src: '**',
-				dest: 'www/images/',
+				dest: '<%= conf.dev.images %>',
 				flatten: true,
 				filter: 'isFile'
 			},
 			images_dist: {
 				expand: true,
-				cwd: 'documents/images/',
+				cwd: '<%= conf.src.images %>',
 				src: '**',
-				dest: 'dist/images/',
+				dest: '<%= conf.dist.images %>',
 				flatten: true,
 				filter: 'isFile'
 			},
 			css_dev: {
 				expand: true,
-				cwd: 'documents/css',
+				cwd: '<%= conf.src.css %>',
 				src: '**',
-				dest: 'www/css/',
+				dest: '<%= conf.dev.css %>',
 				flatten: true,
 				filter: 'isFile'
 			},
 			css_dist: {
 				expand: true,
-				cwd: 'documents/css',
+				cwd: '<%= conf.src.css %>',
 				src: '**',
-				dest: 'dist/css/',
+				dest: '<%= conf.dist.css %>',
 				flatten: true,
 				filter: 'isFile'
 			}

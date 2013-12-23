@@ -9,18 +9,18 @@ module.exports = function(grunt) {
 					optimizationLevel: 3
 				},
 				expand: true,
-				cwd: 'documents/images',
+				cwd: '<%= conf.src.images %>',
 				src: ['**/*.{png,gif,jpg}'],
-				dest: 'www/images/'
+				dest: '<%= conf.dev.images %>'
 			},
 			dist: {
 				options: {
 					optimizationLevel: 3
 				},
 				expand: true,
-				cwd: 'documents/images',
+				cwd: '<%= conf.src.images %>',
 				src: ['**/*.{png,gif,jpg}'],
-				dest: 'dist/images/'
+				dest: '<%= conf.dist.images %>'
 			}
 		},
 
@@ -28,9 +28,9 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'documents/images',
+					cwd: '<%= conf.src.images %>',
 					src: ['**/*.svg'],
-					dest: 'dist/images/',
+					dest: '<%= conf.dist.images %>',
 					ext: '.svg'
 				}]
 			}

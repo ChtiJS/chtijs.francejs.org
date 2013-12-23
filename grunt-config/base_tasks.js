@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       'icons2fonts:dist',
       'less:dist',
       'copy:css_dist',
-      'cssmin:dist',
+      //'cssmin:dist',
       'imagemin:dist',
       'svgmin:dist',
       'build_content:dist'
