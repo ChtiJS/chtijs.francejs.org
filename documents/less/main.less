@@ -17,19 +17,21 @@ body {
   color: @text;
   font-size: @fontsize;
   line-height: @vrythm;
+  border-top:(@border*2) solid @yellow;
 }
 
 a {
   color: @link;
+  text-decoration: none;
   .transition(color, .1s);
 
   &:hover {
-    color: darken(@link, 10%);
+    color: darken(@link, 5%);
   }
 }
 
 h1 {
-  color: @link;
+  color: @text;
   &:before {
     .icon('\e004  ');
     font-size: @fontsize;
@@ -48,8 +50,9 @@ h2 {
 
 hr {
   color: @text;
-  height:0;
-  border:@border solid @hr;
+  height: 0;
+  border: 0;
+  border-top: @border solid lighten(@hr, 30%);
   margin: (@vrythm/2) 0 (@vrythm/2-@border) 0;
 }
 
@@ -57,18 +60,19 @@ hr {
 body > header {
   width: 25%;
   z-index: 1;
-  position: absolute;
+  position: fixed;
   background: @white;
-  border-top:(@border*2) solid @yellow;
-  top: 0;
+  top:(@border*2);
   left: 0;
   height: 100%;
   width: 250px;
   transition: 0.3s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #eee;
 }
 .main-container {  
   max-width: @XL;
-  margin-left: 250px;
+  margin-left: 250px + @gutter*2;
   display: inline-block;
   vertical-align: top;
   transition: 0.3s;
@@ -230,10 +234,10 @@ body > header {
 
   body > header {
     left: -250px;
+    top: 0;
     &.display {
       left: 0px;
       top: 0;
-      border-top: 0;
     }
   }
   .main-container {
