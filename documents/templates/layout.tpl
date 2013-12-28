@@ -51,6 +51,6 @@
         </ul>
     </footer>
 
-    <script src="javascript/script.js"></script>
+    <script src="{{metadata_site.base_url}}/javascript/script.js"></script>
 </body>
 </html>

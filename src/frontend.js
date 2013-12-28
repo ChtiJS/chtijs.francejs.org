@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
     header = document.querySelector('body > header');
     [].forEach.call(document.querySelectorAll('.menu-button'), function(button) {
         button.addEventListener('click', function() {
