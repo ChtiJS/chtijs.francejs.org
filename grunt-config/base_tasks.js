@@ -11,6 +11,7 @@ module.exports = function(grunt) {
       'clean:dev',
       'init_env:dev',
       'icons2fonts:dev',
+      'browserify:frontend',
       'less:dev',
       'copy:images_dev',
       'copy:css_dev',
