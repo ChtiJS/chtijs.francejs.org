@@ -20,6 +20,10 @@ body {
   border-top:(@border*2) solid @yellow;
 }
 
+p {
+  font-family: @serif;
+}
+
 a {
   color: @link;
   text-decoration: none;
@@ -66,6 +70,9 @@ body > header {
   transition: 0.3s;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   border-right: 1px solid #eee;
+}
+.main-logo {
+  display: block;
 }
 .main-container {  
   max-width: @L;
@@ -117,9 +124,10 @@ body > header {
   cursor: pointer;
   margin-bottom: 1.2em;
   padding: 0.5em @gutter;
-  margin: -@vrythm -@gutter @vrythm;
+  margin: -@gutter -@gutter @gutter;
   background: @yellow;
   color: @white;
+  transition: all 0.1s;
   -webkit-tap-highlight-color: transparent;
   &:hover {
     color: @white;
@@ -144,18 +152,20 @@ body > header {
 .main-articles__article {
   padding: @vrythm 0;
   border-bottom: @border solid #ddd;
+  &:last-child {
+    border-bottom: 0;    
+  }
 }
 
 /* Footer */
 
 .main-footer {
   background-color: @greystart;
-  background: linear-gradient(@greystart, @greyend);
+  border-top: 1px solid @greyend;
   padding: 0 @gutter;
 }
 
 .main-footer__body {
-  margin: @vrythm 0 0 0;
   text-align: right;
   list-style-type: none;
   list-style-type: none;

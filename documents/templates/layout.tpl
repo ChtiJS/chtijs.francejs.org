@@ -15,9 +15,9 @@
     <script>document.location.href=http://browsehappy.com;</script>
     <![endif]-->
     <header>
-        <p class="main-logo">
+        <a class="main-logo" href="/">
           <img src="/images/chtijs.svg" alt="ChtiJS" />
-        </p>
+        </a>
         <nav class="main-nav">
         	  <ul class="main-nav__body">{% for item in menu %}
                 <li class="main-nav__{{item.name}}">
