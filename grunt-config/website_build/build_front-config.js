@@ -17,15 +17,15 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// browserify: {
-		// 	frontend: {
-		// 		src: 'src/frontend.js',
-		// 		dest: 'www/javascript/script.js',
-		// 		options: {
-		// 			standalone: 'chtijs'
-		// 		}
-		// 	}
-		// },
+		browserify: {
+		 	frontend: {
+		 		src: 'src/frontend.js',
+		 		dest: 'www/javascript/script.js',
+//		 		options: {
+//		 			standalone: 'chtijs'
+//		 		}
+		 	}
+		},
 
 
 		rem2px: {
