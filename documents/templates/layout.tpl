@@ -30,6 +30,7 @@
     </header>
 
     <section class="main-container">
+        <a class="menu-button">⇶ Menu</a>
         {% block body %}{% endblock %}
     </section>
 

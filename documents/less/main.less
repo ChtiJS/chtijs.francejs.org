@@ -13,10 +13,11 @@
 body {
   font-family: @sans-serif;
   margin: 0;
-  background-color: @background;
+  background-color: @textbg;
   color: @text;
   font-size: @fontsize;
   line-height: @vrythm;
+  border-top:(@border*2) solid @yellow;
 }
 
 a {
@@ -53,22 +54,29 @@ hr {
   margin: (@vrythm/2) 0 (@vrythm/2-@border) 0;
 }
 
-/* Menu */
-
-.main-nav,
-.main-logo,
-.main-container,
-.main-footer {
+/* layout */
+body > header {
+  width: 25%;
+  position: absolute;
+  background: @white;
+  top: (@border*2);
+  left: 0;
+  height: 100%;
+  width: 250px;
+  transition: 0.3s;
+}
+.main-container {  
   max-width: @XL;
-  padding:0 @gutter;
-  margin: 0 auto;
+  margin-left: 250px;
+  display: inline-block;
+  vertical-align: top;
+  transition: 0.3s;
 }
 
+/* Menu */
 .main-logo {
   background:@header;
-  border-top:(@border*2) solid @yellow;
-  padding: (@vrythm/2 - @border) @gutter;
-  height:(@vrythm*6);
+  text-align: center;
   img {
     height:(@vrythm*8)  
   }
@@ -77,32 +85,44 @@ hr {
 .main-nav {
   background:@header;
   margin-bottom:@vrythm;
-  ul {
-    height: (@vrythm*3);
-    text-align: right;
-  }
+  padding: 0;
   li {
     display: inline-block;
     list-style-type: none;
-    background-color: @greystart;
-    background: linear-gradient(@greystart, @greyend);
-    text-shadow: 0 -1px 0 @whiteshadow;
-    border-left: 0.5em @yellow solid;
+    width: 100%;
   }
   a {
     display: block;
     line-height: (@vrythm*2);
-    text-align: center;
-    width: (@gutter*10);
+    width: 100%;
+    padding-left: 0.5em;
     text-decoration: none;
-    font-weight: bold;
-    color:@white;
-  }
-  a.selected {
-    text-decoration: underline;
+    color: #444;
+    transition: all 0.1s;
+    &:hover, &:focus {
+      color: @yellow;
+      padding-left: 0.7em;
+    }
+    &.selected {
+      color: @white;
+      background: @yellow;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
   }
 }
-
+.menu-button {
+  display: none;
+  cursor: pointer;
+  margin-bottom: 1.2em;
+  padding: 0.5em @gutter;
+  margin: -@vrythm -@gutter @vrythm;
+  background: @yellow;
+  color: @white;
+  &:hover {
+    color: @white;
+    padding-left: @gutter*1.2;
+  }
+}
 /* Contents */
 .main-container {
   background: @textbg;
@@ -194,19 +214,6 @@ hr {
   }
 
   .main-nav {
-    padding:@vrythm;
-    ul {
-      height: auto;
-    }
-    li {
-      display: block;
-      margin:(@vrythm/2) 0
-    }
-    a {
-      text-align: left;
-      width: auto;
-      padding:0 0 0  (@gutter*2);
-    }
   }
 
 }
@@ -217,20 +224,24 @@ hr {
 }
 
 /* M : 2 columns */
-@media screen and (min-width: (@M + @gutter * 2)) and (max-width: (@L + @gutter * 2 - @RWDSec)) {
+@media screen and (max-width: (@L + @gutter * 2 - @RWDSec)) {
 	head link { content:'M'; }
 
-  .main-logo {
-    height:(@vrythm*9);
+  body > header {
+    left: -250px;
   }
-
-  .main-nav {
-    padding:@vrythm;
-    a {
-      width: (@gutter*8);
-    }
+  .main-container {
+    margin: 0;
+    padding-top: @vrythm*3;
   }
-
+  .menu-button {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+  }
 }
 
 /* n+2 columns */
@@ -253,7 +264,6 @@ hr {
 
 @media screen and (min-width: (@L + @gutter * 2)) and (max-width: (@XL + @gutter * 2 - @RWDSec)) {
 	head link { content:'L'; }
-
 }
 
 /* XL : 4 columns */
