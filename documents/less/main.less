@@ -17,7 +17,6 @@ body {
   color: @text;
   font-size: @fontsize;
   line-height: @vrythm;
-  border-top:(@border*2) solid @yellow;
 }
 
 a {
@@ -57,9 +56,11 @@ hr {
 /* layout */
 body > header {
   width: 25%;
+  z-index: 1;
   position: absolute;
   background: @white;
-  top: (@border*2);
+  border-top:(@border*2) solid @yellow;
+  top: 0;
   left: 0;
   height: 100%;
   width: 250px;
@@ -229,6 +230,11 @@ body > header {
 
   body > header {
     left: -250px;
+    &.display {
+      left: 0px;
+      top: 0;
+      border-top: 0;
+    }
   }
   .main-container {
     margin: 0;

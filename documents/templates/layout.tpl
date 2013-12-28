@@ -52,5 +52,15 @@
     </footer>
 
     <script src="javascript/script.js"></script>
+    <script type="text/javascript"> 
+    document.addEventListener('DOMContentLoaded', function() {
+        header = document.querySelector('body > header');
+        [].forEach.call(document.querySelectorAll('.menu-button'), function(button) {
+            button.addEventListener('click', function() {
+                header.classList.toggle('display');
+            })
+        })
+    })
+    </script>
 </body>
 </html>
