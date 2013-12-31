@@ -1,6 +1,6 @@
 module.exports = function(grunt){
   
-  /* IE specific : convert em measurements to pixel */
+  /* IE specific : convert rem measurements to pixel */
   grunt.registerMultiTask('rem2px', 'Replace any rem unit by it\'s px equivalent', function() {
     var options = this.options({
       rootSize: grunt.option('rootSize') || ""

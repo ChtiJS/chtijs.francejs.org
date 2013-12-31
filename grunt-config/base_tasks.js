@@ -36,5 +36,14 @@ module.exports = function(grunt) {
     ]);
 
   });
+
+  grunt.registerTask('publish', 'Publish current contents to GitHub pages', function() {
+
+    grunt.task.run([
+      'dist',
+      'gh-pages:publish'
+    ]);
+
+  });
 	
 };

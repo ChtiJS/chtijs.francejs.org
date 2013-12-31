@@ -8,10 +8,18 @@ module.exports = function(grunt) {
   /*** External config & tasks filepaths ***/
 
   //we have 1 base config, and possibly many module-specific config
-  var configLocations = ['./grunt-config/base_config.js', './grunt-config/**/config.js', './grunt-config/**/*-config.js'];
+  var configLocations = [
+    './grunt-config/base_config.js',
+    './grunt-config/**/config.js',
+    './grunt-config/**/*-config.js'
+  ];
 
   //we have 1 base tasks definition, and possibly many module-specific config
-  var tasksLocations = ['./grunt-config/base_tasks.js', './grunt-config/**/tasks.js', './grunt-config/**/*-tasks.js'];
+  var tasksLocations = [
+    './grunt-config/base_tasks.js',
+    './grunt-config/**/tasks.js',
+    './grunt-config/**/*-tasks.js'
+  ];
 
 
   /***************** External configuration management ***********************************/

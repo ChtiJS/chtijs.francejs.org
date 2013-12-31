@@ -22,6 +22,7 @@
     "grunt-contrib-jshint": "latest",
     "grunt-svgmin": "latest",
     "grunt-browserify": "latest",
+    "grunt-gh-pages": "~0.9.0",
     "grunt": "latest",
     "grunt-contrib-connect": "latest",
     "jshint-stylish": "latest",
