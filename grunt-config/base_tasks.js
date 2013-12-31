@@ -27,6 +27,7 @@ module.exports = function(grunt) {
       'clean:dist',
       'init_env:dist',
       'icons2fonts:dist',
+      'browserify:frontend',
       'less:dist',
       'copy:css_dist',
       //'cssmin:dist',

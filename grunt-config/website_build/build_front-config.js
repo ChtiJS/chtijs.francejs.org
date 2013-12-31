@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 		browserify: {
 		 	frontend: {
 		 		src: 'src/frontend.js',
-		 		dest: 'www/javascript/script.js',
+		 		dest: 'dist/javascript/script.js',
 //		 		options: {
 //		 			standalone: 'chtijs'
 //		 		}
