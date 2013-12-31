@@ -32,6 +32,7 @@ module.exports = function(grunt) {
       //'cssmin:dist',
       'imagemin:dist',
       'svgmin:dist',
+      'cname:publish',
       'build_content:dist'
     ]);
 
@@ -41,6 +42,7 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'dist',
+      'cname:publish',
       'gh-pages:publish'
     ]);
 
