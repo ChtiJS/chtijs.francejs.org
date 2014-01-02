@@ -17,7 +17,7 @@ Au menu du quatrième ChtiJS :
 
 * présentation du framework AngularJS par Jean-Baptiste Pionnier
  ([@JbPionnier](https://twitter.com/JbPionnier))
-* présentation d'[Emy](https://github.com/remi-grumeau/emy), une librairie
+* présentation d'[Emy](https://github.com/EmyLibrary/emy), une librairie
  dédiée au mobile réalisée par Rémi Grumeau
  ([@remi_grumeau](https://twitter.com/remi_grumeau)) ;
 * présentation de
