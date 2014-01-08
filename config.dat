@@ -1,0 +1,27 @@
+# Main configuration
+baseURL=http://chtijs.francejs.org
+
+
+# Src directories
+src.content=./documents/contents
+src.templates=./documents/templates
+src.data=./documents/data
+src.icons=./documents/icons
+src.images=./documents/images
+src.stylesheets=./documents/less
+src.css=./documents/css
+src.blog_content=./documents/content/archives
+src.scripts=./src
+
+# Destination directories
+dev.root=./www
+dev.css=./www/css
+dev.fonts=./www/fonts
+dev.images=./www/images
+dev.scripts=./www/js
+
+dist.root=./dist
+dist.css=./dist/css
+dist.fonts=./dist/fonts
+dist.images=./dist/images
+dist.scripts=./dist/js

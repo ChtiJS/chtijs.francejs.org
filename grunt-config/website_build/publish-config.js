@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   var defaults = config = {
-    
+
     'gh-pages': {
       publish: {
         options: {
