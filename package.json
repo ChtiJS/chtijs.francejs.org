@@ -4,11 +4,27 @@
   "description": "The ChtiJS website",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/gulp/bin/gulp build"
   },
   "author": "Nicolas Froidure",
   "license": "MIT",
   "devDependencies": {
-    "matchdep": "~0.3.0"
+    "matchdep": "~0.3.0",
+    "gulp-iconfont": "latest",
+    "gulp-browserify": "latest",
+    "gulp-less": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-jshint": "latest",
+    "gulp-concat": "latest",
+    "gulp-svgmin": "latest",
+    "gulp-clean": "latest",
+    "gulp-watch": "latest",
+    "gulp-if": "latest",
+    "gulp-marked": "latest",
+    "gulp-mdvars": "latest",
+    "gulp": "latest",
+    "varstream": "latest",
+    "gulp-uglify": "~0.1.0",
+    "gulp-imagemin": "~0.1.1"
   }
 }

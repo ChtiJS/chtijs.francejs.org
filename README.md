@@ -9,13 +9,13 @@ Vous devez avoir nodeJS installé sur votre machine ;)
 Entrez les commandes suivante dans un terminal :
 - `git clone git@github.com:ChtiJS/chtijs.francejs.org.git` : cloner le dépôt git;
 - `cd chtijs.francejs.org` : aller dans le répertoire créé.
-- Si vous n'avez jamais utilisé grunt avant, entrez :
-`npm install -g grunt-cli` ou `su npm install -g grunt-cli` (celà dépend de votre système et de la manière dont node.js est installé).
+- Si vous n'avez jamais utilisé gulp avant, entrez :
+`npm install -g gulp` ou `su npm install -g gulp` (celà dépend de votre système et de la manière dont node.js est installé).
 - `npm install` : installe les dépendances.
 
 ## Pour travailler dessus :
 
-Placez vous dans le répertoire du projet et entrez : `grunt dev`.
+Placez vous dans le répertoire du projet et entrez : `gulp`.
 
 Celà lancera un petit serveur et ouvrira votre navigateur sur l'accueil du site.
 
@@ -38,8 +38,7 @@ Par défaut les fichiers markdown sont rendus via la template `/documents/templa
 
 ### Architecture
 
-Les templates sont dans le répertoire `/documents/templates/`
+Les templates sont dans le répertoire `/documents/templates/`.Le langage utilisé
+ est nunjucks (doc: http://jlongster.github.io/nunjucks/templating.html ).
 
-Le langage utilisé est nunjucks (doc: http://jlongster.github.io/nunjucks/templating.html ).
-
-Les CSS sont dans... `/documents/css/`et `documents/less/` (pour les CSS générées par le plugin grunt d'icônes de nicolas).
+Les CSS sont générées depuis les sources Less située dans `documents/less/`.
