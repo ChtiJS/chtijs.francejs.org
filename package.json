@@ -1,12 +1,29 @@
 {
-  "name": "chtijs",
-  "version": "0.0.0",
-  "description": "The ChtiJS website",
+  "name": "chtijs-website",
+  "version": "0.0.1",
+  "description": "The ChtiJS Website",
   "main": "",
   "scripts": {
     "test": "node_modules/gulp/bin/gulp.js build --prod"
   },
-  "author": "Nicolas Froidure",
+  "homepage": "http://chtijs.francejs.org",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chtijs/chtijs.francejs.org"
+  },
+  "bugs": {
+    "url": "https://github.com/chtijs/chtijs.francejs.org/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/chtijs/chtijs.francejs.org/blob/master/LICENSE"
+    }
+  ],
+  "author": {
+    "name": "The ChtiJS Guys - Nord Pas de Calais - France",
+    "url": "http://chtijs.francejs.org"
+  },
   "license": "MIT",
   "devDependencies": {
     "matchdep": "~0.3.0",
