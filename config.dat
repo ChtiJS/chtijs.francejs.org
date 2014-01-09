@@ -4,18 +4,18 @@ buffer=true
 
 # Src directories
 src.content=./documents/contents
-src.templates=./documents/templates
-src.data=./documents/data
-src.icons=./documents/icons
-src.images=./documents/images
-src.less=./documents/less
-src.css=./documents/css
-src.blog_content=./documents/content/archives
-src.js=./src
+^.templates=./documents/templates
+^.data=./documents/data
+^.icons=./documents/icons
+^.images=./documents/images
+^.less=./documents/less
+^.css=./documents/css
+^.blog_content=./documents/content/archives
+^.js=./src
 
 # Destination directories
 build.root=./www
-build.css=./www/css
-build.fonts=./www/fonts
-build.images=./www/images
-build.frontjs=./www/js
+^.css=./www/css
+^.fonts=./www/fonts
+^.images=./www/images
+^.frontjs=./www/js
