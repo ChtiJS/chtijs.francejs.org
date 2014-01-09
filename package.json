@@ -4,7 +4,7 @@
   "description": "The ChtiJS website",
   "main": "",
   "scripts": {
-    "test": "node_modules/gulp/bin/gulp build"
+    "test": "node_modules/gulp/bin/gulp.js build --prod"
   },
   "author": "Nicolas Froidure",
   "license": "MIT",
