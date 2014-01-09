@@ -22,9 +22,9 @@
     "gulp-if": "latest",
     "gulp-marked": "latest",
     "gulp-mdvars": "latest",
+    "gulp-uglify": "latest",
+    "gulp-imagemin": "latest",
     "gulp": "latest",
-    "varstream": "latest",
-    "gulp-uglify": "~0.1.0",
-    "gulp-imagemin": "~0.1.1"
+    "varstream": "latest"
   }
 }

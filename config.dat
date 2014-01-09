@@ -1,6 +1,6 @@
 # Main configuration
 baseURL=http://chtijs.francejs.org
-
+buffer=true
 
 # Src directories
 src.content=./documents/contents

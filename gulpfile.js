@@ -9,72 +9,68 @@ require('matchdep').filterDev('gulp-*').forEach(function(module) {
   })] = require(module);
 });
 
-var opt = {buffer: true};
-
-//chargement des options globales (filepaths)
-var stream = new VarStream(opt, 'conf');
-stream.write(Fs.readFileSync(__dirname+'/config.dat'));
-stream.end();
+// Loading global options (files paths)
+var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'));
 
 // Fonts
 gulp.task('build_fonts', function() {
-  gulp.src(opt.conf.src.icons + '/**/*.svg', {buffer: opt.conf.buffer})
+  gulp.src(conf.src.icons + '/**/*.svg', {buffer: conf.buffer})
     .pipe(gIconfont({
       'fontName': 'iconsfont',
       'appendCodepoints': true
     }))
-    .pipe(gulp.dest(opt.conf.build.fonts));
+    .pipe(gulp.dest(conf.build.fonts));
 });
 
 // Images
 gulp.task('build_images', function() {
-  gulp.src(opt.conf.src.images + '/**/*.svg') // , {buffer: opt.conf.buffer} no streams
+  gulp.src(conf.src.images + '/**/*.svg') // , {buffer: conf.buffer} no streams
     .pipe(gIf(!gulp.env.prod, gWatch()))
     .pipe(gIf(gulp.env.prod, gSvgmin()))
-    .pipe(gulp.dest(opt.conf.build.images));
+    .pipe(gulp.dest(conf.build.images));
 
-  gulp.src(opt.conf.src.images + '/**/*.{png,jpg,jpeg,gif}') // , {buffer: opt.conf.buffer} no streams
+  gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}') // , {buffer: conf.buffer} no streams
     .pipe(gIf(!gulp.env.prod, gWatch()))
     .pipe(gIf(gulp.env.prod, gImagemin()))
-    .pipe(gulp.dest(opt.conf.build.images));
+    .pipe(gulp.dest(conf.build.images));
 });
 
 // CSS
 gulp.task('build_styles', function() {
-  gulp.src(opt.conf.src.less + '/main.less') // , {buffer: opt.conf.buffer} no streams
+  gulp.src(conf.src.less + '/main.less') // , {buffer: conf.buffer} no streams
     .pipe(gLess())
     .pipe(gIf(gulp.env.prod, gMinifyCss()))
-    .pipe(gulp.dest(opt.conf.build.css));
+    .pipe(gulp.dest(conf.build.css));
 });
 
 // JavaScript
 gulp.task('build_js', function() {
-  gulp.src(opt.conf.src.js + '/**/*.js', {buffer: opt.conf.buffer})
+  gulp.src(conf.src.js + '/**/*.js', {buffer: conf.buffer})
     .pipe(gJshint());
 
-  gulp.src(opt.conf.src.js + '/frontend.js', {buffer: opt.conf.buffer && !gulp.env.prod}) // no streams in prod
+  gulp.src(conf.src.js + '/frontend.js', {buffer: conf.buffer && !gulp.env.prod}) // no streams in prod
     .pipe(gBrowserify())
     .pipe(gIf(gulp.env.prod, gUglify()))
     .pipe(gConcat('dest.js'))
-    .pipe(gulp.dest(opt.conf.build.frontjs));
+    .pipe(gulp.dest(conf.build.frontjs));
 });
 
 // The build task
 gulp.task('build', function() {
   gulp.run('build_fonts', 'build_images', 'build_styles', 'build_js');
   if(false === gulp.env.prod) {
-    gulp.watch([opt.conf.src.icons + '/**/*.svg'], function(event) {
+    gulp.watch([conf.src.icons + '/**/*.svg'], function(event) {
       gulp.run('build_fonts');
     });
 
     gulp.watch([
-      opt.conf.src.js + '/frontend/**/*.js',
-      opt.conf.src.js + '/frontend.js'
+      conf.src.js + '/frontend/**/*.js',
+      conf.src.js + '/frontend.js'
     ], function(event) {
       gulp.run('build_js');
     });
 
-    gulp.watch([opt.conf.src.less + '/**/*.less'], function(event) {
+    gulp.watch([conf.src.less + '/**/*.less'], function(event) {
       gulp.run('build_css');
     });
   }
