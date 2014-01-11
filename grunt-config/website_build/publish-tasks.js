@@ -5,12 +5,10 @@ module.exports = function(grunt) {
     var options = this.options({
       domain: grunt.option('domain') || ""
     });
-      
+
     grunt.file.write(options.base + '/CNAME', options.domain);
-    
+
     grunt.log.writeln('File "CNAME" created.');
 
   });
-
-
 };
