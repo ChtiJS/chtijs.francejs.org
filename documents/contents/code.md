@@ -1,6 +1,7 @@
-<!-- varstream
+<!--VarStream
 title=Conventions de code
 description=Conventions de code pour les projets de ChtiJS.
+shortTitle=Conventions
 keywords.+=JavaScript
 keywords.+=Guideline
 -->

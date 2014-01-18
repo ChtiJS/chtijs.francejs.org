@@ -10,7 +10,6 @@ src.content=./documents/contents
 ^.images=./documents/images
 ^.less=./documents/less
 ^.css=./documents/css
-^.blog_content=./documents/content/archives
 ^.js=./src
 
 # Destination directories
@@ -19,3 +18,4 @@ build.root=./www
 ^.fonts=./www/fonts
 ^.images=./www/images
 ^.frontjs=./www/js
+

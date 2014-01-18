@@ -1,4 +1,4 @@
-<!-- varstream
+<!--VarStream
 title=ChtiJS #1
 description=Découvrez le contenu du ChtiJS n°1 avec la présentation de \
 Nicolas Froidure sur le streaming HTTP et les promises.

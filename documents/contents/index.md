@@ -1,8 +1,9 @@
-<!-- varstream
+<!--VarStream
 title=La communauté JavaScript du Nord
 description=ChtiJS est un groupe de développeurs JavaScript passionnés qui \
 échangent régulièrement découvertes et bonnes pratiques autour d'une bière dans \
 une ambiance décontractée.
+shortTitle=Accueil
 keywords.+=JavaScript
 keywords.+=groupe
 keywords.+=Nord

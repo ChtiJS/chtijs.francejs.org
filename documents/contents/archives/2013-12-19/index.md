@@ -1,4 +1,4 @@
-<!-- varstream
+<!--VarStream
 title=ChtiJS #6
 description=Découvrez le contenu du ChtiJS n°6 avec les présentations de Jean-\
 Baptiste Pionnier sur la stack MEAN, de Nicolas Froidure sur le partage de code \

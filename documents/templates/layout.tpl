@@ -19,11 +19,19 @@
           <img src="/images/chtijs.svg" alt="ChtiJS" />
         </a>
         <nav class="main-nav">
-        	  <ul class="main-nav__body">{% for item in menu %}
-                <li class="main-nav__{{item.name}}">
-                    <a href="{{item.href}}"
-                      title="{{item.title}}"{% if item.selected %}
-                      class="selected"{% endif %}>{{item.link}}</a>
+        	  <ul class="main-nav__body">
+                <li class="main-nav__{{tree.index.name}}">
+                    <a href="{{tree.index.path}}{{tree.index.name}}.html"
+                      title="{{tree.index.title}}"{% if tree.index == metadata  %}
+                      class="selected"{% endif %}>{{tree.index.shortTitle}}</a>
+                </li>{% for item in tree.childs %}
+                <li class="main-nav__{{item.name}}">{% if item.childs %}
+                    <a href="{{item.index.path}}{{item.index.name}}.html"
+                      title="{{item.index.title}}"{% if item == metadata %}
+                      class="selected"{% endif %}>{{item.index.shortTitle}}</a>{% else %}
+                    <a href="{{item.path}}{{item.name}}.html"
+                      title="{{item.title}}"{% if item == metadata %}
+                      class="selected"{% endif %}>{{item.shortTitle}}</a>{% endif %}
                 </li>{% endfor %}
             </ul>
         </nav>
@@ -50,7 +58,7 @@
             </li>
         </ul>
     </footer>
-
-    <script src="{{metadata_site.base_url}}/javascript/script.js"></script>
+    <script src="{{metadata_site.base_url}}/js/script.js"></script>{% if not prod %}
+    <script src="{{metadata_site.base_url}}/js/vendors/livereload.js"></script>{% endif %}
 </body>
 </html>

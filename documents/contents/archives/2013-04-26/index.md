@@ -1,4 +1,4 @@
-<!-- varstream
+<!--VarStream
 title=ChtiJS #2
 description=Découvrez le contenu du ChtiJS n°2 avec la présentation de \
 Paul d'Hubert sur les concepts d'AngularJS'.

@@ -1,4 +1,4 @@
-<!-- varstream
+<!--VarStream
 title=ChtiJS #4
 description=Découvrez le contenu du ChtiJS n°4 avec les présentations de \
 Jean-Baptiste Pionnier sur AngularJS, Rémi Grumeau sur Emy et David Loeuillete \

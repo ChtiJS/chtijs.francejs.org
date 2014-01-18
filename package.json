@@ -39,9 +39,15 @@
     "gulp-if": "latest",
     "gulp-marked": "latest",
     "gulp-mdvars": "latest",
+    "gulp-vartree": "latest",
     "gulp-uglify": "latest",
     "gulp-imagemin": "latest",
+    "gulp-rename": "latest",
+    "gulp-livereload": "latest",
     "gulp": "latest",
-    "varstream": "latest"
+    "varstream": "latest",
+    "tiny-lr": "0.0.5",
+    "gulp-util": "~2.2.12",
+    "express": "~3.4.8"
   }
 }

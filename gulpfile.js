@@ -1,6 +1,10 @@
 var gulp = require('gulp')
   , VarStream = require('varstream')
   , Fs = require('fs')
+  , Path = require('path')
+  , Nunjucks = require('nunjucks')
+  , express = require('express')
+  , tinylr = require('tiny-lr')
 ;
 
 require('matchdep').filterDev('gulp-*').forEach(function(module) {
@@ -11,6 +15,19 @@ require('matchdep').filterDev('gulp-*').forEach(function(module) {
 
 // Loading global options (files paths)
 var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'));
+
+// Starting the dev static server
+if(!gulp.env.prod) {
+  var app = express();
+  app.use(express.query())
+    .use(express.bodyParser())
+    .use(express.static(Path.resolve(__dirname, conf.build.root)))
+    .use(express.directory(Path.resolve(__dirname, conf.build.root)))
+    .use(tinylr.middleware({ app: app }))
+    .listen(35729, function() {
+      console.log('Listening on %d', 35729);
+    });
+}
 
 // Fonts
 gulp.task('build_fonts', function() {
@@ -51,28 +68,84 @@ gulp.task('build_js', function() {
   gulp.src(conf.src.js + '/frontend.js', {buffer: conf.buffer && !gulp.env.prod}) // no streams in prod
     .pipe(gBrowserify())
     .pipe(gIf(gulp.env.prod, gUglify()))
-    .pipe(gConcat('dest.js'))
+    .pipe(gConcat('script.js'))
     .pipe(gulp.dest(conf.build.frontjs));
+
+  gulp.src(conf.src.js + '/frontend/vendors/**/*.js')
+    .pipe(gulp.dest(conf.build.frontjs + '/vendors'));
+});
+
+// HTML
+gulp.task('build_html', function() {
+  var nunjucks = Nunjucks
+    , tree = {}
+    , markedFiles = []
+    , dest = gulp.dest(conf.build.root)
+  ;
+  
+  nunjucks.configure('documents/templates/', {
+    autoescape: true
+  });
+
+  gulp.src(conf.src.content + '/**/*.md') // , {buffer: conf.buffer} no streams
+    .pipe(gMdvars())
+    .pipe(gVartree({
+      root: tree,
+      index: 'index',
+      parent: 'parent',
+      childs: 'childs'
+    }))
+    .pipe(gMarked())
+    .pipe(gRename({ext: '.html'}))
+    .once('end', function() {
+      markedFiles.forEach(function(file) {
+        var nunjucksOptions = {
+          env: conf.build.root,
+          prod: gulp.env.prod,
+          tree: tree,
+          metadata: file.metas,
+          content: file.contents.toString('utf-8')
+        };
+        // Retrieve other md files for each file
+        // to do
+        // Create the template
+        file.contents = Buffer(nunjucks.render(
+          (nunjucksOptions.metadata.template || 'index') + '.tpl',
+          nunjucksOptions
+        ));
+        // Save it.
+        dest.write(file);
+      });
+      dest.end();
+    })
+    .on('data', function(file) {
+      markedFiles.push(file);
+    }).resume();
 });
 
 // The build task
 gulp.task('build', function() {
-  gulp.run('build_fonts', 'build_images', 'build_styles', 'build_js');
+  gulp.run('build_fonts', 'build_images', 'build_styles', 'build_js', 'build_html');
   if(false === gulp.env.prod) {
     gulp.watch([conf.src.icons + '/**/*.svg'], function(event) {
       gulp.run('build_fonts');
-    });
+    }).pipe(gLivereload(server));
 
     gulp.watch([
       conf.src.js + '/frontend/**/*.js',
       conf.src.js + '/frontend.js'
     ], function(event) {
       gulp.run('build_js');
-    });
+    }).pipe(gLivereload(server));
 
     gulp.watch([conf.src.less + '/**/*.less'], function(event) {
       gulp.run('build_css');
-    });
+    }).pipe(gLivereload(server));
+
+    gulp.watch([conf.src.content + '/**/*.md'], function(event) {
+      gulp.run('build_html');
+    }).pipe(gLivereload(server));
+    // see https://github.com/vohof/gulp-livereload#sample-usage
   }
 });
 

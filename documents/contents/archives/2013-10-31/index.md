@@ -1,4 +1,4 @@
-<!-- varstream
+<!--VarStream
 title=ChtiJS #5
 description=Découvrez le contenu du ChtiJS n°5 avec les présentations de Tom \
 Panier, 0gust1 et un échange sur les tests unitaires en JS.
