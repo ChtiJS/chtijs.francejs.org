@@ -15,19 +15,19 @@
     <script>document.location.href=http://browsehappy.com;</script>
     <![endif]-->
     <header>
-        <a class="main-logo" href="/">
+        <a class="main-logo" href="{{tree.href}}" title="{{tree.shortDesc}}">
           <img src="/images/chtijs.svg" alt="ChtiJS" />
         </a>
         <nav class="main-nav">
         	  <ul class="main-nav__body">
                 <li class="main-nav__{{tree.name}}">
                     <a href="{{tree.path}}{{tree.name}}.html"
-                      title="{{tree.title}}"{% if tree == metadata  %}
+                      title="{% if tree.shortDesc %}{{tree.shortDesc}}{% else %}{{tree.title}}{% endif %}"{% if tree == metadata  %}
                       class="selected"{% endif %}>{{tree.shortTitle}}</a>
                 </li>{% for item in tree.childs %}
                 <li class="main-nav__{{item.name}}">
                     <a href="{{item.path}}{{item.name}}.html"
-                      title="{{item.title}}"{% if item == metadata or item == metadata.parent or item == metadata.parent.parent %}
+                      title="{% if item.shortDesc %}{{item.shortDesc}}{% else %}{{item.title}}{% endif %}"{% if item == metadata or item == metadata.parent or item == metadata.parent.parent %}
                       class="selected"{% endif %}>{{item.shortTitle}}</a>
                 </li>{% endfor %}
             </ul>

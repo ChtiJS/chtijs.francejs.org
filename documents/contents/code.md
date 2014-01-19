@@ -2,6 +2,7 @@
 title=Conventions de code
 description=Conventions de code pour les projets de ChtiJS.
 shortTitle=Conventions
+shortDesc=Voir nos conventions
 keywords.+=JavaScript
 keywords.+=Guideline
 -->

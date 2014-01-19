@@ -2,6 +2,7 @@
 title=Les habitudes de notre groupe
 description=Pour mieux comprendre ChtiJS, découvrez nos petites habitudes.
 shortTitle=Nos habitudes
+shortDesc=Découvrir nos habitudes
 keywords.+=JavaScript
 keywords.+=groupe
 keywords.+=Nord

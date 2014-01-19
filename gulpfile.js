@@ -65,13 +65,13 @@ gulp.task('build_images', function() {
   gulp.src(conf.src.images + '/**/*.svg') // , {buffer: conf.buffer} no streams
     .pipe(gIf(!gulp.env.prod, gWatch()))
     .pipe(gIf(gulp.env.prod, gSvgmin()))
-    .pipe(gIf(gulp.env.prod, gLivereload(server)))
+    .pipe(gIf(!gulp.env.prod, gLivereload(server)))
     .pipe(gulp.dest(conf.build.images));
 
   gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}') // , {buffer: conf.buffer} no streams
     .pipe(gIf(!gulp.env.prod, gWatch()))
     .pipe(gIf(gulp.env.prod, gImagemin()))
-    .pipe(gIf(gulp.env.prod, gLivereload(server)))
+    .pipe(gIf(!gulp.env.prod, gLivereload(server)))
     .pipe(gulp.dest(conf.build.images));
 });
 

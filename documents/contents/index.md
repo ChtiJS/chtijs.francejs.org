@@ -4,6 +4,7 @@ description=ChtiJS est un groupe de développeurs JavaScript passionnés qui \
 échangent régulièrement découvertes et bonnes pratiques autour d'une bière dans \
 une ambiance décontractée.
 shortTitle=Accueil
+shortDesc=Retour à l'accueil
 keywords.+=JavaScript
 keywords.+=groupe
 keywords.+=Nord
