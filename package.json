@@ -49,6 +49,7 @@
     "tiny-lr": "0.0.5",
     "gulp-util": "~2.2.12",
     "express": "~3.4.8",
-    "nunjucks": "~1.0.1"
+    "nunjucks": "~1.0.1",
+    "rimraf": "~2.2.6"
   }
 }

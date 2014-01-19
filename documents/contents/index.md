@@ -33,16 +33,21 @@ La communauté ChtiJS est ouverte à toutes les bonnes volontés, débutants ou
 
 ## Prochaine rencontre
 
-La date de la prochaine édition de ChtiJS reste à déterminer. En attendant, consultez [le compte rendu du ChtiJS#6](/archives/2013-12-19/) du 19 décembre, et [suivez nous sur twitter](https://twitter.com/chtiJS) pour être au courant de la mise en place du doodle.
+La date de la prochaine édition de ChtiJS reste à déterminer. En attendant,
+ consultez [le compte rendu du ChtiJS#6](/archives/2013-12-19/) du 19 décembre,
+ et [suivez nous sur twitter](https://twitter.com/chtiJS) pour être au courant
+ de la mise en place du Doodle.
 
 ### Où ?
 
-Comme toujours ChtiJS aura lieu dans les locaux du [Mutualab](http://www.mutualab.org/).
-Nous vous remercions une fois encore pour rendre possible ChtiJS dans un cadre aussi sympa :).
+Comme toujours ChtiJS aura lieu dans les locaux du
+ [Mutualab](http://www.mutualab.org/). Nous vous remercions une fois encore
+ pour rendre possible ChtiJS dans un cadre aussi sympa :).
 
 ### Sujets
 
-La liste des sujets n'est pas encore fixée. Peut-être une présentation sur yeoman, et une sur les techniques d'obfuscation du javascript. 
+La liste des sujets n'est pas encore fixée. Peut-être une présentation sur
+ Yeoman, et une sur les techniques d'obfuscation du javascript.
 
 *N'hésitez pas à proposer vos sujets !*
 

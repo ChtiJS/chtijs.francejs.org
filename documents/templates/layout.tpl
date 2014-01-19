@@ -55,7 +55,6 @@
             </li>
         </ul>
     </footer>
-    <script src="{{metadata_site.base_url}}/js/script.js"></script>{% if not prod %}
-    <script src="{{metadata_site.base_url}}/js/vendors/livereload.js"></script>{% endif %}
+    <script src="{{metadata_site.base_url}}/js/script.js"></script>
 </body>
 </html>

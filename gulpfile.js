@@ -5,6 +5,7 @@ var gulp = require('gulp')
   , Nunjucks = require('nunjucks')
   , express = require('express')
   , tinylr = require('tiny-lr')
+  , rimraf = require('rimraf')
 ;
 
 require('matchdep').filterDev('gulp-*').forEach(function(module) {
@@ -14,7 +15,8 @@ require('matchdep').filterDev('gulp-*').forEach(function(module) {
 });
 
 // Loading global options (files paths)
-var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'));
+var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'))
+  , server;
 
 // Starting the dev static server
 if(!gulp.env.prod) {
@@ -22,11 +24,11 @@ if(!gulp.env.prod) {
   app.use(express.query())
     .use(express.bodyParser())
     .use(express.static(Path.resolve(__dirname, conf.build.root)))
-    .use(express.directory(Path.resolve(__dirname, conf.build.root)))
     .use(tinylr.middleware({ app: app }))
     .listen(35729, function() {
       console.log('Listening on %d', 35729);
     });
+  server = app.server;
 }
 
 // Fonts
@@ -44,11 +46,13 @@ gulp.task('build_images', function() {
   gulp.src(conf.src.images + '/**/*.svg') // , {buffer: conf.buffer} no streams
     .pipe(gIf(!gulp.env.prod, gWatch()))
     .pipe(gIf(gulp.env.prod, gSvgmin()))
+    .pipe(gIf(gulp.env.prod, gLivereload(server)))
     .pipe(gulp.dest(conf.build.images));
 
   gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}') // , {buffer: conf.buffer} no streams
     .pipe(gIf(!gulp.env.prod, gWatch()))
     .pipe(gIf(gulp.env.prod, gImagemin()))
+    .pipe(gIf(gulp.env.prod, gLivereload(server)))
     .pipe(gulp.dest(conf.build.images));
 });
 
@@ -57,6 +61,7 @@ gulp.task('build_styles', function() {
   gulp.src(conf.src.less + '/main.less') // , {buffer: conf.buffer} no streams
     .pipe(gLess())
     .pipe(gIf(gulp.env.prod, gMinifyCss()))
+    .pipe(gIf(gulp.env.prod, gLivereload(server)))
     .pipe(gulp.dest(conf.build.css));
 });
 
@@ -106,9 +111,7 @@ gulp.task('build_html', function() {
           metadata: file.metas,
           content: file.contents.toString('utf-8')
         };
-        // Retrieve other md files for each file
-        // to do
-        // Create the template
+        // Render the template
         file.contents = Buffer(nunjucks.render(
           (nunjucksOptions.metadata.template || 'index') + '.tpl',
           nunjucksOptions
@@ -125,27 +128,27 @@ gulp.task('build_html', function() {
 
 // The build task
 gulp.task('build', function() {
+  rimraf.sync(conf.build.root);
   gulp.run('build_fonts', 'build_images', 'build_styles', 'build_js', 'build_html');
-  if(false === gulp.env.prod) {
+  if(!gulp.env.prod) {
     gulp.watch([conf.src.icons + '/**/*.svg'], function(event) {
       gulp.run('build_fonts');
-    }).pipe(gLivereload(server));
+    });
 
     gulp.watch([
       conf.src.js + '/frontend/**/*.js',
       conf.src.js + '/frontend.js'
     ], function(event) {
       gulp.run('build_js');
-    }).pipe(gLivereload(server));
+    });
 
     gulp.watch([conf.src.less + '/**/*.less'], function(event) {
       gulp.run('build_css');
-    }).pipe(gLivereload(server));
+    });
 
     gulp.watch([conf.src.content + '/**/*.md'], function(event) {
       gulp.run('build_html');
-    }).pipe(gLivereload(server));
-    // see https://github.com/vohof/gulp-livereload#sample-usage
+    });
   }
 });
 
