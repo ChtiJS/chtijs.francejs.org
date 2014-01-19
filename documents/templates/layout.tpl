@@ -20,18 +20,15 @@
         </a>
         <nav class="main-nav">
         	  <ul class="main-nav__body">
-                <li class="main-nav__{{tree.index.name}}">
-                    <a href="{{tree.index.path}}{{tree.index.name}}.html"
-                      title="{{tree.index.title}}"{% if tree.index == metadata  %}
-                      class="selected"{% endif %}>{{tree.index.shortTitle}}</a>
+                <li class="main-nav__{{tree.name}}">
+                    <a href="{{tree.path}}{{tree.name}}.html"
+                      title="{{tree.title}}"{% if tree == metadata  %}
+                      class="selected"{% endif %}>{{tree.shortTitle}}</a>
                 </li>{% for item in tree.childs %}
-                <li class="main-nav__{{item.name}}">{% if item.childs %}
-                    <a href="{{item.index.path}}{{item.index.name}}.html"
-                      title="{{item.index.title}}"{% if item == metadata %}
-                      class="selected"{% endif %}>{{item.index.shortTitle}}</a>{% else %}
+                <li class="main-nav__{{item.name}}">
                     <a href="{{item.path}}{{item.name}}.html"
-                      title="{{item.title}}"{% if item == metadata %}
-                      class="selected"{% endif %}>{{item.shortTitle}}</a>{% endif %}
+                      title="{{item.title}}"{% if item == metadata or item == metadata.parent or item == metadata.parent.parent %}
+                      class="selected"{% endif %}>{{item.shortTitle}}</a>
                 </li>{% endfor %}
             </ul>
         </nav>

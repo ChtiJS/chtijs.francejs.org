@@ -1,19 +1,19 @@
 {% extends 'layout.tpl' %}
 
 {% block body %}
-{{ content | safe }}{% if not metadata.parent.childs %}
+{{ content | safe }}{% if not metadata.childs %}
 <p>Pas de posts actuellement !</p>
 {% else %}
 <section class="main-articles">
-  {% for post in metadata.parent.childs %}
+  {% for post in metadata.childs %}
   <article class="main-articles__article">
     <h2>
-      <a href="{{post.index.path}}{{post.index.name}}.html"
-        title="{{post.index.title}}">
-        {{post.index.title}}
+      <a href="{{post.path}}{{post.name}}.html"
+        title="{{post.title}}">
+        {{post.title}}
       </a>
     </h2>
-    <p>{{post.index.description}}</p>
+    <p>{{post.description}}</p>
   </article>
   {% endfor %}
 </section>

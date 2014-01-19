@@ -92,8 +92,8 @@ gulp.task('build_html', function() {
     .pipe(gVartree({
       root: tree,
       index: 'index',
-      parent: 'parent',
-      childs: 'childs'
+      parentProp: 'parent',
+      childsProp: 'childs'
     }))
     .pipe(gMarked())
     .pipe(gRename({ext: '.html'}))
