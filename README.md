@@ -1,4 +1,4 @@
-# Site ChtiJS [![Build status](https://api.travis-ci.org/chtijs/chtijs.francejs.org.png)](https://travis-ci.org/chtijs/chtijs.francejs.org)
+# Site ChtiJS [![Build status](https://api.travis-ci.org/ChtiJS/chtijs.francejs.org.png)](https://travis-ci.org/ChtiJS/chtijs.francejs.org)
 
 > **Avant de commencer à travailler sur le projet pouvez vous lire [le guide
  pour contribuer](CONTRIBUTING.md)**
