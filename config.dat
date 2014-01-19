@@ -18,4 +18,3 @@ build.root=./www
 ^.fonts=./www/fonts
 ^.images=./www/images
 ^.frontjs=./www/js
-

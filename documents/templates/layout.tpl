@@ -7,8 +7,8 @@
     <title>ChtiJS{% if metadata.title %} : {{ metadata.title }}{% endif %}</title>
     <meta name="description" content="{% if metadata.title %}{{ metadata.title }}{% else %}Communauté des développeurs JavaScript du Nord de la France{% endif %}">
     <meta name="robots" content="index,follow">
-    <!--[if IE 8]><link rel="stylesheet" href="{{metadata_site.base_url}}/css/main.ie.css"><![endif]-->
-    <!--[if gt IE 8]><!--><link rel="stylesheet" href="{{metadata_site.base_url}}/css/main.css"><!--<![endif]-->
+    <!--[if IE 8]><link rel="stylesheet" href="{{conf.baseURL}}/css/main.ie.css"><![endif]-->
+    <!--[if gt IE 8]><!--><link rel="stylesheet" href="{{conf.baseURL}}/css/main.css"><!--<![endif]-->
 </head>
 <body>
     <!--[if lt IE 7]>
@@ -55,6 +55,7 @@
             </li>
         </ul>
     </footer>
-    <script src="{{metadata_site.base_url}}/js/script.js"></script>
+    <script src="{{conf.baseURL}}/js/script.js"></script>{% if not prod %}
+    <script src="{{conf.baseURL}}/js/vendors/livereload.js?host={{conf.ip}}"></script>{% endif %}
 </body>
 </html>

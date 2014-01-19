@@ -20,6 +20,23 @@ var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'))
 
 // Starting the dev static server
 if(!gulp.env.prod) {
+  conf.ip = '127.0.0.1';
+
+  if(gulp.env.net) {
+    var ints = require('os').getNetworkInterfaces();
+
+    for(var int in ints) {
+      if(ints[int].some(function(net) {
+        if((!net.internal) && 'IPv4' == net.family) {
+          conf.ip = net.address;
+          return true;
+        }
+      })) {
+        break;
+      }
+    }
+  }
+
   var app = express();
   app.use(express.query())
     .use(express.bodyParser())
@@ -29,6 +46,8 @@ if(!gulp.env.prod) {
     });
   server = tinylr();
   server.listen(35729);
+
+  conf.baseURL = 'http://'+conf.ip+':8080';
 }
 
 // Fonts
@@ -109,6 +128,7 @@ gulp.task('build_html', function() {
           env: conf.build.root,
           prod: gulp.env.prod,
           tree: tree,
+          conf: conf,
           metadata: file.metas,
           content: file.contents.toString('utf-8')
         };
