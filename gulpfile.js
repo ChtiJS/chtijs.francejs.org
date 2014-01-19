@@ -176,6 +176,45 @@ gulp.task('build', function() {
   }
 });
 
+// Publish task
+gulp.task('ghpages', function() {
+  var exec = require('child_process').exec
+    , execOptions = {
+      cwd: __dirname
+    };
+  // Switch to ghpages branch
+  exec('git branch -D gh-pages; git checkout -b gh-pages', execOptions, function() {
+    // delete all files except the untracked ones
+    var ignore = ['.git', 'www', 'node_modules'];
+    Fs.readdirSync(__dirname).forEach(function(file) {
+      if(-1 === ignore.indexOf(file)) {
+        //rimraf.sync(__dirname+'/'+file);
+        console.log('delete '+file);
+      } else {
+        console.log('keep '+file);
+      }
+    }); return;
+    Fs.readdirSync(__dirname+'/www').forEach(function(file) {
+      fs.renameSync(__dirname+'/www/'+file, __dirname+'/'+file);
+    });
+    Fs.rmdirSync(__dirname+'/www');
+    // Commit files
+    exec('git add -A && git commit -m "Build '+(new Date())+'"', execOptions, function() {
+      
+      // Pushing commit
+      exec('git push -f origin gh-pages &&  git checkout master', execOptions, function() {
+
+      });
+    });
+  });
+});
+
+// Publish task
+gulp.task('publish', function() {
+  gulp.env.prod = true;
+  gulp.run('build','ghpages');
+});
+
 // The default task
 gulp.task('default', function() {
   gulp.run('build');
