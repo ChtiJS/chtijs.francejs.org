@@ -140,6 +140,9 @@ gulp.task('build_html', function() {
         // Save it.
         dest.write(file);
       });
+      if(!gulp.env.prod) {
+        require('open')(conf.baseURL+'/index.html');
+      }
       dest.end();
     })
     .on('data', function(file) {
