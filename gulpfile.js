@@ -24,11 +24,11 @@ if(!gulp.env.prod) {
   app.use(express.query())
     .use(express.bodyParser())
     .use(express.static(Path.resolve(__dirname, conf.build.root)))
-    .use(tinylr.middleware({ app: app }))
-    .listen(35729, function() {
+    .listen(8080, function() {
       console.log('Listening on %d', 35729);
     });
-  server = app.server;
+  server = tinylr();
+  server.listen(35729);
 }
 
 // Fonts
@@ -61,7 +61,7 @@ gulp.task('build_styles', function() {
   gulp.src(conf.src.less + '/main.less') // , {buffer: conf.buffer} no streams
     .pipe(gLess())
     .pipe(gIf(gulp.env.prod, gMinifyCss()))
-    .pipe(gIf(gulp.env.prod, gLivereload(server)))
+    .pipe(gIf(!gulp.env.prod, gLivereload(server)))
     .pipe(gulp.dest(conf.build.css));
 });
 
@@ -74,6 +74,7 @@ gulp.task('build_js', function() {
     .pipe(gBrowserify())
     .pipe(gIf(gulp.env.prod, gUglify()))
     .pipe(gConcat('script.js'))
+    .pipe(gIf(!gulp.env.prod, gLivereload(server)))
     .pipe(gulp.dest(conf.build.frontjs));
 
   gulp.src(conf.src.js + '/frontend/vendors/**/*.js')
@@ -88,7 +89,7 @@ gulp.task('build_html', function() {
     , dest = gulp.dest(conf.build.root)
   ;
   
-  nunjucks.configure('documents/templates/', {
+  nunjucks.configure(conf.src.templates, {
     autoescape: true
   });
 
@@ -143,10 +144,13 @@ gulp.task('build', function() {
     });
 
     gulp.watch([conf.src.less + '/**/*.less'], function(event) {
-      gulp.run('build_css');
+      gulp.run('build_styles');
     });
 
-    gulp.watch([conf.src.content + '/**/*.md'], function(event) {
+    gulp.watch([
+      conf.src.content + '/**/*.md',
+      conf.src.templates + '/**/*.tpl'
+    ], function(event) {
       gulp.run('build_html');
     });
   }
