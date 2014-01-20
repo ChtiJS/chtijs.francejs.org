@@ -37,7 +37,9 @@ if(!prod) {
       }
     }
   }
+  conf.baseURL = 'http://'+conf.ip+':8080';
 }
+
 
 // Fonts
 gulp.task('build_fonts', function(cb) {
@@ -157,23 +159,6 @@ gulp.task('clean', function(cb) {
 gulp.task('build', ['build_fonts', 'build_images', 'build_styles',
   'build_js', 'build_html'], function(cb) {
   if(!prod) {
-    // Starting the dev static server
-
-    var app = express();
-    app.use(express.query())
-      .use(express.bodyParser())
-      .use(express.static(Path.resolve(__dirname, conf.build.root)))
-      .listen(8080, function() {
-        console.log('Listening on %d', 35729);
-      });
-    server = tinylr();
-    server.listen(35729);
-
-    conf.baseURL = 'http://'+conf.ip+':8080';
-    require('open')(conf.baseURL+'/index.html');
-    gulp.watch([conf.src.icons + '/**/*.svg'], function(event) {
-      gulp.run('build_fonts');
-    });
 
     gulp.watch([
       conf.src.js + '/frontend/**/*.js',
@@ -198,7 +183,7 @@ gulp.task('build', ['build_fonts', 'build_images', 'build_styles',
 });
 
 // Publish task
-gulp.task('ghpages', function(cb) {
+gulp.task('ghpages', ['build'], function(cb) {
   var exec = require('child_process').exec
     , execOptions = {
       cwd: __dirname
@@ -233,12 +218,27 @@ gulp.task('ghpages', function(cb) {
 });
 
 // Publish task
-gulp.task('publish', ['build'], function() {
+gulp.task('publish', function() {
   prod = true;
   gulp.run('ghpages');
 });
 
 // The default task
 gulp.task('default', function() {
+  // Starting the dev static server
+
+  var app = express();
+  app.use(express.query())
+    .use(express.bodyParser())
+    .use(express.static(Path.resolve(__dirname, conf.build.root)))
+    .listen(8080, function() {
+      console.log('Listening on %d', 35729);
+    });
+  server = tinylr();
+  server.listen(35729);
+  require('open')(conf.baseURL+'/index.html');
+  gulp.watch([conf.src.icons + '/**/*.svg'], function(event) {
+    gulp.run('build_fonts');
+  });
   gulp.run('build');
 });
