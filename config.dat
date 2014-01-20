@@ -1,4 +1,5 @@
 # Main configuration
+domain=chtijs.francejs.org
 baseURL=http://chtijs.francejs.org
 buffer=true
 
