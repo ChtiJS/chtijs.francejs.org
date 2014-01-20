@@ -1,4 +1,6 @@
 # Main configuration
+name=ChtiJS
+description=Communauté des développeurs JavaScript du Nord de la France
 domain=chtijs.francejs.org
 baseURL=http://chtijs.francejs.org
 buffer=true
@@ -19,3 +21,4 @@ build.root=./www
 ^.fonts=./www/fonts
 ^.images=./www/images
 ^.frontjs=./www/js
+

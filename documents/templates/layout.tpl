@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-    <title>ChtiJS{% if metadata.title %} : {{ metadata.title }}{% endif %}</title>
-    <meta name="description" content="{% if metadata.title %}{{ metadata.title }}{% else %}Communauté des développeurs JavaScript du Nord de la France{% endif %}">
+    <title>{{name}}{% if metadata.title %} : {{ metadata.title }}{% endif %}</title>
+    <meta name="description" content="{% if metadata.title %}{{ metadata.title }}{% else %}{{description}}{% endif %}">
     <meta name="robots" content="index,follow">
     <!--[if IE 8]><link rel="stylesheet" href="{{conf.baseURL}}/css/main.ie.css"><![endif]-->
     <!--[if gt IE 8]><!--><link rel="stylesheet" href="{{conf.baseURL}}/css/main.css"><!--<![endif]-->
@@ -15,7 +15,7 @@
     <script>document.location.href=http://browsehappy.com;</script>
     <![endif]-->
     <header>
-        <a class="main-logo" href="{{tree.href}}" title="{{tree.shortDesc}}">
+        <a class="main-logo" href="{{tree.path}}{{tree.name}}.html" title="{{tree.shortDesc}}">
           <img src="/images/chtijs.svg" alt="ChtiJS" />
         </a>
         <nav class="main-nav">
