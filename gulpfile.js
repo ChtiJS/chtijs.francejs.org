@@ -17,7 +17,8 @@ require('matchdep').filterDev('gulp-*').forEach(function(module) {
 // Loading global options (files paths)
 var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'))
   , server
-  , prod = gulp.env.prod;
+  , prod = gulp.env.prod
+  , buffer = !gulp.env.stream;
 
 if(!prod) {
   // Finding the server IP
@@ -43,7 +44,7 @@ if(!prod) {
 
 // Fonts
 gulp.task('build_fonts', function(cb) {
-  gulp.src(conf.src.icons + '/**/*.svg', {buffer: conf.buffer})
+  gulp.src(conf.src.icons + '/**/*.svg', {buffer: buffer})
     .pipe(gIconfont({
       'fontName': 'iconsfont',
       'appendCodepoints': true
@@ -56,16 +57,16 @@ gulp.task('build_fonts', function(cb) {
 gulp.task('build_images', function(cb) {
   var n = 0;
   function end() { ++n==2 && cb(); }
-  gulp.src(conf.src.images + '/**/*.svg') // , {buffer: conf.buffer} no streams
+  gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
     .pipe(gIf(!prod, gWatch()))
     .pipe(gIf(prod, gSvgmin()))
     .pipe(gIf(!prod, gLivereload(server)))
     .pipe(gulp.dest(conf.build.images))
     .once('end', end);
 
-  gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}') // , {buffer: conf.buffer} no streams
+  gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
     .pipe(gIf(!prod, gWatch()))
-    .pipe(gIf(prod, gImagemin()))
+    .pipe(gIf(prod, gStreamify(gImagemin())))
     .pipe(gIf(!prod, gLivereload(server)))
     .pipe(gulp.dest(conf.build.images))
     .once('end', end);
@@ -73,8 +74,8 @@ gulp.task('build_images', function(cb) {
 
 // CSS
 gulp.task('build_styles', function(cb) {
-  gulp.src(conf.src.less + '/main.less') // , {buffer: conf.buffer} no streams
-    .pipe(gLess())
+  gulp.src(conf.src.less + '/main.less', {buffer: buffer})
+    .pipe(gStreamify((gLess())))
     .pipe(gIf(prod, gMinifyCss()))
     .pipe(gIf(!prod, gLivereload(server)))
     .pipe(gulp.dest(conf.build.css))
@@ -85,11 +86,11 @@ gulp.task('build_styles', function(cb) {
 gulp.task('build_js', function(cb) {
   var n = 0;
   function end() { ++n==3 && cb(); }
-  gulp.src(conf.src.js + '/**/*.js', {buffer: conf.buffer})
-    .pipe(gJshint())
+  gulp.src(conf.src.js + '/**/*.js', {buffer: buffer})
+    .pipe(gStreamify(gJshint()))
     .once('end', end);
 
-  gulp.src(conf.src.js + '/frontend.js', {buffer: conf.buffer && !prod}) // no streams in prod
+  gulp.src(conf.src.js + '/frontend.js', {buffer: buffer})
     .once('end', end) // gBrowserify never triggers 'end' ...
     .pipe(gBrowserify())
     .pipe(gIf(prod, gUglify()))
@@ -114,7 +115,7 @@ gulp.task('build_html', function(cb) {
     autoescape: true
   });
 
-  gulp.src(conf.src.content + '/**/*.md') // , {buffer: conf.buffer} no streams
+  gulp.src(conf.src.content + '/**/*.md', {buffer: buffer||true}) // Streams not supported
     .pipe(gMdvars())
     .pipe(gVartree({
       root: tree,
@@ -226,19 +227,18 @@ gulp.task('publish', function() {
 // The default task
 gulp.task('default', function() {
   // Starting the dev static server
-
   var app = express();
   app.use(express.query())
     .use(express.bodyParser())
     .use(express.static(Path.resolve(__dirname, conf.build.root)))
     .listen(8080, function() {
       console.log('Listening on %d', 35729);
+      require('open')(conf.baseURL+'/index.html');
+      gulp.watch([conf.src.icons + '/**/*.svg'], function(event) {
+        gulp.run('build_fonts');
+      });
+      gulp.run('build');
     });
   server = tinylr();
   server.listen(35729);
-  require('open')(conf.baseURL+'/index.html');
-  gulp.watch([conf.src.icons + '/**/*.svg'], function(event) {
-    gulp.run('build_fonts');
-  });
-  gulp.run('build');
 });
