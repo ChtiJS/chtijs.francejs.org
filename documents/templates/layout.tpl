@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-    <title>{{name}}{% if metadata.title %} : {{ metadata.title }}{% endif %}</title>
-    <meta name="description" content="{% if metadata.title %}{{ metadata.title }}{% else %}{{description}}{% endif %}">
+    <title>{{conf.name}}{% if metadata.title %} : {{ metadata.title }}{% endif %}</title>
+    <meta name="description" content="{% if metadata.description %}{{ metadata.description }}{% else %}{{conf.description}}{% endif %}">
     <meta name="robots" content="index,follow">
     <!--[if IE 8]><link rel="stylesheet" href="{{conf.baseURL}}/css/main.ie.css"><![endif]-->
     <!--[if gt IE 8]><!--><link rel="stylesheet" href="{{conf.baseURL}}/css/main.css"><!--<![endif]-->
