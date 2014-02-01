@@ -6,6 +6,10 @@
 *.name=archives
 *.link=Blog
 *.title=Voir les entrées du blog
++.href=/members.html
+*.name=members
+*.link=Membres
+*.title=Annuaire de nos membres
 +.href=/about.html
 *.name=about
 *.link=À propos
