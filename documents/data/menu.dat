@@ -6,7 +6,7 @@
 *.name=archives
 *.link=Blog
 *.title=Voir les entrées du blog
-+.href=/members.html
++.href=/members/
 *.name=members
 *.link=Membres
 *.title=Annuaire de nos membres

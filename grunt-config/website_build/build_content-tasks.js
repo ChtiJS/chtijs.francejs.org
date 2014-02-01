@@ -34,6 +34,22 @@ module.exports = function(grunt) {
       return -1;
     });
 
+    // listing des membres
+    var members = [];
+    var request = require("request");
+    request("https://api.github.com/orgs/chtijs/public_members", function(gitErr, gitResp, gitMembers) {
+      var i;
+      if (!gitErr && gitResp.statusCode === 200) {
+        for (i = 0; i < gitMembers.data.length; i++) {
+          request("http://osrc.dfm.io/" + gitMembers.data[i].login + ".json", function(osrcErr, osrcResp, user) {
+            if (!osrcErr && osrcResp.statusCode === 200) {
+              members.push(user);
+            }
+          });
+        }
+      }
+    });
+
     // moteur de templates
     var nunjucks = require('nunjucks');
     nunjucks.configure('documents/templates/', {
@@ -49,7 +65,8 @@ module.exports = function(grunt) {
       var nunjucksOptions = {
         env: grunt.task.target,
         metadata_site: options,
-        posts: posts
+        posts: posts,
+	members: members
       };
 
       var aMDContent = grunt.file.read(file.src);
