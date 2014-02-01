@@ -35,20 +35,37 @@ module.exports = function(grunt) {
     });
 
     // listing des membres
-    var members = [];
-    var request = require("request");
-    request("https://api.github.com/orgs/chtijs/public_members", function(gitErr, gitResp, gitMembers) {
-      var i;
-      if (!gitErr && gitResp.statusCode === 200) {
-        for (i = 0; i < gitMembers.data.length; i++) {
-          request("http://osrc.dfm.io/" + gitMembers.data[i].login + ".json", function(osrcErr, osrcResp, user) {
-            if (!osrcErr && osrcResp.statusCode === 200) {
-              members.push(user);
-            }
-          });
+    var members = [], count = -1,
+        request = require("request"),
+        Q = require("q");
+    
+    function githubMembers() {
+      var d = Q.defer();
+      request("https://api.github.com/orgs/chtijs/public_members", function(gitErr, gitResp, gitMembers) {
+        if (!gitErr && gitResp.statusCode === 200) {
+          d.resolve(gitMembers.data);
         }
-      }
-    });
+      });
+      return d.promise;
+    }
+
+    function dfmMembers(gitMembers) {
+      var mbrs = new Array;
+      gitMembers.forEach(function(member, index) {
+        var d = Q.defer();
+        request("http://osrc.dfm.io/" + gitMembers[i].login + ".json", function(osrcErr, osrcResp, user) {
+            if (!osrcErr && osrcResp.statusCode === 200) {
+              d.resolve(user);
+            }
+        });
+        mbrs.push(d.promise);
+      });
+      return Q.all(mbrs);
+    };
+
+
+githubMembers().then(dfmMembers).done(function() {
+
 
     // moteur de templates
     var nunjucks = require('nunjucks');
@@ -66,9 +83,9 @@ module.exports = function(grunt) {
         env: grunt.task.target,
         metadata_site: options,
         posts: posts,
-	members: members
-      };
-
+        members: members
+      }; 
+  
       var aMDContent = grunt.file.read(file.src);
 
       // lis les méta-données
@@ -101,20 +118,17 @@ module.exports = function(grunt) {
         });
       }
       setSelected(nunjucksOptions.menu);
-
       // convertir le mardown en html
       nunjucksOptions.content = marked(matches ? matches[1]+matches[3] : aMDContent);
-
       // transmettre le tout aux templates
       var finalHtml = nunjucks.render(
         (nunjucksOptions.metadata.template || 'index') + '.tpl',
         nunjucksOptions);
-
+  
       // écrire le fichier
       grunt.file.write(file.dest, finalHtml);
       grunt.log.writeln('File "' + file.dest + '" created.');
     });
   });
-
-
+});
 };
