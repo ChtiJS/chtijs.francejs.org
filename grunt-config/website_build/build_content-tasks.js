@@ -35,100 +35,124 @@ module.exports = function(grunt) {
     });
 
     // listing des membres
-    var members = [], count = -1,
-        request = require("request"),
+    var request = require("request"),
         Q = require("q");
     
-    function githubMembers() {
+    var githubMembers = function(obj) {
       var d = Q.defer();
-      request("https://api.github.com/orgs/chtijs/public_members", function(gitErr, gitResp, gitMembers) {
+      request({url: "https://api.github.com/orgs/chtijs/public_members",
+        headers: {
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 Safari/537.36"
+        }
+      }, function(gitErr, gitResp, gitMembers) {
         if (!gitErr && gitResp.statusCode === 200) {
-          d.resolve(gitMembers.data);
+          obj.members = JSON.parse(gitResp.body);
+          d.resolve(obj);
         }
       });
       return d.promise;
     }
 
-    function dfmMembers(gitMembers) {
-      var mbrs = new Array;
-      gitMembers.forEach(function(member, index) {
+    var dfmMembers = function(obj) {
+      var members = new Array;
+      obj.members.forEach(function(member, index) {
         var d = Q.defer();
-        request("http://osrc.dfm.io/" + gitMembers[i].login + ".json", function(osrcErr, osrcResp, user) {
+        request("http://osrc.dfm.io/" + member.login + ".json", function(osrcErr, osrcResp, user) {
             if (!osrcErr && osrcResp.statusCode === 200) {
-              d.resolve(user);
+              d.resolve(JSON.parse(osrcResp.body));
             }
         });
-        mbrs.push(d.promise);
+        var t = d.promise;
+        console.log("name");
+        for (var i = 0; i < obj.members.length; i++) {
+          if (obj.members[i].login === t.username) {
+            obj.members.splice(i, 1);
+//	    console.log("111   " + t);
+            obj.members.push(t);
+          }
+	  members.push(t);
+        }
       });
-      return Q.all(mbrs);
+      obj.members = members
+      return Q.all(obj);
     };
 
 
-githubMembers().then(dfmMembers).done(function() {
+    var obj = {
+      files: this.files,
+      env: grunt.task.target,
+      options: options,
+      posts: posts,
+      members: []
+    };
+
+    githubMembers(obj).then(dfmMembers).done(function(obj) {
+     
+//for(var i in obj.members) { console.log(obj.members[i].name);}
 
 
-    // moteur de templates
-    var nunjucks = require('nunjucks');
-    nunjucks.configure('documents/templates/', {
-      autoescape: true
-    });
+      // moteur de templates
+      var nunjucks = require('nunjucks');
+      nunjucks.configure('documents/templates/', {
+        autoescape: true
+      });
 
-    // chargement du menu
-    var menuDatas = grunt.file.read('documents/data/menu.dat');
+      // chargement du menu
+      var menuDatas = grunt.file.read('documents/data/menu.dat');
 
-    // pour chaque fichier ramassé par la configuration
-    this.files.forEach(function(file) {
+      // pour chaque fichier ramassé par la configuration
+      obj.files.forEach(function(file) {
 
-      var nunjucksOptions = {
-        env: grunt.task.target,
-        metadata_site: options,
-        posts: posts,
-        members: members
-      }; 
+        var nunjucksOptions = {
+          env: obj.env,
+          metadata_site: obj.options,
+          posts: obj.posts,
+          members: obj.members
+        }; 
+    
+        var aMDContent = grunt.file.read(file.src);
   
-      var aMDContent = grunt.file.read(file.src);
-
-      // lis les méta-données
-      var matches = aMDContent.match(/^([^]*)<!-- varstream([^]*)-->([^]*)$/im);
-      if(matches) {
-        new VarStream(nunjucksOptions,'metadata').write(matches[2]);
-      }
-      
-      // ajoute le menu
-      new VarStream(nunjucksOptions,'menu').write(menuDatas);
-      
-      // marque l'item sélectioné
-      // Pas de récursion dans NunJucks:(, mais prêt pour plus tard
-      function setSelected(parent) {
-        parent.forEach(function(item) {
-          var href = item.href.lastIndexOf('/') === item.href.length - 1 ?
-            item.href + 'index.html' :
-            item.href;
-          item.parent = parent;
-          if(file.dest.substr(3) === href) {
-            do {
-              item.selected = true;
-              item = item.parent && item !== nunjucksOptions.menu ?
-                item.parent :
-                null;
-            } while(item)
-          } else if(item.childs) {
-            item.childs.forEach(setSelected(item));
-          }
-        });
-      }
-      setSelected(nunjucksOptions.menu);
-      // convertir le mardown en html
-      nunjucksOptions.content = marked(matches ? matches[1]+matches[3] : aMDContent);
-      // transmettre le tout aux templates
-      var finalHtml = nunjucks.render(
-        (nunjucksOptions.metadata.template || 'index') + '.tpl',
-        nunjucksOptions);
-  
-      // écrire le fichier
-      grunt.file.write(file.dest, finalHtml);
-      grunt.log.writeln('File "' + file.dest + '" created.');
+        // lis les méta-données
+        var matches = aMDContent.match(/^([^]*)<!-- varstream([^]*)-->([^]*)$/im);
+        if(matches) {
+          new VarStream(nunjucksOptions,'metadata').write(matches[2]);
+        }
+        
+        // ajoute le menu
+        new VarStream(nunjucksOptions,'menu').write(menuDatas);
+        
+        // marque l'item sélectioné
+        // Pas de récursion dans NunJucks:(, mais prêt pour plus tard
+        function setSelected(parent) {
+          parent.forEach(function(item) {
+            var href = item.href.lastIndexOf('/') === item.href.length - 1 ?
+              item.href + 'index.html' :
+              item.href;
+            item.parent = parent;
+            if(file.dest.substr(3) === href) {
+              do {
+                item.selected = true;
+                item = item.parent && item !== nunjucksOptions.menu ?
+                  item.parent :
+                  null;
+              } while(item)
+            } else if(item.childs) {
+              item.childs.forEach(setSelected(item));
+            }
+          });
+        }
+        setSelected(nunjucksOptions.menu);
+        // convertir le mardown en html
+        nunjucksOptions.content = marked(matches ? matches[1]+matches[3] : aMDContent);
+        // transmettre le tout aux templates
+        var finalHtml = nunjucks.render(
+          (nunjucksOptions.metadata.template || 'index') + '.tpl',
+          nunjucksOptions);
+   
+        // écrire le fichier
+        grunt.file.write(file.dest, finalHtml);
+        grunt.log.writeln('File "' + file.dest + '" created.');
+      });
     });
   });
-});
 };
