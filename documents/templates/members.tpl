@@ -6,7 +6,7 @@
   {% for member in members %}
     <article class="main-members__member">
       <h2>
-        {{member.name}}
+        {{member.login}}
       </h2>
     </article>
   {% endfor %}

@@ -65,11 +65,9 @@ module.exports = function(grunt) {
 
     var dfmMembers = function(obj) {
       var members = new Array, d = Q.defer();
-      obj.members.forEach(function(member, index) {
-        var m = (fetch(member));
-	obj.members.splice(index, 1);
-        obj.members.push(m);
-        d.resolve(obj);
+      obj.members.forEach(function(member) {
+        members.push(fetch(member));
+        d.resolve(obj, members);
       });
       return d.promise;
     };
@@ -83,9 +81,9 @@ module.exports = function(grunt) {
       members: []
     };
 
-    githubMembers(obj).then(dfmMembers).done(function(obj) {
-
-    for (var i = 0; i < obj.members.length; i++) { console.log(obj.members[i]);}
+    githubMembers(obj).then(dfmMembers).done(function(obj, mm) {
+console.log(mm);     
+for (var i in obj.members) { console.log(obj.members[i].name);}
 
 
       // moteur de templates
