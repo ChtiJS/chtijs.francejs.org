@@ -52,11 +52,10 @@
     "express": "~3.4.8",
     "nunjucks": "~1.0.1",
     "rimraf": "~2.2.6",
-    "open": "0.0.4"
-  },
-  "dependencies": {
+    "open": "0.0.4",
     "request": "~2.33.0",
     "streamqueue": "0.0.2",
-    "duplexer": "~0.1.1"
+    "duplexer": "~0.1.1",
+    "feedr": "~2.7.7"
   }
 }

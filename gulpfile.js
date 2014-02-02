@@ -25,8 +25,6 @@ var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'))
   , buffer = !gulp.env.stream
 ;
 
-console.log(noreq);
-
 if(!prod) {
   // Finding the server IP
   conf.ip = '127.0.0.1';
