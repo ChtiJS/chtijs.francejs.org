@@ -9,18 +9,22 @@ var Stream = require('stream')
 
 const PLUGIN_NAME = 'gulp-ghmembers';
 
-// Reading the access token
 var token;
-try {
-  token = fs.readFileSync(__dirname + '/../.token', 'utf-8');
-} catch(err) {
-  throw new Error('Create a .token file containing an API token at the root of'
-    + ' the project (go to https://github.com/settings/applications).');
-}
-
 
 // Request helper
 function ghrequest(url, stream, cb) {
+
+  // Reading the access token if not doe yet
+  if(!token) {
+    try {
+      token = fs.readFileSync(__dirname + '/../.token', 'utf-8');
+    } catch(err) {
+      throw new Error('Create a .token file containing an API token at the root of'
+        + ' the project (go to https://github.com/settings/applications).');
+    }
+  }
+
+  // GitHub request helper
   request({
     url: url,
     headers: {
