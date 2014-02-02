@@ -55,6 +55,8 @@
     "open": "0.0.4"
   },
   "dependencies": {
-    "request": "~2.33.0"
+    "request": "~2.33.0",
+    "streamqueue": "0.0.2",
+    "duplexer": "~0.1.1"
   }
 }

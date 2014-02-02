@@ -1,6 +1,7 @@
 /node_modules
 /dist
 /www
+.token
 
 ## https://help.github.com/articles/ignoring-files
 

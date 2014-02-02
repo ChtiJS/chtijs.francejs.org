@@ -6,6 +6,7 @@ var gulp = require('gulp')
   , express = require('express')
   , tinylr = require('tiny-lr')
   , rimraf = require('rimraf')
+  , gGhmembers = require('./gulpplugins/ghmembers')
 ;
 
 require('matchdep').filterDev('gulp-*').forEach(function(module) {
@@ -117,6 +118,11 @@ gulp.task('build_html', function(cb) {
 
   gulp.src(conf.src.content + '/**/*.md', {buffer: buffer||true}) // Streams not supported
     .pipe(gMdvars())
+    .pipe(gGhmembers({
+      organization: 'chtijs',
+      base: conf.src.content,
+      buffer:  buffer||true // Streams not supported
+    }))
     .pipe(gVartree({
       root: tree,
       index: 'index',
