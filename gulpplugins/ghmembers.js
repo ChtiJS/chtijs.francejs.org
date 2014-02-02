@@ -9,9 +9,11 @@ var Stream = require('stream')
 
 const PLUGIN_NAME = 'gulp-ghmembers';
 
-// Create your own : https://github.com/settings/applications
-var token = fs.readFileSync(__dirname + '/../.token', 'utf-8');
-if(!token) {
+// Reading the access token
+var token;
+try {
+  token = fs.readFileSync(__dirname + '/../.token', 'utf-8');
+} catch(err) {
   throw new Error('Create a .token file containing an API token at the root of'
     + ' the project (go to https://github.com/settings/applications).');
 }
