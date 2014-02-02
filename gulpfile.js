@@ -8,6 +8,7 @@ var gulp = require('gulp')
   , rimraf = require('rimraf')
   , gGhmembers = require('./gulpplugins/ghmembers')
   , gPlanet = require('./gulpplugins/planet')
+  , Stream = require('stream')
 ;
 
 require('matchdep').filterDev('gulp-*').forEach(function(module) {
@@ -19,9 +20,12 @@ require('matchdep').filterDev('gulp-*').forEach(function(module) {
 // Loading global options (files paths)
 var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'))
   , server
-  , prod = gulp.env.prod
+  , prod = !!gulp.env.prod
+  , noreq = !!gulp.env.noreq
   , buffer = !gulp.env.stream
 ;
+
+console.log(noreq);
 
 if(!prod) {
   // Finding the server IP
@@ -120,12 +124,12 @@ gulp.task('build_html', function(cb) {
 
   gulp.src(conf.src.content + '/**/*.md', {buffer: buffer||true}) // Streams not supported
     .pipe(gMdvars())
-    .pipe(gGhmembers({
+    .pipe(noreq ? new Stream.PassThrough({objectMode: true}) : gGhmembers({
       organization: 'chtijs',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
     }))
-    .pipe(gPlanet({
+    .pipe(noreq ? new Stream.PassThrough({objectMode: true}) : gPlanet({
       base: conf.src.content,
       blogs: conf.blogs,
       buffer:  buffer||true // Streams not supported
