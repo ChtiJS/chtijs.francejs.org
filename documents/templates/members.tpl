@@ -6,7 +6,10 @@
   {% for member in members %}
     <article class="main-members__member">
       <h2>
-        {{member.login}}
+	<a href="{{member.html_url}}" target="__blank">
+          <img src="{{member.avatar_url}}" />
+          {{member.login}}
+        </a>
       </h2>
     </article>
   {% endfor %}

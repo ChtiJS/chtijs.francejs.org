@@ -83,7 +83,7 @@ module.exports = function(grunt) {
       members: []
     };
 
-    githubMembers(obj).then(dfmMembers).done(function(obj) {
+    githubMembers(obj).done(function(obj) {
 
     for (var i = 0; i < obj.members.length; i++) { console.log(obj.members[i]);}
 
