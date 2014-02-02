@@ -7,6 +7,7 @@ var gulp = require('gulp')
   , tinylr = require('tiny-lr')
   , rimraf = require('rimraf')
   , gGhmembers = require('./gulpplugins/ghmembers')
+  , gPlanet = require('./gulpplugins/planet')
 ;
 
 require('matchdep').filterDev('gulp-*').forEach(function(module) {
@@ -19,7 +20,8 @@ require('matchdep').filterDev('gulp-*').forEach(function(module) {
 var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'))
   , server
   , prod = gulp.env.prod
-  , buffer = !gulp.env.stream;
+  , buffer = !gulp.env.stream
+;
 
 if(!prod) {
   // Finding the server IP
@@ -121,6 +123,11 @@ gulp.task('build_html', function(cb) {
     .pipe(gGhmembers({
       organization: 'chtijs',
       base: conf.src.content,
+      buffer:  buffer||true // Streams not supported
+    }))
+    .pipe(gPlanet({
+      base: conf.src.content,
+      blogs: conf.blogs,
       buffer:  buffer||true // Streams not supported
     }))
     .pipe(gVartree({

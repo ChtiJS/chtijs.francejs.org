@@ -21,3 +21,7 @@ build.root=./www
 ^.images=./www/images
 ^.frontjs=./www/js
 
+# Member blogs
+blogs.+.feed=http://www.insertafter.com/articles,javascript.atom
+blogs.*.author=Nicolas Froidure
+blogs.*.url=http://www.insertafter.com/
