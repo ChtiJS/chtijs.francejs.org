@@ -44,14 +44,17 @@
     "gulp-imagemin": "latest",
     "gulp-rename": "latest",
     "gulp-livereload": "latest",
+    "gulp-streamify": "latest",
+    "gulp-util": "~2.2.12",
     "gulp": "latest",
     "varstream": "latest",
     "tiny-lr": "0.0.5",
-    "gulp-util": "~2.2.12",
     "express": "~3.4.8",
     "nunjucks": "~1.0.1",
     "rimraf": "~2.2.6",
-    "open": "0.0.4",
-    "gulp-streamify": "0.0.1"
+    "open": "0.0.4"
+  },
+  "dependencies": {
+    "request": "~2.33.0"
   }
 }
