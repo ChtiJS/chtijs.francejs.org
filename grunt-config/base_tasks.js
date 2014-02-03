@@ -15,6 +15,7 @@ module.exports = function(grunt) {
       'less:dev',
       'copy:images_dev',
       'copy:css_dev',
+      'build_ghmembers:dev',
       'build_content:dev',
       'connect:livereload',
       'watch'
@@ -48,5 +49,5 @@ module.exports = function(grunt) {
     ]);
 
   });
-	
+
 };
