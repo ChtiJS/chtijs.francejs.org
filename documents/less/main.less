@@ -76,7 +76,7 @@ body > header {
 .main-logo {
   display: block;
 }
-.main-container {  
+.main-container {
   max-width: @L;
   margin-left: @headerWidth + @gutter*2;
   display: inline-block;
@@ -89,7 +89,7 @@ body > header {
   background:@header;
   text-align: center;
   img {
-    height:(@vrythm*8)  
+    height:(@vrythm*8)
   }
 }
 
@@ -155,9 +155,22 @@ body > header {
   padding: @vrythm 0;
   border-bottom: @border solid #ddd;
   &:last-child {
-    border-bottom: 0;    
+    border-bottom: 0;
   }
 }
+
+/* Member */
+.main-members__member {
+  padding: @vrythm 0;
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+.main-members__member > .pict, .main-members__member > .link { float: left; }
+.main-members__member > .link { margin-left: 30px; line-height: 80px; }
+.main-members__member > .clr { clear: both; }
+
+
 
 /* Footer */
 

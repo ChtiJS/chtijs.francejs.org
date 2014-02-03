@@ -34,6 +34,19 @@ module.exports = function(grunt) {
       return -1;
     });
 
+    var fs = require("fs"),
+      path = require("path"),
+      members = JSON.parse(fs.readFileSync(path.join(__dirname, "/../../documents/data/members.dat"), "utf-8"));
+
+    // tri par username
+    members.sort(function(mb1, mb2) {
+      if(mb1.login < mb2.login) {
+        return 1;
+      }
+      return -1;
+    });
+
+
     // moteur de templates
     var nunjucks = require('nunjucks');
     nunjucks.configure('documents/templates/', {
@@ -49,7 +62,8 @@ module.exports = function(grunt) {
       var nunjucksOptions = {
         env: grunt.task.target,
         metadata_site: options,
-        posts: posts
+        posts: posts,
+        members: members
       };
 
       var aMDContent = grunt.file.read(file.src);

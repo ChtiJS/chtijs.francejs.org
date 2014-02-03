@@ -35,6 +35,7 @@ module.exports = function(grunt) {
       'imagemin:dist',
       'svgmin:dist',
       'cname:publish',
+      'build_ghmembers:dist',
       'build_content:dist'
     ]);
 

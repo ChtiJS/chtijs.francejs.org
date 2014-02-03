@@ -5,9 +5,10 @@ module.exports = function(grunt) {
     build_ghmembers: {
       dev: {
         expand: true,
-        cwd: '<%= conf.src.content %>',
-        dest: '<%= conf.dev.root %>',
-        ext: '.html',
+        cwd: "<%= conf.src.content %>",
+        src: ["**/*.md"],
+        dest: "<%= conf.src.content %>",
+        ext: ".md",
         options: {
           targetBase: "",
           organization: "chtijs",
@@ -16,9 +17,10 @@ module.exports = function(grunt) {
       },
       dist: {
         expand: true,
-        cwd: '<%= conf.src.content %>',
-        dest: '<%= conf.dist.root %>',
-        ext: '.html',
+        cwd: "<%= conf.src.content %>",
+        src: ["**/*.md"],
+        dest: "<%= conf.src.content %>",
+        ext: ".md",
         options: {
           targetBase: "<%= conf.dist.root %>",
           base_url: "<%= conf.baseURL %>",
@@ -31,5 +33,4 @@ module.exports = function(grunt) {
   };
 
   return config;
-
 };
