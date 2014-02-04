@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-	/* HTML page builder */
+  /* HTML page builder */
   grunt.registerMultiTask('build_content', 'build the website html pages', function() {
 
     // Merge task-specific and/or target-specific options with these defaults.
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
       }
       posts[posts.length-1].href = file.substring(28,39);
     });
-    
+
     // tri par date
     posts.sort(function(post1, post2) {
       if(new Date(post1.created).getTime() < new Date(post2.created).getTime()) {
@@ -33,6 +33,19 @@ module.exports = function(grunt) {
       }
       return -1;
     });
+
+    var fs = require("fs"),
+      path = require("path"),
+      members = JSON.parse(fs.readFileSync(path.join(__dirname, "/../../documents/data/members.dat"), "utf-8"));
+
+    // tri par username
+    members.sort(function(mb1, mb2) {
+      if(mb1.login < mb2.login) {
+        return 1;
+      }
+      return -1;
+    });
+
 
     // moteur de templates
     var nunjucks = require('nunjucks');
@@ -49,7 +62,8 @@ module.exports = function(grunt) {
       var nunjucksOptions = {
         env: grunt.task.target,
         metadata_site: options,
-        posts: posts
+        posts: posts,
+        members: members
       };
 
       var aMDContent = grunt.file.read(file.src);
@@ -59,10 +73,10 @@ module.exports = function(grunt) {
       if(matches) {
         new VarStream(nunjucksOptions,'metadata').write(matches[2]);
       }
-      
+
       // ajoute le menu
       new VarStream(nunjucksOptions,'menu').write(menuDatas);
-      
+
       // marque l'item sélectioné
       // Pas de récursion dans NunJucks:(, mais prêt pour plus tard
       function setSelected(parent) {

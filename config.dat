@@ -11,6 +11,7 @@ src.images=./documents/images
 src.stylesheets=./documents/less
 src.css=./documents/css
 src.blog_content=./documents/content/archives
+src.members_content=./documents/content/members
 src.scripts=./src
 
 # Destination directories
