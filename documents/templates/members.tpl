@@ -8,8 +8,9 @@
         <img class="pict" src="{{ member.avatar_url }}"/>
         <div class="link">
           <a href="{{ member.html_url }}" target="__blank">
-            {{ member.login }}
+            {{ member.login }}&nbsp;&nbsp;-&nbsp;&nbsp; {{ member.name }}
           </a>
+	  <p>{{ member.bio }}</p>
         </div>
         <div class="clr"></div>
     </article>

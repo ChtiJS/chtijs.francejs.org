@@ -14,6 +14,7 @@ module.exports = function(grunt) {
     function ghmembers() {
       var d = Q.defer(),
         url = "https://api.github.com/orgs/" + options.organization + "/public_members",
+        usr_url = "https://api.github.com/users/",
         token;
       // Reading the access token if not doe yet
       if(!token) {
@@ -31,7 +32,22 @@ module.exports = function(grunt) {
           Authorization: "token " + token
         }
       }, function(err, res, body) {
-        d.resolve(JSON.parse(res.body));
+	var members = [], result = [], i;
+        members = JSON.parse(res.body);
+	for (i = 0; i < members.length; i++) {
+	  request({
+	    url: usr_url + members[i].login,
+            headers: {
+              "Accept": "application/json",
+	      "User-Agent": "ChtiJS/chtijs.francejs.org",
+              "Authorization": "token " + token
+	    }
+	  }, function(uErr, uResp, uBody) {
+            result.push(JSON.parse(uResp.body));
+	    if (result.length === members.length)
+	      d.resolve(result);
+	  });
+	}
       });
       return d.promise;
     }
@@ -51,13 +67,13 @@ module.exports = function(grunt) {
     }
 
     ghmembers().then(function(gmembers) {
-      dfmmembers(gmembers).then(function(dmembers) {
+      //dfmmembers(gmembers).then(function(dmembers) {
         var dest = path.join(__dirname, "/../../documents/data/members.dat");
         // écrire le fichier
         grunt.file.write(dest, JSON.stringify(gmembers));
         grunt.log.writeln('File "' + dest + '" created.');
         taskdone();
-      });
+      //});
     });
 
   });
