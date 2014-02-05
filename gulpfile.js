@@ -65,14 +65,14 @@ gulp.task('build_images', function(cb) {
   gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
     .pipe(gIf(!prod, gWatch()))
     .pipe(gIf(prod, gSvgmin()))
-    .pipe(gIf(!prod, gLivereload(server)))
+    .pipe(prod  ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
     .pipe(gulp.dest(conf.build.images))
     .once('end', end);
 
   gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
-    .pipe(gIf(!prod, gWatch()))
+    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gWatch())
     .pipe(gIf(prod, gStreamify(gImagemin())))
-    .pipe(gIf(!prod, gLivereload(server)))
+    .pipe(prod  ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
     .pipe(gulp.dest(conf.build.images))
     .once('end', end);
 });
@@ -82,7 +82,7 @@ gulp.task('build_styles', function(cb) {
   gulp.src(conf.src.less + '/main.less', {buffer: buffer})
     .pipe(gStreamify((gLess())))
     .pipe(gIf(prod, gMinifyCss()))
-    .pipe(gIf(!prod, gLivereload(server)))
+    .pipe(prod  ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
     .pipe(gulp.dest(conf.build.css))
     .once('end', cb);
 });
@@ -100,7 +100,7 @@ gulp.task('build_js', function(cb) {
     .pipe(gBrowserify())
     .pipe(gIf(prod, gUglify()))
     .pipe(gConcat('script.js'))
-    .pipe(gIf(!prod, gLivereload(server)))
+    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
     .pipe(gulp.dest(conf.build.frontjs));
 
   gulp.src(conf.src.js + '/frontend/vendors/**/*.js')
