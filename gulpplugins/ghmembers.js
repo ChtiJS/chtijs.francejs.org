@@ -19,8 +19,11 @@ function ghrequest(url, stream, cb) {
     try {
       token = fs.readFileSync(__dirname + '/../.token', 'utf-8');
     } catch(err) {
-      throw new Error('Create a .token file containing an API token at the root of'
-        + ' the project (go to https://github.com/settings/applications).');
+      gutil.log(PLUGIN_NAME + ': Create a .token file containing a GitHub API'
+        + ' token in the root directory of the project'
+        + ' (go to https://github.com/settings/applications)'
+        + ' since GitHub limit anonymous requests to 60 per hour. Or use'
+        + ' the --noreq option to avoid external requests.');
     }
   }
 
@@ -32,7 +35,7 @@ function ghrequest(url, stream, cb) {
       // http://developer.github.com/v3/#user-agent-required
       'User-Agent': 'ChtiJS/chtijs.francejs.org',
       // Create your token https://github.com/login/oauth/authorize?client_id=be0b80112ab0b6273c71
-      Authorization: 'token ' + token
+      Authorization: (token ? 'token ' + token : '')
     }
   }, function(err, response, body) {
     // Handle any error

@@ -65,16 +65,18 @@ gulp.task('build_images', function(cb) {
   gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
     .pipe(gIf(!prod, gWatch()))
     .pipe(gIf(prod, gSvgmin()))
-    .pipe(prod  ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
+    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
     .pipe(gulp.dest(conf.build.images))
     .once('end', end);
 
-  gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
-    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gWatch())
-    .pipe(gIf(prod, gStreamify(gImagemin())))
-    .pipe(prod  ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
-    .pipe(gulp.dest(conf.build.images))
-    .once('end', end);
+// BROKEN
+n++;
+//  gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
+//    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gWatch())
+//    .pipe(gIf(prod, gStreamify(gImagemin())))
+//    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
+//    .pipe(gulp.dest(conf.build.images))
+//    .once('end', end);
 });
 
 // CSS
@@ -82,7 +84,7 @@ gulp.task('build_styles', function(cb) {
   gulp.src(conf.src.less + '/main.less', {buffer: buffer})
     .pipe(gStreamify((gLess())))
     .pipe(gIf(prod, gMinifyCss()))
-    .pipe(prod  ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
+    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
     .pipe(gulp.dest(conf.build.css))
     .once('end', cb);
 });
