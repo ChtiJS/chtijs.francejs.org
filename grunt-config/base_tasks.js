@@ -16,6 +16,7 @@ module.exports = function(grunt) {
       'copy:images_dev',
       'copy:css_dev',
       'build_ghmembers:dev',
+      'build_credits:dev',
       'build_content:dev',
       'connect:livereload',
       'watch'
@@ -36,6 +37,7 @@ module.exports = function(grunt) {
       'svgmin:dist',
       'cname:publish',
       'build_ghmembers:dist',
+      'build_credits:dist',
       'build_content:dist'
     ]);
 

@@ -36,7 +36,8 @@ module.exports = function(grunt) {
 
     var fs = require("fs"),
       path = require("path"),
-      members = JSON.parse(fs.readFileSync(path.join(__dirname, "/../../documents/data/members.dat"), "utf-8"));
+      members = JSON.parse(fs.readFileSync(path.join(__dirname, "/../../documents/data/members.dat"), "utf-8")),
+      contributors = JSON.parse(fs.readFileSync(path.join(__dirname, "/../../documents/data/contributors.dat"), "utf-8"));
 
     // tri par username
     members.sort(function(mb1, mb2) {
@@ -46,6 +47,13 @@ module.exports = function(grunt) {
       return -1;
     });
 
+    // tri par username
+    contributors.sort(function(ct1, ct2) {
+      if (ct1.login < ct2.login) {
+        return 1;
+      }
+      return 1;
+    });
 
     // moteur de templates
     var nunjucks = require('nunjucks');
@@ -63,7 +71,8 @@ module.exports = function(grunt) {
         env: grunt.task.target,
         metadata_site: options,
         posts: posts,
-        members: members
+        members: members,
+	contributors: contributors
       };
 
       var aMDContent = grunt.file.read(file.src);

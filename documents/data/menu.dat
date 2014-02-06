@@ -14,3 +14,7 @@
 *.name=about
 *.link=À propos
 *.title=En savoir plus sur ChtiJS
++.href=/credits.html
+*.name=credits
+*.link=Crédits
+*.title=Crédits
