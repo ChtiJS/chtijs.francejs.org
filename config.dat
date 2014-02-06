@@ -12,6 +12,7 @@ src.stylesheets=./documents/less
 src.css=./documents/css
 src.blog_content=./documents/content/archives
 src.members_content=./documents/content/members
+src.credits_content=./documents/content/credits
 src.scripts=./src
 
 # Destination directories
