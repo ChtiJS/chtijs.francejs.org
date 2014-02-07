@@ -7,6 +7,7 @@ var gulp = require('gulp')
   , tinylr = require('tiny-lr')
   , rimraf = require('rimraf')
   , gGhmembers = require('./gulpplugins/ghmembers')
+  , gGhcontributors = require('./gulpplugins/ghcontributors')
   , gPlanet = require('./gulpplugins/planet')
   , Stream = require('stream')
 ;
@@ -124,8 +125,14 @@ gulp.task('build_html', function(cb) {
 
   gulp.src(conf.src.content + '/**/*.md', {buffer: buffer||true}) // Streams not supported
     .pipe(gMdvars())
+    .pipe(noreq ? new Stream.PassThrough({objectMode: true}) : gGhcontributors({
+      organization: 'ChtiJS',
+      project: 'chtijs.francejs.org',
+      base: conf.src.content,
+      buffer:  buffer||true // Streams not supported
+    }))
     .pipe(noreq ? new Stream.PassThrough({objectMode: true}) : gGhmembers({
-      organization: 'chtijs',
+      organization: 'ChtiJS',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
     }))

@@ -1,62 +1,12 @@
 var Stream = require('stream')
   , gutil = require('gulp-util')
   , path = require('path')
-  , fs = require('fs')
-  , request = require('request')
   , StreamQueue = require('streamqueue')
   , duplexer = require('duplexer')
+  , ghrequest = require('./ghrequest')
 ;
 
 const PLUGIN_NAME = 'gulp-ghmembers';
-
-var token;
-
-// Request helper
-function ghrequest(url, stream, cb) {
-
-  // Reading the access token if not doe yet
-  if(!token) {
-    try {
-      token = fs.readFileSync(__dirname + '/../.token', 'utf-8');
-    } catch(err) {
-      gutil.log(PLUGIN_NAME + ': Create a .token file containing a GitHub API'
-        + ' token in the root directory of the project'
-        + ' (go to https://github.com/settings/applications)'
-        + ' since GitHub limit anonymous requests to 60 per hour. Or use'
-        + ' the --noreq option to avoid external requests.');
-    }
-  }
-
-  // GitHub request helper
-  request({
-    url: url,
-    headers: {
-      Accept: 'application/json',
-      // http://developer.github.com/v3/#user-agent-required
-      'User-Agent': 'ChtiJS/chtijs.francejs.org',
-      // Create your token https://github.com/login/oauth/authorize?client_id=be0b80112ab0b6273c71
-      Authorization: (token ? 'token ' + token : '')
-    }
-  }, function(err, response, body) {
-    // Handle any error
-    if(err) {
-      stream.emit('error',
-        new gutil.PluginError(PLUGIN_NAME, err, {showStack: true}));
-      setImmediate(cb);
-      return;
-    }
-    if(200 != response.statusCode) {
-      stream.emit('error',
-        new gutil.PluginError(PLUGIN_NAME,
-          'Unexpexted status code (' + response.statusCode + ')',
-          {showStack: true}
-        ));
-      setImmediate(cb);
-      return;
-    }
-    cb(JSON.parse(body));
-  });
-}
 
 // Plugin function
 function ghmembersGulp(options) {
@@ -79,51 +29,29 @@ function ghmembersGulp(options) {
   // Get members list
   ghrequest(
     'https://api.github.com/orgs/'+options.organization+'/public_members',
-    ghStream, function(results) {
-    if(!results) {
-      ghStream.end();
+    ghStream, function(err, results) {
+    if(err) {
+      stream.emit('error',
+        new gutil.PluginError(PLUGIN_NAME, err, {showStack: true}));
+    } else {
+      // Creating the members index
+      var file = new gutil.File({
+        cwd: options.cwd,
+        base: options.base,
+        path: path.join(options.base, options.folder, 'index.md'),
+        contents: new Buffer(0)
+        })
+        , n = 0;
+      file[options.prop] = {
+        datas: results,
+        title: 'Contributeurs',
+        description: 'Découvrez la liste des contributeurs de ce site.',
+        shortTitle: 'Contributeurs',
+        template: 'archives'
+      };
+      ghStream.write(file);
     }
-    // Creating the members index
-    var file = new gutil.File({
-      cwd: options.cwd,
-      base: options.base,
-      path: path.join(options.base, options.folder, 'index.md'),
-      contents: new Buffer(0)
-      })
-      , n = 0;
-    file[options.prop] = {
-      datas: results,
-      title: 'Annuaire des membres',
-      description: 'Découvrez l\'annuaire des membres',
-      shortTitle: 'Membres',
-      template: 'archives'
-    };
-    // Retrieve members informations
-    n = file.metas.datas.length;
-    file.metas.datas.forEach(function(member) {
-      ghrequest(member.url, ghStream, function(results) {
-        if(results) {
-          var file = new gutil.File({
-            cwd: options.cwd,
-            base: options.base,
-            path: path.join(options.base, options.folder, member.login + '/index.md'),
-            contents: new Buffer(0)
-          });
-          file[options.prop] = {
-            datas: results,
-            title: 'Fiche du membre ' + member.login,
-            description: 'Découvrez la fiche du membre ' + member.login + '.',
-            shortTitle: member.login,
-            template: 'archives'
-          };
-          ghStream.write(file);
-        }
-        if(0 == --n) {
-          ghStream.end();
-        }
-      });
-    });
-    ghStream.write(file);
+    ghStream.end();
   });
 
   return duplexer(stream, new StreamQueue({

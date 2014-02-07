@@ -1,14 +1,15 @@
 <!--VarStream
-title=Blog
-description=Découvrez les articles du blog de ChtiJS.
-shortTitle=Blog
-shortDesc=Lire notre blog
+title=Résumés des rencontres
+description=Découvrez les résupmés des rencontre du groupe ChtiJS.
+shortTitle=Meetups
+shortDesc=Lire les résumés des meetups précédents
 keywords.+=JavaScript
 keywords.+=blog
 keywords.+=ChtiJS
 template=archives
 -->
 
-# Archives
+# Résumés des rencontres
 
-Tous les articles, comptes rendus, etc...
+Découvrez le résumé de nos rencontres précédentes.
+
