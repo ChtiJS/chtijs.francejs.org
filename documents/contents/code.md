@@ -9,12 +9,19 @@ keywords.+=Guideline
 
 # Conventions de code
 
-Message à l'attention de la communauté rédigé par le bureau des conventions hystériques ([@kdisneur](https://twitter.com/kdisneur) et [@flexbox](https://twitter.com/_flexbox))
+Message à l'attention de la communauté rédigé par le bureau des conventions
+ hystériques ([@kdisneur](https://twitter.com/kdisneur) et
+ [@flexbox](https://twitter.com/_flexbox)).
 
 ## Pourquoi c'est important ?
 
 * Garder un code source cohérent, facilement maintenable et lisible
 * Avoir un format universel est indispensable pour garder un projet évolutif
+
+## Les règles
+
+[Les règles de Google](https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+ pour le JavaScript sont communément admises.
 
 ## Personnaliser son éditeur
 
