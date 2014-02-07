@@ -32,7 +32,7 @@ La communauté ChtiJS est ouverte à toutes les bonnes volontés, débutants ou
 
 ## Prochaine rencontre
 
-La date de la prochaine édition de ChtiJS reste à déterminer. En attendant, consultez [le compte rendu du ChtiJS#6](/archives/2013-12-19/) du 19 décembre, et [suivez nous sur twitter](https://twitter.com/chtiJS) pour être au courant de la mise en place du doodle.
+La date de la prochaine édition de ChtiJS est [en cours de vote] (http://doodle.com/nvba6w2a348ki24i), En attendant, consultez [le compte rendu du ChtiJS#6](/archives/2013-12-19/) du 19 décembre, et [suivez nous sur twitter](https://twitter.com/chtiJS) pour être au courant de la mise en place du doodle.
 
 ### Où ?
 
