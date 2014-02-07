@@ -8,3 +8,5 @@ template=credits
 -->
 
 # Crédits
+
+Découvrez ci-dessous la liste des tous les contributeurs du site ChtiJS.
