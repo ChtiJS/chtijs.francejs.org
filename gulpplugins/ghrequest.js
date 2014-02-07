@@ -1,0 +1,48 @@
+// GitHub request helper
+var token = ''
+  , request = require('request')
+  , gutil = require('gulp-util')
+  , fs = require('fs')
+;
+
+module.exports = function ghrequest(url, cb) {
+
+  // Reading the access token if not doe yet
+  if(!token) {
+    try {
+      token = fs.readFileSync(__dirname + '/../.token', 'utf-8');
+    } catch(err) {
+      gutil.log('ghrequest: Create a .token file containing a GitHub API'
+        + ' token in the root directory of the project'
+        + ' (go to https://github.com/settings/applications)'
+        + ' since GitHub limit anonymous requests to 60 per hour. Or use'
+        + ' the --noreq option to avoid external requests.');
+    }
+  }
+
+  // GitHub request helper
+  request({
+    url: url,
+    headers: {
+      Accept: 'application/json',
+      // http://developer.github.com/v3/#user-agent-required
+      'User-Agent': 'ChtiJS/chtijs.francejs.org',
+      // Create your token https://github.com/login/oauth/authorize?client_id=be0b80112ab0b6273c71
+      Authorization: (token ? 'token ' + token : '')
+    }
+  }, function(err, response, body) {
+    // Handle any error
+    if(err) {
+      setImmediate(cb.bind(null, err));
+      return;
+    }
+    if(200 != response.statusCode) {
+      setImmediate(cb.bind(null,
+        new Error('Unexpexted status code (' + url + ': '
+          + response.statusCode + ')')));
+      return;
+    }
+    cb(null, JSON.parse(body));
+  });
+};
+

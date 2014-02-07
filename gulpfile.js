@@ -12,11 +12,18 @@ var gulp = require('gulp')
   , Stream = require('stream')
 ;
 
+// Loading npm gulp plugins
 require('matchdep').filterDev('gulp-*').forEach(function(module) {
   global[module.replace(/^gulp-/, 'g-').replace(/-([a-z])/g, function(x,xx) {
     return xx.toUpperCase();
   })] = require(module);
 });
+
+// Helper to wait for n gulp pipelines
+function waitEnd(total, cb, n) {
+  n = n || 0;
+  return function end() { ++n==total && cb(); }
+}
 
 // Loading global options (files paths)
 var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'))
@@ -61,8 +68,7 @@ gulp.task('build_fonts', function(cb) {
 
 // Images
 gulp.task('build_images', function(cb) {
-  var n = 0;
-  function end() { ++n==2 && cb(); }
+  var end = waitEnd(2, cb);
   gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
     .pipe(gIf(!prod, gWatch()))
     .pipe(gIf(prod, gSvgmin()))
@@ -71,7 +77,7 @@ gulp.task('build_images', function(cb) {
     .once('end', end);
 
 // BROKEN
-n++;
+end();
 //  gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
 //    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gWatch())
 //    .pipe(gIf(prod, gStreamify(gImagemin())))
@@ -92,11 +98,9 @@ gulp.task('build_styles', function(cb) {
 
 // JavaScript
 gulp.task('build_js', function(cb) {
-  var n = 0;
-  function end() { ++n==3 && cb(); }
-  gulp.src(conf.src.js + '/**/*.js', {buffer: buffer})
-    .pipe(gStreamify(gJshint()))
-    .once('end', end);
+  var end = waitEnd(3, cb);
+  gulp.src(conf.src.js + '/**/*.js', {buffer: buffer || true}) // gStreamify do not work here ?!
+    .pipe(gJshint().once('end', end.bind(null, 'hint')));
 
   gulp.src(conf.src.js + '/frontend.js', {buffer: buffer})
     .once('end', end) // gBrowserify never triggers 'end' ...
@@ -108,7 +112,7 @@ gulp.task('build_js', function(cb) {
 
   gulp.src(conf.src.js + '/frontend/vendors/**/*.js')
     .pipe(gulp.dest(conf.build.frontjs + '/vendors'))
-    .once('end', end);
+    .once('end', end.bind(null, 'vendors'));
 });
 
 // HTML
@@ -203,6 +207,12 @@ gulp.task('build', ['build_fonts', 'build_images', 'build_styles',
       gulp.run('build_html');
     });
 
+    gulp.watch([conf.src.icons + '/**/*.svg'], function(event) {
+      gulp.run('build_fonts');
+    });
+
+    require('open')(conf.baseURL+'/index.html');
+
   }
   cb();
 });
@@ -248,21 +258,26 @@ gulp.task('publish', function() {
   gulp.run('ghpages');
 });
 
-// The default task
-gulp.task('default', function() {
+// Dev env
+gulp.task('server', function() {
   // Starting the dev static server
   var app = express();
   app.use(express.query())
     .use(express.bodyParser())
     .use(express.static(Path.resolve(__dirname, conf.build.root)))
     .listen(8080, function() {
-      console.log('Listening on %d', 35729);
-      require('open')(conf.baseURL+'/index.html');
-      gulp.watch([conf.src.icons + '/**/*.svg'], function(event) {
-        gulp.run('build_fonts');
-      });
+      gUtil.log('Dev server listening on %d', 35729);
       gulp.run('build');
     });
   server = tinylr();
   server.listen(35729);
+});
+
+// The default task
+gulp.task('default', function() {
+  if(prod) {
+    gulp.run('build');
+  } else {
+    gulp.run('server');
+  }
 });
