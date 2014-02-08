@@ -36,6 +36,4 @@ Retrouvons-nous une nouvelle fois pour parler de JavaScript avec une soirée tr�
 ## Pour info
 
 Pour la liste des participants,
- [voir le Doodle](http://doodle.com/uqrqwhsxbyfuafie) associé. Les inscriptions
- sont toujours ouvertes.
-
+ [voir le Doodle](http://doodle.com/uqrqwhsxbyfuafie) associé.
