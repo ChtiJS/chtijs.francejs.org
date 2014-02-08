@@ -11,6 +11,16 @@ module.exports = function(grunt) {
     // chargeur et convertisseur de fichiers markdown
     var marked = require('marked');
 
+    marked.setOptions({
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: true,
+        smartLists: true,
+        smartypants: true
+    });
+
     // chargeur méta données
     var VarStream = require('varstream');
 
