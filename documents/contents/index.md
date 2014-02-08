@@ -10,6 +10,7 @@ keywords.+=groupe
 keywords.+=Nord
 keywords.+=Pas-de-Calais
 -->
+
 # ChtiJS
 **Bienvenue sur le site de la Communauté des développeurs JavaScript du Nord
  Pas-de-Calais.**
@@ -34,36 +35,32 @@ La communauté ChtiJS est ouverte à toutes les bonnes volontés, débutants ou
 
 ## Prochaine rencontre
 
-La date de la prochaine édition de ChtiJS reste à déterminer. En attendant,
- consultez [le compte rendu du ChtiJS#6](/archives/2013-12-19/) du 19 décembre,
- et [suivez nous sur twitter](https://twitter.com/chtiJS) pour être au courant
- de la mise en place du Doodle.
+La date de la prochaine édition de ChtiJS aura lieu le 20 février, viens !
+
+En attendant, consultez [le compte rendu du ChtiJS#6](/archives/2013-12-19/) du 19 décembre, et [suivez nous sur twitter](https://twitter.com/chtiJS) pour être au courant des réunions suivantes.
 
 ### Où ?
 
-Comme toujours ChtiJS aura lieu dans les locaux du
- [Mutualab](http://www.mutualab.org/). Nous vous remercions une fois encore
- pour rendre possible ChtiJS dans un cadre aussi sympa :).
+Comme toujours ChtiJS a lieu dans les locaux du [Mutualab](http://www.mutualab.org/).
+Nous vous remercions une fois encore pour rendre possible ChtiJS dans un cadre aussi sympa :).
 
 ### Sujets
 
-La liste des sujets n'est pas encore fixée. Peut-être une présentation sur
- Yeoman, et une sur les techniques d'obfuscation du javascript.
+- Le GolfJS (écrire du JavaScript en utilisant le moins de caractères possibles) par Cyril Moreau
 
-*N'hésitez pas à proposer vos sujets !*
+- PropertyCross, par Rémi Grumeau, un projet de comparateurs de librairies de création d'applis mobiles web / native.
+
+- Table ronde "Ce qui va me manquer chez (PHP|Ruby|Java|*)" : Séquence nostalgie, chacun vient avec la killer feature de son autre/ex langage et on essaie de la recréer/retrouver.
+
+- Préparation Coding Dojo : Qui/quand/comment ?
 
 
-## Proposer un sujet ?
+## N'hésitez pas à proposer vos sujets !
 
-Vous souhaitez partager votre expérience de JavaScript ? ChtiJS est fait pour
- ça ! N'hésitez pas à proposer votre sujet.
+Vous souhaitez partager votre expérience ou vos débuts avec JavaScript ? ChtiJS est fait pour ça !
 
-Signalez vous sur Twitter auprès de [@chtijs](https://twitter.com/chtijs), ou,
- inscrivez vous sur la
- [liste de diffusion](https://groups.google.com/forum/#!forum/chtijs).
+Signalez vous sur Twitter auprès de [@chtijs](https://twitter.com/chtijs), ou inscrivez vous sur la [liste de diffusion](https://groups.google.com/forum/#!forum/chtijs).
 
 ## Site web
 
-Notre site web est aussi ouvert aux contributions, contenus comme code. Il vous
- suffit de faire un pull request sur
- [le dépôt GitHub](https://github.com/ChtiJS/chtijs.francejs.org).
+Notre site web est aussi ouvert aux contributions, contenus comme code. Il vous suffit de faire un pull request sur [le dépôt GitHub](https://github.com/ChtiJS/chtijs.francejs.org).

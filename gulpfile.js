@@ -151,8 +151,16 @@ gulp.task('build_html', function(cb) {
       parentProp: 'parent',
       childsProp: 'childs'
     }))
-    .pipe(gMarked())
-    .pipe(gRename({ext: '.html'}))
+    .pipe(gMarked({
+      gfm: true,
+      tables: true,
+      breaks: false,
+      pedantic: false,
+      sanitize: true,
+      smartLists: true,
+      smartypants: true
+    }))
+    .pipe(gRename({extname: '.html'}))
     .once('end', function() {
       markedFiles.forEach(function(file) {
         var nunjucksOptions = {
