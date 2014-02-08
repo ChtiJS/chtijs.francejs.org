@@ -230,33 +230,49 @@ gulp.task('build', ['build_fonts', 'build_images', 'build_styles',
 // Publish task
 gulp.task('ghpages', ['build'], function(cb) {
   var exec = require('child_process').exec
+    , curBranch = 'master'
     , execOptions = {
       cwd: __dirname
     };
-  // Switch to ghpages branch
-  exec('git branch -D gh-pages; git checkout -b gh-pages', execOptions, function() {
-    // delete all files except the untracked ones
-    var ignore = ['.git', 'www', 'node_modules'];
-    Fs.readdirSync(__dirname).forEach(function(file) {
-      if(-1 === ignore.indexOf(file)) {
-        rimraf.sync(__dirname+'/'+file);
+  // Remember the current branch
+  exec('git rev-parse --abbrev-ref HEAD', execOptions, function(err, stdout, stderr) {
+    if(err) {
+      throw err;
+    }
+    curBranch = stdout;
+    // Switch to ghpages branch
+    exec('git branch -D gh-pages; git checkout -b gh-pages', execOptions, function(err) {
+      if(err) {
+        throw err;
       }
-    });
-    Fs.readdirSync(__dirname+'/www').forEach(function(file) {
-      Fs.renameSync(__dirname+'/www/'+file, __dirname+'/'+file);
-    });
-    Fs.rmdirSync(__dirname+'/www');
-    // Add the domain name
-    Fs.writeFileSync(__dirname + '/CNAME', conf.domain);
-    // Add a new ignore file
-    ignore.push('.gitignore');
-    Fs.writeFileSync(__dirname + '/.gitignore', ignore.join('\n'));
-    // Commit files
-    exec('git add . && git commit -m "Build '+(new Date())+'"', execOptions, function() {
-      
-      // Pushing commit
-      exec('git push -f origin gh-pages &&  git checkout master', execOptions, function() {
-        cb();
+      // delete all files except the untracked ones
+      var ignore = ['.git', '.token', 'www', 'node_modules'];
+      Fs.readdirSync(__dirname).forEach(function(file) {
+        if(-1 === ignore.indexOf(file)) {
+          rimraf.sync(__dirname+'/'+file);
+        }
+      });
+      Fs.readdirSync(__dirname+'/www').forEach(function(file) {
+        Fs.renameSync(__dirname+'/www/'+file, __dirname+'/'+file);
+      });
+      Fs.rmdirSync(__dirname+'/www');
+      // Add the domain name
+      Fs.writeFileSync(__dirname + '/CNAME', conf.domain);
+      // Add a new ignore file
+      ignore.push('.gitignore');
+      Fs.writeFileSync(__dirname + '/.gitignore', ignore.join('\n'));
+      // Commit files
+      exec('git add . && git commit -m "Build '+(new Date())+'"', execOptions, function(err) {
+        if(err) {
+          throw err;
+        }
+        // Pushing commit
+        exec('git push -f origin gh-pages &&  git checkout ' + curBranch, execOptions, function(err) {
+          if(err) {
+            throw err;
+          }
+          cb();
+        });
       });
     });
   });
