@@ -24,7 +24,7 @@ Au menu de ce ChtiJS :
  code et mettons les tests en place ensemble. Merci à Raphaël Rougeron pour le
  [support de présentation](http://fr.slideshare.net/goldoraf/tester-son-js).
  À faire avant de venir, les quelques manipulations de ce
- [Gist](https://gist.github.com/nfroidure/7247493].
+ [Gist](https://gist.github.com/nfroidure/7247493).
 
 ## Compte rendu
 
