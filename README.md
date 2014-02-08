@@ -54,3 +54,21 @@ Les templates sont dans le répertoire `/documents/templates/`.Le langage utilis
  est nunjucks (doc: http://jlongster.github.io/nunjucks/templating.html ).
 
 Les CSS sont générées depuis les sources Less située dans `documents/less/`.
+
+### Génération du site
+
+ChtiJS est un site statique généré de façon automatique via la tâche Gulp
+ `build_html`. La génération se fait de la manière suivante :
+
+* création d'un arbre représentant la structure du site :
+* * tout d'abord, on récupère les documents markdown  situés dans
+ `/documents/content`. Ajouter une fichier Markdown dans ce dossier (ou un
+ sous dossier) crée une nouvelle page dans le site.
+* * ensuite, on génère certaines pages à l'aide d'un plugin car certaines données
+ doivent être récupérées depuis le réseau. Ces plugins se trouvent dans le
+ dossier `gulpplugins`. Les pages membres, contributeurs et planète sont
+ générées de cette manière.
+* une fois l'arbre généré, on reprend chaque document un par un et on génère
+ la page HTML correspondante grâce au template qui lui est associé.
+
+Et voilà, le site de ChtiJS n'a plus de secret pour vous ;).
