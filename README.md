@@ -72,3 +72,4 @@ ChtiJS est un site statique généré de façon automatique via la tâche Gulp
  la page HTML correspondante grâce au template qui lui est associé.
 
 Et voilà, le site de ChtiJS n'a plus de secret pour vous ;).
+

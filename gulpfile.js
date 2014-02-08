@@ -149,7 +149,9 @@ gulp.task('build_html', function(cb) {
       root: tree,
       index: 'index',
       parentProp: 'parent',
-      childsProp: 'childs'
+      childsProp: 'childs',
+      sortProp: 'title',
+      sortDesc: true
     }))
     .pipe(gMarked({
       gfm: true,
