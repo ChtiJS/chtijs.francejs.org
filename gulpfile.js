@@ -75,7 +75,7 @@ gulp.task('build_images', function(cb) {
       return gWatch().pipe(gLivereload(server));
     }))
     .pipe(gulp.dest(conf.build.images))
-    .once('end', end);;
+    .once('end', end);
 
   gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
     .pipe(gCond(prod, function() {
@@ -230,7 +230,7 @@ gulp.task('build', ['clean', 'build_fonts', 'build_images', 'build_styles',
 });
 
 // Publish task
-gulp.task('ghpages', ['build'], function(cb) {
+gulp.task('ghpages', function(cb) {
   var exec = require('child_process').exec
     , curBranch = 'master'
     , execOptions = {
@@ -269,7 +269,8 @@ gulp.task('ghpages', ['build'], function(cb) {
           throw err;
         }
         // Pushing commit
-        exec('git push -f origin gh-pages &&  git checkout ' + curBranch, execOptions, function(err) {
+        exec('git push -f origin gh-pages && git checkout ' + curBranch
+          + ' && git checkout .', execOptions, function(err) {
           if(err) {
             throw err;
           }
@@ -280,7 +281,8 @@ gulp.task('ghpages', ['build'], function(cb) {
   });
 });
 
-// Publish task
+// Publish task : Cannot build before since gulp.dest doesn't ensure
+// underlying resources are closed https://github.com/wearefractal/vinyl-fs/issues/7
 gulp.task('publish', function() {
   prod = true;
   gulp.run('ghpages');

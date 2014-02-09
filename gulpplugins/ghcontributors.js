@@ -7,7 +7,7 @@ var Stream = require('stream')
 const PLUGIN_NAME = 'gulp-ghcontributors';
 
 // Plugin function
-function ghmembersGulp(options) {
+function ghcontributorsGulp(options) {
 
   options = options || {};
   if(!options.organization) {
@@ -44,7 +44,7 @@ function ghmembersGulp(options) {
       , n = 0;
     file[options.prop] = {
       contributors: results,
-      title: 'Les contributeurs au site',
+      title: 'Les contributeurs du site',
       description: 'Découvrez les personnes qui ont créé le site de ChtiJS.',
       shortTitle: 'Crédits',
       template: 'credits'
@@ -72,4 +72,4 @@ function ghmembersGulp(options) {
 };
 
 // Export the plugin main function
-module.exports = ghmembersGulp;
+module.exports = ghcontributorsGulp;
