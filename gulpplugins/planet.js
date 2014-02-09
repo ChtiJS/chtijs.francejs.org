@@ -1,10 +1,7 @@
 var Stream = require('stream')
   , gutil = require('gulp-util')
   , path = require('path')
-  , fs = require('fs')
   , feedr = require('feedr')
-  , StreamQueue = require('streamqueue')
-  , duplexer = require('duplexer')
 ;
 
 const PLUGIN_NAME = 'gulp-planet';
@@ -23,7 +20,6 @@ function gulpPlanet(options) {
   }
   options.prop = options.prop || 'metas';
 
-  var stream = new Stream.PassThrough({objectMode: true});
   var planetStream = new Stream.PassThrough({objectMode: true});
   var planet = new feedr.Feedr();
   var posts, pendingFeeds = options.blogs.length;
@@ -44,7 +40,7 @@ function gulpPlanet(options) {
   options.blogs.forEach(function(blog) {
     planet.readFeed(blog.feed, {}, function(err, data, headers) {
       if(err) {
-        stream.emit('error',
+        planetStream.emit('error',
           new gutil.PluginError(PLUGIN_NAME,
             err,
             {showStack: true}
@@ -65,10 +61,7 @@ function gulpPlanet(options) {
       }
     });
   });
-
-  return duplexer(stream, new StreamQueue({
-    objectMode:true
-  }, stream, planetStream));
+  return planetStream;
 
 };
 

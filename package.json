@@ -36,7 +36,7 @@
     "gulp-svgmin": "latest",
     "gulp-clean": "latest",
     "gulp-watch": "latest",
-    "gulp-if": "latest",
+    "gulp-cond": "latest",
     "gulp-marked": "latest",
     "gulp-mdvars": "latest",
     "gulp-vartree": "latest",

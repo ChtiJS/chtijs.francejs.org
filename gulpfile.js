@@ -10,6 +10,7 @@ var gulp = require('gulp')
   , gGhcontributors = require('./gulpplugins/ghcontributors')
   , gPlanet = require('./gulpplugins/planet')
   , Stream = require('stream')
+  , StreamQueue = require('streamqueue')
 ;
 
 // Loading npm gulp plugins
@@ -70,28 +71,26 @@ gulp.task('build_fonts', function(cb) {
 gulp.task('build_images', function(cb) {
   var end = waitEnd(2, cb);
   gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
-    .pipe(gIf(!prod, gWatch()))
-    .pipe(gIf(prod, gSvgmin()))
-    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
-    .pipe(gulp.dest(conf.build.images))
-    .once('end', end);
+    .once('end', end)
+    .pipe(gCond(prod, gSvgmin, function() {
+      return gWatch().pipe(gLivereload(server));
+    }))
+    .pipe(gulp.dest(conf.build.images));
 
-// BROKEN
-end();
-//  gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
-//    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gWatch())
-//    .pipe(gIf(prod, gStreamify(gImagemin())))
-//    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
-//    .pipe(gulp.dest(conf.build.images))
-//    .once('end', end);
+  gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
+    .once('end', end)
+    .pipe(gCond(!prod, gWatch()))
+    .pipe(gCond(prod, gStreamify(gImagemin())))
+    .pipe(gCond(!prod, gLivereload.bind(null, server)))
+    .pipe(gulp.dest(conf.build.images));
 });
 
 // CSS
 gulp.task('build_styles', function(cb) {
   gulp.src(conf.src.less + '/main.less', {buffer: buffer})
     .pipe(gStreamify((gLess())))
-    .pipe(gIf(prod, gMinifyCss()))
-    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
+    .pipe(gCond(prod, gMinifyCss()))
+    .pipe(gCond(!prod, gLivereload.bind(null, server)))
     .pipe(gulp.dest(conf.build.css))
     .once('end', cb);
 });
@@ -105,9 +104,9 @@ gulp.task('build_js', function(cb) {
   gulp.src(conf.src.js + '/frontend.js', {buffer: buffer})
     .once('end', end) // gBrowserify never triggers 'end' ...
     .pipe(gBrowserify())
-    .pipe(gIf(prod, gUglify()))
+    .pipe(gCond(prod, gUglify()))
     .pipe(gConcat('script.js'))
-    .pipe(prod ? new Stream.PassThrough({objectMode: true}) : gLivereload(server))
+    .pipe(gCond(!prod, gLivereload.bind(null, server)))
     .pipe(gulp.dest(conf.build.frontjs));
 
   gulp.src(conf.src.js + '/frontend/vendors/**/*.js')
@@ -127,24 +126,25 @@ gulp.task('build_html', function(cb) {
     autoescape: true
   });
 
-  gulp.src(conf.src.content + '/**/*.md', {buffer: buffer||true}) // Streams not supported
-    .pipe(gMdvars())
-    .pipe(noreq ? new Stream.PassThrough({objectMode: true}) : gGhcontributors({
+  var queue = new StreamQueue({objectMode: true},
+    gulp.src(conf.src.content + '/**/*.md', {buffer: buffer||true}) // Streams not supported
+      .pipe(gMdvars()),
+    gCond(!noreq, gGhcontributors.bind(null, {
       organization: 'ChtiJS',
       project: 'chtijs.francejs.org',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
-    }))
-    .pipe(noreq ? new Stream.PassThrough({objectMode: true}) : gGhmembers({
+    })),
+    gCond(!noreq, gGhmembers.bind(null, {
       organization: 'ChtiJS',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
-    }))
-    .pipe(noreq ? new Stream.PassThrough({objectMode: true}) : gPlanet({
+    })),
+    gCond(!noreq, gPlanet.bind(null, {
       base: conf.src.content,
       blogs: conf.blogs,
       buffer:  buffer||true // Streams not supported
-    }))
+    })))
     .pipe(gVartree({
       root: tree,
       index: 'index',

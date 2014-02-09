@@ -1,8 +1,6 @@
 var Stream = require('stream')
   , gutil = require('gulp-util')
   , path = require('path')
-  , StreamQueue = require('streamqueue')
-  , duplexer = require('duplexer')
   , ghrequest = require('./ghrequest')
 ;
 
@@ -23,7 +21,6 @@ function ghmembersGulp(options) {
   options.prop = options.prop || 'metas';
   options.folder = options.folder || 'members';
 
-  var stream = new Stream.PassThrough({objectMode: true});
   var ghStream = new Stream.PassThrough({objectMode: true});
 
   // Get members list
@@ -57,7 +54,7 @@ function ghmembersGulp(options) {
           if(err) {
             ghStream.emit('error',
               new gutil.PluginError(PLUGIN_NAME, err, {showStack: true}));
-              ghStream.end();
+            ghStream.end();
           } else {
             var memberFile = new gutil.File({
               cwd: options.cwd,
@@ -85,9 +82,7 @@ function ghmembersGulp(options) {
     }
   });
 
-  return duplexer(stream, new StreamQueue({
-    objectMode:true
-  }, stream, ghStream));
+  return ghStream;
 
 };
 
