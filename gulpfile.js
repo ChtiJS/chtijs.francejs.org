@@ -191,11 +191,12 @@ gulp.task('build_html', function(cb) {
 
 // The clean task
 gulp.task('clean', function(cb) {
-  rimraf(conf.build.root, cb);
+  rimraf.sync(conf.build.root);
+  cb();
 });
 
-// The build task'clean', 
-gulp.task('build', ['build_fonts', 'build_images', 'build_styles',
+// The build task
+gulp.task('build', ['clean', 'build_fonts', 'build_images', 'build_styles',
   'build_js', 'build_html'], function(cb) {
   if(!prod) {
 
