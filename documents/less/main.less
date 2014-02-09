@@ -39,7 +39,7 @@ strong {
 h1 {
   color: @text;
   &:before {
-    .icon('\e004  ');
+    .icon('\e004   ');
     font-size: @fontsize;
   }
   font-size: (@fontsize*1.3);
@@ -170,13 +170,22 @@ body > header {
 }
 
 .main-members__member p {
-  height: (@vrythm * 4);
+  min-height: (@vrythm * 2);
+  padding-left: (@gutter * 8);
 }
 
 .main-members__member img {
   float: left;
   height: (@vrythm * 4);
-  margin: 0 @gutter @vrythm 0;
+  width: (@gutter * 6);
+  margin: 0 (@gutter*2) @vrythm 0;
+}
+
+.main-members__member .main-members__github {
+  &:after {
+    .icon('  \e004');
+    font-size: @fontsize*0.8;
+  }
 }
 
 /* Footer */

@@ -7,12 +7,17 @@
   <p class="main-members__content"{{ content | safe }}</div>
   {% for member in metadata.members %}
   <article class="main-members__member">
-    <p>
-      <a href="{{ member.html_url }}" target="__blank">
+    <h2>
+      <a href="{{metadata.path}}{{member.login}}/index.html">
         <img class="pict" src="{{ member.avatar_url }}"/>
-        {{ member.login }}&nbsp;&nbsp;-&nbsp;&nbsp; {{ member.name }}
+        {{ member.name }} alias {{ member.login }}
       </a>
-      {{ member.bio }}
+    </h2>
+    <p>{% if member.bio %}
+      {{ member.bio }} <br />{% endif %}
+      <a href="{{ member.html_url }}" class="main-members__github">
+        Profil GitHub
+      </a>
     </p>
   </article>
   {% endfor %}

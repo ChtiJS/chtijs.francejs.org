@@ -7,12 +7,15 @@
   <p class="main-members__content"{{ content | safe }}</div>
   {% for contributor in metadata.contributors %}
   <article class="main-members__member">
-    <p>
+    <h2>
       <a href="{{ contributor.html_url }}" target="__blank">
         <img class="pict" src="{{ contributor.avatar_url }}"/>
-        {{ contributor.name }} ({{ contributor.login }}
-        - ({{ contributor.contributions }} contributions)
+        {{ contributor.name }} alias {{ contributor.login }}
       </a>
+    </h2>
+    <p>
+      {{ contributor.contributions }} contributions.{% if contributor.bio %}
+      <br />{{ contributor.bio }}{% endif %}
     </p>
   </article>
   {% endfor %}
