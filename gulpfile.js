@@ -71,26 +71,27 @@ gulp.task('build_fonts', function(cb) {
 gulp.task('build_images', function(cb) {
   var end = waitEnd(2, cb);
   gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
-    .once('end', end)
     .pipe(gCond(prod, gSvgmin, function() {
       return gWatch().pipe(gLivereload(server));
     }))
-    .pipe(gulp.dest(conf.build.images));
+    .pipe(gulp.dest(conf.build.images))
+    .once('end', end);;
 
   gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
-    .once('end', end)
-    .pipe(gCond(!prod, gWatch()))
-    .pipe(gCond(prod, gStreamify(gImagemin())))
-    .pipe(gCond(!prod, gLivereload.bind(null, server)))
-    .pipe(gulp.dest(conf.build.images));
+    .pipe(gCond(prod, function() {
+      return gStreamify(gImagemin())
+    }, function() {
+      return gWatch().pipe(gLivereload(server));
+    }))
+    .pipe(gulp.dest(conf.build.images))
+    .once('end', end);
 });
 
 // CSS
 gulp.task('build_styles', function(cb) {
   gulp.src(conf.src.less + '/main.less', {buffer: buffer})
     .pipe(gStreamify((gLess())))
-    .pipe(gCond(prod, gMinifyCss()))
-    .pipe(gCond(!prod, gLivereload.bind(null, server)))
+    .pipe(gCond(prod, gMinifyCss, gLivereload.bind(null, server)))
     .pipe(gulp.dest(conf.build.css))
     .once('end', cb);
 });
@@ -99,19 +100,19 @@ gulp.task('build_styles', function(cb) {
 gulp.task('build_js', function(cb) {
   var end = waitEnd(3, cb);
   gulp.src(conf.src.js + '/**/*.js', {buffer: buffer || true}) // gStreamify do not work here ?!
-    .pipe(gJshint().once('end', end.bind(null, 'hint')));
+    .pipe(gJshint())
+    .once('end', end);
 
   gulp.src(conf.src.js + '/frontend.js', {buffer: buffer})
-    .once('end', end) // gBrowserify never triggers 'end' ...
-    .pipe(gBrowserify())
-    .pipe(gCond(prod, gUglify()))
+    .pipe(gBrowserify()) // gBrowserify never triggers 'end' ...
     .pipe(gConcat('script.js'))
-    .pipe(gCond(!prod, gLivereload.bind(null, server)))
-    .pipe(gulp.dest(conf.build.frontjs));
+    .pipe(gCond(prod, gUglify, gLivereload.bind(null, server)))
+    .pipe(gulp.dest(conf.build.frontjs))
+    .once('end', end);
 
   gulp.src(conf.src.js + '/frontend/vendors/**/*.js')
     .pipe(gulp.dest(conf.build.frontjs + '/vendors'))
-    .once('end', end.bind(null, 'vendors'));
+    .once('end', end);
 });
 
 // HTML
