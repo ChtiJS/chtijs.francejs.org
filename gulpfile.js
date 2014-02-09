@@ -140,12 +140,12 @@ gulp.task('build_html', function(cb) {
       organization: 'ChtiJS',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
-    })),
+    }))/*,
     gCond(!noreq, gPlanet.bind(null, {
       base: conf.src.content,
       blogs: conf.blogs,
       buffer:  buffer||true // Streams not supported
-    })))
+    }))*/)
     .pipe(gVartree({
       root: tree,
       index: 'index',
@@ -264,13 +264,13 @@ gulp.task('ghpages', function(cb) {
       ignore.push('.gitignore');
       Fs.writeFileSync(__dirname + '/.gitignore', ignore.join('\n'));
       // Commit files
-      exec('git add . && git commit -m "Build '+(new Date())+'"', execOptions, function(err) {
+      exec('git add . ; git commit -m "Build '+(new Date())+'"', execOptions, function(err) {
         if(err) {
           throw err;
         }
         // Pushing commit
-        exec('git push -f origin gh-pages && git checkout ' + curBranch
-          + ' && git checkout .', execOptions, function(err) {
+        exec('git push -f origin gh-pages ; git checkout ' + curBranch
+          + ' ; git checkout .', execOptions, function(err) {
           if(err) {
             throw err;
           }
