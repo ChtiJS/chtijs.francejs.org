@@ -1,13 +1,14 @@
 {% extends 'layout.tpl' %}
 
 {% block body %}
-<h1>{{metadata.title}}</h1>
-<p>{{metadata.description}}</p>
-{{ content | safe }}{% if not metadata.entries %}
-<p>Pas de posts actuellement !</p>
-{% else %}
 <section class="main-articles">
-  {% for post in metadata.entries %}
+  <h1 class="main-articles__title">{{metadata.title}}</h1>
+  <p class="main-articles__intro">{{metadata.description}}</p>
+  <p class="main-articles__content"{{ content | safe }}</div>
+  {% if not metadata.entries %}
+  <p>Pas de posts actuellement !</p>
+  {% else %}
+    {% for post in metadata.entries %}
   <article class="main-articles__article">
     <h2>
       <a href="{{post.id[0]}}"
@@ -22,7 +23,8 @@
       </a>
     </p>
   </article>
-  {% endfor %}
+    {% endfor %}
+  {% endif %}
 </section>
-{% endif %}
 {% endblock %}
+

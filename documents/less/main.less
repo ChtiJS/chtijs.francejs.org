@@ -150,14 +150,33 @@ body > header {
   ol, ul{padding: 0 0 0 0.7em;}
 }
 
-
 /* Blog posts */
 .main-articles__article {
   padding: @vrythm 0;
   border-bottom: @border solid #ddd;
   &:last-child {
-    border-bottom: 0;    
+    border-bottom: 0;
   }
+}
+
+/* Members / Contributors */
+.main-members__member {
+  clear: left;
+  padding: @vrythm 0;
+  border-bottom: @border solid #ddd;
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.main-members__member p {
+  height: (@vrythm * 4);
+}
+
+.main-members__member img {
+  float: left;
+  height: (@vrythm * 4);
+  margin: 0 @gutter @vrythm 0;
 }
 
 /* Footer */
