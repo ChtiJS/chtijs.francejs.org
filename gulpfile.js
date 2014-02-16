@@ -91,6 +91,7 @@ gulp.task('build_images', function(cb) {
 gulp.task('build_styles', function(cb) {
   gulp.src(conf.src.less + '/main.less', {buffer: buffer})
     .pipe(gStreamify((gLess())))
+    .pipe(gStreamify((gAutoprefixer())))
     .pipe(gCond(prod, gMinifyCss, gLivereload.bind(null, server)))
     .pipe(gulp.dest(conf.build.css))
     .once('end', cb);
