@@ -29,16 +29,16 @@ function waitEnd(total, cb, n) {
 // Loading global options (files paths)
 var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'))
   , server
-  , prod = !!gulp.env.prod
-  , noreq = !!gulp.env.noreq
-  , buffer = !gulp.env.stream
+  , prod = !!gUtil.env.prod
+  , noreq = !!gUtil.env.noreq
+  , buffer = !gUtil.env.stream
 ;
 
 if(!prod) {
   // Finding the server IP
   conf.ip = '127.0.0.1';
 
-  if(gulp.env.net) {
+  if(gUtil.env.net) {
     var ints = require('os').getNetworkInterfaces();
 
     for(var int in ints) {
@@ -149,7 +149,7 @@ gulp.task('build_html', function(cb) {
       organization: 'ChtiJS',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
-    }), getEndedReadable).once('end', function() { console.log('ghmembers') })/*,
+    }), getEndedReadable)/*,
     gCond(!noreq, gPlanet.bind(null, {
       base: conf.src.content,
       blogs: conf.blogs,
