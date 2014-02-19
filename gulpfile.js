@@ -128,6 +128,14 @@ gulp.task('build_html', function(cb) {
     autoescape: true
   });
 
+  function getEndedReadable() {
+    var stream = new Stream.Readable({objectMode: true});
+    stream._read = function() {
+      stream.push(null);
+    };
+    return stream;
+  }
+
   var queue = new StreamQueue({objectMode: true},
     gulp.src(conf.src.content + '/**/*.md', {buffer: buffer||true}) // Streams not supported
       .pipe(gMdvars()),
@@ -136,17 +144,17 @@ gulp.task('build_html', function(cb) {
       project: 'chtijs.francejs.org',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
-    })),
+    }), getEndedReadable),
     gCond(!noreq, gGhmembers.bind(null, {
       organization: 'ChtiJS',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
-    }))/*,
+    }), getEndedReadable).once('end', function() { console.log('ghmembers') })/*,
     gCond(!noreq, gPlanet.bind(null, {
       base: conf.src.content,
       blogs: conf.blogs,
       buffer:  buffer||true // Streams not supported
-    }))*/)
+    }), getEndedReadable)*/)
     .pipe(gVartree({
       root: tree,
       index: 'index',
