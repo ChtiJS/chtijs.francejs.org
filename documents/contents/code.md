@@ -38,3 +38,15 @@ Ouvrir les préférences avec `cmd` + `,`
       "trim_automatic_white_space": true,
       "trim_trailing_white_space_on_save": true
     }
+
+### Vim
+
+Éditez votre fichier .vimrc :
+
+    set autoindent
+    set smartindent
+    set tabstop=2
+    set softtabstop=2
+    set expandtab
+    autocmd BufWritePre *.js %s/\s\+$//ge
+
