@@ -21,11 +21,15 @@ Message à l'attention de la communauté rédigé par le bureau des conventions
 ## Les règles
 
 [Les règles de Google](https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
- pour le JavaScript sont communément admises.
+ pour le JavaScript sont communément admises. Celles-ci se recoupent avec les
+ règles les plus
+ [couramment utilisées](http://sideeffect.kr/popularconvention#javascript)
+ pour JavaScript sur GitHub.
 
 ## Personnaliser son éditeur
 
-Vous trouverez ci dessous les préférences de différents éditeurs de texte utilisés par la communauté.
+Vous trouverez ci dessous les préférences de différents éditeurs de texte
+ utilisés par la communauté.
 
 ### Sublime Text
 
