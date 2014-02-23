@@ -1,7 +1,7 @@
 # Site ChtiJS [![Build status](https://api.travis-ci.org/ChtiJS/chtijs.francejs.org.png)](https://travis-ci.org/ChtiJS/chtijs.francejs.org)
 
-> **Avant de commencer à travailler sur le projet pouvez vous lire [le guide
- pour contribuer](CONTRIBUTING.md)**
+> **Avant de commencer à travailler sur le projet lisez attentivement
+ [le guide pour contribuer](CONTRIBUTING.md)**
 
 ## Installer le projet
 
@@ -14,6 +14,9 @@ Entrez les commandes suivante dans un terminal :
 `npm install -g gulp` ou `su npm install -g gulp` (celà dépend de votre système
  et de la manière dont node.js est installé).
 - `npm install` : installe les dépendances.
+
+Afin de pouvoir générer le favicon, vous devrez également avoir ImageMagick
+ présent sur votre système.
 
 ## Pour travailler dessus :
 
@@ -28,6 +31,14 @@ Toutes les modifications que vous ferez dans le code ou le contenu du site,
 En ajoutant --prod, vous créez le site en mode production. L'argument --net
  lancera le serveur de développement sur une adresse IP joignable sur votre
  réseau local par d'autre machines.
+
+L'option --noreq permet de générer le site sans faire d'appel externe
+ (planète et API GitHub). Cela vous permettra de regénérer le site rapidement
+ pour les tests.
+
+À ce propos, sans fichier .token contenant un token pour l'accès à l'API GitHub,
+ vous serez rapidement dans l'incapacité de générer le site complet car le
+ nombre de requêtes anonymes est limité.
 
 ## Editer le site :
 
@@ -46,7 +57,6 @@ Ces fichiers markdown peuvent comporter des metadatas, qui seront transformées
 Par défaut les fichiers markdown sont rendus via la template
  `/documents/templates/index.tpl`. Vous pouvez y associer une autre template
  via ces metadata.
-
 
 ### Architecture
 
