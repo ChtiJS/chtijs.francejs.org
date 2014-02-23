@@ -80,8 +80,21 @@ gulp.task('build_images', function(cb) {
     .pipe(gulp.dest(conf.build.images))
     .once('end', end);
 
-  gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
-    .pipe(gCond(prod, function() {
+  new StreamQueue({objectMode: true},
+    gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer}),
+    gulp.src(conf.src.images + '/chtijs.svg', {buffer: buffer})
+      // https://groups.google.com/forum/#!topic/nodejs/SxNKLclbM5k
+      .pipe(gSpawn({
+        cmd: '/bin/sh',
+        args: [
+          '-c',
+          'cat |  convert -resize 32x32 svg:/dev/stdin png:/dev/stdout | cat'
+        ],
+        filename: function(base, ext) {
+          return 'favicon.png';
+        }
+    }))
+  ).pipe(gCond(prod, function() {
       return gStreamify(gImagemin())
     }, function() {
       return gWatch().pipe(gLivereload(server));
@@ -249,15 +262,19 @@ gulp.task('ghpages', function(cb) {
     , curBranch = 'master'
     , execOptions = {
       cwd: __dirname
-    };
+    }
+    , command = 'git rev-parse --abbrev-ref HEAD';
   // Remember the current branch
-  exec('git rev-parse --abbrev-ref HEAD', execOptions, function(err, stdout, stderr) {
+  gUtil.log('Running:' + command);
+  exec(command, execOptions, function(err, stdout, stderr) {
     if(err) {
       throw err;
     }
     curBranch = stdout;
     // Switch to ghpages branch
-    exec('git branch -D gh-pages; git checkout -b gh-pages', execOptions, function(err) {
+    command = 'git branch -D gh-pages; git checkout -b gh-pages';
+    gUtil.log('Running:' + command);
+    exec(command, execOptions, function(err) {
       if(err) {
         throw err;
       }
@@ -278,13 +295,17 @@ gulp.task('ghpages', function(cb) {
       ignore.push('.gitignore');
       Fs.writeFileSync(__dirname + '/.gitignore', ignore.join('\n'));
       // Commit files
-      exec('git add . ; git commit -m "Build '+(new Date())+'"', execOptions, function(err) {
+      command = 'git add . ; git commit -m "Build '+(new Date())+'"';
+      gUtil.log('Running:' + command);
+      exec(command, execOptions, function(err) {
         if(err) {
           throw err;
         }
         // Pushing commit
-        exec('git push -f origin gh-pages ; git checkout ' + curBranch
-          + ' ; git checkout .', execOptions, function(err) {
+        command = 'git push -f origin gh-pages ; git checkout ' + curBranch
+          + ' ; git checkout .';
+        gUtil.log('Running:' + command);
+        exec(command, execOptions, function(err) {
           if(err) {
             throw err;
           }

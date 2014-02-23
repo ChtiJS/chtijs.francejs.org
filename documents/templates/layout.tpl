@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>{{conf.name}}{% if metadata.title %} : {{ metadata.title }}{% endif %}</title>
     <meta name="description" content="{% if metadata.description %}{{ metadata.description }}{% else %}{{conf.description}}{% endif %}">
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
     <meta name="robots" content="index,follow">
     <!--[if IE 8]><link rel="stylesheet" href="{{conf.baseURL}}/css/main.ie.css"><![endif]-->
     <!--[if gt IE 8]><!--><link rel="stylesheet" href="{{conf.baseURL}}/css/main.css"><!--<![endif]-->
