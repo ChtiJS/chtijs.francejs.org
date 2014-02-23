@@ -46,7 +46,7 @@
     "gulp-livereload": "latest",
     "gulp-streamify": "latest",
     "gulp-autoprefixer": "0.0.6",
-    "gulp-util": "~2.2.12",
+    "gulp-util": "~2.2.14",
     "gulp": "latest",
     "varstream": "latest",
     "tiny-lr": "0.0.5",
@@ -54,8 +54,8 @@
     "nunjucks": "~1.0.1",
     "rimraf": "~2.2.6",
     "open": "0.0.4",
-    "request": "~2.33.0",
-    "streamqueue": "0.0.4",
+    "request": "~2.34.0",
+    "streamqueue": "0.0.5",
     "plexer": "~0.0.1",
     "feedr": "~2.7.7"
   }
