@@ -88,7 +88,7 @@ gulp.task('build_images', function(cb) {
         cmd: '/bin/sh',
         args: [
           '-c',
-          'cat |  convert -resize 32x32 svg:/dev/stdin png:/dev/stdout | cat'
+          'cat |  convert -background none -resize 32x32 svg:/dev/stdin png:/dev/stdout | cat'
         ],
         filename: function(base, ext) {
           return 'favicon.png';
@@ -270,7 +270,7 @@ gulp.task('ghpages', function(cb) {
     if(err) {
       throw err;
     }
-    curBranch = stdout;
+    curBranch = stdout.trim();
     // Switch to ghpages branch
     command = 'git branch -D gh-pages; git checkout -b gh-pages';
     gUtil.log('Running:' + command);
