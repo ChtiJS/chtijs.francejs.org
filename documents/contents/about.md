@@ -33,6 +33,11 @@ Lorsqu'il y a suffisamment de sujets à traiter, nous lançons un sondage pour
 Toutes les discussions ayant trait à la préparation des futures éditions on lieu
  sur notre [liste de diffusion](https://groups.google.com/forum/#!forum/chtijs).
 
+Enfin, lorsqu'une date est arrêtée, nous créons un évènement sur la page
+ [Meetup de FranceJS](http://www.meetup.com/FranceJS/). En devenant membre de
+ ce groupe Meetup, vous serez automatiquement averti des prochaines rencontres
+ ChtiJS.
+
 ## Les sujets
 
 Toute personne est libre de proposer un sujet quel qu'en soit le contenu pour
@@ -47,7 +52,7 @@ Un sujet peut être traité de diverses manières, tous les formats sont bienven
 Voici quelques pistes :
 - séance de développement en direct ;
 - présentation plus formalisée type "conférence" ;
-- présentation de type table ronde avec retours d'expériences de chacun.
+- présentation de type table ronde avec retours d'expérience de chacun.
 
 ### Durée
 
@@ -59,7 +64,7 @@ Les questions sont libres et peuvent durer longtemps quand le sujet intéresse.
 
 D'une manière générale, nous avons deux ou trois présentations par rencontre,
  mais il n'est pas impossible que nous en reportions une le jour même ou qu'un
- débat imprévu s'improvise.
+ débat s'improvise sur un sujet non prévu.
 
 À la fin de chaque édition, nous discutons autour d'un verre afin de mieux nous
  connaître et de prendre des nouvelles de chacun. Les plus téméraires bravent
