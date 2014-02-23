@@ -23,7 +23,10 @@ require('matchdep').filterDev('gulp-*').forEach(function(module) {
 // Helper to wait for n gulp pipelines
 function waitEnd(total, cb, n) {
   n = n || 0;
-  return function end() { ++n==total && cb(); }
+  return function end(debug) {
+    debug && console.log(debug);
+    ++n==total && cb();
+  }
 }
 
 // Loading global options (files paths)
@@ -100,14 +103,16 @@ gulp.task('build_styles', function(cb) {
 // JavaScript
 gulp.task('build_js', function(cb) {
   var end = waitEnd(3, cb);
-  gulp.src(conf.src.js + '/**/*.js', {buffer: buffer || true}) // gStreamify do not work here ?!
-    .pipe(gJshint())
+  gulp.src(conf.src.js + '/**/*.js', {buffer: buffer})
+    .pipe(gStreamify(gJshint))
     .once('end', end);
 
   gulp.src(conf.src.js + '/frontend.js', {buffer: buffer})
-    .pipe(gBrowserify()) // gBrowserify never triggers 'end' ...
-    .pipe(gConcat('script.js'))
-    .pipe(gCond(prod, gUglify, gLivereload.bind(null, server)))
+    .pipe(gStreamify(gBrowserify()))
+    .pipe(gStreamify(gConcat('script.js')))
+    .pipe(gCond(prod,
+      gStreamify.bind(null, gUglify),
+      gLivereload.bind(null, server)))
     .pipe(gulp.dest(conf.build.frontjs))
     .once('end', end);
 
@@ -137,7 +142,7 @@ gulp.task('build_html', function(cb) {
   }
 
   var queue = new StreamQueue({objectMode: true},
-    gulp.src(conf.src.content + '/**/*.md', {buffer: buffer||true}) // Streams not supported
+    gulp.src(conf.src.content + '/**/*.md', {buffer: buffer || true}) // Streams not supported yet
       .pipe(gMdvars()),
     gCond(!noreq, gGhcontributors.bind(null, {
       organization: 'ChtiJS',
