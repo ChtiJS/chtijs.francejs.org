@@ -19,6 +19,10 @@ ChtiJS est une réunion informelle de personnes passionnées de JavaScript. Notr
  but est de favoriser les échanges et la découverte dans une atmosphère ouverte
  et détendue.
 
+**Prochaine rencontre :** Incrivez-vous sur le
+ [compte Meetup de FranceJS](http://www.meetup.com/FranceJS/) pour être tenu au
+ courant de notre prochaine rencontre.
+
 ## Concept
 
 JavaScript est un langage de programmation incontournable pour la création
