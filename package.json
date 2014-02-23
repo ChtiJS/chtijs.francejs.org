@@ -4,7 +4,8 @@
   "description": "The ChtiJS Website",
   "main": "",
   "scripts": {
-    "test": "node_modules/gulp/bin/gulp.js build --prod --noreq"
+    "test": "node_modules/gulp/bin/gulp.js build --prod --noreq",
+    "trinity": "npm-check-updates -u && npm test && git commit package.json -m \"Dependencies update\" && git push"
   },
   "homepage": "http://chtijs.francejs.org",
   "repository": {
@@ -28,12 +29,12 @@
   "devDependencies": {
     "matchdep": "~0.3.0",
     "gulp-iconfont": "latest",
-    "gulp-browserify": "latest",
+    "gulp-browserify": "~0.4.6",
     "gulp-less": "latest",
     "gulp-minify-css": "latest",
     "gulp-jshint": "latest",
     "gulp-concat": "latest",
-    "gulp-svgmin": "latest",
+    "gulp-svgmin": "~0.4.4",
     "gulp-clean": "latest",
     "gulp-watch": "latest",
     "gulp-cond": "latest",
@@ -56,7 +57,7 @@
     "open": "0.0.4",
     "request": "~2.34.0",
     "streamqueue": "0.0.5",
-    "plexer": "~0.0.1",
+    "plexer": "0.0.1",
     "feedr": "~2.7.7"
   }
 }
