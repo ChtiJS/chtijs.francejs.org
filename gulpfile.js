@@ -11,6 +11,7 @@ var gulp = require('gulp')
   , gPlanet = require('./gulpplugins/planet')
   , Stream = require('stream')
   , StreamQueue = require('streamqueue')
+  , Duplexer = require('plexer')
 ;
 
 // Loading npm gulp plugins
@@ -75,7 +76,10 @@ gulp.task('build_images', function(cb) {
   var end = waitEnd(2, cb);
   gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
     .pipe(gCond(prod, gSvgmin, function() {
-      return gWatch().pipe(gLivereload(server));
+      var watch = gWatch();
+      end();
+      return new Duplexer({objectMode: true}, watch,
+        watch.pipe(gLivereload(server)));
     }))
     .pipe(gulp.dest(conf.build.images))
     .once('end', end);
@@ -97,7 +101,10 @@ gulp.task('build_images', function(cb) {
   ).pipe(gCond(prod, function() {
       return gStreamify(gImagemin())
     }, function() {
-      return gWatch().pipe(gLivereload(server));
+      var watch = gWatch();
+      end();
+      return new Duplexer({objectMode: true}, watch,
+        watch.pipe(gLivereload(server)));
     }))
     .pipe(gulp.dest(conf.build.images))
     .once('end', end);
