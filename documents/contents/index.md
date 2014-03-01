@@ -19,9 +19,13 @@ ChtiJS est une réunion informelle de personnes passionnées de JavaScript. Notr
  but est de favoriser les échanges et la découverte dans une atmosphère ouverte
  et détendue.
 
-**Prochaine rencontre :** Incrivez-vous sur le
+**Prochaine rencontre :**
+ [Embuscade JS #1](http://www.meetup.com/FranceJS/events/168885592/), le Jeudi
+ 6 mars à 19h au Mutualab.
+
+Incrivez-vous sur le
  [compte Meetup de FranceJS](http://www.meetup.com/FranceJS/) pour être tenu au
- courant de notre prochaine rencontre.
+ courant des futures rencontres.
 
 Pour un aperçu de ce que sont les rencontres ChtiJS, vous pouvez visualiser
 [les comptes rendus](/archives/index.html) des précédentes éditions.
