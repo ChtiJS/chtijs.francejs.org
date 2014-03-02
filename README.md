@@ -83,3 +83,13 @@ ChtiJS est un site statique généré de façon automatique via la tâche Gulp
 
 Et voilà, le site de ChtiJS n'a plus de secret pour vous ;).
 
+# Publication
+Pour publier le site, il suffit de taper la commande suivante :
+```sh
+gulp build --prod && gulp publish
+```
+
+**Attention:** Si vous n'avez pas ajouté le token GitHub ou n'avez pas de version de convert sur votre système, vous risquez de publier une version dégradée ou non-fonctionnelle du site.
+
+D'une manière générale, construire le site sous Windows est une mauvaise idée, sauf mention contraire par un aventurier qui alors se manifestera pour modifier cette ligne.
+
