@@ -6,6 +6,7 @@ var gulp = require('gulp')
   , express = require('express')
   , tinylr = require('tiny-lr')
   , rimraf = require('rimraf')
+  , buildBranch = require('buildbranch')
   , gGhmembers = require('./gulpplugins/ghmembers')
   , gGhcontributors = require('./gulpplugins/ghcontributors')
   , gPlanet = require('./gulpplugins/planet')
@@ -251,62 +252,17 @@ gulp.task('build', ['clean', 'build_fonts', 'build_images', 'build_styles',
 
 // Publish task
 gulp.task('ghpages', function(cb) {
-  var exec = require('child_process').exec
-    , curBranch = 'master'
-    , execOptions = {
-      cwd: __dirname
-    }
-    , command = 'git rev-parse --abbrev-ref HEAD';
-  // Remember the current branch
-  g.util.log('Running:' + command);
-  exec(command, execOptions, function(err, stdout, stderr) {
+
+  buildBranch({
+    ignore: ['.git', '.token', 'www', 'node_modules'],
+    domain: conf.domain
+  }, function(err) {
     if(err) {
       throw err;
     }
-    curBranch = stdout.trim();
-    // Switch to ghpages branch
-    command = 'git branch -D gh-pages; git checkout -b gh-pages';
-    g.util.log('Running:' + command);
-    exec(command, execOptions, function(err) {
-      if(err) {
-        throw err;
-      }
-      // delete all files except the untracked ones
-      var ignore = ['.git', '.token', 'www', 'node_modules'];
-      Fs.readdirSync(__dirname).forEach(function(file) {
-        if(-1 === ignore.indexOf(file)) {
-          rimraf.sync(__dirname+'/'+file);
-        }
-      });
-      Fs.readdirSync(__dirname+'/www').forEach(function(file) {
-        Fs.renameSync(__dirname+'/www/'+file, __dirname+'/'+file);
-      });
-      Fs.rmdirSync(__dirname+'/www');
-      // Add the domain name
-      Fs.writeFileSync(__dirname + '/CNAME', conf.domain);
-      // Add a new ignore file
-      ignore.push('.gitignore');
-      Fs.writeFileSync(__dirname + '/.gitignore', ignore.join('\n'));
-      // Commit files
-      command = 'git add . ; git commit -m "Build '+(new Date())+'"';
-      g.util.log('Running:' + command);
-      exec(command, execOptions, function(err) {
-        if(err) {
-          throw err;
-        }
-        // Pushing commit
-        command = 'git push -f origin gh-pages ; git checkout ' + curBranch
-          + ' ; git checkout .';
-        g.util.log('Running:' + command);
-        exec(command, execOptions, function(err) {
-          if(err) {
-            throw err;
-          }
-          cb();
-        });
-      });
-    });
+    cb();
   });
+
 });
 
 // Publish task : Cannot build before since gulp.dest doesn't ensure

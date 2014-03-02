@@ -60,7 +60,8 @@
     "plexer": "0.0.1",
     "feedr": "~2.7.7",
     "gulp-spawn": "~0.2.1",
-    "es6-promise": "~0.1.1"
+    "es6-promise": "~0.1.1",
+    "buildbranch": "latest"
   },
   "dependencies": {
     "gulp-load-plugins": "~0.3.0"
