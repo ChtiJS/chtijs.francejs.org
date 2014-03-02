@@ -232,24 +232,16 @@ gulp.task('build', ['clean', 'build_fonts', 'build_images', 'build_styles',
     gulp.watch([
       conf.src.js + '/frontend/**/*.js',
       conf.src.js + '/frontend.js'
-    ], function(event) {
-      gulp.run('build_js');
-    });
+    ], ['build_js']);
 
-    gulp.watch([conf.src.less + '/**/*.less'], function(event) {
-      gulp.run('build_styles');
-    });
+    gulp.watch([conf.src.less + '/**/*.less'], ['build_styles']);
 
     gulp.watch([
       conf.src.content + '/**/*.md',
       conf.src.templates + '/**/*.tpl'
-    ], function(event) {
-      gulp.run('build_html');
-    });
+    ], ['build_html']);
 
-    gulp.watch([conf.src.icons + '/**/*.svg'], function(event) {
-      gulp.run('build_fonts');
-    });
+    gulp.watch([conf.src.icons + '/**/*.svg'], ['build_fonts']);
 
     require('open')(conf.baseURL+'/index.html');
 
@@ -319,13 +311,13 @@ gulp.task('ghpages', function(cb) {
 
 // Publish task : Cannot build before since gulp.dest doesn't ensure
 // underlying resources are closed https://github.com/wearefractal/vinyl-fs/issues/7
-gulp.task('publish', function() {
+gulp.task('ensureprod', function() {
   prod = true;
-  gulp.run('ghpages');
 });
+gulp.task('publish', ['ensureprod', 'ghpages']);
 
 // Dev env
-gulp.task('server', function() {
+gulp.task('server', function(cb) {
   // Starting the dev static server
   var app = express();
   app.use(express.query())
@@ -333,18 +325,12 @@ gulp.task('server', function() {
     .use(express.static(Path.resolve(__dirname, conf.build.root)))
     .listen(8080, function() {
       g.util.log('Dev server listening on %d', 35729);
-      gulp.run('build');
+      cb();
     });
   server = tinylr();
   server.listen(35729);
 });
 
 // The default task
-gulp.task('default', function() {
-  if(prod) {
-    gulp.run('build');
-  } else {
-    gulp.run('server');
-  }
-});
+gulp.task('default', ['server', 'build'].slice(prod ? 1 : 0));
 
