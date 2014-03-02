@@ -22,7 +22,7 @@ function waitEnd(total, cb, n) {
   return function end(debug) {
     debug && console.log(debug);
     ++n==total && cb();
-  }
+  };
 }
 
 // Loading global options (files paths)
@@ -40,16 +40,16 @@ if(!prod) {
   if(g.util.env.net) {
     var ints = require('os').getNetworkInterfaces();
 
-    for(var int in ints) {
+    Object.keys(ints).some(function(int) {
       if(ints[int].some(function(net) {
         if((!net.internal) && 'IPv4' == net.family) {
           conf.ip = net.address;
           return true;
         }
       })) {
-        break;
+        return true;
       }
-    }
+    });
   }
   conf.baseURL = 'http://'+conf.ip+':8080';
 }
@@ -94,7 +94,7 @@ gulp.task('build_images', function(cb) {
         }
     }))
   ).pipe(g.cond(prod, function() {
-      return g.streamify(g.imagemin())
+      return g.streamify(g.imagemin());
     }, function() {
       var watch = g.watch();
       end();
