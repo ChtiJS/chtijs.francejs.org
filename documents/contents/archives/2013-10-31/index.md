@@ -17,8 +17,9 @@ location=FR
 
 Au menu de ce ChtiJS :
 
-* présentation de GruntJS, un outil d'automatisation des tâches récurrentes
- avec JavaScript et NodeJS par 0gust1  ([@0gust1](https://twitter.com/0gust1)).
+* [présentation de GruntJS](http://0gust1.github.io/introduction_grunt/#/4), un
+ outil d'automatisation des tâches récurrentes avec JavaScript et NodeJS par
+ Augustin Chassigne ([@0gust1](https://twitter.com/0gust1)).
 * présentation de la Web Notification API par Tom Panier
  ([@_neemzy](https://twitter.com/_neemzy)) - [slides](http://slid.es/neemzy/web-notifications-api),
  [démo](https://github.com/ChtiJS/messenger.io)
