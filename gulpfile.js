@@ -12,14 +12,8 @@ var gulp = require('gulp')
   , Stream = require('stream')
   , StreamQueue = require('streamqueue')
   , Duplexer = require('plexer')
+  , g = require('gulp-load-plugins')()
 ;
-
-// Loading npm gulp plugins
-require('matchdep').filterDev('gulp-*').forEach(function(module) {
-  global[module.replace(/^gulp-/, 'g-').replace(/-([a-z])/g, function(x,xx) {
-    return xx.toUpperCase();
-  })] = require(module);
-});
 
 // Helper to wait for n gulp pipelines
 function waitEnd(total, cb, n) {
@@ -33,16 +27,16 @@ function waitEnd(total, cb, n) {
 // Loading global options (files paths)
 var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'))
   , server
-  , prod = !!gUtil.env.prod
-  , noreq = !!gUtil.env.noreq
-  , buffer = !gUtil.env.stream
+  , prod = !!g.util.env.prod
+  , noreq = !!g.util.env.noreq
+  , buffer = !g.util.env.stream
 ;
 
 if(!prod) {
   // Finding the server IP
   conf.ip = '127.0.0.1';
 
-  if(gUtil.env.net) {
+  if(g.util.env.net) {
     var ints = require('os').getNetworkInterfaces();
 
     for(var int in ints) {
@@ -63,7 +57,7 @@ if(!prod) {
 // Fonts
 gulp.task('build_fonts', function(cb) {
   gulp.src(conf.src.icons + '/**/*.svg', {buffer: buffer})
-    .pipe(gIconfont({
+    .pipe(g.iconfont({
       'fontName': 'iconsfont',
       'appendCodepoints': true
     }))
@@ -75,11 +69,11 @@ gulp.task('build_fonts', function(cb) {
 gulp.task('build_images', function(cb) {
   var end = waitEnd(2, cb);
   gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
-    .pipe(gCond(prod, gSvgmin, function() {
-      var watch = gWatch();
+    .pipe(g.cond(prod, g.svgmin, function() {
+      var watch = g.watch();
       end();
       return new Duplexer({objectMode: true}, watch,
-        watch.pipe(gLivereload(server)));
+        watch.pipe(g.livereload(server)));
     }))
     .pipe(gulp.dest(conf.build.images))
     .once('end', end);
@@ -88,7 +82,7 @@ gulp.task('build_images', function(cb) {
     gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer}),
     gulp.src(conf.src.images + '/chtijs.svg', {buffer: buffer})
       // https://groups.google.com/forum/#!topic/nodejs/SxNKLclbM5k
-      .pipe(gSpawn({
+      .pipe(g.spawn({
         cmd: '/bin/sh',
         args: [
           '-c',
@@ -98,13 +92,13 @@ gulp.task('build_images', function(cb) {
           return 'favicon.png';
         }
     }))
-  ).pipe(gCond(prod, function() {
-      return gStreamify(gImagemin())
+  ).pipe(g.cond(prod, function() {
+      return g.streamify(g.imagemin())
     }, function() {
-      var watch = gWatch();
+      var watch = g.watch();
       end();
       return new Duplexer({objectMode: true}, watch,
-        watch.pipe(gLivereload(server)));
+        watch.pipe(g.livereload(server)));
     }))
     .pipe(gulp.dest(conf.build.images))
     .once('end', end);
@@ -113,9 +107,9 @@ gulp.task('build_images', function(cb) {
 // CSS
 gulp.task('build_styles', function(cb) {
   gulp.src(conf.src.less + '/main.less', {buffer: buffer})
-    .pipe(gStreamify((gLess())))
-    .pipe(gStreamify((gAutoprefixer())))
-    .pipe(gCond(prod, gMinifyCss, gLivereload.bind(null, server)))
+    .pipe(g.streamify((g.less())))
+    .pipe(g.streamify((g.autoprefixer())))
+    .pipe(g.cond(prod, g.minifyCss, g.livereload.bind(null, server)))
     .pipe(gulp.dest(conf.build.css))
     .once('end', cb);
 });
@@ -124,15 +118,15 @@ gulp.task('build_styles', function(cb) {
 gulp.task('build_js', function(cb) {
   var end = waitEnd(3, cb);
   gulp.src(conf.src.js + '/**/*.js', {buffer: buffer})
-    .pipe(gStreamify(gJshint))
+    .pipe(g.streamify(g.jshint))
     .once('end', end);
 
   gulp.src(conf.src.js + '/frontend.js', {buffer: buffer})
-    .pipe(gStreamify(gBrowserify()))
-    .pipe(gStreamify(gConcat('script.js')))
-    .pipe(gCond(prod,
-      gStreamify.bind(null, gUglify),
-      gLivereload.bind(null, server)))
+    .pipe(g.streamify(g.browserify()))
+    .pipe(g.streamify(g.concat('script.js')))
+    .pipe(g.cond(prod,
+      g.streamify.bind(null, g.uglify),
+      g.livereload.bind(null, server)))
     .pipe(gulp.dest(conf.build.frontjs))
     .once('end', end);
 
@@ -163,24 +157,24 @@ gulp.task('build_html', function(cb) {
 
   var queue = new StreamQueue({objectMode: true},
     gulp.src(conf.src.content + '/**/*.md', {buffer: buffer || true}) // Streams not supported yet
-      .pipe(gMdvars()),
-    gCond(!noreq, gGhcontributors.bind(null, {
+      .pipe(g.mdvars()),
+    g.cond(!noreq, gGhcontributors.bind(null, {
       organization: 'ChtiJS',
       project: 'chtijs.francejs.org',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
     }), getEndedReadable),
-    gCond(!noreq, gGhmembers.bind(null, {
+    g.cond(!noreq, gGhmembers.bind(null, {
       organization: 'ChtiJS',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
     }), getEndedReadable)/*,  // awaiting for more blogs
-    gCond(!noreq, gPlanet.bind(null, {
+    g.cond(!noreq, gPlanet.bind(null, {
       base: conf.src.content,
       blogs: conf.blogs,
       buffer:  buffer||true // Streams not supported
     }), getEndedReadable)*/)
-    .pipe(gVartree({
+    .pipe(g.vartree({
       root: tree,
       index: 'index',
       parentProp: 'parent',
@@ -188,7 +182,7 @@ gulp.task('build_html', function(cb) {
       sortProp: 'shortTitle',
       sortDesc: true
     }))
-    .pipe(gMarked({
+    .pipe(g.marked({
       gfm: true,
       tables: true,
       breaks: false,
@@ -197,7 +191,7 @@ gulp.task('build_html', function(cb) {
       smartLists: true,
       smartypants: true
     }))
-    .pipe(gRename({extname: '.html'}))
+    .pipe(g.rename({extname: '.html'}))
     .once('end', function() {
       markedFiles.forEach(function(file) {
         var nunjucksOptions = {
@@ -272,7 +266,7 @@ gulp.task('ghpages', function(cb) {
     }
     , command = 'git rev-parse --abbrev-ref HEAD';
   // Remember the current branch
-  gUtil.log('Running:' + command);
+  g.util.log('Running:' + command);
   exec(command, execOptions, function(err, stdout, stderr) {
     if(err) {
       throw err;
@@ -280,7 +274,7 @@ gulp.task('ghpages', function(cb) {
     curBranch = stdout.trim();
     // Switch to ghpages branch
     command = 'git branch -D gh-pages; git checkout -b gh-pages';
-    gUtil.log('Running:' + command);
+    g.util.log('Running:' + command);
     exec(command, execOptions, function(err) {
       if(err) {
         throw err;
@@ -303,7 +297,7 @@ gulp.task('ghpages', function(cb) {
       Fs.writeFileSync(__dirname + '/.gitignore', ignore.join('\n'));
       // Commit files
       command = 'git add . ; git commit -m "Build '+(new Date())+'"';
-      gUtil.log('Running:' + command);
+      g.util.log('Running:' + command);
       exec(command, execOptions, function(err) {
         if(err) {
           throw err;
@@ -311,7 +305,7 @@ gulp.task('ghpages', function(cb) {
         // Pushing commit
         command = 'git push -f origin gh-pages ; git checkout ' + curBranch
           + ' ; git checkout .';
-        gUtil.log('Running:' + command);
+        g.util.log('Running:' + command);
         exec(command, execOptions, function(err) {
           if(err) {
             throw err;
@@ -338,7 +332,7 @@ gulp.task('server', function() {
     .use(express.bodyParser())
     .use(express.static(Path.resolve(__dirname, conf.build.root)))
     .listen(8080, function() {
-      gUtil.log('Dev server listening on %d', 35729);
+      g.util.log('Dev server listening on %d', 35729);
       gulp.run('build');
     });
   server = tinylr();
