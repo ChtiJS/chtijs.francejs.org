@@ -4,6 +4,8 @@ description=Découvrez le contenu du ChtiJS n°2 avec la présentation de \
 Paul d'Hubert sur les concepts d'AngularJS'.
 created=2013-04-26 12:00:00
 keywords.+=AngularJS
+lang=fr
+location=FR
 -->
 
 # ChtiJS n°2 du Vendredi 26 Avril 2013
@@ -24,3 +26,4 @@ Une super présentation mais moins de participants que lors de la première
 
 Voir le [Doodle](http://doodle.com/nhz4rqbu88xvmxnc) pour la liste des
  participants.
+

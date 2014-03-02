@@ -5,6 +5,8 @@ shortTitle=Conventions
 shortDesc=Voir nos conventions
 keywords.+=JavaScript
 keywords.+=Guideline
+lang=fr
+location=FR
 -->
 
 # Conventions de code

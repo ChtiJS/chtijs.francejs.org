@@ -7,6 +7,8 @@ keywords.+=HTML5
 keywords.+=GruntJS
 keywords.+=TDD
 keywords.+=Karma
+lang=fr
+location=FR
 -->
 
 # ChtiJS n°5 du 31 octobre 2013

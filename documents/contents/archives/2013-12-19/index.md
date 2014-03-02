@@ -10,6 +10,8 @@ keywords.+=GruntJS
 keywords.+=Browserify
 keywords.+=MongoDB
 keywords.+=Express
+lang=fr
+location=FR
 -->
 
 # ChtiJS n°6 du 12 décembre 2013

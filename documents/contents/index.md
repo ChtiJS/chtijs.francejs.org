@@ -9,6 +9,8 @@ keywords.+=JavaScript
 keywords.+=groupe
 keywords.+=Nord
 keywords.+=Pas-de-Calais
+lang=fr
+location=FR
 -->
 
 # ChtiJS

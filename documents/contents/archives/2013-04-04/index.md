@@ -6,6 +6,8 @@ created=2013-04-04 12:00:00
 keywords.+=HTTP
 keywords.+=streaming
 keywords.+=promises
+lang=fr
+location=FR
 -->
 
 # ChtiJS n°1 du Jeudi 04 Avril 2013
@@ -26,3 +28,4 @@ Après les présentations nous avons parlé de l'avenir du groupe et de la
 ## Pour info
 
 Le Doodle a été perdu.
+

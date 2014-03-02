@@ -3,6 +3,8 @@ name=ChtiJS
 description=Communauté des développeurs JavaScript du Nord de la France
 domain=chtijs.francejs.org
 baseURL=http://chtijs.francejs.org
+lang=fr
+location=FR
 
 # Src directories
 src.content=./documents/contents
@@ -25,3 +27,4 @@ build.root=./www
 blogs.+.feed=http://www.insertafter.com/articles,javascript.atom
 blogs.*.author=Nicolas Froidure
 blogs.*.url=http://www.insertafter.com/
+

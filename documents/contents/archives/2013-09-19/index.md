@@ -7,6 +7,8 @@ created=2013-09-19 12:00:00
 keywords.+=AngularJS
 keywords.+=RWD
 keywords.+=CSS
+lang=fr
+location=FR
 -->
 
 # ChtiJS n°4 du Jeudi 19 Septembre 2013

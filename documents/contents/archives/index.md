@@ -7,6 +7,8 @@ keywords.+=JavaScript
 keywords.+=blog
 keywords.+=ChtiJS
 template=archives
+lang=fr
+location=FR
 -->
 
 # Résumés des rencontres

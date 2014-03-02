@@ -6,6 +6,8 @@ created=2014-02-20 19:00:00
 keywords.+=GolfJS
 keywords.+=Frameworks
 keywords.+=CondingDojo
+lang=fr
+location=FR
 -->
 
 # ChtiJS n°7 du 20 février 2014

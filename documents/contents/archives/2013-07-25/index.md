@@ -6,6 +6,8 @@ d'applications NodeJS.
 created=2013-07-25 12:00:00
 keywords.+=promises
 keywords.+=NodeJS
+lang=fr
+location=FR
 -->
 
 # ChtiJS n°3 du Jeudi 25 Juillet 2013
