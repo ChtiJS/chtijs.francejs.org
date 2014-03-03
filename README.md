@@ -1,4 +1,4 @@
-# Site ChtiJS [![Build status](https://api.travis-ci.org/ChtiJS/chtijs.francejs.org.png)](https://travis-ci.org/ChtiJS/chtijs.francejs.org)
+# Site ChtiJS [![Build status](https://api.travis-ci.org/ChtiJS/chtijs.francejs.org.png)](https://travis-ci.org/ChtiJS/chtijs.francejs.org) [![Code Climate](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org.png)](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org)
 
 > **Avant de commencer à travailler sur le projet lisez attentivement
  [le guide pour contribuer](CONTRIBUTING.md)**
