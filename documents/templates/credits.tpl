@@ -1,16 +1,24 @@
 {% extends 'layout.tpl' %}
 
 {% block body %}
-{{ content | safe }}
-<section class="main-credits">
-  {% for contributor in contributors %}
-    <article class="main-credits__contributor">
-      <img class="pict" src="{{ contributor.avatar_url }}"/>
-      <div class="link">
-        <a href="{{ contributor.html_url }}" target="__blank">{{ contributor.login }}{% if contributor.name %}&nbsp;&nbsp;-&nbsp;&nbsp;{{ contributor.name }} {% endif %}{% if contributor.contributions %} ({{ contributor.contributions }} contributions){% endif %}</a>
-      </div>
-      <div class="clr"></div>
-    </article>
+<section class="main-members">
+  <h1 class="main-members__title">{{metadata.title}}</h1>
+  <p class="main-members__intro">{{metadata.description}}</p>
+  <p class="main-members__content"{{ content | safe }}</div>
+  {% for contributor in metadata.contributors %}
+  <article class="main-members__member">
+    <h2>
+      <a href="{{ contributor.html_url }}" target="__blank">
+        <img class="pict" src="{{ contributor.avatar_url }}"/>
+        {{ contributor.name }} alias {{ contributor.login }}
+      </a>
+    </h2>
+    <p>
+      {{ contributor.contributions }} contributions.{% if contributor.bio %}
+      <br />{{ contributor.bio }}{% endif %}
+    </p>
+  </article>
   {% endfor %}
 </section>
 {% endblock %}
+

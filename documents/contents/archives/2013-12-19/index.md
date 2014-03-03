@@ -1,4 +1,4 @@
-<!-- varstream
+<!--VarStream
 title=ChtiJS #6
 description=Découvrez le contenu du ChtiJS n°6 avec les présentations de Jean-\
 Baptiste Pionnier sur la stack MEAN, de Nicolas Froidure sur le partage de code \
@@ -10,6 +10,8 @@ keywords.+=GruntJS
 keywords.+=Browserify
 keywords.+=MongoDB
 keywords.+=Express
+lang=fr
+location=FR
 -->
 
 # ChtiJS n°6 du 12 décembre 2013
@@ -37,3 +39,4 @@ Retrouvons-nous une nouvelle fois pour parler de JavaScript avec une soirée tr�
 
 Pour la liste des participants,
  [voir le Doodle](http://doodle.com/uqrqwhsxbyfuafie) associé.
+

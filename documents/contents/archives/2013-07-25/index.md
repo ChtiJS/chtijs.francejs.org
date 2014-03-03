@@ -1,4 +1,4 @@
-<!-- varstream
+<!--VarStream
 title=ChtiJS #3
 description=Découvrez le contenu du ChtiJS n°3 avec la présentation de \
 Nicolas Froidure sur les promises et une table ronde sur la mise en production \
@@ -6,6 +6,8 @@ d'applications NodeJS.
 created=2013-07-25 12:00:00
 keywords.+=promises
 keywords.+=NodeJS
+lang=fr
+location=FR
 -->
 
 # ChtiJS n°3 du Jeudi 25 Juillet 2013

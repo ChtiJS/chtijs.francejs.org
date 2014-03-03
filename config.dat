@@ -1,30 +1,30 @@
 # Main configuration
+name=ChtiJS
+description=Communauté des développeurs JavaScript du Nord de la France
+domain=chtijs.francejs.org
 baseURL=http://chtijs.francejs.org
-
+lang=fr
+location=FR
 
 # Src directories
 src.content=./documents/contents
-src.templates=./documents/templates
-src.data=./documents/data
-src.icons=./documents/icons
-src.images=./documents/images
-src.stylesheets=./documents/less
-src.css=./documents/css
-src.blog_content=./documents/content/archives
-src.members_content=./documents/content/members
-src.credits_content=./documents/content/credits
-src.scripts=./src
+^.templates=./documents/templates
+^.data=./documents/data
+^.icons=./documents/icons
+^.images=./documents/images
+^.less=./documents/less
+^.css=./documents/css
+^.js=./src
 
 # Destination directories
-dev.root=./www
-dev.css=./www/css
-dev.fonts=./www/fonts
-dev.images=./www/images
-dev.scripts=./www/js
+build.root=./www
+^.css=./www/css
+^.fonts=./www/fonts
+^.images=./www/images
+^.frontjs=./www/js
 
-dist.root=./dist
-dist.css=./dist/css
-dist.fonts=./dist/fonts
-dist.images=./dist/images
-dist.scripts=./dist/js
+# Member blogs
+blogs.+.feed=http://www.insertafter.com/articles,javascript.atom
+blogs.*.author=Nicolas Froidure
+blogs.*.url=http://www.insertafter.com/
 

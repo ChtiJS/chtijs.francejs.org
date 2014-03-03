@@ -1,38 +1,67 @@
 {
-  "name": "chtijs",
-  "version": "0.0.0",
-  "description": "The ChtiJS website",
+  "name": "chtijs-website",
+  "version": "0.0.1",
+  "description": "The ChtiJS Website",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/gulp/bin/gulp.js build --prod --noreq",
+    "trinity": "npm-check-updates -u && npm test && git commit package.json -m \"Dependencies update\" && git push"
   },
-  "author": "Nicolas Froidure",
+  "homepage": "http://chtijs.francejs.org",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chtijs/chtijs.francejs.org"
+  },
+  "bugs": {
+    "url": "https://github.com/chtijs/chtijs.francejs.org/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/chtijs/chtijs.francejs.org/blob/master/LICENSE"
+    }
+  ],
+  "author": {
+    "name": "The ChtiJS Guys - Nord Pas de Calais - France",
+    "url": "http://chtijs.francejs.org"
+  },
   "license": "MIT",
   "devDependencies": {
-    "matchdep": "~0.3.0",
-    "grunt-svgicons2svgfont": "latest",
-    "grunt-svg2ttf": "latest",
-    "grunt-ttf2eot": "latest",
-    "grunt-ttf2woff": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-contrib-clean": "latest",
-    "grunt-contrib-less": "latest",
-    "grunt-contrib-cssmin": "latest",
-    "grunt-contrib-imagemin": "latest",
-    "grunt-contrib-jshint": "latest",
-    "grunt-svgmin": "latest",
-    "grunt-browserify": "latest",
-    "grunt-gh-pages": "~0.9.0",
-    "grunt": "latest",
-    "grunt-contrib-connect": "latest",
-    "jshint-stylish": "latest",
-    "nunjucks": "~1.0.0",
-    "marked": "~0.2.10",
-    "grunt-contrib-copy": "~0.4.1",
-    "varstream": "~0.2.0",
-    "load-grunt-tasks": "~0.2.1",
-    "lodash": "~2.4.1",
-    "request": "latest",
-    "q": "latest"
+    "gulp-iconfont": "latest",
+    "gulp-browserify": "~0.4.6",
+    "gulp-less": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-jshint": "latest",
+    "gulp-concat": "latest",
+    "gulp-svgmin": "~0.4.4",
+    "gulp-clean": "latest",
+    "gulp-watch": "latest",
+    "gulp-cond": "latest",
+    "gulp-marked": "latest",
+    "gulp-mdvars": "latest",
+    "gulp-vartree": "latest",
+    "gulp-uglify": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-rename": "latest",
+    "gulp-livereload": "latest",
+    "gulp-streamify": "latest",
+    "gulp-autoprefixer": "0.0.6",
+    "gulp-util": "~2.2.14",
+    "gulp": "latest",
+    "varstream": "latest",
+    "tiny-lr": "0.0.5",
+    "express": "~3.4.8",
+    "nunjucks": "~1.0.1",
+    "rimraf": "~2.2.6",
+    "open": "0.0.4",
+    "request": "~2.34.0",
+    "streamqueue": "0.0.5",
+    "plexer": "0.0.1",
+    "feedr": "~2.7.7",
+    "gulp-spawn": "~0.2.1",
+    "es6-promise": "~0.1.1",
+    "buildbranch": "latest",
+    "gulp-load-plugins": "~0.3.0"
   }
 }
+

@@ -1,4 +1,4 @@
-<!-- varstream
+<!--VarStream
 title=ChtiJS #5
 description=Découvrez le contenu du ChtiJS n°5 avec les présentations de Tom \
 Panier, 0gust1 et un échange sur les tests unitaires en JS.
@@ -7,6 +7,8 @@ keywords.+=HTML5
 keywords.+=GruntJS
 keywords.+=TDD
 keywords.+=Karma
+lang=fr
+location=FR
 -->
 
 # ChtiJS n°5 du 31 octobre 2013
@@ -15,8 +17,9 @@ keywords.+=Karma
 
 Au menu de ce ChtiJS :
 
-* présentation de GruntJS, un outil d'automatisation des tâches récurrentes
- avec JavaScript et NodeJS par 0gust1  ([@0gust1](https://twitter.com/0gust1)).
+* [présentation de GruntJS](http://0gust1.github.io/introduction_grunt/#/4), un
+ outil d'automatisation des tâches récurrentes avec JavaScript et NodeJS par
+ Augustin Chassigne ([@0gust1](https://twitter.com/0gust1)).
 * présentation de la Web Notification API par Tom Panier
  ([@_neemzy](https://twitter.com/_neemzy)) - [slides](http://slid.es/neemzy/web-notifications-api),
  [démo](https://github.com/ChtiJS/messenger.io)
@@ -24,7 +27,7 @@ Au menu de ce ChtiJS :
  code et mettons les tests en place ensemble. Merci à Raphaël Rougeron pour le
  [support de présentation](http://fr.slideshare.net/goldoraf/tester-son-js).
  À faire avant de venir, les quelques manipulations de ce
- [Gist](https://gist.github.com/nfroidure/7247493].
+ [Gist](https://gist.github.com/nfroidure/7247493).
 
 ## Compte rendu
 

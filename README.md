@@ -1,6 +1,7 @@
-# Site ChtiJS
+# Site ChtiJS [![Build status](https://api.travis-ci.org/ChtiJS/chtijs.francejs.org.png)](https://travis-ci.org/ChtiJS/chtijs.francejs.org)
 
-> **Avant de commencer à travailler sur le projet lisez, s'il vous plaît, [le guide pour contribuer](CONTRIBUTING.md)**
+> **Avant de commencer à travailler sur le projet lisez attentivement
+ [le guide pour contribuer](CONTRIBUTING.md)**
 
 ## Installer le projet
 
@@ -9,17 +10,35 @@ Vous devez avoir nodeJS installé sur votre machine ;)
 Entrez les commandes suivante dans un terminal :
 - `git clone git@github.com:ChtiJS/chtijs.francejs.org.git` : cloner le dépôt git;
 - `cd chtijs.francejs.org` : aller dans le répertoire créé.
-- Si vous n'avez jamais utilisé grunt avant, entrez :
-`npm install -g grunt-cli` ou `su npm install -g grunt-cli` (celà dépend de votre système et de la manière dont node.js est installé).
+- Si vous n'avez jamais utilisé gulp avant, entrez :
+`npm install -g gulp` ou `su npm install -g gulp` (celà dépend de votre système
+ et de la manière dont node.js est installé).
 - `npm install` : installe les dépendances.
+
+Afin de pouvoir générer le favicon, vous devrez également avoir ImageMagick
+ présent sur votre système.
 
 ## Pour travailler dessus :
 
-Placez vous dans le répertoire du projet et entrez : `grunt dev`.
+Placez vous dans le répertoire du projet et entrez : `gulp`.
 
 Celà lancera un petit serveur et ouvrira votre navigateur sur l'accueil du site.
 
-Toutes les modifications que vous ferez dans le code ou le contenu du site, une fois sauvegardées seront prises en comptes et votre navigateur se reachargera tout seul.
+Toutes les modifications que vous ferez dans le code ou le contenu du site,
+ une fois sauvegardées seront prises en comptes et votre navigateur se
+ reachargera tout seul.
+
+En ajoutant --prod, vous créez le site en mode production. L'argument --net
+ lancera le serveur de développement sur une adresse IP joignable sur votre
+ réseau local par d'autre machines.
+
+L'option --noreq permet de générer le site sans faire d'appel externe
+ (planète et API GitHub). Cela vous permettra de regénérer le site rapidement
+ pour les tests.
+
+À ce propos, sans fichier .token contenant un token pour l'accès à l'API GitHub,
+ vous serez rapidement dans l'incapacité de générer le site complet car le
+ nombre de requêtes anonymes est limité.
 
 ## Éditer le site :
 
@@ -29,76 +48,48 @@ Le contenu du site est dans le répertoire `/documents/contents/`.
 
 Les pages sont matérialisées par les fichiers écrits dans le format markdown (.md).
 
-Ainsi, le fichier `/documents/contenu/archives/index.md` est transformé en url "http://127.0.0.1:9001/archives/" dans votre navigateur.
+Ainsi, le fichier `/documents/contenu/archives/index.md` est transformé en url
+ "http://127.0.0.1:9001/archives/" dans votre navigateur.
 
-Ces fichiers markdown peuvent comporter des metadatas, qui seront transformées en données disponibles pour les templates.
+Ces fichiers markdown peuvent comporter des metadatas, qui seront transformées
+ en données disponibles pour les templates.
 
-Par défaut les fichiers markdown sont rendus via la template `/documents/templates/index.tpl`. Vous pouvez y associer une autre template via ces metadatas.
-
+Par défaut les fichiers markdown sont rendus via la template
+ `/documents/templates/index.tpl`. Vous pouvez y associer une autre template
+ via ces metadata.
 
 ### Architecture
 
-Les templates utilisées pour générer les pages webs du site sont dans le répertoire `/documents/templates/`
+Les templates sont dans le répertoire `/documents/templates/`.Le langage utilisé
+ est nunjucks (doc: http://jlongster.github.io/nunjucks/templating.html ).
 
-Le langage utilisé est nunjucks (doc: http://jlongster.github.io/nunjucks/templating.html ).
-
-Les CSS sont dans... `/documents/css/`et `documents/less/` (pour les CSS générées par le plugin grunt d'icônes de nicolas).
+Les CSS sont générées depuis les sources Less située dans `documents/less/`.
 
 ### Génération du site
 
-Actuellement nous utilisons [Grunt](http://gruntjs.com/). 
+ChtiJS est un site statique généré de façon automatique via la tâche Gulp
+ `build_html`. La génération se fait de la manière suivante :
 
-Nous sommes également en train d'étudier un autre système : [Glup](http://gulpjs.com/) qui pourrait présenter [divers avantages face à Grunt](http://www.insertafter.com/articles-gulp_vs_grunt.html). 
+* création d'un arbre représentant la structure du site :
+* * tout d'abord, on récupère les documents markdown  situés dans
+ `/documents/content`. Ajouter une fichier Markdown dans ce dossier (ou un
+ sous dossier) crée une nouvelle page dans le site.
+* * ensuite, on génère certaines pages à l'aide d'un plugin car certaines données
+ doivent être récupérées depuis le réseau. Ces plugins se trouvent dans le
+ dossier `gulpplugins`. Les pages membres, contributeurs et planète sont
+ générées de cette manière.
+* une fois l'arbre généré, on reprend chaque document un par un et on génère
+ la page HTML correspondante grâce au template qui lui est associé.
 
-#### Organisation du gruntfile :
+Et voilà, le site de ChtiJS n'a plus de secret pour vous ;).
 
-Le gruntfile ne contient juste qu'un chargeur de tâches et de config.
-
-Les tâches et la configuration sont découpés en modules qui sont rangés dans une arbo de répertoires :
-
-```
-grunt-config
-├── base_config.js
-├── base_tasks.js
-├── dev-mode
-│   └── config.js
-├── icons
-│   ├── config.js
-│   └── icons2fonts-tasks.js
-├── optim
-│   └── config.js
-└── website_build
-    ├── build_content-config.js
-    ├── build_content-tasks.js
-    ├── build_front-config.js
-    ├── build_front-tasks.js
-    ├── environment-config.js
-    ├── environment-tasks.js
-    ├── publish-config.js
-    └── publish-tasks.js
+# Publication
+Pour publier le site, il suffit de taper la commande suivante :
+```sh
+gulp build --prod && gulp publish
 ```
 
-Voici les "glob patterns" qui sélectionnent les fichiers de config, et les fichiers de tâches :
+**Attention:** Si vous n'avez pas ajouté le token GitHub ou n'avez pas de version de convert sur votre système, vous risquez de publier une version dégradée ou non-fonctionnelle du site.
 
-```js
-//we have 1 base config, and possibly many specific config
-  var configLocations = [
-    './grunt-config/base_config.js',
-    './grunt-config/**/config.js',
-    './grunt-config/**/*-config.js'
-  ];
+D'une manière générale, construire le site sous Windows est une mauvaise idée, sauf mention contraire par un aventurier qui alors se manifestera pour modifier cette ligne.
 
-  //we have 1 base tasks definition, and possibly many specific tasks
-  var tasksLocations = [
-    './grunt-config/base_tasks.js',
-    './grunt-config/**/tasks.js',
-    './grunt-config/**/*-tasks.js'
-  ];
-```
-
-Les fichiers contenant de la config sont mergés en un gros objet JS, tandis que les fichiers contenant des tâches sont simplement exécutés (ils retournent une fonction qui fait un appel à grunt.registerTask()).
-
-C'est uniquement le nommage des fichiers (voir ci-dessous) qui détermine s'ils contiennent de la configuration ou des tâches.
-la sous-arborescence du répertoire grunt-config a juste un rôle de classement thématique, pour les devs. Aucun rôle ou effet technique.
-
-L'avantage est de pouvoir découper et réorganiser ses tâches de façon simple, et en adoptant l'organisation que l'on veut.
