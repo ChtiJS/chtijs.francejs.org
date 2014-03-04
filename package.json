@@ -46,6 +46,7 @@
     "gulp-livereload": "latest",
     "gulp-streamify": "latest",
     "gulp-autoprefixer": "0.0.6",
+    "gulp-load-plugins": "~0.3.0",
     "gulp-util": "~2.2.14",
     "gulp": "latest",
     "varstream": "latest",
@@ -60,8 +61,7 @@
     "feedr": "~2.7.7",
     "gulp-spawn": "~0.2.1",
     "es6-promise": "~0.1.1",
-    "buildbranch": "latest",
-    "gulp-load-plugins": "~0.3.0"
+    "buildbranch": "latest"
   }
 }
 
