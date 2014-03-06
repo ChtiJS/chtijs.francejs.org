@@ -156,7 +156,7 @@ gulp.task('build_html', function(cb) {
     return stream;
   }
 
-  var queue = new StreamQueue({objectMode: true},
+  var contentStream = new StreamQueue({objectMode: true},
     gulp.src(conf.src.content + '/**/*.md', {buffer: buffer || true}) // Streams not supported yet
       .pipe(g.mdvars()),
     g.cond(!noreq, gGhcontributors.bind(null, {
@@ -214,9 +214,12 @@ gulp.task('build_html', function(cb) {
       dest.end();
       cb();
     })
-    .on('data', function(file) {
-      markedFiles.push(file);
-    }).resume();
+    .on('readable', function() {
+      var file;
+      while(file = contentStream.read()) {
+        markedFiles.push(file);
+      }
+    });
 });
 
 // The clean task

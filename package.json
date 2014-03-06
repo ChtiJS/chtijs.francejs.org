@@ -42,7 +42,7 @@
     "gulp-vartree": "latest",
     "gulp-uglify": "latest",
     "gulp-imagemin": "latest",
-    "gulp-rename": "latest",
+    "gulp-rename": "1.2.0",
     "gulp-livereload": "latest",
     "gulp-streamify": "latest",
     "gulp-autoprefixer": "0.0.6",
@@ -59,7 +59,7 @@
     "streamqueue": "0.0.5",
     "plexer": "0.0.1",
     "feedr": "~2.7.7",
-    "gulp-spawn": "~0.2.1",
+    "gulp-spawn": "~0.3.0",
     "es6-promise": "~0.1.1",
     "buildbranch": "latest"
   }
