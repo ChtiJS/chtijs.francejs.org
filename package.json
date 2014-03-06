@@ -48,6 +48,8 @@
     "gulp-autoprefixer": "0.0.6",
     "gulp-load-plugins": "~0.3.0",
     "gulp-util": "~2.2.14",
+    "gulp-spawn": "~0.3.0",
+    "gulp-filter": "~0.3.1",
     "gulp": "latest",
     "varstream": "latest",
     "tiny-lr": "0.0.5",
@@ -59,9 +61,7 @@
     "streamqueue": "0.0.5",
     "plexer": "0.0.1",
     "feedr": "~2.7.7",
-    "gulp-spawn": "~0.3.0",
     "es6-promise": "~0.1.1",
     "buildbranch": "latest"
   }
 }
-

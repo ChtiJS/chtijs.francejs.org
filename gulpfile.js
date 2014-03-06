@@ -62,6 +62,22 @@ gulp.task('build_fonts', function(cb) {
       'fontName': 'iconsfont',
       'appendCodepoints': true
     }))
+      .pipe(g.cond(g.util.env.hint,
+        function() {
+         var input = new Stream.PassThrough({objectMode: true});
+          var ttfFilter = input.pipe(g.filter('*.ttf'));
+          var output = ttfFilter.pipe(g.spawn({
+            cmd: '/bin/sh',
+            args: [
+              '-c',
+              'cat | ttfautohint /dev/stdin /dev/stdout | cat'
+          ]})).pipe(ttfFilter.restore())
+          // Seems that gulp-filter is not streams2 ready
+          .pipe(new Stream.PassThrough({objectMode: true}));
+          return new Duplexer({objectMode: true},
+            input,
+            output);
+        }))
     .pipe(gulp.dest(conf.build.fonts))
     .once('end', cb);
 });
