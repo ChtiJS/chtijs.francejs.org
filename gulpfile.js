@@ -10,6 +10,7 @@ var gulp = require('gulp')
   , gGhmembers = require('./gulpplugins/ghmembers')
   , gGhcontributors = require('./gulpplugins/ghcontributors')
   , gPlanet = require('./gulpplugins/planet')
+  , gMetas = require('./gulpplugins/gmetas')
   , Stream = require('stream')
   , StreamQueue = require('streamqueue')
   , Duplexer = require('plexer')
@@ -175,6 +176,19 @@ gulp.task('build_html', function(cb) {
   var contentStream = new StreamQueue({objectMode: true},
     gulp.src(conf.src.content + '/**/*.md', {buffer: buffer || true}) // Streams not supported yet
       .pipe(g.mdvars()),
+    gulp.src(__dirname+'/node_modules/**/README*')
+      .pipe(g.rename(function (path) {
+        var nodes = path.dirname.split(Path.sep)
+          , index = nodes.indexOf('node_modules');
+        do {
+          -1 !== index && nodes.splice(index, 1);
+          index = nodes.indexOf('node_modules');
+        } while(-1 !== index)
+        nodes.unshift('doc');
+        path.dirname = Path.join.apply(null, nodes);
+        path.basename = 'index';
+      }))
+      .pipe(gMetas({template: 'doc'})),
     g.cond(!noreq, gGhcontributors.bind(null, {
       organization: 'ChtiJS',
       project: 'chtijs.francejs.org',
