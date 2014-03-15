@@ -62,6 +62,8 @@
     "plexer": "0.0.1",
     "feedr": "~2.7.7",
     "es6-promise": "~0.1.1",
-    "buildbranch": "latest"
+    "buildbranch": "latest",
+    "rework-rem2px": "0.0.1",
+    "gulp-rework": "^0.2.1"
   }
 }

@@ -14,6 +14,7 @@ var gulp = require('gulp')
   , StreamQueue = require('streamqueue')
   , Duplexer = require('plexer')
   , g = require('gulp-load-plugins')()
+  , rem2px = require('rework-rem2px')
 ;
 
 // Helper to wait for n gulp pipelines
@@ -127,6 +128,11 @@ gulp.task('build_styles', function(cb) {
     .pipe(g.streamify((g.less())))
     .pipe(g.streamify((g.autoprefixer())))
     .pipe(g.cond(prod, g.minifyCss, g.livereload.bind(null, server)))
+    .pipe(gulp.dest(conf.build.css))
+    .pipe(g.rework(rem2px(16)))
+    .pipe(g.rename({
+      suffix: '-ie'
+    }))
     .pipe(gulp.dest(conf.build.css))
     .once('end', cb);
 });
