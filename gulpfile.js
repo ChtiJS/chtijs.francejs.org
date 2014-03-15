@@ -15,6 +15,7 @@ var gulp = require('gulp')
   , Duplexer = require('plexer')
   , g = require('gulp-load-plugins')()
   , rem2px = require('rework-rem2px')
+  , queryless = require('css-queryless')
 ;
 
 // Helper to wait for n gulp pipelines
@@ -124,12 +125,17 @@ gulp.task('build_images', function(cb) {
 
 // CSS
 gulp.task('build_styles', function(cb) {
+  var keepmatches = [
+    'screen and (min-width: 61rem)',
+    'print'
+  ];
+
   gulp.src(conf.src.less + '/main.less', {buffer: buffer})
     .pipe(g.streamify((g.less())))
     .pipe(g.streamify((g.autoprefixer())))
     .pipe(g.cond(prod, g.minifyCss, g.livereload.bind(null, server)))
     .pipe(gulp.dest(conf.build.css))
-    .pipe(g.rework(rem2px(16)))
+    .pipe(g.rework(queryless(keepmatches), rem2px(16)))
     .pipe(g.rename({
       suffix: '-ie'
     }))
