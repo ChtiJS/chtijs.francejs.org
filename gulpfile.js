@@ -89,7 +89,7 @@ gulp.task('build_images', function(cb) {
   var end = waitEnd(2, cb);
   gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
     .pipe(g.cond(prod, g.svgmin, function() {
-      var watch = g.watch();
+      var watch = g.watch(conf.src.images + '/**/*.svg');
       end();
       return new Duplexer({objectMode: true}, watch,
         watch.pipe(g.livereload(server)));
@@ -114,7 +114,7 @@ gulp.task('build_images', function(cb) {
   ).pipe(g.cond(prod, function() {
       return g.streamify(g.imagemin());
     }, function() {
-      var watch = g.watch();
+      var watch = g.watch(conf.src.images + '/**/*');
       end();
       return new Duplexer({objectMode: true}, watch,
         watch.pipe(g.livereload(server)));
@@ -308,14 +308,14 @@ gulp.task('server', function(cb) {
   // Starting the dev static server
   var app = express();
   app.use(express.query())
-    .use(express.bodyParser())
+    .use(require('body-parser')())
     .use(express.static(Path.resolve(__dirname, conf.build.root)))
     .listen(8080, function() {
       g.util.log('Dev server listening on %d', 35729);
       cb();
     });
   server = tinylr();
-  server.listen(35729);
+  server.listen(35726);
 });
 
 // The default task
