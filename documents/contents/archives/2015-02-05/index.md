@@ -1,5 +1,5 @@
 <!--VarStream
-title=ChtiJS #9
+title=ChtiJS #10
 description=Découvrez le contenu du ChtiJS n°10 avec les présentations de \
 Nicolas Froidure, François Lecroart et Tom Panier.
 created=2015-02-05 19:00:00
@@ -19,7 +19,7 @@ Pour parler de l'évènement, utilisez le hashtag
 
 ## Programme
 
-* [ReactJS : JavaScript en fusion](http://reactjs.org/) par Tom Panier ([@_neemzy](https://twitter.com/_neemzy)).
+* [ReactJS](http://reactjs.org/) : JavaScript en fusion par Tom Panier ([@_neemzy](https://twitter.com/_neemzy)).
 * Lighning talk sur [MeteorJS](https://meteorjs.org) par François Lecroart ([@peernohell](https://twitter.com/peernohell)).
 * Le JavasScript isomorphique par l'exemple : Gestion des droits end to end par Nicolas Froidure ([@nfroidure](https://twitter.com/nfroidure)).
 
@@ -28,7 +28,9 @@ Pour parler de l'évènement, utilisez le hashtag
 Plus de soixante inscrits à ChtiJS 10 et une salle comble pour ce ChtiJS sous
  le signe du JavaScript isomorphique.
 
-Les prsentations de [React : JavaScript en fusion](http://slides.com/neemzy/react#/) et du [JavaScript isomorphique par l'exemple](http://slides.com/nfroidure/isomorphisme_par_exemple#/).
+Les prsentations de [React : JavaScript en fusion](http://slides.com/neemzy/react#/)
+ et du [JavaScript isomorphique par l'exemple](http://slides.com/nfroidure/isomorphisme_par_exemple#/)
+ sont en ligne et une vidéo devrait être disponible sous peu.
 
 ## Pour info
 
