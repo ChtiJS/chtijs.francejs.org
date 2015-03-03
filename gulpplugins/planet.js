@@ -37,7 +37,6 @@ function gulpPlanet(options) {
     template: 'planet'
   };
 
-  console.log(options.blogs);
   options.blogs.forEach(function(blog) {
     planet.readFeed(blog.feed, {}, function(err, data, headers) {
       if(err) {

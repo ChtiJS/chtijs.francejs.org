@@ -16,8 +16,8 @@
         {{post.title}}
       </a>
     </h2>
-    <p>
-      {{post.summary}}<br />
+    <p>{% if post.summary %}
+      {{post.summary}}<br />{% endif %}
       <a href="{{post.blog.url}}" title="Voir le blog de l'auteur">
         {{post.blog.author}}
       </a>
