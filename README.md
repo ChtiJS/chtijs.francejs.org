@@ -16,7 +16,13 @@ Entrez les commandes suivante dans un terminal :
 - `npm install` : installe les dépendances.
 
 Afin de pouvoir générer le favicon, vous devrez également avoir ImageMagick
- présent sur votre système.
+ présent sur votre système:
+```sh
+# on a Debian based system
+apt-get install imagemagick
+# with OSX - http://www.imagemagick.org/script/binary-releases.php#macosx
+brew install imagemagick --with-librsvg
+```
 
 ## Pour travailler dessus :
 
