@@ -40,6 +40,7 @@ function gulpPlanet(options) {
   options.blogs.forEach(function(blog) {
     planet.readFeed(blog.feed, {}, function(err, data, headers) {
       if(err) {
+        console.log(err)
         planetStream.emit('error',
           new gutil.PluginError(PLUGIN_NAME,
             err,
