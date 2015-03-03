@@ -37,10 +37,10 @@ function gulpPlanet(options) {
     template: 'planet'
   };
 
+  console.log(options.blogs);
   options.blogs.forEach(function(blog) {
     planet.readFeed(blog.feed, {}, function(err, data, headers) {
       if(err) {
-        console.log(err)
         planetStream.emit('error',
           new gutil.PluginError(PLUGIN_NAME,
             err,
@@ -49,19 +49,40 @@ function gulpPlanet(options) {
       }
       file[options.prop].entries =
         file[options.prop].entries.concat(data.feed.entry.map(function(entry) {
-          entry.blog = blog;
-          return entry;
-        }).filter(function(entry, i) {
-          return i < 4;
-        }));
+            return {
+              title: entry.title,
+              link: (
+                entry.link && entry.link[0] && entry.link[0].$ && entry.link[0].$.href ?
+                entry.link[0].$.href :
+                entry.id && entry.id[0] ?
+                entry.id[0] :
+                ''
+              ),
+              summary: (
+                entry.summary && entry.summary[0] ?
+                entry.summary[0] :
+                entry.description && entry.description[0] ?
+                entry.description[0] :
+                ''
+              ),
+              published: (
+                entry.published && entry.published[0] ?
+                entry.published[0] :
+                entry.created && entry.created[0] ?
+                entry.created[0] :
+                {}.undef
+              ),
+              blog: blog
+            };
+          }).filter(function(entry, i) {
+            return entry.title && entry.link && i < 4;
+          }));
       if(!--pendingFeeds) {
         file[options.prop].entries =
           file[options.prop].entries.sort(function(a, b) {
-            return a.published && b.published ?
-              new Date(a.published[0]) < new Date(b.published[0]) ?
+            return new Date(a.published) < new Date(b.published) ?
               1 :
-              -1 :
-              1;
+              -1;
           });
         planetStream.write(file);
         planetStream.end();

@@ -11,13 +11,13 @@
     {% for post in metadata.entries %}
   <article class="main-articles__article">
     <h2>
-      <a href="{{post.id[0]}}"
-        title="{{post.title[0]}}">
-        {{post.title[0]}}
+      <a href="{{post.link}}"
+        title="{{post.title}}">
+        {{post.title}}
       </a>
     </h2>
     <p>
-      {{post.summary[0]}} par
+      {{post.summary}}<br />
       <a href="{{post.blog.url}}" title="Voir le blog de l'auteur">
         {{post.blog.author}}
       </a>
