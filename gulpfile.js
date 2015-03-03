@@ -197,12 +197,12 @@ gulp.task('build_html', function(cb) {
       organization: 'ChtiJS',
       base: conf.src.content,
       buffer:  buffer||true // Streams not supported
-    }), getEndedReadable)/*,  // awaiting for more blogs
+    }), getEndedReadable),  // awaiting for more blogs
     g.cond(!noreq, gPlanet.bind(null, {
       base: conf.src.content,
       blogs: conf.blogs,
       buffer:  buffer||true // Streams not supported
-    }), getEndedReadable)*/)
+    }), getEndedReadable))
     .pipe(g.vartree({
       root: tree,
       index: 'index',

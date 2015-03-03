@@ -24,7 +24,10 @@ build.root=./www
 ^.frontjs=./www/js
 
 # Member blogs
-blogs.+.feed=http://www.insertafter.com/articles,javascript.atom
+blogs.+.feed=http://insertafter.com/fr/blog/index.atom
 blogs.*.author=Nicolas Froidure
 blogs.*.url=http://www.insertafter.com/
+blogs.+.feed=http://davidl.fr/feed.xml
+blogs.*.author=David Leuliette
+blogs.*.url=http://davidl.fr/
 

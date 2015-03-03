@@ -22,7 +22,7 @@ function gulpPlanet(options) {
 
   var planetStream = new Stream.PassThrough({objectMode: true});
   var planet = new feedr.Feedr();
-  var posts, pendingFeeds = options.blogs.length;
+  var pendingFeeds = options.blogs.length;
   var file = new gutil.File({
     cwd: options.cwd,
     base: options.base,
@@ -47,14 +47,18 @@ function gulpPlanet(options) {
           ));
       }
       file[options.prop].entries =
-        file[options.prop].entries.concat(data.feed.entry);
+        file[options.prop].entries.concat(data.feed.entry.map(function(entry) {
+          entry.blog = blog;
+          return entry;
+        }));
       if(!--pendingFeeds) {
         file[options.prop].entries =
-          file[options.prop].entries.map(function(entry) {
-            entry.blog = blog;
-            return entry;
-          }).sort(function(a, b) {
-            return new Date(a.published[0]) < new Date(b.published[0]) ? 1 : -1;
+          file[options.prop].entries.sort(function(a, b) {
+            return a.published && b.published ?
+              new Date(a.published[0]) < new Date(b.published[0]) ?
+              1 :
+              -1 :
+              1;
           });
         planetStream.write(file);
         planetStream.end();
@@ -67,3 +71,4 @@ function gulpPlanet(options) {
 
 // Export the plugin main function
 module.exports = gulpPlanet;
+
