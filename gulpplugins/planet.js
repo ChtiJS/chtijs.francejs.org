@@ -32,7 +32,7 @@ function gulpPlanet(options) {
   file[options.prop] = {
     entries: [],
     title: 'Planète',
-    description: 'Découvrez la planète de ChtiJS !',
+    description: 'Embarquez pour la planète ChtiJS à travers les blogs de ses membres !',
     shortTitle: 'Planète',
     template: 'planet'
   };
@@ -50,6 +50,8 @@ function gulpPlanet(options) {
         file[options.prop].entries.concat(data.feed.entry.map(function(entry) {
           entry.blog = blog;
           return entry;
+        }).filter(function(entry, i) {
+          return i < 4;
         }));
       if(!--pendingFeeds) {
         file[options.prop].entries =
