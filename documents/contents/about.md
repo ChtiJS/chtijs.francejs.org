@@ -59,7 +59,7 @@ Voici quelques pistes :
 ### Durée
 
 La durée peut-être très variable d'une présentation à une autre (généralement de
- 5mn à 1h). Le but étant decouvrir le sujet, la durée est donc fonction de ce
+ 5mn à 1h). Le but étant découvrir le sujet, la durée est donc fonction de ce
  dernier.
 
 Les questions sont libres et peuvent durer longtemps quand le sujet intéresse.
