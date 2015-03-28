@@ -28,9 +28,23 @@ Pour parler de l'évènement, utilisez le hashtag
 Plus de soixante inscrits à ChtiJS 10 et une salle comble pour ce ChtiJS sous
  le signe du JavaScript isomorphique.
 
-Les présentations de [React : JavaScript en fusion](http://slides.com/neemzy/react#/)
- , du [JavaScript isomorphique par l'exemple](http://slides.com/nfroidure/isomorphisme_par_exemple#/) et du [lightning talk sur MeteorJS](https://docs.google.com/presentation/d/1xohSU3eG63rNZkjzGJkSrB6IX3pm9oYSmt8hf1Tfzes/edit?usp=sharing)
- sont en ligne et une vidéo devrait être disponible sous peu.
+### React : JavaScript en fusion
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BVa67vgXo14" frameborder="0" allowfullscreen></iframe>
+
+[Slides](http://slides.com/neemzy/react#/)
+
+### Lightning talk: MeteorJS
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2nkVPT-K24Q" frameborder="0" allowfullscreen></iframe>
+
+[Slides](https://docs.google.com/presentation/d/1xohSU3eG63rNZkjzGJkSrB6IX3pm9oYSmt8hf1Tfzes/edit?usp=sharing)
+
+### Le JavaScript isomorphique par l'exemple
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/n8nvHFfEFC4" frameborder="0" allowfullscreen></iframe>
+
+[Slides](http://slides.com/nfroidure/isomorphisme_par_exemple#/)
 
 ## Pour info
 
