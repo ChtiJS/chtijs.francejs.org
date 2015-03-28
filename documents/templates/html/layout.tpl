@@ -64,6 +64,10 @@
                 <a href="https://groups.google.com/forum/#!forum/chtijs"
                   title="S'abonner à notre liste de diffusion">Google Group ChtiJS</a>
             </li>
+            <li class="main-footer__feed">
+                <a href="/archives/index.atom"
+                  title="S'abonner à notre flux de syndication">RSS</a>
+            </li>
         </ul>
     </footer>
     <script src="{{conf.baseURL}}/js/script.js"></script>{% if not prod %}

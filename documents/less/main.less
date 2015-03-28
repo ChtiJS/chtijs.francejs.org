@@ -250,6 +250,21 @@ body > header {
   }
 }
 
+.main-footer__feed {
+  display:inline-block;
+  a:before {
+    .icon('\e009');
+    font-size: (@fontsize*1.3);
+    line-height: (@vrythm*2);
+  }
+  a {
+    .text-hide();
+    text-decoration: none;
+    color: @white;
+    text-shadow: 0 -1px 0 @whiteshadow;
+  }
+}
+
 /* RWD */
 
 /* S : 1 column : */

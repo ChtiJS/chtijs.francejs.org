@@ -2,7 +2,7 @@
 title=ChtiJS #8
 description=Découvrez le contenu du ChtiJS n°8 avec les présentations de \
 Rémi Grumeau et François-Emmanuel Cortes.
-created=2014-07-24 19:00:00
+published=2014-07-24 19:00:00
 keywords.+=Firebase
 keywords.+=RequireJS
 keywords.+=Zepto

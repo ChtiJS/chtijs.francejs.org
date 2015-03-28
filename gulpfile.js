@@ -1,105 +1,80 @@
-var gulp = require('gulp')
-  , VarStream = require('varstream')
-  , Fs = require('fs')
-  , Path = require('path')
-  , Nunjucks = require('nunjucks')
-  , express = require('express')
-  , tinylr = require('tiny-lr')
-  , rimraf = require('rimraf')
-  , buildBranch = require('buildbranch')
-  , gGhmembers = require('./gulpplugins/ghmembers')
-  , gGhcontributors = require('./gulpplugins/ghcontributors')
-  , gPlanet = require('./gulpplugins/planet')
-  , Stream = require('stream')
-  , StreamQueue = require('streamqueue')
-  , Duplexer = require('plexer')
-  , g = require('gulp-load-plugins')()
-  , rem2px = require('rework-rem2px')
-  , queryless = require('css-queryless')
-;
+var Fs = require('fs');
+var Path = require('path');
 
-// Helper to wait for n gulp pipelines
-function waitEnd(total, cb, n) {
-  n = n || 0;
-  return function end(debug) {
-    debug && console.log(debug);
-    ++n==total && cb();
-  };
-}
+var Nunjucks = require('nunjucks');
+var Moment = require('moment');
+
+var express = require('express');
+var rimraf = require('rimraf');
+var args = require('yargs').argv;
+var internalIp = require('internal-ip');
+
+var buildBranch = require('buildbranch');
+
+var VarStream = require('varstream');
+
+var Stream = require('stream');
+var CombineStream = require('combine-stream');
+var Duplexer = require('plexer');
+var filter = require('streamfilter');
+var StreamQueue = require('streamqueue');
+
+var gulp = require('gulp');
+var g = require('gulp-load-plugins')();
+var gGhmembers = require('./gulpplugins/ghmembers');
+var gGhcontributors = require('./gulpplugins/ghcontributors');
+var gPlanet = require('./gulpplugins/planet');
+
+var rem2px = require('rework-rem2px');
+var queryless = require('css-queryless');
 
 // Loading global options (files paths)
-var conf = VarStream.parse(Fs.readFileSync(__dirname+'/config.dat'))
-  , server
-  , prod = !!g.util.env.prod
-  , noreq = !!g.util.env.noreq
-  , buffer = !g.util.env.stream
-;
+var conf = VarStream.parse(Fs.readFileSync(__dirname + '/config.dat'));
+
+// Reading args options
+var prod = !!args.prod;
+var lr = (!args.nolr) && !prod;
+var watch = (!args.nowatch) && !prod;
+var buffer = !args.stream;
+var browser = (!args.nobro) && !prod;
+var httpServer = (!args.nosrv) && !prod;
+var req = (!args.noreq) || prod;
 
 if(!prod) {
   // Finding the server IP
-  conf.ip = '127.0.0.1';
-
-  if(g.util.env.net) {
-    var ints = require('os').getNetworkInterfaces();
-
-    Object.keys(ints).some(function(int) {
-      if(ints[int].some(function(net) {
-        if((!net.internal) && 'IPv4' == net.family) {
-          conf.ip = net.address;
-          return true;
-        }
-      })) {
-        return true;
-      }
-    });
-  }
-  conf.baseURL = 'http://'+conf.ip+':8080';
+  conf.ip = internalIp();
+  conf.baseURL = 'http://' + conf.ip + ':8080';
 }
-
+// Configure nunjuncks
+Nunjucks.configure(conf.src.templates, {
+  watch: watch,
+  autoescape: true
+}).addFilter('date', function(date, lang) {
+    return Moment(date).locale(lang).format('LLLL');
+});
 
 // Fonts
-gulp.task('build_fonts', function(cb) {
-  gulp.src(conf.src.icons + '/**/*.svg', {buffer: buffer})
+gulp.task('build_fonts', function() {
+  return gulp.src(conf.src.icons + '/**/*.svg', {buffer: buffer})
     .pipe(g.iconfont({
       'fontName': 'iconsfont',
-      'appendCodepoints': true
+      'appendCodepoints': true,
+      'hint': !!g.util.env.hint
     }))
-      .pipe(g.cond(g.util.env.hint,
-        function() {
-         var input = new Stream.PassThrough({objectMode: true});
-          var ttfFilter = input.pipe(g.filter('*.ttf'));
-          var output = ttfFilter.pipe(g.spawn({
-            cmd: '/bin/sh',
-            args: [
-              '-c',
-              'cat | ttfautohint /dev/stdin /dev/stdout | cat'
-          ]})).pipe(ttfFilter.restore())
-          // Seems that gulp-filter is not streams2 ready
-          .pipe(new Stream.PassThrough({objectMode: true}));
-          return new Duplexer({objectMode: true},
-            input,
-            output);
-        }))
-    .pipe(gulp.dest(conf.build.fonts))
-    .once('end', cb);
+    .pipe(gulp.dest(conf.build.fonts));
 });
 
 // Images
-gulp.task('build_images', function(cb) {
-  var end = waitEnd(2, cb);
-  gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
-    .pipe(g.cond(prod, g.svgmin, function() {
-      var watch = g.watch(conf.src.images + '/**/*.svg');
-      end();
-      return new Duplexer({objectMode: true}, watch,
-        watch.pipe(g.livereload(server)));
-    }))
-    .pipe(gulp.dest(conf.build.images))
-    .once('end', end);
+gulp.task('build_images', function() {
 
-  new StreamQueue({objectMode: true},
-    gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer}),
-    gulp.src(conf.src.images + '/chtijs.svg', {buffer: buffer})
+  var stream = new CombineStream([
+    gulp.src(conf.src.images + '/**/*.svg', {buffer: buffer})
+      .pipe(g.cond(watch, g.watch.bind(g, conf.src.images + '/**/*.svg')))
+      .pipe(g.cond(prod, g.svgmin)),
+    gulp.src(conf.src.images + '/**/*.{png,jpg,jpeg,gif}', {buffer: buffer})
+      .pipe(g.cond(watch, g.watch.bind(g, conf.src.illustrations + '/**/*.{png,jpg,jpeg,gif}'))),
+    gulp.src(conf.src.images + '/favicon.svg', {buffer: buffer})
+      .pipe(g.cond(watch, g.watch.bind(g, conf.src.images + '/chtijs.svg')))
       // https://groups.google.com/forum/#!topic/nodejs/SxNKLclbM5k
       .pipe(g.spawn({
         cmd: '/bin/sh',
@@ -111,106 +86,104 @@ gulp.task('build_images', function(cb) {
           return 'favicon.png';
         }
     }))
-  ).pipe(g.cond(prod, function() {
-      return g.streamify(g.imagemin());
-    }, function() {
-      var watch = g.watch(conf.src.images + '/**/*');
-      end();
-      return new Duplexer({objectMode: true}, watch,
-        watch.pipe(g.livereload(server)));
-    }))
-    .pipe(gulp.dest(conf.build.images))
-    .once('end', end);
+  ])
+    .pipe(g.cond(prod, g.streamify.bind(null, g.imagemin)))
+    .pipe(g.cond(lr, g.livereload))
+    .pipe(gulp.dest(conf.build.images));
+
+  if(prod) {
+    return stream;
+  }
 });
 
 // CSS
-gulp.task('build_styles', function(cb) {
+gulp.task('build_styles', function() {
   var keepmatches = [
     'screen and (min-width: 61rem)',
     'print'
   ];
-
-  gulp.src(conf.src.less + '/main.less', {buffer: buffer})
-    .pipe(g.streamify((g.less())))
-    .pipe(g.streamify((g.autoprefixer())))
-    .pipe(g.cond(prod, g.minifyCss, g.livereload.bind(null, server)))
+  return gulp.src(conf.src.less + '/main.less', {buffer: buffer})
+    .pipe(g.streamify((g.less)))
+    .pipe(g.streamify((g.autoprefixer)))
+    .pipe(g.cond(prod, g.minifyCss))
+    .pipe(g.cond(lr, g.livereload))
     .pipe(gulp.dest(conf.build.css))
     .pipe(g.rework(queryless(keepmatches), rem2px(16)))
     .pipe(g.rename({
       suffix: '-ie'
     }))
-    .pipe(gulp.dest(conf.build.css))
-    .once('end', cb);
+    .pipe(gulp.dest(conf.build.css));
 });
 
 // JavaScript
-gulp.task('build_js', function(cb) {
-  var end = waitEnd(3, cb);
-  gulp.src(conf.src.js + '/**/*.js', {buffer: buffer})
-    .pipe(g.streamify(g.jshint))
-    .once('end', end);
-
-  gulp.src(conf.src.js + '/frontend.js', {buffer: buffer})
-    .pipe(g.streamify(g.browserify()))
-    .pipe(g.streamify(g.concat('script.js')))
-    .pipe(g.cond(prod,
-      g.streamify.bind(null, g.uglify),
-      g.livereload.bind(null, server)))
-    .pipe(gulp.dest(conf.build.frontjs))
-    .once('end', end);
-
-  gulp.src(conf.src.js + '/frontend/vendors/**/*.js')
-    .pipe(gulp.dest(conf.build.frontjs + '/vendors'))
-    .once('end', end);
+gulp.task('build_scripts', function(cb) {
+  browserify(conf.src.scripts + '/index.js')
+    .once('end', cb);
 });
 
 // HTML
 gulp.task('build_html', function(cb) {
-  var nunjucks = Nunjucks
-    , tree = {}
-    , markedFiles = []
-    , dest = gulp.dest(conf.build.root)
-  ;
-  
-  nunjucks.configure(conf.src.templates, {
-    autoescape: true
-  });
+  var tree = {};
+  var markedFiles = [];
+  var dest = gulp.dest(conf.build.root);
 
-  function getEndedReadable() {
-    var stream = new Stream.Readable({objectMode: true});
-    stream._read = function() {
-      stream.push(null);
-    };
-    return stream;
+  // Setting copyright end
+  conf.build.created = (new Date()).toISOString();
+
+  if(lr) {
+    dest.pipe(g.livereload());
   }
 
-  var contentStream = new StreamQueue({objectMode: true},
-    gulp.src(conf.src.content + '/**/*.md', {buffer: buffer || true}) // Streams not supported yet
-      .pipe(g.mdvars()),
-    g.cond(!noreq, gGhcontributors.bind(null, {
-      organization: 'ChtiJS',
-      project: 'chtijs.francejs.org',
-      base: conf.src.content,
-      buffer:  buffer||true // Streams not supported
-    }), getEndedReadable),
-    g.cond(!noreq, gGhmembers.bind(null, {
-      organization: 'ChtiJS',
-      base: conf.src.content,
-      buffer:  buffer||true // Streams not supported
-    }), getEndedReadable),  // awaiting for more blogs
-    g.cond(!noreq, gPlanet.bind(null, {
-      base: conf.src.content,
-      blogs: conf.blogs,
-      buffer:  buffer||true // Streams not supported
-    }), getEndedReadable))
+  var mdFilter = filter(function(file, enc, cb) {
+    cb(file.path.indexOf('.md') === file.path.length - 4);
+  }, {objectMode: true, restore: true, passtrough: true});
+
+  var draftFilter = filter(function(file, enc, cb) {
+    cb(file.metas.draft);
+  }, {objectMode: true, restore: false, passtrough: true});
+
+  var ghostFilter = filter(function(file, enc, cb) {
+    cb(file.metas.ghost);
+  }, {objectMode: true, restore: true, passtrough: true});
+
+  var sourceStreams = [
+    gulp.src(conf.src.content + '/**/*.{html,md}', {buffer: buffer || true}) // Streams not supported yet
+      .pipe(g.mdvars())
+  ];
+  if(req) {
+    sourceStreams.push(
+      gGhcontributors({
+        organization: 'ChtiJS',
+        project: 'chtijs.francejs.org',
+        base: conf.src.content,
+        buffer:  buffer||true // Streams not supported
+      }),
+      gGhmembers({
+        organization: 'ChtiJS',
+        base: conf.src.content,
+        buffer:  buffer||true // Streams not supported
+      }),
+      gPlanet({
+        base: conf.src.content,
+        blogs: conf.blogs,
+        buffer:  buffer||true // Streams not supported
+      })
+    );
+  }
+
+  var contentStream = new CombineStream(sourceStreams)
+    .pipe(draftFilter)
+    .pipe(ghostFilter)
     .pipe(g.vartree({
       root: tree,
       index: 'index',
       parentProp: 'parent',
       childsProp: 'childs',
-      sortProp: 'created',
+      sortProp: 'published',
       sortDesc: true
     }))
+    .pipe(ghostFilter.restore)
+    .pipe(mdFilter)
     .pipe(g.marked({
       gfm: true,
       tables: true,
@@ -221,23 +194,40 @@ gulp.task('build_html', function(cb) {
       smartypants: true
     }))
     .pipe(g.rename({extname: '.html'}))
+    .pipe(mdFilter.restore)
     .once('end', function() {
+      var rootItems = {};
+      // Registering languages sections
+      tree.childs.forEach(function(item) {
+        rootItems[item.lang] = item;
+      });
       markedFiles.forEach(function(file) {
-        var nunjucksOptions = {
-          env: conf.build.root,
-          prod: prod,
-          tree: tree,
-          conf: conf,
-          metadata: file.metas,
-          content: file.contents.toString('utf-8')
-        };
-        // Render the template
-        file.contents = Buffer(nunjucks.render(
-          (nunjucksOptions.metadata.template || 'index') + '.tpl',
-          nunjucksOptions
-        ));
-        // Save it.
-        dest.write(file);
+        (file.metas.types || ['html']).forEach(function(type, i, types) {
+          var curFile = file;
+          if(i > 0) {
+            curFile = file.clone();
+          }
+          if('html' !== type) {
+            curFile.path = curFile.path.substr(0, curFile.path.length - 4) + type;
+          }
+          var nunjucksOptions = {
+            env: conf.build.root,
+            prod: prod,
+            tree: tree,
+            conf: conf,
+            type: type,
+            root: rootItems[curFile.metas.lang],
+            metadata: curFile.metas,
+            content: curFile.contents.toString('utf-8')
+          };
+          // Render the template
+          curFile.contents = Buffer(Nunjucks.render(
+            type + '/' + (nunjucksOptions.metadata.template || 'page') + '.tpl',
+            nunjucksOptions
+          ));
+          // Save it.
+          dest.write(curFile);
+        });
       });
       dest.end();
       cb();
@@ -251,15 +241,19 @@ gulp.task('build_html', function(cb) {
 });
 
 // The clean task
-gulp.task('clean', function(cb) {
+gulp.task('clean', function() {
   rimraf.sync(conf.build.root);
-  cb();
 });
 
 // The build task
 gulp.task('build', ['clean', 'build_fonts', 'build_images', 'build_styles',
-  'build_js', 'build_html'], function(cb) {
-  if(!prod) {
+  'build_html'], function(cb) {
+
+  // Robots.txt
+  Fs.writeFileSync(conf.build.root + '/robots.txt', 'User-agent: *\r\nAllow: /\r\n');
+
+  // Files watch
+  if(watch) {
 
     gulp.watch([
       conf.src.js + '/frontend/**/*.js',
@@ -269,15 +263,27 @@ gulp.task('build', ['clean', 'build_fonts', 'build_images', 'build_styles',
     gulp.watch([conf.src.less + '/**/*.less'], ['build_styles']);
 
     gulp.watch([
-      conf.src.content + '/**/*.md',
+      conf.src.content + '/**/*',
       conf.src.templates + '/**/*.tpl'
     ], ['build_html']);
 
     gulp.watch([conf.src.icons + '/**/*.svg'], ['build_fonts']);
 
-    require('open')(conf.baseURL+'/index.html');
-
   }
+
+  // Livereload
+  if(lr) {
+    console.log('Starting livereload.')
+    g.livereload.listen({
+      basePath: conf.build.root
+    });
+  }
+
+  // Open the browser
+  if(browser) {
+    require('open')(conf.baseURL + '/index.html');
+  }
+
   cb();
 });
 
@@ -296,28 +302,22 @@ gulp.task('ghpages', function(cb) {
 
 });
 
-// Publish task : Cannot build before since gulp.dest doesn't ensure
-// underlying resources are closed https://github.com/wearefractal/vinyl-fs/issues/7
-gulp.task('ensureprod', function() {
-  prod = true;
-});
-gulp.task('publish', ['ensureprod', 'ghpages']);
+// Publish
+gulp.task('publish', ['ghpages']);
 
 // Dev env
 gulp.task('server', function(cb) {
   // Starting the dev static server
-  var app = express();
-  app.use(express.query())
-    .use(require('body-parser')())
-    .use(express.static(Path.resolve(__dirname, conf.build.root)))
-    .listen(8080, function() {
-      g.util.log('Dev server listening on %d', 35729);
-      cb();
-    });
-  server = tinylr();
-  server.listen(35726);
+  if(httpServer) {
+    var app = express();
+    app.use(express.query())
+      .use(express.static(Path.resolve(__dirname, conf.build.root)))
+      .listen(8080, function() {
+        g.util.log('Dev server listening on %d', 35729);
+        cb();
+      });
+  }
 });
 
 // The default task
 gulp.task('default', ['server', 'build'].slice(prod ? 1 : 0));
-

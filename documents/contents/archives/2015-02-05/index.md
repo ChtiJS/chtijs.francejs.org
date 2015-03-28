@@ -2,7 +2,7 @@
 title=ChtiJS #10
 description=Découvrez le contenu du ChtiJS n°10 avec les présentations de \
 Nicolas Froidure, François Lecroart et Tom Panier.
-created=2015-02-05 19:00:00
+published=2015-02-05 19:00:00
 keywords.+=ReactJS
 keywords.+=MeteorJS
 keywords.+=AngularJS
@@ -33,18 +33,21 @@ Plus de soixante inscrits à ChtiJS 10 et une salle comble pour ce ChtiJS sous
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BVa67vgXo14" frameborder="0" allowfullscreen></iframe>
 
 [Slides](http://slides.com/neemzy/react#/)
+[Notes](https://twitter.com/_flexbox/status/563410517579276288/photo/1)
 
 ### Lightning talk: MeteorJS
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2nkVPT-K24Q" frameborder="0" allowfullscreen></iframe>
 
 [Slides](https://docs.google.com/presentation/d/1xohSU3eG63rNZkjzGJkSrB6IX3pm9oYSmt8hf1Tfzes/edit?usp=sharing)
+[Notes](https://twitter.com/_flexbox/status/563468793239072768/photo/1)
 
 ### Le JavaScript isomorphique par l'exemple
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/n8nvHFfEFC4" frameborder="0" allowfullscreen></iframe>
 
 [Slides](http://slides.com/nfroidure/isomorphisme_par_exemple#/)
+[Notes](https://twitter.com/_flexbox/status/563423191411200000/photo/1)
 
 ## Pour info
 

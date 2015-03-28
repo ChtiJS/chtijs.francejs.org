@@ -2,7 +2,7 @@
 title=EmbuscadeJS #1
 description=Découvrez le contenu de la première embuscade JavaScript de notre\
  groupe avec la présentation de Thomas Parisot.
-created=2014-03-06 19:00:00
+published=2014-03-06 19:00:00
 keywords.+=README
 keywords.+=driven
 keywords.+=development

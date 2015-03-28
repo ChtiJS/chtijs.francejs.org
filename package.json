@@ -29,6 +29,7 @@
   "devDependencies": {
     "body-parser": "^1.8.4",
     "buildbranch": "latest",
+    "combine-stream": "0.0.4",
     "css-queryless": "^0.1.0",
     "es6-promise": "~1.0.0",
     "express": "~4.9.4",
@@ -58,14 +59,20 @@
     "gulp-util": "~3.0.1",
     "gulp-vartree": "latest",
     "gulp-watch": "latest",
+    "internal-ip": "^1.0.0",
+    "moment": "^2.9.0",
     "nunjucks": "~1.0.7",
     "open": "0.0.5",
     "plexer": "0.0.3",
     "request": "~2.44.0",
     "rework-rem2px": "0.0.1",
     "rimraf": "~2.2.8",
+    "streamfilter": "^1.0.1",
     "streamqueue": "0.1.1",
     "tiny-lr": "0.1.4",
     "varstream": "latest"
+  },
+  "dependencies": {
+    "yargs": "^3.6.0"
   }
 }

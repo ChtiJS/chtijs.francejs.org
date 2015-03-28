@@ -2,7 +2,7 @@
 title=ChtiJS #9
 description=Découvrez le contenu du ChtiJS n°9 avec les présentations de \
 Thomas Deconinck et Johnathan Meunier.
-created=2014-10-09 19:00:00
+published=2014-10-09 19:00:00
 keywords.+=Browserify
 keywords.+=iBeacons
 lang=fr

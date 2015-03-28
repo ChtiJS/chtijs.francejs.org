@@ -2,7 +2,7 @@
 title=ChtiJS #5
 description=Découvrez le contenu du ChtiJS n°5 avec les présentations de Tom \
 Panier, 0gust1 et un échange sur les tests unitaires en JS.
-created=2013-10-31 12:00:00
+published=2013-10-31 12:00:00
 keywords.+=HTML5
 keywords.+=GruntJS
 keywords.+=TDD

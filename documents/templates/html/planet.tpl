@@ -1,4 +1,4 @@
-{% extends 'layout.tpl' %}
+{% extends type + '/layout.tpl' %}
 
 {% block body %}
 <section class="main-articles">

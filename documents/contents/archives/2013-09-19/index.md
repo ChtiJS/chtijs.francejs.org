@@ -3,7 +3,7 @@ title=ChtiJS #4
 description=Découvrez le contenu du ChtiJS n°4 avec les présentations de \
 Jean-Baptiste Pionnier sur AngularJS, Rémi Grumeau sur Emy et David Loeuillete \
 sur Pokémon Breakpoint.
-created=2013-09-19 12:00:00
+published=2013-09-19 12:00:00
 keywords.+=AngularJS
 keywords.+=RWD
 keywords.+=CSS

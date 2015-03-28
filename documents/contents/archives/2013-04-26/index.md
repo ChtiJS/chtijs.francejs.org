@@ -2,7 +2,7 @@
 title=ChtiJS #2
 description=Découvrez le contenu du ChtiJS n°2 avec la présentation de \
 Paul d'Hubert sur les concepts d'AngularJS'.
-created=2013-04-26 12:00:00
+published=2013-04-26 12:00:00
 keywords.+=AngularJS
 lang=fr
 location=FR
