@@ -14,6 +14,7 @@
       </a>
     </h2>
     <p>{{post.description}}</p>
+    <p>{{post.published | date(metadata.lang)}}</p>
   </article>
   {% endfor %}
 </section>
