@@ -189,7 +189,7 @@ gulp.task('build_html', function(cb) {
       tables: true,
       breaks: false,
       pedantic: false,
-      sanitize: true,
+      sanitize: false,
       smartLists: true,
       smartypants: true
     }))
