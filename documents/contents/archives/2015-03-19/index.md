@@ -2,7 +2,7 @@
 title=ChtiJS #11
 description=Découvrez le contenu du ChtiJS n°11 avec les présentations \
 d'Emmanuel Demey, de Johnathan Meunier et de Xavier Van de Woestyne.
-published=2015-02-05 19:00:00
+published=2015-03-19 19:00:00
 keywords.+=ReactJS
 keywords.+=MeteorJS
 keywords.+=AngularJS
