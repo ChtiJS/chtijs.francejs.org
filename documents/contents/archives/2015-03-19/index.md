@@ -31,7 +31,11 @@ Encore un ChtiJS bien sympatique non dénué de trolls ;).
 
 [Slides](http://gillespie59.github.io/assets/slides/chtijs11/Index.html#/)
 
-Petite présentation sur le projet ESLint permettant de vérifier la qualité de code JavaScript. D'autres projets font exactement le même travail (JSHint, JSLint, ...), mais l'intérêt principal de ESLint est de permettre de créer ces propres règles, afin de coller au maximum avec l'environnement du projet (client, équipe, technos, ...)
+Petite présentation sur le projet ESLint permettant de vérifier la qualité de
+ code JavaScript. D'autres projets font exactement le même travail (JSHint,
+ JSLint, ...), mais l'intérêt principal de ESLint est de permettre de créer ses
+ propres règles, afin de coller au maximum avec l'environnement du projet
+ (client, équipe, technos, ...).
 
 ## Pour info
 
