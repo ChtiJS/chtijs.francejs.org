@@ -20,12 +20,18 @@ Pour parler de l'évènement, utilisez le hashtag
 ## Programme
 
 - JS_of_OCaml par Xavier Van de Woestyne
-- lightning talk JSHint / ESLint par Emmanuel Demey
+- lightning talk ESLint par Emmanuel Demey ([@EmmanuelDemey](https://twitter.com/EmmanuelDemey))
 - lightning talk de Johnathan Meunier sur DeviceLightEvent.
 
 ## Compte rendu
 
 Encore un ChtiJS bien sympatique non dénué de trolls ;).
+
+### ESLint
+
+[Slides](http://gillespie59.github.io/assets/slides/chtijs11/Index.html#/)
+
+Petite présentation sur le projet ESLint permettant de vérifier la qualité de code JavaScript. D'autres projets font exactement le même travail (JSHint, JSLint, ...), mais l'intérêt principal de ESLint est de permettre de créer ces propres règles, afin de coller au maximum avec l'environnement du projet (client, équipe, technos, ...)
 
 ## Pour info
 
