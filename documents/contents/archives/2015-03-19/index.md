@@ -21,7 +21,7 @@ Pour parler de l'évènement, utilisez le hashtag
 
 - JS_of_OCaml par Xavier Van de Woestyne
 - lightning talk ESLint par Emmanuel Demey ([@EmmanuelDemey](https://twitter.com/EmmanuelDemey))
-- lightning talk de Johnathan Meunier sur DeviceLightEvent.
+- lightning talk de Johnathan Meunier [@JohnathanSUP](https://twitter.com/JohnathanSUP) sur DeviceLightEvent.
 
 ## Compte rendu
 
@@ -36,6 +36,12 @@ Petite présentation sur le projet ESLint permettant de vérifier la qualité de
  JSLint, ...), mais l'intérêt principal de ESLint est de permettre de créer ses
  propres règles, afin de coller au maximum avec l'environnement du projet
  (client, équipe, technos, ...).
+
+### DeviceLight Event
+
+[Slides](http://lilleweb.fr/event/2014/10/30/talks-deviceLight/)
+
+Découverte de l'event deviceLight qui vous permet de récupérer la luminosité ambiante en JS, voici un exemple en live est dispo [ici](http://johnathan.fr/dev/deviceLight/)
 
 ## Pour info
 
