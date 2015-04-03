@@ -30,4 +30,7 @@ blogs.*.url=http://www.insertafter.com/
 blogs.+.feed=http://davidl.fr/feed.xml
 blogs.*.author=David Leuliette
 blogs.*.url=http://davidl.fr/
+blogs.+.feed=http://gillespie59.github.io/feed.xml
+blogs.*.author=Emmanuel Demey
+blogs.*.url=http://gillespie59.github.io/
 
