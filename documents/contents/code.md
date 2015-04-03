@@ -13,7 +13,7 @@ location=FR
 
 Message à l'attention de la communauté rédigé par le bureau des conventions
  hystériques ([@kdisneur](https://twitter.com/kdisneur) et
- [@flexbox](https://twitter.com/_flexbox)).
+ [@_flexbox](https://twitter.com/_flexbox)).
 
 ## Pourquoi c'est important ?
 
