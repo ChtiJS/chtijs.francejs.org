@@ -25,7 +25,7 @@ ChtiJS est une réunion informelle de personnes passionnées de JavaScript. Notr
 Actuellement en préparation sur le
  [Groupe Google](https://groups.google.com/forum/#!topic/chtijs/1COf5hbIwN8).
 
-Incrivez-vous sur le
+Inscrivez-vous sur le
  [compte Meetup de FranceJS](http://www.meetup.com/FranceJS/) pour être tenu au
  courant des futures rencontres.
 
@@ -62,7 +62,7 @@ Notre site web est aussi ouvert aux contributions, contenus comme code. Il vous
 
 ## FranceJS
 
-ChtiJS fait parti de [l'initiative FranceJS](http://francejs.org) qui fédére
+ChtiJS fait partie de [l'initiative FranceJS](http://francejs.org) qui fédère
  les acteurs de JavaScript afin de promouvoir ce langage et de faciliter son
  développement en France.
 

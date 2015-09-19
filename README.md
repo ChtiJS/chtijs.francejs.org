@@ -16,7 +16,13 @@ Entrez les commandes suivante dans un terminal :
 - `npm install` : installe les dépendances.
 
 Afin de pouvoir générer le favicon, vous devrez également avoir ImageMagick
- présent sur votre système.
+ présent sur votre système:
+```sh
+# on a Debian based system
+apt-get install imagemagick
+# with OSX - http://www.imagemagick.org/script/binary-releases.php#macosx
+brew install imagemagick --with-librsvg
+```
 
 ## Pour travailler dessus :
 
@@ -28,11 +34,13 @@ Toutes les modifications que vous ferez dans le code ou le contenu du site,
  une fois sauvegardées seront prises en comptes et votre navigateur se
  reachargera tout seul.
 
-En ajoutant --prod, vous créez le site en mode production. L'argument --net
+### Options
+
+**--prod** : vous créez le site en mode production. L'argument --net
  lancera le serveur de développement sur une adresse IP joignable sur votre
  réseau local par d'autre machines.
 
-L'option --noreq permet de générer le site sans faire d'appel externe
+**--noreq** : permet de générer le site sans faire d'appel externe
  (planète et API GitHub). Cela vous permettra de regénérer le site rapidement
  pour les tests.
 

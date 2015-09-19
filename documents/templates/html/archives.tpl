@@ -1,4 +1,4 @@
-{% extends 'layout.tpl' %}
+{% extends type + '/layout.tpl' %}
 
 {% block body %}
 {{ content | safe }}{% if not metadata.childs %}
@@ -14,6 +14,7 @@
       </a>
     </h2>
     <p>{{post.description}}</p>
+    <p>{{post.published | date(metadata.lang)}}</p>
   </article>
   {% endfor %}
 </section>

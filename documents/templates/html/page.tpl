@@ -1,4 +1,4 @@
-{% extends 'layout.tpl' %}
+{% extends type + '/layout.tpl' %}
 
 {% block body %}
 <article class="main-text">
@@ -7,7 +7,7 @@
 <p>
   <a href="{{metadata.parent.path}}{{metadata.parent.name}}.html"
     title="{{metadata.parent.title}}">
-    &lt; {{metadata.parent.shortTitle}}
+    &larr; {{metadata.parent.shortTitle}}
   </a>
 </p>{% endif %}
 {% endblock %}

@@ -2,7 +2,7 @@
 title=ChtiJS #7
 description=Découvrez le contenu du ChtiJS n°7 avec les présentations de \
 Cyril Moreau et Rémi Grumeau.
-created=2014-02-20 19:00:00
+published=2014-02-20 19:00:00
 keywords.+=GolfJS
 keywords.+=Frameworks
 keywords.+=CondingDojo

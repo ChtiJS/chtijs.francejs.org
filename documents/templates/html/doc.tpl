@@ -1,4 +1,4 @@
-{% extends 'layout.tpl' %}
+{% extends type + '/layout.tpl' %}
 
 {% block body %}{% if metadata.childs %}
 <ul class="main-docs">

@@ -9,6 +9,9 @@ keywords.+=ChtiJS
 template=archives
 lang=fr
 location=FR
+types.+=html
+types.+=atom
+types.+=rss
 -->
 
 # Résumés des rencontres

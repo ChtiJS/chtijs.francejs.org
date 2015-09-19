@@ -8,7 +8,7 @@
     <meta name="description" content="{% if metadata.description %}{{ metadata.description }}{% else %}{{conf.description}}{% endif %}">
     <link rel="icon" type="image/png" href="/images/favicon.png" />
     <meta name="robots" content="index,follow">
-    <!--[if IE 8]><link rel="stylesheet" href="{{conf.baseURL}}/css/main.ie.css"><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="{{conf.baseURL}}/css/main-ie.css"><![endif]-->
     <!--[if gt IE 8]><!--><link rel="stylesheet" href="{{conf.baseURL}}/css/main.css"><!--<![endif]-->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -63,6 +63,10 @@
             <li class="main-footer__gg-group">
                 <a href="https://groups.google.com/forum/#!forum/chtijs"
                   title="S'abonner à notre liste de diffusion">Google Group ChtiJS</a>
+            </li>
+            <li class="main-footer__feed">
+                <a href="/archives/index.atom"
+                  title="S'abonner à notre flux de syndication">RSS</a>
             </li>
         </ul>
     </footer>
