@@ -34,11 +34,13 @@ Toutes les modifications que vous ferez dans le code ou le contenu du site,
  une fois sauvegardées seront prises en comptes et votre navigateur se
  reachargera tout seul.
 
-En ajoutant --prod, vous créez le site en mode production. L'argument --net
+### Options
+
+**--prod** : vous créez le site en mode production. L'argument --net
  lancera le serveur de développement sur une adresse IP joignable sur votre
  réseau local par d'autre machines.
 
-L'option --noreq permet de générer le site sans faire d'appel externe
+**--noreq** : permet de générer le site sans faire d'appel externe
  (planète et API GitHub). Cela vous permettra de regénérer le site rapidement
  pour les tests.
 
