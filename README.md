@@ -1,4 +1,4 @@
-# Site ChtiJS [![Build status](https://api.travis-ci.org/ChtiJS/chtijs.francejs.org.png)](https://travis-ci.org/ChtiJS/chtijs.francejs.org) [![Code Climate](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org.png)](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org)
+# Site ChtiJS [![Build status](https://api.travis-ci.org/ChtiJS/chtijs.francejs.org.svg)](https://travis-ci.org/ChtiJS/chtijs.francejs.org) [![Code Climate](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org.svg)](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org)
 
 > **Avant de commencer à travailler sur le projet lisez attentivement
  [le guide pour contribuer](CONTRIBUTING.md)**
@@ -100,4 +100,3 @@ gulp build --prod && gulp publish
 **Attention:** Si vous n'avez pas ajouté le token GitHub ou n'avez pas de version de convert sur votre système, vous risquez de publier une version dégradée ou non-fonctionnelle du site.
 
 D'une manière générale, construire le site sous Windows est une mauvaise idée, sauf mention contraire par un aventurier qui alors se manifestera pour modifier cette ligne.
-
