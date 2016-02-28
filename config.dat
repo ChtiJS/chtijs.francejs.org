@@ -33,4 +33,6 @@ blogs.*.url=http://davidl.fr/
 blogs.+.feed=http://gillespie59.github.io/feed.xml
 blogs.*.author=Emmanuel Demey
 blogs.*.url=http://gillespie59.github.io/
-
+blogs.+.feed=http://vincent.billey.me/feed.xml
+blogs.*.author=Vincent Billey
+blogs.*.url=https://github.com/Fenntasy
