@@ -27,6 +27,8 @@ Pour parler de l'évènement, utilisez le hashtag
 
 Plus de soixante inscrits à ChtiJS 10 et une salle comble pour ce ChtiJS sous
  le signe du JavaScript isomorphique.
+ [Voir les photos](https://www.flickr.com/photos/ashassin/sets/72157648338794143)
+ d'Augustin.
 
 ### React : JavaScript en fusion
 
@@ -54,4 +56,3 @@ Plus de soixante inscrits à ChtiJS 10 et une salle comble pour ce ChtiJS sous
 Pour la liste des participants,
  [voir le Doodle](http://doodle.com/bmn94a7454xwu4y5) associé et
  [l'évènement Meetup](http://www.meetup.com/FranceJS/events/219801991/).
-

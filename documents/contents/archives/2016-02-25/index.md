@@ -3,8 +3,10 @@ title=ChtiJS #15
 description=Découvrez le contenu du ChtiJS n°15 avec les présentations \
 de Nicolas Froidure, Vincent Billey et Mathieu Acthernoene.
 published=2016-02-25 19:00:00
-keywords.+=ServiceWorkers
-keywords.+=Espruino
+keywords.+=NodeJS
+keywords.+=Micro service
+keywords.+=React
+keywords.+=Redux
 lang=fr
 location=FR
 -->
@@ -19,9 +21,9 @@ Au menu:
 - Architecture d'API et micro services avec NodeJS : Retour d'XP par
  [Nicolas Froidure](https://twitter.com/nfroidure)
 - React : au delà des exemples, une application complète par
- [Vincent Billey](https://twitter.com/)
+ [Vincent Billey](https://twitter.com/Fenntasy)
 - Gérez l'état de vos applications JavaScript avec Redux par
- [Mathieu Acthernoene](https://twitter.com/)
+ [Mathieu Acthernoene](https://twitter.com/zoontek)
 
 ## Compte rendu
 

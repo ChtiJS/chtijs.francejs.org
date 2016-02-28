@@ -22,6 +22,8 @@ Pour parler de l'évènement, utilisez le hashtag
 ## Compte rendu
 
 Encore un ChtiJS bien sympatique non dénué de trolls ;).
+[Voir les photos](https://www.flickr.com/photos/ashassin/albums/72157651732230270)
+d'Augustin.
 
 ### ServicesWorkers
 
@@ -40,4 +42,3 @@ Une introduction à l'univers Espruino qui utilise le JavaScript pour la
 Pour la liste des participants,
  [voir le Doodle](http://doodle.com/6ustz8xah2m4ss74) associé et
  [l'évènement Meetup](http://www.meetup.com/FranceJS/events/221494183/).
-

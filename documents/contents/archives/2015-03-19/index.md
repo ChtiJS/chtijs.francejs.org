@@ -26,6 +26,8 @@ Pour parler de l'évènement, utilisez le hashtag
 ## Compte rendu
 
 Encore un ChtiJS bien sympatique non dénué de trolls ;).
+[Voir les photos](https://www.flickr.com/photos/ashassin/sets/72157651033457849)
+ d'Augustin.
 
 ### ESLint
 
@@ -48,4 +50,3 @@ Découverte de l'event deviceLight qui vous permet de récupérer la luminosité
 Pour la liste des participants,
  [voir le Doodle](http://doodle.com/ac99q47hbi7786de) associé et
  [l'évènement Meetup](http://www.meetup.com/FranceJS/events/220879447/).
-
