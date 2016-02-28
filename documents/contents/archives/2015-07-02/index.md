@@ -9,10 +9,10 @@ lang=fr
 location=FR
 -->
 
-# ChtiJS n°15 du 25 février 2016
+# ChtiJS n°13 du 02 juillet 2015
 
 Pour parler de l'évènement, utilisez le hashtag
- [#ChtiJS15](https://twitter.com/search?q=%23ChtiJS16&src=hash).
+ [#ChtiJS13](https://twitter.com/search?q=%23ChtiJS13&src=hash).
 
 ## Programme
 

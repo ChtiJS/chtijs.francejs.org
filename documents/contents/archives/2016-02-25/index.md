@@ -14,7 +14,7 @@ location=FR
 # ChtiJS n°15 du 25 février 2016
 
 Pour parler de l'évènement, utilisez le hashtag
- [#ChtiJS15](https://twitter.com/search?q=%23ChtiJS16&src=hash).
+ [#ChtiJS15](https://twitter.com/search?q=%23ChtiJS15&src=hash).
 
 ## Programme
 Au menu:
