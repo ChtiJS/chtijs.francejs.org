@@ -15,7 +15,8 @@ module.exports = function ghrequest(url) {
     // Reading the access token if not doe yet
     if(!token) {
       try {
-        token = fs.readFileSync(path.join(__dirname, '..', '.token'), 'utf-8');
+        token = fs.readFileSync(path.join(__dirname, '..', '.token'), 'utf-8')
+        .replace(/[\r\n]+/g, '');
       } catch(err) {
         gutil.log('ghrequest: Create a .token file containing a GitHub API' +
           ' token in the root directory of the project' +
