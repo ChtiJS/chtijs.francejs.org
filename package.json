@@ -6,7 +6,9 @@
   "scripts": {
     "test": "gulp build --prod --noreq",
     "trinity": "npm-check-updates -u && npm test && git commit package.json -m \"Dependencies update\" && git push",
-    "cli": "env NPM_RUN_CLI=1"
+    "cli": "env NPM_RUN_CLI=1",
+    "dev": "gulp",
+    "publish": "gulp build --prod && gulp publish --prod"
   },
   "homepage": "http://chtijs.francejs.org",
   "repository": {

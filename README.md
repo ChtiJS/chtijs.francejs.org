@@ -1,4 +1,6 @@
-# Site ChtiJS [![Build status](https://api.travis-ci.org/ChtiJS/chtijs.francejs.org.svg)](https://travis-ci.org/ChtiJS/chtijs.francejs.org) [![Code Climate](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org.svg)](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org)
+# Site ChtiJS
+[![Build status](https://api.travis-ci.org/ChtiJS/chtijs.francejs.org.svg)](https://travis-ci.org/ChtiJS/chtijs.francejs.org)
+[![Code Climate](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org.svg)](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org)
 
 > **Avant de commencer à travailler sur le projet lisez attentivement
  [le guide pour contribuer](CONTRIBUTING.md)**
@@ -10,9 +12,6 @@ Vous devez avoir nodeJS installé sur votre machine ;)
 Entrez les commandes suivante dans un terminal :
 - `git clone git@github.com:ChtiJS/chtijs.francejs.org.git` : cloner le dépôt git;
 - `cd chtijs.francejs.org` : aller dans le répertoire créé.
-- Si vous n'avez jamais utilisé gulp avant, entrez :
-`npm install -g gulp` ou `su npm install -g gulp` (celà dépend de votre système
- et de la manière dont node.js est installé).
 - `npm install` : installe les dépendances.
 
 Afin de pouvoir générer le favicon, vous devrez également avoir ImageMagick
@@ -26,9 +25,9 @@ brew install imagemagick --with-librsvg
 
 ## Pour travailler dessus :
 
-Placez vous dans le répertoire du projet et entrez : `gulp`.
+Placez vous dans le répertoire du projet et entrez : `npm run dev`.
 
-Celà lancera un petit serveur et ouvrira votre navigateur sur l'accueil du site.
+Cela lancera un petit serveur et ouvrira votre navigateur sur l'accueil du site.
 
 Toutes les modifications que vous ferez dans le code ou le contenu du site,
  une fois sauvegardées seront prises en comptes et votre navigateur se
@@ -36,15 +35,15 @@ Toutes les modifications que vous ferez dans le code ou le contenu du site,
 
 ### Options
 
-**--prod** : vous créez le site en mode production. L'argument --net
+**`--prod`** : vous créez le site en mode production. L'argument `--net`
  lancera le serveur de développement sur une adresse IP joignable sur votre
- réseau local par d'autre machines.
+ réseau local par d'autres machines.
 
-**--noreq** : permet de générer le site sans faire d'appel externe
+**`--noreq`** : permet de générer le site sans faire d'appel externe
  (planète et API GitHub). Cela vous permettra de regénérer le site rapidement
  pour les tests.
 
-À ce propos, sans fichier .token contenant un token pour l'accès à l'API GitHub,
+À ce propos, sans fichier `.token` contenant un token pour l'accès à l'API GitHub,
  vous serez rapidement dans l'incapacité de générer le site complet car le
  nombre de requêtes anonymes est limité.
 
@@ -94,7 +93,7 @@ Et voilà, le site de ChtiJS n'a plus de secret pour vous ;).
 # Publication
 Pour publier le site, il suffit de taper la commande suivante :
 ```sh
-gulp build --prod && gulp publish --prod
+npm run publish
 ```
 
 **Attention:** Si vous n'avez pas ajouté le token GitHub ou n'avez pas de version de convert sur votre système, vous risquez de publier une version dégradée ou non-fonctionnelle du site.
