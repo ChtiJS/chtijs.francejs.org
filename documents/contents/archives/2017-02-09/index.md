@@ -37,6 +37,8 @@ Encore un ChtiJS réussi avec beaucoup de nouvelles têtes et
 
 Les casques de réalité virtuelle ce n'est pas que pour les jeux vidéos.
 
+[Slides](http://www.slideshare.net/ThomasBalouet/prez-web-vr-chtijs-72126809)
+
 ### Les méta-paquets NPM
 
 Comment appliquer ses préférences `a` de nombreux modules et projets NodeJS
