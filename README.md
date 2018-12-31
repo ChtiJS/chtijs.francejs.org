@@ -93,7 +93,7 @@ Et voilà, le site de ChtiJS n'a plus de secret pour vous ;).
 # Publication
 Pour publier le site, il suffit de taper la commande suivante :
 ```sh
-npm run publish
+npm run build
 ```
 
 **Attention:** Si vous n'avez pas ajouté le token GitHub ou n'avez pas de version de convert sur votre système, vous risquez de publier une version dégradée ou non-fonctionnelle du site.

@@ -13,10 +13,10 @@ function ghcontributorsGulp(options) {
   var ghStream = new Stream.PassThrough({ objectMode: true });
 
   options = options || {};
-  if(!options.organization) {
+  if (!options.organization) {
     throw new Error('Please provide the organization name.');
   }
-  if(!options.base) {
+  if (!options.base) {
     throw new Error('Please provide the base directory.');
   }
   options.buffer = 'boolean' == typeof options.buffer ? options.buffer : true;
@@ -25,8 +25,13 @@ function ghcontributorsGulp(options) {
   options.folder = options.folder || 'credits';
 
   // Get members list
-  ghrequest('https://api.github.com/repos/' + options.organization + '/' +
-    options.project + '/contributors')
+  ghrequest(
+    'https://api.github.com/repos/' +
+      options.organization +
+      '/' +
+      options.project +
+      '/contributors'
+  )
     .then(function(results) {
       // Reading the contributors index
       var file = new gutil.File({
@@ -45,24 +50,28 @@ function ghcontributorsGulp(options) {
       };
 
       // Retrieve members informations
-      return Promise.all(file[options.prop].contributors.map(function(member) {
-        return ghrequest(member.url)
-          .then(function(result) {
+      return Promise.all(
+        file[options.prop].contributors.map(function(member) {
+          return ghrequest(member.url).then(function(result) {
             member.name = result.name;
           });
-      })).then(function() {
+        })
+      ).then(function() {
         ghStream.write(file);
       });
-    }).then(function() {
+    })
+    .then(function() {
       ghStream.end();
-    }).catch(function(err) {
-      ghStream.emit('error',
-        new gutil.PluginError(PLUGIN_NAME, err, { showStack: true }));
+    })
+    .catch(function(err) {
+      ghStream.emit(
+        'error',
+        new gutil.PluginError(PLUGIN_NAME, err, { showStack: true })
+      );
       ghStream.end();
     });
 
   return ghStream;
-
 }
 
 // Export the plugin main function
