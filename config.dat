@@ -2,7 +2,7 @@
 name=ChtiJS
 description=Communauté des développeurs JavaScript du Nord de la France
 domain=chtijs.francejs.org
-baseURL=http://chtijs.francejs.org
+baseURL=https://chtijs.francejs.org
 lang=fr
 location=FR
 
