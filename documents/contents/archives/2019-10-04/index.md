@@ -26,7 +26,7 @@ Au menu pour cette 19ème édition:
 ## Compte rendu
 
 Un retour en grande pompe du ChtiJS, de nouvelles têtes, de la bonne bouffe (merci Atecna), des boissons et le
-meilleur biensur de beaux sujets. Un vrai plaisir de trouver/retrouver tous le monde !
+meilleur bien sûr de beaux sujets. Un vrai plaisir de trouver/retrouver tous le monde !
 
 ### Comment on a migré un backend C# vers TypeScript Node
 
