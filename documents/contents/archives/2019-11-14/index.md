@@ -17,7 +17,9 @@ location=FR
 
 ## Programme
 
-- un talk de Xavier Van de Woestyne : Types et binding de bibliothèques
+## Programme
+
+- Talk de Xavier Van de Woestyne : Types et binding de bibliothèques
 On trouve de plus en plus de langages qui transpilent/compilent vers JavaScript. Comment construire des
 binding "sain" qui respecte la sémantique du langage "source" avec Electron comme cas d'usage.
 Il s'agit d'un retour d'expérience sur un projet que je suis en train de mener.
