@@ -4,8 +4,8 @@ description=Découvrez le contenu du ChtiJS n°19 avec les présentations \
 de Xavier Coiffard et Florent Giraud.
 published=2019-01-10 19:00:00
 keywords.+=NodeJS
-keywords.+=typescript
-keywords.+=Chtijs
+keywords.+=TypeScript
+keywords.+=ChtiJS
 keywords.+=Javascript
 keywords.+=Framework
 keywords.+=Migration
@@ -20,7 +20,7 @@ Pour parler de l'évènement
 
 ## Programme
 Au menu pour cette 19ème édition:
-- "comment on a migré un backend C# vers TypeScript Node" [Xavier Coiffard](https://twitter.com/angezanetti)
+- "Comment on a migré un backend C# vers TypeScript Node ?" [Xavier Coiffard](https://twitter.com/angezanetti)
 - "Re-créer un framework js front, ça vous fait peur ?" [Florent Giraud](https://twitter.com/giraud_florent)
 
 ## Compte rendu
@@ -32,13 +32,12 @@ merci aux speakers ! Un vrai plaisir de trouver/retrouver tous le monde !
 
 Talk de Xavier Coiffard (@angezanetti) sur son expérience de migration d'une app C# vers NodeJS 
 
-[Slides]()
 [Video](https://www.youtube.com/watch?v=JSnCPURYP64&feature=youtu.be)
 
 ### Re-créer un framework js front, ça vous fait peur ?
 
-Re-creer un framework tres simple c'est assez simple mais cela devient vite compliquer pour differentes raisons. Il ne faut pas
-re inventer la roue je vous exprime mon point de vue
+Re-creer un framework très simple, c'est assez simple mais cela devient vite compliqué pour différentes raisons. Il ne faut pas
+réinventer la roue, Florent exprime son point de vue
 
 [Slides](https://slides.com/florentgiraud/deck-3#/)
 [Video](https://www.youtube.com/watch?v=Q-i-DIHkWTc)
