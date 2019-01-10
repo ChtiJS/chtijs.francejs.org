@@ -12,7 +12,7 @@
     "prettier": "prettier --write 'src/**/*.js' gulpfile.js 'gulpplugins/**/*.js'",
     "build": "gulp build --prod && gulp publish --prod"
   },
-  "homepage": "http://chtijs.francejs.org",
+  "homepage": "https://chtijs.francejs.org",
   "repository": {
     "type": "git",
     "url": "git://github.com/chtijs/chtijs.francejs.org"
@@ -27,8 +27,8 @@
     }
   ],
   "author": {
-    "name": "The ChtiJS Guys - Nord Pas de Calais - France",
-    "url": "http://chtijs.francejs.org"
+    "name": "The ChtiJS members - Nord Pas de Calais - France",
+    "url": "https://chtijs.francejs.org"
   },
   "license": "MIT",
   "devDependencies": {
