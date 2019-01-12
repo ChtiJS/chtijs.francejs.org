@@ -14,7 +14,10 @@
       </a>
     </h2>
     <p>{% if member.bio %}
-      {{ member.bio }} <br />{% endif %}
+      {{ member.bio }} <br />{% endif %}{% if member.blog %}
+      <a href="{{ member.blog }}" class="main-members__blog">
+        Blog
+      </a> {% endif %}
       <a href="{{ member.html_url }}" class="main-members__github">
         Profil GitHub
       </a>

@@ -1,1 +1,0 @@
-Développeur JavaScript full-stack.

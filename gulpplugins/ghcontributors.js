@@ -54,6 +54,8 @@ function ghcontributorsGulp(options) {
         file[options.prop].contributors.map(function(member) {
           return ghrequest(member.url).then(function(result) {
             member.name = result.name;
+            member.bio = result.bio;
+            member.blog = result.blog;
           });
         })
       ).then(function() {

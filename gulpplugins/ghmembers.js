@@ -79,9 +79,9 @@ function ghmembersGulp(options) {
               ),
               contents: new Buffer(0),
             });
-
             member.name = results[0].name;
             member.bio = results[1] || results[0].bio;
+            member.blog = results[0].blog;
             memberFile[options.prop] = {
               datas: results[0],
               title: 'Fiche du membre ' + member.login,
