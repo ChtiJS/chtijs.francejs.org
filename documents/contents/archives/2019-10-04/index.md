@@ -2,7 +2,7 @@
 title=ChtiJS #19
 description=Découvrez le contenu du ChtiJS n°19 avec les présentations \
 de Xavier Coiffard et Florent Giraud.
-published=2019-01-10 19:00:00
+published=2018-10-04 19:00:00
 keywords.+=NodeJS
 keywords.+=TypeScript
 keywords.+=ChtiJS

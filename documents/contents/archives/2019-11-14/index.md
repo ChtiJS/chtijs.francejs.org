@@ -2,7 +2,7 @@
 title=ChtiJS #20
 description=Découvrez le contenu du ChtiJS n°20 avec les présentations \
 de Xavier Coiffard, Cyril Lakech et Laurent Thiebault .
-published=2019-01-10 19:00:00
+published=2018-11-14 19:00:00
 keywords.+=NodeJS
 keywords.+=Types
 keywords.+=ChtiJS
