@@ -19,10 +19,10 @@ location=FR
 
 Talk de Nicolas Froidure : Unobtrusive Dependency Injection with JavaScript
 
-Talk de Florent Giraud : [REX | VUEJS] Quel générateur de documentation pour sa librairie de composants
-Quand on a une librairie de composants sous VUEJS on a envie éventuellement de pouvoir la réutiliser dans d'autres projets.
+Talk de Florent Giraud : [REX | VueJS] Quel générateur de documentation pour sa librairie de composants
+Quand on a une librairie de composants sous VueJS on a envie éventuellement de pouvoir la réutiliser dans d'autres projets.
 Pour cela il est important de pouvoir comprendre rapidement et facilement comment consommer la librairie. Donc une bonne documentation.
-Je me suis basé sur les 2 plus gros générateur spécifique a VUEJS. Ici Vuepress | Vue Styleguidist
+Je me suis basé sur les 2 plus gros générateurs spécifiques à VueJS. Ici Vuepress | Vue Styleguidist
 Qui en sortira vainceur ?
 
 ## Infos
@@ -35,8 +35,8 @@ Twitter:
 
 ## Compte rendu
 
-Cette seconde édition pourrait être resumée par precision. Aussi bien sur le REX que sur NEST des talk vraiment intéressants!
-Merci à tous ! On se revoit en 2018 !
+Cette seconde édition pourrait être resumée par précision. Aussi bien sur le REX que sur NEST des talks vraiment intéressants!
+Merci à toutes et à tous ! On se revoit en 2018 !
 
 ## Pour info
 
