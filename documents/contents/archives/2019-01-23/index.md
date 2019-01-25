@@ -18,6 +18,7 @@ location=FR
 ## Programme
 
 Talk de Nicolas Froidure : Unobtrusive Dependency Injection with JavaScript
+Présentation de Nicolas Froidure décrivant l'injection de dépendances en JavaScript et sa mise en application avec Knifecyle qu'il a créé dans cette optique. Garanti sans POO :sourire:
 
 Talk de Florent Giraud : [REX | VueJS] Quel générateur de documentation pour sa librairie de composants
 Quand on a une librairie de composants sous VueJS on a envie éventuellement de pouvoir la réutiliser dans d'autres projets.
@@ -33,10 +34,10 @@ Twitter:
 
 - [Nicolas Froidure](https://twitter.com/nfroidure)
 
-## Compte rendu
+## Videos
 
-Cette seconde édition pourrait être resumée par précision. Aussi bien sur le REX que sur NEST des talks vraiment intéressants!
-Merci à toutes et à tous ! On se revoit en 2018 !
+- [Florent](https://www.youtube.com/watch?v=Os_vgk7X7E4)
+- [Nicolas](https://www.youtube.com/watch?v=qTtwn1J9IXk)
 
 ## Pour info
 
