@@ -21,12 +21,12 @@ Le groupe ChtiJS s'est formé de manière totalement informelle et spontanée. L
 On peut affirmer que ChtiJS est avant tout une excuse pour se retrouver entre
  passionnées et passionnés autour d'une bière ou pas.
 
-Bref, notre groupe se veut à l'image de JavaScript : libre, universel, plaisant
- et diablement efficace !
+Bref, notre groupe se veut à l'image de JavaScript : libre, universel, plaisant
+ et diablement efficace !
 
 ## Les rencontres
 
-Il n'ya a pas vraiment de règles sur la fréquence des rencontres. Cela est
+Il n'y a a pas vraiment de règles sur la fréquence des rencontres. Cela est
  fonction de l'envie et de la disponibilité de chacun.
 
 Lorsqu'il y a suffisamment de sujets à traiter, nous lançons un sondage pour
@@ -51,9 +51,9 @@ Toute personne est libre de proposer un sujet quel qu'en soit le contenu pour
 ### Format
 
 Un sujet peut être traité de diverses manières, tous les formats sont bienvenus.
-Voici quelques pistes :
-- séance de développement en direct ;
-- présentation plus formalisée type "conférence" ;
+Voici quelques pistes :
+- séance de développement en direct;
+- présentation plus formalisée type "conférence";
 - présentation de type table ronde avec retours d'expérience de chacun.
 
 ### Durée
@@ -72,7 +72,7 @@ D'une manière générale, nous avons deux ou trois présentations par rencontre
  connaître et de prendre des nouvelles de chacun. Les plus téméraires bravent
  le vent et la pluie pour troller sur Java :D.
 
-## Notre devise : pas de pression 
+## Notre devise : pas de pression 
 _sauf, éventuellement, celle qui se boit_*
 
 l'abus de lait de poney sous pression nuit gravement à la santé*

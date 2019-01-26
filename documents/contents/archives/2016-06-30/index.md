@@ -17,7 +17,7 @@ Pour parler de l'évènement, utilisez le hashtag
  [#ChtiJS16](https://twitter.com/search?q=%23ChtiJS16&src=hash).
 
 ## Programme
-Au menu:
+Au menu :
 - "Réalisez une API REST auto-documentée en Node via Hapi.js" par
  [Jean-Baptiste Pionnier](https://twitter.com/JbPionnier)
 - "Créez une application mobile performante avec React Native" par
@@ -26,7 +26,7 @@ Au menu:
 ## Compte rendu
 
 Une bonne édition de ChtiJS avec deux habitués bien décidés à partager
- leur savoir !
+ leur savoir !
 
 ### Réalisez une API REST auto-documentée en Node via Hapi.js.
 

@@ -21,7 +21,7 @@ Pour parler de l'évènement, utilisez le hashtag
 
 ## Compte rendu
 
-Encore un ChtiJS bien sympatique non dénué de trolls ;).
+Encore un ChtiJS bien sympathique non dénué de trolls ;).
 [Voir les photos](https://www.flickr.com/photos/ashassin/albums/72157651732230270)
 d'Augustin.
 

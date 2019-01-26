@@ -19,14 +19,14 @@ Pour parler de l'évènement
  [#ChtiJS19](https://www.meetup.com/fr-FR/FranceJS/events/254372048/).
 
 ## Programme
-Au menu pour cette 19ème édition:
-- "Comment on a migré un backend C# vers TypeScript Node ?" [Xavier Coiffard](https://twitter.com/angezanetti)
-- "Re-créer un framework js front, ça vous fait peur ?" [Florent Giraud](https://twitter.com/giraud_florent)
+Au menu pour cette 19ème édition :
+- "Comment on a migré un backend C# vers TypeScript Node ?" [Xavier Coiffard](https://twitter.com/angezanetti)
+- "Re-créer un framework js front, ça vous fait peur ?" [Florent Giraud](https://twitter.com/giraud_florent)
 
 ## Compte rendu
 
 Retour du ChtiJS après une année d'absence, de nouvelles têtes, de la bonne bouffe, des boissons et bien entendu
-merci aux speakers ! Un vrai plaisir de trouver/retrouver tous le monde !
+merci aux speakers ! Un vrai plaisir de trouver/retrouver tous le monde !
 
 ### Comment on a migré un backend C# vers TypeScript Node
 
@@ -34,7 +34,7 @@ Talk de Xavier Coiffard (@angezanetti) sur son expérience de migration d'une ap
 
 [Video](https://www.youtube.com/watch?v=JSnCPURYP64&feature=youtu.be)
 
-### Re-créer un framework js front, ça vous fait peur ?
+### Re-créer un framework JS front, ça vous fait peur ?
 
 Re-creer un framework très simple, c'est assez simple mais cela devient vite compliqué pour différentes raisons. Il ne faut pas
 réinventer la roue, Florent exprime son point de vue

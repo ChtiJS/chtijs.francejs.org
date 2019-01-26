@@ -16,7 +16,7 @@ Pour parler de l'évènement, utilisez le hashtag
  [#ChtiJS14](https://twitter.com/search?q=%23ChtiJS14&src=hash).
 
 ## Programme
-Au menu:
+Au menu :
 - Generators dans ES6 par [Adrien G.](https://twitter.com/baDotNet)
 - Electron par [Mathieu Acthernoene](https://twitter.com/zoontek)
 

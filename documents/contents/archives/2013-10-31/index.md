@@ -15,7 +15,7 @@ location=FR
 
 ## Programme
 
-Au menu de ce ChtiJS :
+Au menu de ce ChtiJS :
 
 * [présentation de GruntJS](http://0gust1.github.io/introduction_grunt/#/4), un
  outil d'automatisation des tâches récurrentes avec JavaScript et NodeJS par
@@ -23,7 +23,7 @@ Au menu de ce ChtiJS :
 * présentation de la Web Notification API par Tom Panier
  ([@_neemzy](https://twitter.com/_neemzy)) - [slides](http://slid.es/neemzy/web-notifications-api),
  [démo](https://github.com/ChtiJS/messenger.io)
-* échanges et retours d'XP sur les tests unitaires : venez avec votre bout de
+* échanges et retours d'XP sur les tests unitaires : venez avec votre bout de
  code et mettons les tests en place ensemble. Merci à Raphaël Rougeron pour le
  [support de présentation](http://fr.slideshare.net/goldoraf/tester-son-js).
  À faire avant de venir, les quelques manipulations de ce

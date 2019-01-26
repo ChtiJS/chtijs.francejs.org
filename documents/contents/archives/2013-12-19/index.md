@@ -22,7 +22,7 @@ Pour parler de l'évènement, utilisez le hashtag
 ## Programme
 
 Retrouvons-nous une nouvelle fois pour parler de JavaScript avec une soirée très
- orientée NodeJS :
+ orientée NodeJS :
 * la stack MEAN (Mongo Express Angular NodeJS) par Jean-Baptiste Pionnier
  [@JBPionnier](https://twitter.com/JBPionnier)
 * partage de code entre back et front-end avec Browserify par Nicolas Froidure

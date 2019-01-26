@@ -15,7 +15,7 @@ location=FR
 
 ## Programme
 
-Au menu du quatrième ChtiJS :
+Au menu du quatrième ChtiJS :
 
 * présentation du framework AngularJS par Jean-Baptiste Pionnier
  ([@JbPionnier](https://twitter.com/JbPionnier))

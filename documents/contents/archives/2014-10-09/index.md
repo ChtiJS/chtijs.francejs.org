@@ -21,7 +21,7 @@ Pour parler de l'évènement, utilisez le hashtag
 
 ## Compte rendu
 
-L'affluence était de retour pour ce neuvième ChtiJS ! Au programme, des talks
+L'affluence était de retour pour ce neuvième ChtiJS ! Au programme, des talks
 de grande qualité par Thomas et Johnathan, tous deux venus de chez Altima.
 
 Nous avons également reçu la visite d'étudiants en informatique de l'Université
@@ -30,10 +30,10 @@ leurs locaux, sous réserve d'éviter les talks trop élitistes pour rester acce
 à un public essentiellement étudiant. L'idée a été plutôt bien accueillie par la
 communauté et pourrait se concrétiser dans un futur proche.
 
-Une discussion sur l'édition suivante a également eu lieu : Nicolas Froidure et Rémi
+Une discussion sur l'édition suivante a également eu lieu : Nicolas Froidure et Rémi
 Grumeau ont soulevé le fait que pour la dixième édition, il serait intéressant d'organiser
-quelque chose d'un peu "spécial", qui se démarque des précédents meetups : pourquoi pas
-une édition sans talks avec un coding dojo, par exemple ? Tom Panier a évoqué le fait
+quelque chose d'un peu "spécial", qui se démarque des précédents meetups : pourquoi pas
+une édition sans talks avec un coding dojo, par exemple  ? Tom Panier a évoqué le fait
 que la proposition faite par les étudiants de Lille I tombait ainsi potentiellement
 à pic. Affaire à suivre...
 

@@ -17,7 +17,7 @@ Pour parler de l'évènement, utilisez le hashtag
  [#ChtiJS17](https://twitter.com/search?q=%23ChtiJS17&src=hash).
 
 ## Programme
-Au menu:
+Au menu :
 - "Pray for Bower" par [David Leuliette](https://twitter.com/_flexbox)
 - La VR dans le navigateur Web [Thomas Balouet](https://twitter.com/thomasbalou)
 - Les méta-paquets NPM par [Nicolas Froidure](https://twitter.com/nfroidure)
@@ -25,11 +25,11 @@ Au menu:
 ## Compte rendu
 
 Encore un ChtiJS réussi avec beaucoup de nouvelles têtes et
- le plaisir de se retrouver entre amis et passionés !
+ le plaisir de se retrouver entre amis et passionnés !
 
 ### Pray for Bower
 
-État de l’art des gestionnaires de packets JavaScript en 2017.
+État de l’art des gestionnaires de paquets JavaScript en 2017.
 
 [Slides](http://courses.davidl.fr/presentations/yarn/#/)
 
@@ -41,7 +41,7 @@ Les casques de réalité virtuelle ce n'est pas que pour les jeux vidéos.
 
 ### Les méta-paquets NPM
 
-Comment appliquer ses préférences `a` de nombreux modules et projets NodeJS
+Comment appliquer ses préférences à de nombreux modules et projets NodeJS
  sans devenir fou.
 
 [Slides](http://slides.com/nfroidure/architecture_nodejs_web_services#/)

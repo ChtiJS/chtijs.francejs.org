@@ -16,7 +16,7 @@ Pour parler de l'évènement, utilisez le hashtag
 
 ## Programme
 
-Au menu de cette nouvelle édition, que du premier choix :
+Au menu de cette nouvelle édition, que du premier choix :
 - ES6, dans ton code par [Nicolas Froidure](https://twitter.com/nfroidure)
 - Flux par [Tom Panier](https://twitter.com/_neemzy)
 - Lightning talk Device Light API avec la présentation d'un PoC de

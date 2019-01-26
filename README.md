@@ -9,13 +9,13 @@
 
 Vous devez avoir nodeJS installé sur votre machine ;)
 
-Entrez les commandes suivante dans un terminal :
-- `git clone git@github.com:ChtiJS/chtijs.francejs.org.git` : cloner le dépôt git;
-- `cd chtijs.francejs.org` : aller dans le répertoire créé.
-- `npm install` : installe les dépendances.
+Entrez les commandes suivante dans un terminal :
+- `git clone git@github.com:ChtiJS/chtijs.francejs.org.git` : cloner le dépôt git;
+- `cd chtijs.francejs.org` : aller dans le répertoire créé.
+- `npm install` : installe les dépendances.
 
 Afin de pouvoir générer le favicon, vous devrez également avoir ImageMagick
- présent sur votre système:
+ présent sur votre système :
 ```sh
 # on a Debian based system
 apt-get install imagemagick
@@ -23,9 +23,9 @@ apt-get install imagemagick
 brew install imagemagick --with-librsvg
 ```
 
-## Pour travailler dessus :
+## Pour travailler dessus :
 
-Placez vous dans le répertoire du projet et entrez : `npm run dev`.
+Placez vous dans le répertoire du projet et entrez : `npm run dev`.
 
 Cela lancera un petit serveur et ouvrira votre navigateur sur l'accueil du site.
 
@@ -47,7 +47,7 @@ Toutes les modifications que vous ferez dans le code ou le contenu du site,
  vous serez rapidement dans l'incapacité de générer le site complet car le
  nombre de requêtes anonymes est limité.
 
-## Éditer le site :
+## Éditer le site :
 
 ### Contenu
 
@@ -68,16 +68,16 @@ Par défaut les fichiers markdown sont rendus via la template
 ### Architecture
 
 Les templates sont dans le répertoire `/documents/templates/`.Le langage utilisé
- est nunjucks (doc: http://jlongster.github.io/nunjucks/templating.html ).
+ est nunjucks (doc : http://jlongster.github.io/nunjucks/templating.html ).
 
 Les CSS sont générées depuis les sources Less située dans `documents/less/`.
 
 ### Génération du site
 
 ChtiJS est un site statique généré de façon automatique via la tâche Gulp
- `build_html`. La génération se fait de la manière suivante :
+ `build_html`. La génération se fait de la manière suivante :
 
-* création d'un arbre représentant la structure du site :
+* création d'un arbre représentant la structure du site :
 * * tout d'abord, on récupère les documents markdown  situés dans
  `/documents/content`. Ajouter une fichier Markdown dans ce dossier (ou un
  sous dossier) crée une nouvelle page dans le site.
@@ -91,11 +91,11 @@ ChtiJS est un site statique généré de façon automatique via la tâche Gulp
 Et voilà, le site de ChtiJS n'a plus de secret pour vous ;).
 
 # Publication
-Pour publier le site, il suffit de taper la commande suivante :
+Pour publier le site, il suffit de taper la commande suivante :
 ```sh
 npm run build
 ```
 
-**Attention:** Si vous n'avez pas ajouté le token GitHub ou n'avez pas de version de convert sur votre système, vous risquez de publier une version dégradée ou non-fonctionnelle du site.
+**Attention :** Si vous n'avez pas ajouté le token GitHub ou n'avez pas de version de convert sur votre système, vous risquez de publier une version dégradée ou non-fonctionnelle du site.
 
 D'une manière générale, construire le site sous Windows est une mauvaise idée, sauf mention contraire par un aventurier qui alors se manifestera pour modifier cette ligne.

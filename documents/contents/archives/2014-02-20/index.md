@@ -24,17 +24,17 @@ Pour parler de l'évènement, utilisez le hashtag
 * Présentation de [PropertyCross](http://propertycross.com/), par Rémi Grumeau
  ([@remi_grumeau](https://twitter.com/remi_grumeau)), un comparateurs de
  librairies de création d'applications mobiles web et natives.
-* Table ronde "Ce qui va me manquer chez (PHP|Ruby|Java|*)" : Séquence
+* Table ronde "Ce qui va me manquer chez (PHP|Ruby|Java|*)" : Séquence
  nostalgie, chacun vient avec la killer feature de son autre/ex langage et on
  essaie de la recréer/retrouver.
-* Préparation Coding Dojo : Qui, quand, comment ?
+* Préparation Coding Dojo : Qui, quand, comment ?
 
 ## Compte rendu
 
 Un peu plus d'une vingtaine de personnes sont venues participer à ce ChtiJS.
 Cyril Moreau nous a fait ses adieux puisqu'il part pour Aix en Provence.
 
-La discussion à propos du Coding Dojo JavaScript a permis de receuillir les
+La discussion à propos du Coding Dojo JavaScript a permis de recueillir les
  idées de chacun qui seront reprises et développées sur le groupe Google dans
  les jours qui viennent.
 
@@ -43,7 +43,7 @@ Augustin Chassigne nous a un peu parlé de WebStorm et a été appuyé par Cyril
  présentation sur cet éditeur payant.
 
 Sébastien Elet piqué au vif, pourrait bien nous prouver que Vim est capable d'en
- faire autant voire plus ! Saluons en tout cas ce dernier qui s'est déplacé
+ faire autant voire plus ! Saluons en tout cas ce dernier qui s'est déplacé
  spécialement d'Amiens pour participer à nos geekeries.
 
 ## Pour info

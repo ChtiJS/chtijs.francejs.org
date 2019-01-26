@@ -17,26 +17,18 @@ location=FR
 
 ## Programme
 
-Talk de Xavier Van de Woestyne : Types et binding de bibliothèques
+**Talk de [Xavier Van de Woestyne](https://twitter.com/vdwxv) :** Types et binding de bibliothèques
 On trouve de plus en plus de langages qui transpilent/compilent vers JavaScript. Comment construire des
 bindings "sains" qui respectent la sémantique du langage "source" avec Electron comme cas d'usage.
 Il s'agit d'un retour d'expérience sur un projet que je Xavier est en train de mener.
 
-Talk de Cyril Lakech et Laurent Thiebault : Un zeste de Nest pour réhausser le goût du back-end JS avec TypeScript
-Nous connaissons tous un développeur frontend qui est devenu plus efficace grâce à des solutions comme Angular, Vue ou React. On connait également des développeurs backend qui développent de manière architecturée grâce à Spring Boot pour Java ou ASP.NET Core pour .NET Core. Et côté NodeJS ? 99% utilisent Express, qui est loin d’être un équivalent… Pourtant il y a plein d’intérêts à proposer des facilitants qui permettraient en plus d’utiliser côté client comme serveur le même language de programmation, un environnement d’exécution proche, de partager du code commun, d’ajouter un contrôle statique du code à la compilation avec TypeScript… Et si NestJS était notre guide vers ce graal sans dénaturer le goût de liberté qu’on aime tant ? Venez découvrir cet ingrédient pour vous aider à faire mijoter vos projets !
-
-## Infos
-
-Twitter:
-- [Xavier Van de Woestyne](https://twitter.com/vdwxv?lang=fr)
-- [Cyril Lakech](https://twitter.com/cyril_lakech)
-- [Laurent Thiebault](https://twitter.com/lauthieb)
+**Talk de [Cyril Lakech](https://twitter.com/cyril_lakech) et [Laurent Thiebault](https://twitter.com/lauthieb) :** Un zeste de Nest pour ré-hausser le goût du back-end JS avec TypeScript
+Nous connaissons tous un développeur frontend qui est devenu plus efficace grâce à des solutions comme Angular, Vue ou React. On connaît également des développeurs backend qui développent de manière architecturée grâce à Spring Boot pour Java ou ASP.NET Core pour .NET Core. Et côté NodeJS ? 99% utilisent Express, qui est loin d’être un équivalent… Pourtant il y a plein d’intérêts à proposer des facilitants qui permettraient en plus d’utiliser côté client comme serveur le même langage de programmation, un environnement d’exécution proche, de partager du code commun, d’ajouter un contrôle statique du code à la compilation avec TypeScript… Et si NestJS était notre guide vers ce Graal sans dénaturer le goût de liberté qu’on aime tant ? Venez découvrir cet ingrédient pour vous aider à faire mijoter vos projets !
 
 ## Compte rendu
 
-Cette seconde édition pourrait être resumée par precision. Aussi bien sur le REX que sur NEST des talk vraiment intéressants!
-Merci à tous ! On se revoit en 2018 !
-
+Cette seconde édition pourrait être résumée par précision. Aussi bien sur le REX que sur NEST des talks vraiment intéressants !
+Merci à tous ! On se revoit en 2018 !
 
 ## Pour info
 

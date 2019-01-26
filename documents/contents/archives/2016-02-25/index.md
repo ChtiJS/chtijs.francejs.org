@@ -17,10 +17,10 @@ Pour parler de l'évènement, utilisez le hashtag
  [#ChtiJS15](https://twitter.com/search?q=%23ChtiJS15&src=hash).
 
 ## Programme
-Au menu:
-- Architecture d'API et micro services avec NodeJS : Retour d'XP par
+Au menu :
+- Architecture d'API et micro services avec NodeJS : Retour d'XP par
  [Nicolas Froidure](https://twitter.com/nfroidure)
-- React : au delà des exemples, une application complète par
+- React : au delà des exemples, une application complète par
  [Vincent Billey](https://twitter.com/Fenntasy)
 - Gérez l'état de vos applications JavaScript avec Redux par
  [Mathieu Acthernoene](https://twitter.com/zoontek)
@@ -33,7 +33,7 @@ Une bonne édition de ChtiJS très technique et intéressante ;).
 
 [Slides](http://slides.com/nfroidure/architecture_nodejs_web_services#/)
 
-### React : au delà des exemples
+### React : au delà des exemples
 
 [Slides](http://vincent.billey.me/talks/2016-02-25-react-beyond-examples/#/)
 

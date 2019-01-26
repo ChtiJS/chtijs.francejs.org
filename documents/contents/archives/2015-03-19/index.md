@@ -25,7 +25,7 @@ Pour parler de l'évènement, utilisez le hashtag
 
 ## Compte rendu
 
-Encore un ChtiJS bien sympatique non dénué de trolls ;).
+Encore un ChtiJS bien sympathique non dénué de trolls ;).
 [Voir les photos](https://www.flickr.com/photos/ashassin/sets/72157651033457849)
  d'Augustin.
 
@@ -43,7 +43,7 @@ Petite présentation sur le projet ESLint permettant de vérifier la qualité de
 
 [Slides](http://lilleweb.fr/event/2014/10/30/talks-deviceLight/)
 
-Découverte de l'event deviceLight qui vous permet de récupérer la luminosité ambiante en JS, voici un exemple en live est dispo [ici](http://johnathan.fr/dev/deviceLight/)
+Découverte de l'évènement deviceLight qui vous permet de récupérer la luminosité ambiante en JS, voici un exemple en live est disponible [ici](http://johnathan.fr/dev/deviceLight/)
 
 ## Pour info
 

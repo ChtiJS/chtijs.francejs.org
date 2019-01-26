@@ -19,9 +19,9 @@ Pour parler de l'évènement, utilisez le hashtag
 
 ## Programme
 
-* [ReactJS](http://reactjs.org/) : JavaScript en fusion par Tom Panier ([@_neemzy](https://twitter.com/_neemzy)).
+* [ReactJS](http://reactjs.org/) : JavaScript en fusion par Tom Panier ([@_neemzy](https://twitter.com/_neemzy)).
 * Lightning talk sur [MeteorJS](https://meteorjs.org) par François Lecroart ([@peernohell](https://twitter.com/peernohell)).
-* Le JavasScript isomorphique par l'exemple : Gestion des droits end to end par Nicolas Froidure ([@nfroidure](https://twitter.com/nfroidure)).
+* Le JavasScript isomorphique par l'exemple : Gestion des droits end to end par Nicolas Froidure ([@nfroidure](https://twitter.com/nfroidure)).
 
 ## Compte rendu
 
@@ -30,23 +30,17 @@ Plus de soixante inscrits à ChtiJS 10 et une salle comble pour ce ChtiJS sous
  [Voir les photos](https://www.flickr.com/photos/ashassin/sets/72157648338794143)
  d'Augustin.
 
-### React : JavaScript en fusion
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BVa67vgXo14" frameborder="0" allowfullscreen></iframe>
+### React : JavaScript en fusion
 
 [Slides](http://slides.com/neemzy/react#/) -
 [Notes](https://twitter.com/_flexbox/status/563410517579276288/photo/1)
 
-### Lightning talk: MeteorJS
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2nkVPT-K24Q" frameborder="0" allowfullscreen></iframe>
+### Lightning talk : MeteorJS
 
 [Slides](https://docs.google.com/presentation/d/1xohSU3eG63rNZkjzGJkSrB6IX3pm9oYSmt8hf1Tfzes/edit?usp=sharing) -
 [Notes](https://twitter.com/_flexbox/status/563468793239072768/photo/1)
 
 ### Le JavaScript isomorphique par l'exemple
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/n8nvHFfEFC4" frameborder="0" allowfullscreen></iframe>
 
 [Slides](http://slides.com/nfroidure/isomorphisme_par_exemple#/) -
 [Notes](https://twitter.com/_flexbox/status/563423191411200000/photo/1)

@@ -15,7 +15,7 @@ Message à l'attention de la communauté rédigé par le bureau des conventions
  hystériques ([@kdisneur](https://twitter.com/kdisneur) et
  [@_flexbox](https://twitter.com/_flexbox)).
 
-## Pourquoi c'est important ?
+## Pourquoi c'est important ?
 
 * Garder un code source cohérent, facilement maintenable et lisible
 * Avoir un format universel est indispensable pour garder un projet évolutif
@@ -47,7 +47,7 @@ Ouvrir les préférences avec `cmd` + `,`
 
 ### Vim
 
-Éditez votre fichier .vimrc :
+Éditez votre fichier `.vimrc` :
 
     set autoindent
     set smartindent
