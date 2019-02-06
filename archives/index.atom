@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <id>https://chtijs.francejs.org/archives/index.html</id>
+  <title>ChtiJS : Résumés des rencontres</title>
+  <subtitle>Découvrez les résupmés des rencontre du groupe ChtiJS.</subtitle>
+  <link href="https://chtijs.francejs.org/archives/index.atom" rel="self" type="application/atom+xml" />
+  <link href="https://chtijs.francejs.org/archives/index.html" rel="alternate" type="text/html" />
+  <updated>2019-02-06T09:56:57.564Z</updated>
+
+  
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2019-01-23/index.html</id>
+      <title>ChtiJS #21</title>
+      <link href="https://chtijs.francejs.org/archives/2019-01-23/index.html" rel="alternate" type="text/html" />
+      <updated>2019-01-24 19:00:00</updated>
+      <published>2019-01-24 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°21 avec les présentations 
+de Nicolas Froidure, Florent Giraud .</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2018-11-14/index.html</id>
+      <title>ChtiJS #20</title>
+      <link href="https://chtijs.francejs.org/archives/2018-11-14/index.html" rel="alternate" type="text/html" />
+      <updated>2018-11-14 19:00:00</updated>
+      <published>2018-11-14 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°20 avec les présentations 
+de Xavier Coiffard, Cyril Lakech et Laurent Thiebault .</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2018-10-04/index.html</id>
+      <title>ChtiJS #19</title>
+      <link href="https://chtijs.francejs.org/archives/2018-10-04/index.html" rel="alternate" type="text/html" />
+      <updated>2018-10-04 19:00:00</updated>
+      <published>2018-10-04 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°19 avec les présentations 
+de Xavier Coiffard et Florent Giraud.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2017-02-09/index.html</id>
+      <title>ChtiJS #17</title>
+      <link href="https://chtijs.francejs.org/archives/2017-02-09/index.html" rel="alternate" type="text/html" />
+      <updated>2017-02-09 19:00:00</updated>
+      <published>2017-02-09 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°17 avec les présentations 
+de Nicolas Froidure, David Leuliette et Thomas Balouet.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2016-06-30/index.html</id>
+      <title>ChtiJS #16</title>
+      <link href="https://chtijs.francejs.org/archives/2016-06-30/index.html" rel="alternate" type="text/html" />
+      <updated>2016-06-30 19:00:00</updated>
+      <published>2016-06-30 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°16 avec les présentations 
+de Jean-Baptiste Pionnier et Mathieu Acthernoene.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2016-02-25/index.html</id>
+      <title>ChtiJS #15</title>
+      <link href="https://chtijs.francejs.org/archives/2016-02-25/index.html" rel="alternate" type="text/html" />
+      <updated>2016-02-25 19:00:00</updated>
+      <published>2016-02-25 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°15 avec les présentations 
+de Nicolas Froidure, Vincent Billey et Mathieu Acthernoene.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2015-10-01/index.html</id>
+      <title>ChtiJS #14</title>
+      <link href="https://chtijs.francejs.org/archives/2015-10-01/index.html" rel="alternate" type="text/html" />
+      <updated>2015-10-01 19:00:00</updated>
+      <published>2015-10-01 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°14 avec les présentations 
+de Mathieu Acthernoene et de Adrien G.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2015-07-02/index.html</id>
+      <title>ChtiJS #13</title>
+      <link href="https://chtijs.francejs.org/archives/2015-07-02/index.html" rel="alternate" type="text/html" />
+      <updated>2015-07-02 19:00:00</updated>
+      <published>2015-07-02 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°13 avec les présentations 
+de Nicolas Froidure, Tom Panier et Rémi Grumeau.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2015-04-23/index.html</id>
+      <title>ChtiJS #12</title>
+      <link href="https://chtijs.francejs.org/archives/2015-04-23/index.html" rel="alternate" type="text/html" />
+      <updated>2015-04-23 19:00:00</updated>
+      <published>2015-04-23 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°12 avec les présentations 
+d&#39;Hubert Sablonnière et de Thomas Magdziarz.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2015-03-19/index.html</id>
+      <title>ChtiJS #11</title>
+      <link href="https://chtijs.francejs.org/archives/2015-03-19/index.html" rel="alternate" type="text/html" />
+      <updated>2015-03-19 19:00:00</updated>
+      <published>2015-03-19 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°11 avec les présentations 
+d&#39;Emmanuel Demey, de Johnathan Meunier et de Xavier Van de Woestyne.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2015-02-05/index.html</id>
+      <title>ChtiJS #10</title>
+      <link href="https://chtijs.francejs.org/archives/2015-02-05/index.html" rel="alternate" type="text/html" />
+      <updated>2015-02-05 19:00:00</updated>
+      <published>2015-02-05 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°10 avec les présentations de 
+Nicolas Froidure, François Lecroart et Tom Panier.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2014-10-09/index.html</id>
+      <title>ChtiJS #9</title>
+      <link href="https://chtijs.francejs.org/archives/2014-10-09/index.html" rel="alternate" type="text/html" />
+      <updated>2014-10-09 19:00:00</updated>
+      <published>2014-10-09 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°9 avec les présentations de 
+Thomas Deconinck et Johnathan Meunier.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2014-07-24/index.html</id>
+      <title>ChtiJS #8</title>
+      <link href="https://chtijs.francejs.org/archives/2014-07-24/index.html" rel="alternate" type="text/html" />
+      <updated>2014-07-24 19:00:00</updated>
+      <published>2014-07-24 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°8 avec les présentations de 
+Rémi Grumeau et François-Emmanuel Cortes.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2014-03-06/index.html</id>
+      <title>EmbuscadeJS #1</title>
+      <link href="https://chtijs.francejs.org/archives/2014-03-06/index.html" rel="alternate" type="text/html" />
+      <updated>2014-03-06 19:00:00</updated>
+      <published>2014-03-06 19:00:00</published>
+      <summary>Découvrez le contenu de la première embuscade JavaScript de notre
+ groupe avec la présentation de Thomas Parisot.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2014-02-20/index.html</id>
+      <title>ChtiJS #7</title>
+      <link href="https://chtijs.francejs.org/archives/2014-02-20/index.html" rel="alternate" type="text/html" />
+      <updated>2014-02-20 19:00:00</updated>
+      <published>2014-02-20 19:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°7 avec les présentations de 
+Cyril Moreau et Rémi Grumeau.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2013-12-19/index.html</id>
+      <title>ChtiJS #6</title>
+      <link href="https://chtijs.francejs.org/archives/2013-12-19/index.html" rel="alternate" type="text/html" />
+      <updated>2013-12-12 12:00:00</updated>
+      <published>2013-12-12 12:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°6 avec les présentations de Jean-
+Baptiste Pionnier sur la stack MEAN, de Nicolas Froidure sur le partage de code 
+entre front et back, et le retour d&#39;0gust1 et Tom Panier sur la création du 
+site du groupe.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2013-10-31/index.html</id>
+      <title>ChtiJS #5</title>
+      <link href="https://chtijs.francejs.org/archives/2013-10-31/index.html" rel="alternate" type="text/html" />
+      <updated>2013-10-31 12:00:00</updated>
+      <published>2013-10-31 12:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°5 avec les présentations de Tom 
+Panier, 0gust1 et un échange sur les tests unitaires en JS.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2013-09-19/index.html</id>
+      <title>ChtiJS #4</title>
+      <link href="https://chtijs.francejs.org/archives/2013-09-19/index.html" rel="alternate" type="text/html" />
+      <updated>2013-09-19 12:00:00</updated>
+      <published>2013-09-19 12:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°4 avec les présentations de 
+Jean-Baptiste Pionnier sur AngularJS, Rémi Grumeau sur Emy et David Loeuillete 
+sur Pokémon Breakpoint.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2013-07-25/index.html</id>
+      <title>ChtiJS #3</title>
+      <link href="https://chtijs.francejs.org/archives/2013-07-25/index.html" rel="alternate" type="text/html" />
+      <updated>2013-07-25 12:00:00</updated>
+      <published>2013-07-25 12:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°3 avec la présentation de 
+Nicolas Froidure sur les promises et une table ronde sur la mise en production 
+d&#39;applications NodeJS.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2013-04-26/index.html</id>
+      <title>ChtiJS #2</title>
+      <link href="https://chtijs.francejs.org/archives/2013-04-26/index.html" rel="alternate" type="text/html" />
+      <updated>2013-04-26 12:00:00</updated>
+      <published>2013-04-26 12:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°2 avec la présentation de 
+Paul d&#39;Hubert sur les concepts d&#39;AngularJS&#39;.</summary>
+    </entry>
+
+
+
+    <entry>
+      <id>https://chtijs.francejs.org/archives/2013-04-04/index.html</id>
+      <title>ChtiJS #1</title>
+      <link href="https://chtijs.francejs.org/archives/2013-04-04/index.html" rel="alternate" type="text/html" />
+      <updated>2013-04-04 12:00:00</updated>
+      <published>2013-04-04 12:00:00</published>
+      <summary>Découvrez le contenu du ChtiJS n°1 avec la présentation de 
+Nicolas Froidure sur le streaming HTTP et les promises.</summary>
+    </entry>
+
+
+
+
+
+</feed>
