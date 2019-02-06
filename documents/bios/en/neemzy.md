@@ -1,4 +1,1 @@
-Full-stack developer who fell into web stuff as a boy.
-Mainly writes PHP, but also more and more JavaScript.
-Has an irrational fear of Mac / Ruby / Sass users.
-Suffering from Patrick Modiano's syndrome which sometimes prevents him from finishing his
+Full-stack developer who fell into web stuff as a kid. Repentant Symfonist. React and Vue.js expert. Apple hater writing code on a Mac. Suffering from Patrick Modiano's syndrome which sometimes prevents him from finishing his
