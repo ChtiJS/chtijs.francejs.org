@@ -1,1 +1,1 @@
-Développeur full-stack tombé dans le web quand il était petit. Symfoniste repenti. Expert React et Vue.js. Apple hater codant sur Mac. Atteint du syndrome de Patrick Modiano qui l'empêche parfois de finir ses
+Développeur tombé dans le web quand il était petit. Symfoniste repenti. Expert React, Vue.js et Svelte. Apple hater codant sur Mac. Atteint du syndrome de Patrick Modiano qui l'empêche parfois de finir ses
