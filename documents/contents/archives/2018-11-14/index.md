@@ -1,7 +1,7 @@
 <!--VarStream
 title=ChtiJS #20
 description=Découvrez le contenu du ChtiJS n°20 avec les présentations \
-de Xavier Coiffard, Cyril Lakech et Laurent Thiebault .
+de Xavier Van de Woestyne, Cyril Lakech et Laurent Thiebault .
 published=2018-11-14 19:00:00
 keywords.+=NodeJS
 keywords.+=Types
