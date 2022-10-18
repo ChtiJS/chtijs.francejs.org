@@ -2,7 +2,7 @@
 title: 'ChtiJS #22'
 description:
   'Découvrez le contenu du ChtiJS n°22 avec les présentations de Nicolas Delperdange et François Lecroart.'
-published: '2019-03-28T19:00:00Z'
+date: '2019-03-28T19:00:00Z'
 keywords:
   - Git
   - Husky

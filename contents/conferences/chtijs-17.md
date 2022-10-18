@@ -3,7 +3,7 @@ title: 'ChtiJS #17'
 description:
   'Découvrez le contenu du ChtiJS n°17 avec les présentations de Nicolas
   Froidure, David Leuliette et Thomas Balouet.'
-published: '2017-02-09T19:00:00Z'
+date: '2017-02-09T19:00:00Z'
 keywords:
   - NodeJS
   - VR

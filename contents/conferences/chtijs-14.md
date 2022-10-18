@@ -3,7 +3,7 @@ title: 'ChtiJS #14'
 description:
   'Découvrez le contenu du ChtiJS n°14 avec les présentations de Mathieu
   Acthernoene et de Adrien G.'
-published: '2015-10-01T19:00:00Z'
+date: '2015-10-01T19:00:00Z'
 keywords:
   - Electron
   - ES6

@@ -3,7 +3,7 @@ title: 'ChtiJS #13'
 description:
   'Découvrez le contenu du ChtiJS n°13 avec les présentations de Nicolas
   Froidure, Tom Panier et Rémi Grumeau.'
-published: '2015-07-02T19:00:00Z'
+date: '2015-07-02T19:00:00Z'
 keywords:
   - ServiceWorkers
   - Espruino

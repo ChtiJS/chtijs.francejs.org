@@ -3,7 +3,7 @@ title: 'ChtiJS #7'
 description:
   'Découvrez le contenu du ChtiJS n°7 avec les présentations de Cyril Moreau et
   Rémi Grumeau.'
-published: '2014-02-20T19:00:00Z'
+date: '2014-02-20T19:00:00Z'
 keywords:
   - GolfJS
   - Frameworks

@@ -3,7 +3,7 @@ title: 'ChtiJS #5'
 description:
   'Découvrez le contenu du ChtiJS n°5 avec les présentations de Tom Panier,
   0gust1 et un échange sur les tests unitaires en JS.'
-published: '2013-10-31T12:00:00Z'
+date: '2013-10-31T12:00:00Z'
 keywords:
   - HTML5
   - GruntJS

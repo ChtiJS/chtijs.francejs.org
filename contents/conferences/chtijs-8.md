@@ -3,7 +3,7 @@ title: 'ChtiJS #8'
 description:
   'Découvrez le contenu du ChtiJS n°8 avec les présentations de Rémi Grumeau et
   François-Emmanuel Cortes.'
-published: '2014-07-24T19:00:00Z'
+date: '2014-07-24T19:00:00Z'
 keywords:
   - Firebase
   - RequireJS

@@ -5,7 +5,7 @@ description:
   Pionnier sur la stack MEAN, de Nicolas Froidure sur le partage de code entre
   front et back, et le retour d'0gust1 et Tom Panier sur la création du site du
   groupe."
-published: '2013-12-12T12:00:00Z'
+date: '2013-12-12T12:00:00Z'
 keywords:
   - NodeJS
   - GruntJS

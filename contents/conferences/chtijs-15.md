@@ -3,7 +3,7 @@ title: 'ChtiJS #15'
 description:
   'Découvrez le contenu du ChtiJS n°15 avec les présentations de Nicolas
   Froidure, Vincent Billey et Mathieu Acthernoene.'
-published: '2016-02-25T19:00:00Z'
+date: '2016-02-25T19:00:00Z'
 keywords:
   - NodeJS
   - Micro service

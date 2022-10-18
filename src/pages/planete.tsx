@@ -65,7 +65,7 @@ const Page = ({ entries }: Props) => {
                   {entry.entry.published ? (
                     <>
                       Publié le{' '}
-                      {entry.entry.published}
+                      {new Date(entry.entry.published).toLocaleDateString()}
                     </>
                   ) : (
                     ''

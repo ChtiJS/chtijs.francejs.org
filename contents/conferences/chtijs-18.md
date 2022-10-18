@@ -3,7 +3,7 @@ title: 'ChtiJS #18'
 description:
   'Découvrez le contenu du ChtiJS n°18 avec les présentations de Emmanuel Demey,
 Kévin Dunglas et Nicolas Pennec.'
-published: '2017-06-01T19:00:00Z'
+date: '2017-06-01T19:00:00Z'
 keywords:
   - VueJS
   - Symfony

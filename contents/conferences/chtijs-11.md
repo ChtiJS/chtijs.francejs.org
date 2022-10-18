@@ -1,9 +1,9 @@
 ---
 title: 'ChtiJS #11'
 description:
-  "Découvrez le contenu du ChtiJS n°11 avec les présentations d'Emmanuel Demey,
-  de Johnathan Meunier et de Xavier Van de Woestyne."
-published: '2015-03-19T19:00:00Z'
+  "Découvrez le contenu du ChtiJS n°11 avec les présentations d'Emmanuel Demey, 
+  Johnathan Meunier et Xavier Van de Woestyne."
+date: '2015-03-19T19:00:00Z'
 keywords:
   - ReactJS
   - MeteorJS

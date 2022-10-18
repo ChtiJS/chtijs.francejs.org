@@ -3,7 +3,7 @@ title: 'ChtiJS #12'
 description:
   "Découvrez le contenu du ChtiJS n°12 avec les présentations d'Hubert
   Sablonnière et de Thomas Magdziarz."
-published: '2015-04-23T19:00:00Z'
+date: '2015-04-23T19:00:00Z'
 keywords:
   - ServiceWorkers
   - Espruino

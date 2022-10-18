@@ -2,7 +2,7 @@
 title: 'ChtiJS #23'
 description:
   'Découvrez le contenu du ChtiJS n°23 avec les présentations de Julien Sadaoui, Hippolyte Durix et le duo Thomas FERRO / Edouard CATTEZ.'
-published: '2019-06-04T19:00:00Z'
+date: '2019-06-04T19:00:00Z'
 keywords:
   - Git
   - Husky

@@ -3,7 +3,7 @@ title: 'ChtiJS #10'
 description:
   'Découvrez le contenu du ChtiJS n°10 avec les présentations de Nicolas
   Froidure, François Lecroart et Tom Panier.'
-published: '2015-02-05T19:00:00Z'
+date: '2015-02-05T19:00:00Z'
 keywords:
   - ReactJS
   - MeteorJS
