@@ -41,7 +41,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "express": "^4.16.4",
     "feedr": "^2.12.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cond": "^1.0.0",
