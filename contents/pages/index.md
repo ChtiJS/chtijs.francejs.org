@@ -1,17 +1,16 @@
-<!--VarStream
-title=La communauté JavaScript du Nord
-description=ChtiJS est un groupe de développeurs JavaScript passionnés qui \
-échangent régulièrement découvertes et bonnes pratiques autour d'une bière dans \
-une ambiance décontractée.
-shortTitle=Accueil
-shortDesc=Retour à l'accueil
-keywords.+=JavaScript
-keywords.+=groupe
-keywords.+=Nord
-keywords.+=Pas-de-Calais
-lang=fr
-location=FR
--->
+---
+title: La communauté JavaScript du Nord
+description: ChtiJS est un groupe de développeurs JavaScript passionnés qui échangent régulièrement découvertes et bonnes pratiques autour d'une bière dans une ambiance décontractée.
+shortTitle: Accueil
+shortDesc: Retour à l'accueil
+lang: fr
+location: FR
+tags:
+  - JavaScript
+  - groupe
+  - Nord
+  - Pas-de-Calais
+---
 
 # ChtiJS
 **Bienvenue sur le site de la Communauté des développeurs JavaScript du Nord
@@ -56,7 +55,7 @@ Notre site web est aussi ouvert aux contributions, contenus comme code. Il vous
  [le dépôt GitHub](https://github.com/ChtiJS/chtijs.francejs.org). Vous pouvez
  retrouver les contributeurs du site [sur cette page](/credits/index.html).
 
-## FranceJS
+## FranceJS
 
 ChtiJS fait partie de [l'initiative FranceJS](http://francejs.org) qui fédère
  les acteurs de JavaScript afin de promouvoir ce langage et de faciliter son

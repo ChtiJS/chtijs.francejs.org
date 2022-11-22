@@ -1,19 +1,20 @@
-<!--VarStream
-title=Les habitudes de notre groupe
-description=Pour mieux comprendre ChtiJS, découvrez nos petites habitudes.
-shortTitle=Nos habitudes
-shortDesc=Découvrir nos habitudes
-keywords.+=JavaScript
-keywords.+=groupe
-keywords.+=Nord
-keywords.+=Pas-de-Calais
-lang=fr
-location=FR
--->
+---
+title: Les habitudes de notre groupe
+description: Pour mieux comprendre ChtiJS, découvrez nos petites habitudes.
+shortTitle: Nos habitudes
+shortDesc: Découvrir nos habitudes
+lang: fr
+location: FR
+tags:
+  - JavaScript
+  - groupe
+  - Nord
+  - Pas-de-Calais
+---
 
 # Nos habitudes
 
-## Rapide historique
+## Rapide historique
 
 Le groupe ChtiJS s'est formé de manière totalement informelle et spontanée. La
  résultante de tout cela est que nous n'avons pas de règles et pas de chef.
@@ -23,8 +24,8 @@ On peut affirmer que ChtiJS est avant tout une excuse pour se retrouver entre
 
 Bref, notre groupe se veut à l'image de JavaScript : libre, universel, plaisant
  et diablement efficace !
-
-## Les rencontres
+ 
+## Les rencontres
 
 Il n'y a a pas vraiment de règles sur la fréquence des rencontres. Cela est
  fonction de l'envie et de la disponibilité de chacun.
@@ -39,8 +40,8 @@ Enfin, lorsqu'une date est arrêtée, nous créons un évènement sur la page
  [Meetup de FranceJS](http://www.meetup.com/FranceJS/). En devenant membre de
  ce groupe Meetup, vous serez automatiquement averti des prochaines rencontres
  ChtiJS.
-
-## Les sujets
+ 
+## Les sujets
 
 Toute personne est libre de proposer un sujet quel qu'en soit le contenu pour
  peu qu'il soit en rapport avec JavaScript. Pour ce faire, il vous suffit de
@@ -73,7 +74,7 @@ D'une manière générale, nous avons deux ou trois présentations par rencontre
  le vent et la pluie pour troller sur Java :D.
 
 ## Notre devise : pas de pression 
-_sauf, éventuellement, celle qui se boit_*
+*sauf, éventuellement, celle qui se boit*
 
-l'abus de lait de poney sous pression nuit gravement à la santé*
+*l'abus de lait de poney sous pression nuit gravement à la santé*
 
