@@ -1,26 +1,27 @@
-<!--VarStream
-title=Conventions de code
-description=Conventions de code pour les projets de ChtiJS.
-shortTitle=Conventions
-shortDesc=Voir nos conventions
-keywords.+=JavaScript
-keywords.+=Guideline
-lang=fr
-location=FR
--->
+---
+title: Conventions de code
+description: Conventions de code pour les projets de ChtiJS.
+shortTitle: Conventions
+shortDesc: Voir nos conventions
+lang: fr
+location: FR
+tags:
+  - JavaScript
+  - Guideline
+---
 
 # Conventions de code
 
 Message à l'attention de la communauté rédigé par le bureau des conventions
  hystériques ([@kdisneur](https://twitter.com/kdisneur) et
  [@_flexbox](https://twitter.com/_flexbox)).
-
-## Pourquoi c'est important ?
+ 
+## Pourquoi c'est important ?
 
 * Garder un code source cohérent, facilement maintenable et lisible
 * Avoir un format universel est indispensable pour garder un projet évolutif
 
-## Les règles
+## Les règles
 
 [Les règles de Google](https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
  pour le JavaScript sont communément admises. Celles-ci se recoupent avec les
