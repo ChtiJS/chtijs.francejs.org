@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { publicRuntimeConfig } from "../utils/config";
 import {
   CSS_BREAKPOINT_END_M,
@@ -9,14 +8,12 @@ import {
   CSS_BREAKPOINT_START_M,
   CSS_BREAKPOINT_START_XL,
 } from "../utils/constants";
-import Heading2 from "./h2";
-import Paragraph from "./p";
 
 const Menu = () => {
   const router = useRouter();
 
   return (
-    <div className="root">
+    <>
       <nav>
         <Link legacyBehavior href="/">
           <a
@@ -58,9 +55,9 @@ const Menu = () => {
             <span>Conférences</span>
           </a>
         </Link>
-        <Link legacyBehavior href="/a_propos">
+        <Link legacyBehavior href="/about">
           <a
-            className={router.asPath === "/a_propos" ? "selected" : ""}
+            className={router.asPath === "/about" ? "selected" : ""}
             title="En savoir plus sur nos habitudes"
           >
             <span>A propos</span>
@@ -68,41 +65,42 @@ const Menu = () => {
         </Link>
       </nav>
       <style jsx>{`
-        .root {
-          background-color: var(--primary);
-        }
         nav {
-          margin: 0 auto;
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 2;
+          grid-row-end: 3;
+          background-color: var(--light);
           display: flex;
           flex-direction: column;
+          border-right: 1px solid var(--grey);
         }
         nav a,
         nav a:visited {
           display: block;
-          color: var(--light);
+          color: var(--dark);
           font-size: var(--bigFontSize);
           line-height: var(--bigLineHeight);
           text-decoration: none;
           transition: background-color var(--baseAnimationRate),
             color var(--baseAnimationRate);
         }
-        nav a:hover {
-          color: var(--primary);
-          background-color: var(--light);
-          text-decoration: underline;
-        }
         nav a.selected {
           text-decoration: underline;
-          color: var(--secondary-darker);
-        }
-        nav a.newsletter {
-          background-color: var(--quaternary);
           color: var(--light);
+          background-color: var(--grey);
+        }
+        nav a:hover,
+        nav a.selected:hover {
+          color: var(--light);
+          background-color: var(--primary);
+          text-decoration: underline;
         }
         nav span {
           display: block;
           padding: calc(var(--vRythm) / 2) var(--gutter);
         }
+        /*
         @media screen and (max-width: ${CSS_BREAKPOINT_END_S}) {
           nav {
             width: 100%;
@@ -131,9 +129,9 @@ const Menu = () => {
           nav {
             width: calc(calc(var(--block) * 4) + calc(var(--gutter) * 5));
           }
-        }
+        }*/
       `}</style>
-    </div>
+    </>
   );
 };
 

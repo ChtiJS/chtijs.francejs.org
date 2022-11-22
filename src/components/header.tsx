@@ -1,49 +1,55 @@
-import Link from "next/link";
-import { publicRuntimeConfig } from "../utils/config";
-import { CSS_BREAKPOINT_END_L, CSS_BREAKPOINT_END_M, CSS_BREAKPOINT_END_S, CSS_BREAKPOINT_START_L, CSS_BREAKPOINT_START_M, CSS_BREAKPOINT_START_XL } from "../utils/constants";
+import Link from 'next/link';
+import { publicRuntimeConfig } from '../utils/config';
+import {
+  CSS_BREAKPOINT_END_L,
+  CSS_BREAKPOINT_END_M,
+  CSS_BREAKPOINT_END_S,
+  CSS_BREAKPOINT_START_L,
+  CSS_BREAKPOINT_START_M,
+  CSS_BREAKPOINT_START_XL,
+} from '../utils/constants';
 
 const Header = () => {
   return (
     <>
       <header>
-        <Link href="/" legacyBehavior>
-          Home
-        </Link>
+        <h1>
+          <Link href="/" legacyBehavior>
+            <a>
+              <span>ChtiJS</span>
+            </a>
+          </Link>
+        </h1>
       </header>
       <style jsx>{`
         header {
-          background-color: var(--secondary-darker);
-        }
-        a {
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 1;
+          grid-row-end: 2;
           display: flex;
           flex-direction: column;
-          justify-content: flex-end;
-          align-items: flex-end;
+          background-color: var(--light);
+          border-right: 1px solid var(--grey);
+        }
+        h1 {
+          display: block;
           margin: 0 auto;
-          padding: var(--vRythm) var(--gutter);
-          height: calc(var(--vRythm) * 12);
-          color: var(--grey);
-          text-decoration: none;
-          font-size: var(--normalFontSize);
-          line-height: var(--normalLineHeight);
-          background-image: url("${publicRuntimeConfig.buildPrefix}/images/nicolas_froidure_filigrane.png");
-          background-position: left bottom;
-          background-color: var(--secondary);
+          width: calc(var(--vRythm) * 8);
+          height: calc(var(--vRythm) * 8);
+        }
+        a {
+          display: block;
+          width: calc(var(--vRythm) * 8);
+          height: calc(var(--vRythm) * 8);
+          background-image: url('${publicRuntimeConfig.buildPrefix}/images/chtijs.svg');
           background-size: contain;
           background-repeat: no-repeat;
-          box-shadow: 1px 1px 5px;
         }
-        span.slogan {
-          font-family: var(--writingFont);
-          font-size: var(--greatFontSize);
-          line-height: var(--greatLineHeight);
+        span {
+          display: none;
         }
-        span.description {
-          font-family: var(--contentFont);
-          font-size: var(--normalFontSize);
-          line-height: var(--normalLineHeight);
-        }
-
+        /*
         @media screen and (max-width: ${CSS_BREAKPOINT_END_S}) {
           a {
             width: 100%;
@@ -63,7 +69,7 @@ const Header = () => {
           a {
             width: calc(calc(var(--block) * 4) + calc(var(--gutter) * 5));
           }
-        }
+        }*/
       `}</style>
     </>
   );
