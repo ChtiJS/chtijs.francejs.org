@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   CSS_BREAKPOINT_END_L,
   CSS_BREAKPOINT_END_M,
@@ -7,12 +7,12 @@ import {
   CSS_BREAKPOINT_START_M,
   CSS_BREAKPOINT_START_XL,
   ORGANISATION_NAME,
-} from "../utils/constants";
-import Meta from "../components/meta";
-import Menu from "../components/menu";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import type { ReactNode } from "react";
+} from '../utils/constants';
+import Meta from '../components/meta';
+import Menu from '../components/menu';
+import Header from '../components/header';
+import Footer from '../components/footer';
+import type { ReactNode } from 'react';
 
 type Props = {
   children?: ReactNode;
@@ -21,7 +21,7 @@ type Props = {
   image?: string;
 };
 
-const Layout = ({ children, title, description = "", image = "" }: Props) => {
+const Layout = ({ children, title, description = '', image = '' }: Props) => {
   return (
     <div className="root">
       <Meta
@@ -32,19 +32,26 @@ const Layout = ({ children, title, description = "", image = "" }: Props) => {
       />
       <Menu />
       <Header />
-      <div className="contents">{children}</div>
-      <Footer />
+      <div className="contents">
+        {children}
+        <Footer />
+      </div>
       <style jsx>{`
         .root {
-          min-height: 100%;
-          display: flex;
-          flex-direction: column;
+          height: 100vh;
+          display: grid;
+          grid-template-columns: var(--block) 1fr;
+          grid-template-rows: calc(var(--vRythm) * 8) 1fr;
           background: var(--tertiary);
         }
         .contents {
-          flex-grow: 1;
-          margin: 0 auto var(--vRythm) auto;
+          grid-column-start: 2;
+          grid-column-end: 3;
+          grid-row-start: 1;
+          grid-row-end: 3;
+          overflow: auto;
         }
+        /*
         @media screen and (max-width: ${CSS_BREAKPOINT_END_S}) {
           .contents {
             background: yellow;
@@ -64,11 +71,14 @@ const Layout = ({ children, title, description = "", image = "" }: Props) => {
           }
         }
         @media screen and (min-width: ${CSS_BREAKPOINT_START_XL}) {
+          .h1 {
+            color: #f2c80a;
+          }
           .contents {
-            background: green;
+            background: #ede5c2;
             width: calc(calc(var(--block) * 4) + calc(var(--gutter) * 5));
           }
-        }
+        }*/
       `}</style>
     </div>
   );

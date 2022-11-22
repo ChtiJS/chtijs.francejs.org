@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Social from "./social";
+import Link from 'next/link';
+import Social from './social';
 import {
   CSS_BREAKPOINT_END_L,
   CSS_BREAKPOINT_END_M,
@@ -8,43 +8,38 @@ import {
   CSS_BREAKPOINT_START_M,
   CSS_BREAKPOINT_START_XL,
   ORGANISATION_NAME,
-} from "../utils/constants";
+} from '../utils/constants';
 
 const Footer = () => {
   return (
-    <div className="root">
+    <>
       <footer>
-        <div className="bottom">
-          <p>
-            <span>© {ORGANISATION_NAME} - Tous droits réservés</span> -{" "}
-            <Link href="/mentions-legales" legacyBehavior>
-              <a>Mentions légales</a>
-            </Link>
-          </p>
-          <Social />
-        </div>
+        <p>
+          <span>© {ORGANISATION_NAME} - Tous droits réservés</span> -{' '}
+          <Link href="/mentions-legales" legacyBehavior>
+            <a>Mentions légales</a>
+          </Link>
+        </p>
       </footer>
       <style jsx>{`
-        .root {
-          margin: 0;
-          padding: var(--vRythm) var(--gutter);
-          background-color: var(--primary);
-          color: var(--light);
-        }
-
         footer {
-          margin: 0 auto;
-          text-align: center;
+          display: flex;
+          flex-direction: row;
+          background-color: var(--dark);
         }
         p {
-          padding: 0;
-          margin: 0;
+          color: var(--light);
+          margin: 0 auto;
+          text-align: center;
+          line-height: calc(var(--vRythm) * 2);
         }
         a,
         a:visited,
         a:hover {
           color: var(--light);
         }
+
+        /*
         @media screen and (max-width: ${CSS_BREAKPOINT_END_S}) {
           footer {
             width: 100%;
@@ -68,9 +63,9 @@ const Footer = () => {
           .contents {
             width: calc(calc(var(--block) * 4) + calc(var(--gutter) * 5));
           }
-        }
+        }*/
       `}</style>
-    </div>
+    </>
   );
 };
 

@@ -116,14 +116,22 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
   .card,
   .footer {
     border-color: #222;
   }
+
   .code {
     background: #111;
   }
+
   .logo img {
     filter: invert(1);
   }
+
+
+  /*
+  palette de couleurs -> https://coolors.co/f2c80a-b69608-dbcb84-ede5c2-979381-2e2602-000000
+  */
 }

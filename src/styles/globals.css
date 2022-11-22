@@ -1,26 +1,77 @@
+:root {
+  --dark: #747471;
+  --grey: #c6c6c6;
+  --light: #fff;
+
+  --primary: #f2c80a;
+  --secondary: #262626;
+  --tertiary: #747471;
+  --quaternary: #8c7718;
+  --quinary: #4d4d4c;
+  --senary: #bfa011;
+
+  --success: #5b8e7d;
+  --warning: #d78a2e;
+  --danger: #bc4b51;
+
+  /* Atomic values */
+  --hGrid: 0.55rem;
+  --gutter: calc(var(--hGrid) * 3);
+  --column: calc(var(--hGrid) * 8);
+  --block: calc(var(--column) * 3 + var(--gutter) * 2);
+  --vGrid: 0.1875rem;
+  --vRythm: calc(8 * var(--vGrid));
+  --border: calc(var(--vGrid) / 2);
+  --borderRadius: calc(var(--hGrid));
+  --shadowX: calc(var(--vGrid) * 2);
+  --shadowY: calc(var(--hGrid) * 1);
+  --shadowBlur: calc(var(--vGrid) * 8);
+
+  /* Animations */
+  --baseAnimationRate: 0.3s;
+
+  /* Fonts */
+  --writingFont: "Open sans","Helvetica","Arial", sans-serif;
+  --contentFont: "Open sans","Helvetica","Arial", sans-serif;
+  --headingFont: "Georgia","Times", serif;
+
+  /* Font sizes */
+  --smallFontSize: calc(5 * var(--vGrid));
+  --smallLineHeight:  var(--vRythm);
+  --smallFontWeight: 300;
+
+  --mediumFontSize: calc(6 * var(--vGrid));
+  --mediumLineHeight: var(--vRythm);
+  --mediumFontWeight: 400;
+
+  --bigFontSize: calc(8 * var(--vGrid));
+  --bigLineHeight: calc(2 * var(--vRythm));
+  --bigFontWeight: 700;
+
+  --greatFontSize: calc(10 * var(--vGrid));
+  --greatLineHeight: calc(2 * var(--vRythm));
+  --greatFontWeight: 800;
+
+  --giantFontSize: calc(12 * var(--vGrid));
+  --giantLineHeight: calc(3 * var(--vRythm));
+  --giantFontWeight: 800;
+}
+
 html,
-body {
-  padding: 0;
+body,
+#__next {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  font-size: var(--mediumFontSize);
+  line-height: var(--mediumLineHeight);
+  font-family: var(--contentFont);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+  margin: 0;
+  padding: 0;
 }
