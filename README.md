@@ -1,101 +1,38 @@
-# Site ChtiJS
-[![Build status](https://api.travis-ci.org/ChtiJS/chtijs.francejs.org.svg)](https://travis-ci.org/ChtiJS/chtijs.francejs.org)
-[![Code Climate](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org.svg)](https://codeclimate.com/github/ChtiJS/chtijs.francejs.org)
+# ChtiJS Website
 
-> **Avant de commencer à travailler sur le projet lisez attentivement
- [le guide pour contribuer](CONTRIBUTING.md)**
+Welcome to the ChtiJS community website repository. 
 
-## Installer le projet
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Vous devez avoir nodeJS installé sur votre machine ;)
+## Getting Started
 
-Entrez les commandes suivante dans un terminal :
-- `git clone git@github.com:ChtiJS/chtijs.francejs.org.git` : cloner le dépôt git;
-- `cd chtijs.francejs.org` : aller dans le répertoire créé.
-- `npm install` : installe les dépendances.
+First, run the development server:
 
-Afin de pouvoir générer le favicon, vous devrez également avoir ImageMagick
- présent sur votre système :
-```sh
-# on a Debian based system
-apt-get install imagemagick
-# with OSX - http://www.imagemagick.org/script/binary-releases.php#macosx
-brew install imagemagick --with-librsvg
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-## Pour travailler dessus :
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Placez vous dans le répertoire du projet et entrez : `npm run dev`.
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-Cela lancera un petit serveur et ouvrira votre navigateur sur l'accueil du site.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-Toutes les modifications que vous ferez dans le code ou le contenu du site,
- une fois sauvegardées seront prises en comptes et votre navigateur se
- reachargera tout seul.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-### Options
+## Learn More
 
-**`--prod`** : vous créez le site en mode production. L'argument `--net`
- lancera le serveur de développement sur une adresse IP joignable sur votre
- réseau local par d'autres machines.
+To learn more about Next.js, take a look at the following resources:
 
-**`--noreq`** : permet de générer le site sans faire d'appel externe
- (planète et API GitHub). Cela vous permettra de regénérer le site rapidement
- pour les tests.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-À ce propos, sans fichier `.token` contenant un token pour l'accès à l'API GitHub,
- vous serez rapidement dans l'incapacité de générer le site complet car le
- nombre de requêtes anonymes est limité.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Éditer le site :
+## Deploy on Vercel
 
-### Contenu
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Le contenu du site est dans le répertoire `/documents/contents/`.
-
-Les pages sont matérialisées par les fichiers écrits dans le format markdown (.md).
-
-Ainsi, le fichier `/documents/contenu/archives/index.md` est transformé en url
- "http://127.0.0.1:9001/archives/" dans votre navigateur.
-
-Ces fichiers markdown peuvent comporter des metadatas, qui seront transformées
- en données disponibles pour les templates.
-
-Par défaut les fichiers markdown sont rendus via la template
- `/documents/templates/index.tpl`. Vous pouvez y associer une autre template
- via ces metadata.
-
-### Architecture
-
-Les templates sont dans le répertoire `/documents/templates/`.Le langage utilisé
- est nunjucks (doc : http://jlongster.github.io/nunjucks/templating.html ).
-
-Les CSS sont générées depuis les sources Less située dans `documents/less/`.
-
-### Génération du site
-
-ChtiJS est un site statique généré de façon automatique via la tâche Gulp
- `build_html`. La génération se fait de la manière suivante :
-
-* création d'un arbre représentant la structure du site :
-* * tout d'abord, on récupère les documents markdown  situés dans
- `/documents/content`. Ajouter une fichier Markdown dans ce dossier (ou un
- sous dossier) crée une nouvelle page dans le site.
-* * ensuite, on génère certaines pages à l'aide d'un plugin car certaines données
- doivent être récupérées depuis le réseau. Ces plugins se trouvent dans le
- dossier `gulpplugins`. Les pages membres, contributeurs et planète sont
- générées de cette manière.
-* une fois l'arbre généré, on reprend chaque document un par un et on génère
- la page HTML correspondante grâce au template qui lui est associé.
-
-Et voilà, le site de ChtiJS n'a plus de secret pour vous ;).
-
-# Publication
-Pour publier le site, il suffit de taper la commande suivante :
-```sh
-npm run build
-```
-
-**Attention :** Si vous n'avez pas ajouté le token GitHub ou n'avez pas de version de convert sur votre système, vous risquez de publier une version dégradée ou non-fonctionnelle du site.
-
-D'une manière générale, construire le site sous Windows est une mauvaise idée, sauf mention contraire par un aventurier qui alors se manifestera pour modifier cette ligne.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
