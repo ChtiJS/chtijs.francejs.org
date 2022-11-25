@@ -38,22 +38,21 @@ Vous trouverez ci dessous les préférences de différents éditeurs de texte
 
 Ouvrir les préférences avec `cmd` + `,`
 
-    {
-      "detect_indentation": true,
-      "tab_size": 2,
-      "translate_tabs_to_spaces": true,
-      "trim_automatic_white_space": true,
-      "trim_trailing_white_space_on_save": true
-    }
+`{
+  "detect_indentation": true,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "trim_automatic_white_space": true,
+  "trim_trailing_white_space_on_save": true
+}`
 
 ### Vim
 
 Éditez votre fichier `.vimrc` :
 
-    set autoindent
-    set smartindent
-    set tabstop=2
-    set softtabstop=2
-    set expandtab
-    autocmd BufWritePre *.js %s/\s\+$//ge
-
+`set autoindent
+set smartindent
+set tabstop=2
+set softtabstop=2
+set expandtab
+autocmd BufWritePre *.js %s/\s\+$//ge`
