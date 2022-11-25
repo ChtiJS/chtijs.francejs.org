@@ -1,7 +1,7 @@
 <!--VarStream
 title=ChtiJS #21
 description=Découvrez le contenu du ChtiJS n°21 avec les présentations \
-de Nicolas Froidure, Florent Giraud .
+de Nicolas Froidure et Florent Giraud .
 published=2019-01-24 19:00:00
 keywords.+=NodeJS
 keywords.+=VueStyleguidist
