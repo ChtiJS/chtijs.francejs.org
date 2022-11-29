@@ -1,9 +1,9 @@
 ---
-title: "ChtiJS #1"
+title: 'ChtiJS #1'
 description:
-  Découvrez le contenu du ChtiJS n°1 avec la présentation de Nicolas Froidure
-  sur le streaming HTTP et les promises.
-published: "2013-04-04T12:00:00Z"
+  'Découvrez le contenu du ChtiJS n°1 avec la présentation de Nicolas Froidure
+  sur le streaming HTTP et les promises.'
+published: '2013-04-04T12:00:00Z'
 keywords:
   - HTTP
   - streaming
