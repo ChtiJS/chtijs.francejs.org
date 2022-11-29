@@ -47,9 +47,9 @@ const Menu = () => {
             <span>Planète</span>
           </a>
         </Link>
-        <Link legacyBehavior href="/conference">
+        <Link legacyBehavior href="/conferences">
           <a
-            className={router.asPath === "/conference" ? "selected" : ""}
+            className={router.asPath === "/conferences" ? "selected" : ""}
             title="Voir les conférences"
           >
             <span>Conférences</span>
