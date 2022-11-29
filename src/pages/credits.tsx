@@ -50,7 +50,7 @@ const Page = ({ entries }: Props) => {
                 </Anchor>
               </Heading2>
               <Paragraph>{entry.bio}</Paragraph>
-              <Paragraph>{entry.contributions} contributions</Paragraph>
+              <Paragraph>{entry.contributions <= 1 ? entry.contributions + " contribution" : entry.contributions + " contributions"}</Paragraph>
               <Paragraph>
                 {entry.blog ? (
                   <>
