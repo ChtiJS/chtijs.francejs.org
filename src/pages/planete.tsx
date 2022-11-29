@@ -64,7 +64,7 @@ const Page = ({ entries }: Props) => {
                 <>
                   {entry.entry.published ? (
                     <>
-                      Publié le
+                      Publié le{' '}
                       {entry.entry.published}
                     </>
                   ) : (
@@ -115,7 +115,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     }, [])
     .filter((entry) => entry.entry.published)
     .sort((entryA, entryB) =>
-      Date.parse(entryA.entry.published) > Date.parse(entryB.entry.published)
+      Date.parse(entryA.entry.published as unknown as string) > Date.parse(entryB.entry.published as unknown as string)
         ? -1
         : 1
     )
