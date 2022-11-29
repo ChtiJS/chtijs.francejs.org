@@ -24,7 +24,7 @@ Au menu :
 - Generators dans ES6 par [Adrien G.](https://twitter.com/baDotNet)
 - Electron par [Mathieu Acthernoene](https://twitter.com/zoontek)
 
-## Compte rendu
+## Compte rendu
 
 [Voir les photos](https://www.flickr.com/photos/ashassin/sets/72157659474767341)
 d'Augustin.

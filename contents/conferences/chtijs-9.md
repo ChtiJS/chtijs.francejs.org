@@ -11,7 +11,7 @@ lang: fr
 location: FR
 ---
 
-# ChtiJS n°9 du 9 octobre 2014
+# ChtiJS n°9 du 09 octobre 2014
 
 Pour parler de l'évènement, utilisez le hashtag
 [#ChtiJS9](https://twitter.com/search?q=%23ChtiJS9&src=hash).
@@ -23,8 +23,8 @@ Pour parler de l'évènement, utilisez le hashtag
 - Présentation des [iBeacons](https://fr.wikipedia.org/wiki/IBeacon) et leur
   utilisation en JavaScript par Johnathan Meunier
   ([@JohnathanSUP](https://twitter.com/JohnathanSUP)).
-
-## Compte rendu
+  
+## Compte rendu
 
 L'affluence était de retour pour ce neuvième ChtiJS ! Au programme, des talks de
 grande qualité par Thomas et Johnathan, tous deux venus de chez Altima.

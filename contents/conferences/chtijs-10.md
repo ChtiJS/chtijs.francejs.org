@@ -14,7 +14,7 @@ lang: fr
 location: FR
 ---
 
-# ChtiJS n°10 du 5 février 2015
+# ChtiJS n°10 du 05 février 2015
 
 Pour parler de l'évènement, utilisez le hashtag
 [#ChtiJS10](https://twitter.com/search?q=%23ChtiJS10&src=hash).
@@ -27,8 +27,8 @@ Pour parler de l'évènement, utilisez le hashtag
   ([@peernohell](https://twitter.com/peernohell)).
 - Le JavasScript isomorphique par l'exemple : Gestion des droits end to end par
   Nicolas Froidure ([@nfroidure](https://twitter.com/nfroidure)).
-
-## Compte rendu
+  
+## Compte rendu
 
 Plus de soixante inscrits à ChtiJS 10 et une salle comble pour ce ChtiJS sous le
 signe du JavaScript isomorphique.

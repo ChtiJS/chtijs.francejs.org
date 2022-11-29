@@ -14,7 +14,7 @@ lang: fr
 location: FR
 ---
 
-# ChtiJS n°19 du 4 Octobre 2018
+# ChtiJS n°19 du 04 Octobre 2018
 
 Pour parler de l'évènement
 [#ChtiJS19](https://www.meetup.com/fr-FR/FranceJS/events/254372048/).
@@ -27,8 +27,8 @@ Au menu pour cette 19ème édition :
   [Xavier Coiffard](https://twitter.com/angezanetti)
 - "Re-créer un framework js front, ça vous fait peur ?"
   [Florent Giraud](https://twitter.com/giraud_florent)
-
-## Compte rendu
+  
+## Compte rendu
 
 Retour du ChtiJS après une année d'absence, de nouvelles têtes, de la bonne
 bouffe, des boissons et bien entendu merci aux speakers ! Un vrai plaisir de

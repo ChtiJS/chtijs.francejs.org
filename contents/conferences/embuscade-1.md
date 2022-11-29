@@ -25,7 +25,7 @@ development. [Les slides](https://oncletom.io/talks/2014/chtijs/) sont
 disponibles ainsi qu'[une vidéo](https://www.youtube.com/watch?v=a51F4AfUDCA) de
 qualité très moyenne.
 
-## Compte rendu
+## Compte rendu
 
 On peut affirmer que cette première embuscade est une réussite. La présentation
 de Thomas fût très enrichissante et le pic-nic improvisé a permis à chacun de

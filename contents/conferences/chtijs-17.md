@@ -13,7 +13,7 @@ lang: fr
 location: FR
 ---
 
-# ChtiJS n°17 du 25 février 2016
+# ChtiJS n°17 du 09 février 2017
 
 Pour parler de l'évènement, utilisez le hashtag
 [#ChtiJS17](https://twitter.com/search?q=%23ChtiJS17&src=hash).
@@ -26,7 +26,7 @@ Au menu :
 - La VR dans le navigateur Web [Thomas Balouet](https://twitter.com/thomasbalou)
 - Les méta-paquets NPM par [Nicolas Froidure](https://twitter.com/nfroidure)
 
-## Compte rendu
+## Compte rendu
 
 Encore un ChtiJS réussi avec beaucoup de nouvelles têtes et le plaisir de se
 retrouver entre amis et passionnés !

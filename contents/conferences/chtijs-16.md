@@ -26,8 +26,8 @@ Au menu :
   [Jean-Baptiste Pionnier](https://twitter.com/JbPionnier)
 - "Créez une application mobile performante avec React Native" par
   [Mathieu Acthernoene](https://twitter.com/zoontek)
-
-## Compte rendu
+  
+## Compte rendu
 
 Une bonne édition de ChtiJS avec deux habitués bien décidés à partager leur
 savoir !

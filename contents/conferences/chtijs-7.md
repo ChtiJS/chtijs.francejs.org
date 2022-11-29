@@ -32,7 +32,7 @@ Pour parler de l'évènement, utilisez le hashtag
   essaie de la recréer/retrouver.
 - Préparation Coding Dojo : Qui, quand, comment ?
 
-## Compte rendu
+## Compte rendu
 
 Un peu plus d'une vingtaine de personnes sont venues participer à ce ChtiJS.
 Cyril Moreau nous a fait ses adieux puisqu'il part pour Aix en Provence.

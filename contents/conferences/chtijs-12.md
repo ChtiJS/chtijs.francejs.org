@@ -21,7 +21,7 @@ Pour parler de l'évènement, utilisez le hashtag
 - les ServiceWorkers par [Hubert Sablonnière](https://twitter.com/hsablonniere)
 - Espruino (LT), par [Thomas Magdziarz](http://www.thomasmagdziarz.fr)
 
-## Compte rendu
+## Compte rendu
 
 Encore un ChtiJS bien sympathique non dénué de trolls ;).
 [Voir les photos](https://www.flickr.com/photos/ashassin/albums/72157651732230270)

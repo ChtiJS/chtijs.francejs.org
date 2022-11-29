@@ -26,8 +26,8 @@ Pour parler de l'évènement, utilisez le hashtag
   ([@EmmanuelDemey](https://twitter.com/EmmanuelDemey))
 - lightning talk de Johnathan Meunier
   [@JohnathanSUP](https://twitter.com/JohnathanSUP) sur DeviceLightEvent.
-
-## Compte rendu
+  
+## Compte rendu
 
 Encore un ChtiJS bien sympathique non dénué de trolls ;).
 [Voir les photos](https://www.flickr.com/photos/ashassin/sets/72157651033457849)
