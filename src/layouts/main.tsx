@@ -33,7 +33,9 @@ const Layout = ({ children, title, description = '', image = '' }: Props) => {
       <Menu />
       <Header />
       <div className="contents">
-        {children}
+        <div className="wrapper">
+          {children}
+        </div>
         <Footer />
       </div>
       <style jsx>{`
@@ -50,6 +52,15 @@ const Layout = ({ children, title, description = '', image = '' }: Props) => {
           grid-row-start: 1;
           grid-row-end: 3;
           overflow: auto;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          align-content: flex-end;
+          background: var(--light);
+        }
+        .contents :first-child {
+          flex:1;
         }
         /*
         @media screen and (max-width: ${CSS_BREAKPOINT_END_S}) {
