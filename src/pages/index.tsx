@@ -79,7 +79,7 @@ const Page = () => {
           inscrivez vous sur la{' '}
           <Anchor href="https://groups.google.com/g/chtijs">
             liste de diffusion
-          </Anchor>
+          </Anchor>{' '}
           et rejoignez nous sur{' '}
           <Anchor href="https://weblille.rocks/">
             slack
