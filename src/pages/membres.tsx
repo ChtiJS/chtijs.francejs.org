@@ -9,9 +9,6 @@ import { Octokit } from '@octokit/rest';
 import Article from '../components/article';
 import type { GetStaticProps } from 'next';
 
-export type Contributors = Awaited<
-  ReturnType<InstanceType<typeof Octokit>['rest']['repos']['listContributors']>
->['data'];
 export type Members = Awaited<
   ReturnType<InstanceType<typeof Octokit>['rest']['orgs']['listMembers']>
 >['data'];
@@ -21,8 +18,8 @@ export type Profile = Awaited<
 
 type Props = {
   entries: (Pick<
-    Contributors[number],
-    'id' | 'avatar_url' | 'contributions' | 'login'
+    Members[number],
+    'id' | 'avatar_url' | 'login'
   > &
     Pick<Profile, 'name' | 'bio' | 'blog' | 'twitter_username' | 'html_url'>)[];
 };
@@ -30,14 +27,14 @@ type Props = {
 const Page = ({ entries }: Props) => {
   return (
     <Layout
-      title="Les contributeurs du site"
-      description="Découvrez les personnes qui ont créé le site de ChtiJS."
+      title="Membres"
+      description="Découvrez la liste des membres de ChtiJS."
     >
       <ContentBlock>
-        <Heading1>Les contributeurs du site</Heading1>
+        <Heading1>Membres</Heading1>
         <Paragraph>
           <Strong>
-            Découvrez les personnes qui ont créé le site de ChtiJS.
+            Découvrez la liste des membres de ChtiJS.
           </Strong>
         </Paragraph>
         <div>
@@ -50,7 +47,6 @@ const Page = ({ entries }: Props) => {
                 </Anchor>
               </Heading2>
               <Paragraph>{entry.bio}</Paragraph>
-              <Paragraph>{entry.contributions} contributions</Paragraph>
               <Paragraph>
                 {entry.blog ? (
                   <>
@@ -66,12 +62,12 @@ const Page = ({ entries }: Props) => {
                 ) : null}
                 {entry.twitter_username ? (
                   <>
-                    <Anchor
-                      href={'https://twitter.com/' + entry.twitter_username}
-                    >
-                      Twitter ➤
-                    </Anchor>{' '}
-                  </>
+                  <Anchor
+                    href={'https://twitter.com/' + entry.twitter_username}
+                  >
+                    Twitter ➤
+                  </Anchor>{' '}
+                </>
                 ) : null}
                 {<Anchor
                 href={entry.html_url as string}>
@@ -90,19 +86,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const octokit = new Octokit({
     auth: process.env.GH_TOKEN,
   });
-  const response = await octokit.rest.repos.listContributors({
-    owner: 'ChtiJS',
-    repo: 'chtijs.francejs.org',
-  });
   const membersResponse = await octokit.rest.orgs.listMembers({
     org: 'ChtiJS',
   });
 
   const entries = await Promise.all(
-    response.data.map(async (entry) => {
-      const member = membersResponse.data.find(
-        (member) => member.id === entry.id
-      );
+    membersResponse.data.map(async (entry) => {
       const profile = await octokit.rest.users.getByUsername({
         username: entry.login as string,
       });
@@ -111,8 +100,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         id: entry.id,
         html_url: entry.html_url,
         avatar_url: entry.avatar_url,
-        contributions: entry.contributions,
-        name: profile?.data?.name || member?.name || entry.login,
+        name: profile?.data?.name || entry?.name || entry.login,
         bio: profile?.data?.bio,
         blog: profile?.data?.blog,
         twitter_username: profile?.data?.twitter_username,
