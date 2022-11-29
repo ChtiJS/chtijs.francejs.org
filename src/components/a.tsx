@@ -19,9 +19,9 @@ const Anchor = ({
 }: {
   children: React.ReactNode;
 } & LinkProps & {
-    icon?: string;
-    iconPosition?: "first" | "last";
-  } & Exclude<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href">) => (
+  icon?: string;
+  iconPosition?: "first" | "last";
+} & Exclude<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href">) => (
   <Link legacyBehavior
     {...{
       href,
@@ -35,9 +35,8 @@ const Anchor = ({
     }}
   >
     <a
-      className={`root${className ? " " + className : ""}${
-        icon ? ` ${iconPosition}` : ""
-      }`}
+      className={`root${className ? " " + className : ""}${icon ? ` ${iconPosition}` : ""
+        }`}
       {...props}
       target={href.startsWith("http") ? "_blank" : "_self"}
     >
@@ -46,10 +45,9 @@ const Anchor = ({
       <style jsx>{`
         a,
         a:visited {
-          cursor: pointer;
-          text-decoration: underline;
-          color: var(--primary);
-          line-height: var(--mediumLineHeight);
+          color: #c1a008;
+          transition: color .1s linear;
+          text-decoration:none;
         }
         a:hover,
         a:focus {

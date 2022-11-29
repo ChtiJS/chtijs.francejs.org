@@ -56,28 +56,38 @@ const Page = ({ entries }: Props) => {
                         entry.blog
                       }
                     >
-                      Blog ➤
+                      📰Blog
                     </Anchor>{' '}
                   </>
                 ) : null}
                 {entry.twitter_username ? (
                   <>
-                  <Anchor
-                    href={'https://twitter.com/' + entry.twitter_username}
-                  >
-                    Twitter ➤
-                  </Anchor>{' '}
-                </>
+                    <Anchor
+                      href={'https://twitter.com/' + entry.twitter_username}
+                    >
+                      📲Twitter
+                    </Anchor>{' '}
+                  </>
                 ) : null}
                 {<Anchor
-                href={entry.html_url as string}>
-                  Profil GitHub ➤
-                  </Anchor>}
+                  href={entry.html_url as string}>
+                  💻GitHub
+                </Anchor>}
               </Paragraph>
             </Article>
           ))}
         </div>
       </ContentBlock>
+      <style jsx>{`
+        img {
+          float: left;
+          height: 6rem;
+          width: 6rem;
+          margin: 0 2rem 1.5rem 0;
+          border-radius: 50px;
+          box-shadow: 5px 5px 2px 1px #c1a008;
+        }
+      `}</style>
     </Layout>
   );
 };
