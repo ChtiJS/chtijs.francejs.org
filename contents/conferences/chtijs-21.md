@@ -21,7 +21,7 @@ location: FR
 **Talk de [Nicolas Froidure](https://insertafter.com/fr/a_propos.html) :**
 Injection de dépendances avec JavaScript Présentation de Nicolas Froidure
 décrivant l'injection de dépendances en JavaScript et sa mise en application
-avec Knifecycle qu'il a créé dans cette optique. Garanti sans POO ;).
+avec Knifecycle qu'il a créé dans cette optique. Garanti sans POO 😉.
 
 **Talk de [Florent Giraud](https://twitter.com/giraud_florent) :** [REX | VueJS]
 Quel générateur de documentation pour sa librairie de composants ? Quand on a

@@ -22,7 +22,7 @@ Au menu du tout premier ChtiJS, une présentation de Nicolas Froidure
 sur les
 [promises](http://server.elitwork.com/presentations/promises.html#/intro).
 
-## Compte rendu
+## Compte rendu
 
 Après les présentations nous avons parlé de l'avenir du groupe et de la
 prochaine édition.

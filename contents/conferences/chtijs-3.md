@@ -18,8 +18,8 @@ Présentation de Nicolas Froidure
  [promises](http://server.elitwork.com/presentations/promises.html#/intro),
  puis, table ronde et retours d'expérience sur la mise en production
  d'applications réalisées avec NodeJS.
-
-## Compte rendu
+ 
+## Compte rendu
 
 Toujours aussi sympa et des participants nombreux.
 

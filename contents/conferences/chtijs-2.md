@@ -18,7 +18,7 @@ Présentation unique de Paul D'Hubert ([@pauldub](https://twitter.com/pauldub))
 sur les principes d'AngularJS puis échange informel sur les dernières nouveautés
 de JavaScript.
 
-## Compte rendu
+## Compte rendu
 
 Une super présentation mais moins de participants que lors de la première
 édition. Décision commune de ne plus faire de ChtiJS le vendredi, voire même de

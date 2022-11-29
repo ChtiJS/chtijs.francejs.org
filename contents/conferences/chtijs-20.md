@@ -15,7 +15,7 @@ lang: fr
 location: FR
 ---
 
-# ChtiJS n°20 du 4 Octobre 2018
+# ChtiJS n°20 du 04 Octobre 2018
 
 ## Programme
 
@@ -41,7 +41,7 @@ NestJS était notre guide vers ce Graal sans dénaturer le goût de liberté qu�
 aime tant ? Venez découvrir cet ingrédient pour vous aider à faire mijoter vos
 projets !
 
-## Compte rendu
+## Compte rendu
 
 Cette seconde édition pourrait être résumée par précision. Aussi bien sur le REX
 que sur NEST des talks vraiment intéressants ! Merci à tous ! On se revoit en

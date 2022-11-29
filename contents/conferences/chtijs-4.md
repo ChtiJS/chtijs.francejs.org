@@ -4,7 +4,7 @@ description:
   'Découvrez le contenu du ChtiJS n°4 avec les présentations de Jean-Baptiste
   Pionnier sur AngularJS, Rémi Grumeau sur Emy et David Loeuillete sur Pokémon
   Breakpoint.'
-published: '2013-09-19 12:00:00'
+published: '2013-09-19T12:00:00Z'
 keywords:
   - AngularJS
   - RWD
@@ -29,9 +29,9 @@ Au menu du quatrième ChtiJS :
   permettant de lier JavaScript à CSS pour le responsive design par
   ([@\_flexbox](https://twitter.com/)).
 
-La soirée promet d'être sympa ;).
+La soirée promet d'être sympa 😉.
 
-## Compte rendu
+## Compte rendu
 
 Les participants étaient venus nombreux pour ce ChtiJS très intéressant.
 
