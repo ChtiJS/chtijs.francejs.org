@@ -46,7 +46,7 @@ const Page = ({ entries }: Props) => {
                   {entry.name} alias {entry.login}
                 </Anchor>
               </Heading2>
-              <Paragraph>{entry.bio}</Paragraph>
+              <Paragraph>➤ {entry.bio}</Paragraph>
               <Paragraph>
                 {entry.blog ? (
                   <>
