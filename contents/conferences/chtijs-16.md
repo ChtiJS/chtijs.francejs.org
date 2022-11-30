@@ -3,7 +3,7 @@ title: 'ChtiJS #16'
 description:
   'Découvrez le contenu du ChtiJS n°16 avec les présentations de Jean-Baptiste
   Pionnier et Mathieu Acthernoene.'
-published: '2016-06-30T19:00:00Z'
+date: '2016-06-30T19:00:00Z'
 keywords:
   - NodeJS
   - React Native

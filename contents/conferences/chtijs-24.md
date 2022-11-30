@@ -3,7 +3,7 @@ title: 'ChtiJS #24'
 description:
   'Découvrez le contenu du ChtiJS n°24 avec les présentations de Mathys
   Visticot, Nicolas Froidure .'
-published: '2022-11-03T18:00:00Z'
+date: '2022-11-03T18:00:00Z'
 keywords:
   - NodeJS
   - ElasticSearch

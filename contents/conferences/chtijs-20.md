@@ -3,7 +3,7 @@ title: 'ChtiJS #20'
 description:
   'Découvrez le contenu du ChtiJS n°20 avec les présentations de Xavier Van de
   Woestyne, Cyril Lakech et Laurent Thiebault.'
-published: '2018-11-14T19:00:00Z'
+date: '2018-11-14T19:00:00Z'
 keywords:
   - NodeJS
   - Types

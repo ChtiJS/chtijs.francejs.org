@@ -3,7 +3,7 @@ title: 'EmbuscadeJS #1'
 description:
   'Découvrez le contenu de la première embuscade JavaScript de notre groupe avec
   la présentation de Thomas Parisot.'
-published: '2014-03-06T19:00:00Z'
+date: '2014-03-06T19:00:00Z'
 keywords:
   - README
   - driven

@@ -3,7 +3,7 @@ title: 'ChtiJS #9'
 description:
   'Découvrez le contenu du ChtiJS n°9 avec les présentations de Thomas Deconinck
   et Johnathan Meunier.'
-published: '2014-10-09T19:00:00Z'
+date: '2014-10-09T19:00:00Z'
 keywords:
   - Browserify
   - iBeacons

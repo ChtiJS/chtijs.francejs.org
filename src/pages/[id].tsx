@@ -19,6 +19,8 @@ type Metadata = {
     href: string;
     alt: string;
   };
+  lang: string;
+  location: string
 };
 type Entry = {
   id: string;

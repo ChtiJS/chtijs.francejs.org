@@ -3,7 +3,7 @@ title: 'ChtiJS #21'
 description:
   'Découvrez le contenu du ChtiJS n°21 avec les présentations de Nicolas
   Froidure et Florent Giraud .'
-published: '2019-01-24T19:00:00Z'
+date: '2019-01-24T19:00:00Z'
 keywords:
   - NodeJS
   - VueStyleguidist

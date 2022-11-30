@@ -27,6 +27,8 @@ export type Metadata = {
     url: string;
     alt: string;
   };
+  lang: string;
+  location: string
 };
 export type Entry = {
   id: string;
@@ -64,9 +66,7 @@ const BlogEntries = ({
   <Layout title={title} description={description}>
     <ContentBlock className="title">
       <Heading1 className="title">Résumés des rencontres</Heading1>
-      <Paragraph>
-        .
-      </Paragraph>
+      <Paragraph>.</Paragraph>
 
       <div className="entries">
         {entries.map((entry) => (
@@ -90,9 +90,9 @@ const BlogEntries = ({
               </Anchor>
             </Heading2>
             <Paragraph className="entry_description">
-              {entry.description}{' '}
-              <Anchor href={`/conferences/${entry.id}`}>Lire la suite</Anchor>
+              {entry.description}
             </Paragraph>
+            <Anchor href={`/conferences/${entry.id}`}>Lire la suite</Anchor>
             <div className="clear"></div>
           </div>
         ))}

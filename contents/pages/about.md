@@ -3,13 +3,13 @@ title: Les habitudes de notre groupe
 description: Pour mieux comprendre ChtiJS, découvrez nos petites habitudes.
 shortTitle: Nos habitudes
 shortDesc: Découvrir nos habitudes
-lang: fr
-location: FR
 tags:
   - JavaScript
   - groupe
   - Nord
   - Pas-de-Calais
+lang: fr
+location: FR
 ---
 
 # Nos habitudes

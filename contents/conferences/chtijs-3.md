@@ -1,7 +1,7 @@
 ---
 title: "ChtiJS #3"
 description: "Découvrez le contenu du ChtiJS n°3 avec la présentation de Nicolas Froidure sur les promises et une table ronde sur la mise en production d'applications NodeJS."
-published: "2013-07-25T12:00:00Z"
+date: "2013-07-25T12:00:00Z"
 keywords:
   - promises
   - NodeJS
@@ -14,7 +14,7 @@ location: FR
 ## Programme
 
 Présentation de Nicolas Froidure
- ([@nfroidure](https://twitter.com/nfroidure)) sur sur les
+ ([@nfroidure](https://twitter.com/nfroidure)) sur les
  [promises](http://server.elitwork.com/presentations/promises.html#/intro),
  puis, table ronde et retours d'expérience sur la mise en production
  d'applications réalisées avec NodeJS.
