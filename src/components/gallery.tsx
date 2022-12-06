@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { CSS_BREAKPOINT_END_M } from "../utils/constants";
-import { publicRuntimeConfig } from "../utils/config";
-import type { MarkdownImageNode } from "../utils/markdown";
+import { useState } from 'react';
+import { CSS_BREAKPOINT_END_M } from '../utils/constants';
+import { publicRuntimeConfig } from '../utils/config';
+import type { MarkdownImageNode } from '../utils/markdown';
 
 const Gallery = ({ imagesNodes }: { imagesNodes: MarkdownImageNode[] }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -11,14 +11,14 @@ const Gallery = ({ imagesNodes }: { imagesNodes: MarkdownImageNode[] }) => {
       <p>
         <img
           src={
-            imagesNodes[selectedIndex].url.startsWith("http")
+            imagesNodes[selectedIndex].url.startsWith('http')
               ? imagesNodes[selectedIndex].url
               : publicRuntimeConfig.baseURL +
                 publicRuntimeConfig.buildPrefix +
-                "/" +
+                '/' +
                 imagesNodes[selectedIndex].url
           }
-          alt={imagesNodes[selectedIndex].alt || ""}
+          alt={imagesNodes[selectedIndex].alt || ''}
         />
       </p>
       <ul>
@@ -27,14 +27,14 @@ const Gallery = ({ imagesNodes }: { imagesNodes: MarkdownImageNode[] }) => {
             <a onClick={setSelectedIndex.bind(null, index)}>
               <img
                 src={
-                  imageNode.url.startsWith("http")
+                  imageNode.url.startsWith('http')
                     ? imageNode.url
                     : publicRuntimeConfig.baseURL +
                       publicRuntimeConfig.buildPrefix +
-                      "/" +
+                      '/' +
                       imageNode.url
                 }
-                alt={imageNode.alt || ""}
+                alt={imageNode.alt || ''}
               />
             </a>
           </li>

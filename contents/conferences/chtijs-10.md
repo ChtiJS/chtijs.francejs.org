@@ -27,7 +27,7 @@ Pour parler de l'évènement, utilisez le hashtag
   ([@peernohell](https://twitter.com/peernohell)).
 - Le JavasScript isomorphique par l'exemple : Gestion des droits end to end par
   Nicolas Froidure ([@nfroidure](https://twitter.com/nfroidure)).
-  
+
 ## Compte rendu
 
 Plus de soixante inscrits à ChtiJS 10 et une salle comble pour ce ChtiJS sous le

@@ -28,7 +28,7 @@ Au menu :
   [Vincent Billey](https://twitter.com/Fenntasy)
 - Gérez l'état de vos applications JavaScript avec Redux par
   [Mathieu Acthernoene](https://twitter.com/zoontek)
-  
+
 ## Compte rendu
 
 Une bonne édition de ChtiJS très technique et intéressante ;).

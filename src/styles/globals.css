@@ -31,13 +31,13 @@
   --baseAnimationRate: 0.3s;
 
   /* Fonts */
-  --writingFont: "Open sans","Helvetica","Arial", sans-serif;
-  --contentFont: "Open sans","Helvetica","Arial", sans-serif;
-  --headingFont: "Georgia","Times", serif;
+  --writingFont: 'Open sans', 'Helvetica', 'Arial', sans-serif;
+  --contentFont: 'Open sans', 'Helvetica', 'Arial', sans-serif;
+  --headingFont: 'Georgia', 'Times', serif;
 
   /* Font sizes */
   --smallFontSize: calc(5 * var(--vGrid));
-  --smallLineHeight:  var(--vRythm);
+  --smallLineHeight: var(--vRythm);
   --smallFontWeight: 300;
 
   --mediumFontSize: calc(6 * var(--vGrid));

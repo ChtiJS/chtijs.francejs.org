@@ -24,8 +24,10 @@ Pour parler de l'évènement, utilisez le hashtag
 Au menu :
 
 - Un talk sur VueJS par [Emmanuel Demey](https://twitter.com/EmmanuelDemey)
-- Créer des webapps modernes avec Symfony, ReactJS et API Platform par [Kévin Dunglas](https://twitter.com/dunglas)
-- Créez votre 1ère application SSR (Server-Side Rendering) avec Nuxt.js par [Nicolas Pennec](https://twitter.com/NicoPennec)
+- Créer des webapps modernes avec Symfony, ReactJS et API Platform par
+  [Kévin Dunglas](https://twitter.com/dunglas)
+- Créez votre 1ère application SSR (Server-Side Rendering) avec Nuxt.js par
+  [Nicolas Pennec](https://twitter.com/NicoPennec)
 
 ## Pour info
 

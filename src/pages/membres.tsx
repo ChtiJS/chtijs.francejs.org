@@ -17,10 +17,7 @@ export type Profile = Awaited<
 >['data'];
 
 type Props = {
-  entries: (Pick<
-    Members[number],
-    'id' | 'avatar_url' | 'login'
-  > &
+  entries: (Pick<Members[number], 'id' | 'avatar_url' | 'login'> &
     Pick<Profile, 'name' | 'bio' | 'blog' | 'twitter_username' | 'html_url'>)[];
 };
 
@@ -33,9 +30,7 @@ const Page = ({ entries }: Props) => {
       <ContentBlock>
         <Heading1>Membres</Heading1>
         <Paragraph>
-          <Strong>
-            Découvrez la liste des membres de ChtiJS.
-          </Strong>
+          <Strong>Découvrez la liste des membres de ChtiJS.</Strong>
         </Paragraph>
         <div>
           {entries.map((entry) => (
@@ -69,10 +64,7 @@ const Page = ({ entries }: Props) => {
                     </Anchor>{' '}
                   </>
                 ) : null}
-                {<Anchor
-                  href={entry.html_url as string}>
-                  💻GitHub
-                </Anchor>}
+                {<Anchor href={entry.html_url as string}>💻GitHub</Anchor>}
               </Paragraph>
             </Article>
           ))}

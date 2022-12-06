@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { publicRuntimeConfig } from "../utils/config";
-import type { LinkProps } from "next/link";
+import Link from 'next/link';
+import { publicRuntimeConfig } from '../utils/config';
+import type { LinkProps } from 'next/link';
 
 const Anchor = ({
   children,
@@ -14,15 +14,16 @@ const Anchor = ({
   locale,
   className,
   icon,
-  iconPosition = "first",
+  iconPosition = 'first',
   ...props
 }: {
   children: React.ReactNode;
 } & LinkProps & {
-  icon?: string;
-  iconPosition?: "first" | "last";
-} & Exclude<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href">) => (
-  <Link legacyBehavior
+    icon?: string;
+    iconPosition?: 'first' | 'last';
+  } & Exclude<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>) => (
+  <Link
+    legacyBehavior
     {...{
       href,
       as,
@@ -35,10 +36,11 @@ const Anchor = ({
     }}
   >
     <a
-      className={`root${className ? " " + className : ""}${icon ? ` ${iconPosition}` : ""
-        }`}
+      className={`root${className ? ' ' + className : ''}${
+        icon ? ` ${iconPosition}` : ''
+      }`}
       {...props}
-      target={href.startsWith("http") ? "_blank" : "_self"}
+      target={href.startsWith('http') ? '_blank' : '_self'}
     >
       {icon ? <span className="icon" /> : null}
       {children}
@@ -46,8 +48,8 @@ const Anchor = ({
         a,
         a:visited {
           color: #c1a008;
-          transition: color .1s linear;
-          text-decoration:none;
+          transition: color 0.1s linear;
+          text-decoration: none;
         }
         a:hover,
         a:focus {
@@ -69,13 +71,13 @@ const Anchor = ({
           mask-size: calc(var(--vRythm) * 0.55);
           -webkit-mask-size: calc(var(--vRythm) * 0.55);
           mask-position: left bottom;
-          mask-image: url("${publicRuntimeConfig.buildPrefix}/images/icons/arrow-left.svg");
+          mask-image: url('${publicRuntimeConfig.buildPrefix}/images/icons/arrow-left.svg');
         }
         a.last {
           flex-direction: row-reverse;
         }
         a.last span.icon {
-          mask-image: url("${publicRuntimeConfig.buildPrefix}/images/icons/arrow-right.svg");
+          mask-image: url('${publicRuntimeConfig.buildPrefix}/images/icons/arrow-right.svg');
         }
       `}</style>
     </a>

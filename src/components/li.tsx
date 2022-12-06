@@ -10,7 +10,7 @@ const ListItem = ({
       .root > :global(:first-child:last-child) {
         margin: 0;
       }
-      li{
+      li {
         margin-left: 50px;
       }
     `}</style>

@@ -12,20 +12,20 @@ export function parseYouTubeURL(url: string):
     const parsedURL = new URL(url);
 
     if (
-      (parsedURL.hostname === "www.youtube.com" ||
-        parsedURL.hostname === "www.youtube.com") &&
-      parsedURL.searchParams.get("v") != null
+      (parsedURL.hostname === 'www.youtube.com' ||
+        parsedURL.hostname === 'www.youtube.com') &&
+      parsedURL.searchParams.get('v') != null
     ) {
       return {
-        videoId: parsedURL.searchParams.get("v") as string,
-        startTime: parsedURL.searchParams.get("start") || undefined,
+        videoId: parsedURL.searchParams.get('v') as string,
+        startTime: parsedURL.searchParams.get('start') || undefined,
       };
     }
 
-    if (parsedURL.hostname === "youtu.be" && parsedURL.pathname != null) {
+    if (parsedURL.hostname === 'youtu.be' && parsedURL.pathname != null) {
       return {
-        videoId: parsedURL.pathname.split("/").pop() as string,
-        startTime: parsedURL.searchParams.get("t") || undefined,
+        videoId: parsedURL.pathname.split('/').pop() as string,
+        startTime: parsedURL.searchParams.get('t') || undefined,
       };
     }
 

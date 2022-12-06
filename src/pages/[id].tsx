@@ -1,14 +1,14 @@
-import { join as pathJoin } from "path";
-import Layout from "../layouts/main";
-import ContentBlock from "../components/contentBlock";
-import Paragraph from "../components/p";
-import Anchor from "../components/a";
-import { fixText } from "../utils/text";
-import { parseMarkdown, renderMarkdown } from "../utils/markdown";
-import { readEntry, readPaths } from "../utils/frontmatter";
-import { toASCIIString } from "../utils/ascii";
-import type { GetStaticProps, GetStaticPaths, NextPage } from "next";
-import type { MarkdownRootNode } from "../utils/markdown";
+import { join as pathJoin } from 'path';
+import Layout from '../layouts/main';
+import ContentBlock from '../components/contentBlock';
+import Paragraph from '../components/p';
+import Anchor from '../components/a';
+import { fixText } from '../utils/text';
+import { parseMarkdown, renderMarkdown } from '../utils/markdown';
+import { readEntry, readPaths } from '../utils/frontmatter';
+import { toASCIIString } from '../utils/ascii';
+import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
+import type { MarkdownRootNode } from '../utils/markdown';
 
 type Metadata = {
   date: string;
@@ -20,7 +20,7 @@ type Metadata = {
     alt: string;
   };
   lang: string;
-  location: string
+  location: string;
 };
 type Entry = {
   id: string;
@@ -30,7 +30,7 @@ type Entry = {
 type Params = { id: string };
 type Props = { entry: Entry };
 
-const Page:NextPage<Props> = ({ entry }) => {
+const Page: NextPage<Props> = ({ entry }) => {
   return (
     <Layout
       title={`${fixText(entry.title)}`}
@@ -51,9 +51,9 @@ const Page:NextPage<Props> = ({ entry }) => {
 export default Page;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = (await readPaths(pathJoin(".", "contents", "pages"))).map(
+  const paths = (await readPaths(pathJoin('.', 'contents', 'pages'))).map(
     (path) => ({
-      params: { id: path.replace(".md", "") },
+      params: { id: path.replace('.md', '') },
     })
   );
 
@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   params,
 }) => {
   const result = await readEntry<Metadata>(
-    pathJoin("contents", "pages", (params?.id as string) + ".md")
+    pathJoin('contents', 'pages', (params?.id as string) + '.md')
   );
 
   return {

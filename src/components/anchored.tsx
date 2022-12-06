@@ -1,18 +1,18 @@
-import Link from "next/link";
-import { publicRuntimeConfig } from "../utils/config";
+import Link from 'next/link';
+import { publicRuntimeConfig } from '../utils/config';
 
 const Anchored = ({
   children,
-  id = "",
+  id = '',
 }: {
   children: React.ReactNode;
   id?: string;
 }) => {
   return (
     <span className="root">
-      {children}{" "}
+      {children}{' '}
       <small>
-        <Link href={`#${id}`}legacyBehavior>
+        <Link href={`#${id}`} legacyBehavior>
           <a className="icon" id={id} title="Lien vers cette section">
             <span>🔗</span>
           </a>
@@ -34,11 +34,11 @@ const Anchored = ({
         }
         .root:hover a.icon {
           display: inline-block;
-          mask-image: url("${publicRuntimeConfig.buildPrefix}/images/icons/link.svg");
+          mask-image: url('${publicRuntimeConfig.buildPrefix}/images/icons/link.svg');
         }
         a.icon:target {
           display: inline-block;
-          mask-image: url("${publicRuntimeConfig.buildPrefix}/images/icons/target.svg");
+          mask-image: url('${publicRuntimeConfig.buildPrefix}/images/icons/target.svg');
         }
         a.icon span {
           display: none;

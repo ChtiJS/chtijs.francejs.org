@@ -81,10 +81,7 @@ const Page = () => {
             liste de diffusion
           </Anchor>{' '}
           et rejoignez nous sur{' '}
-          <Anchor href="https://weblille.rocks/">
-            slack
-          </Anchor>
-          .
+          <Anchor href="https://weblille.rocks/">slack</Anchor>.
         </Paragraph>
         <Heading2>Site web</Heading2>
         <Paragraph>

@@ -27,7 +27,7 @@ Pour parler de l'évènement, utilisez le hashtag
 - Présentation de François-Emmanuel Cortes sur sa stack JS fétiche, composée de
   [RequireJS](http://www.requirejs.org/), [Zepto](http://zeptojs.com/),
   [KnockOut](http://knockoutjs.com/) et [ICanHaz](http://icanhazjs.com/).
-  
+
 ## Compte rendu
 
 Un ChtiJS un peu moins peuplé que le précédent (une petite quinzaine de

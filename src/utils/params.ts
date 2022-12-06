@@ -1,5 +1,5 @@
-import YError from "yerror";
-import type { NextRouter } from "next/router";
+import YError from 'yerror';
+import type { NextRouter } from 'next/router';
 
 export type CastedQueryParamItem = boolean | number | string;
 export type CastedQueryParamCollection = boolean[] | number[] | string[];
@@ -7,13 +7,13 @@ export type CastedQueryParam =
   | CastedQueryParamItem
   | CastedQueryParamCollection;
 export type CastedQueryParams = Record<string, CastedQueryParam>;
-export type QueryParamType = "boolean" | "number" | "string";
+export type QueryParamType = 'boolean' | 'number' | 'string';
 export type QueryParamCastedTypes = {
   boolean: boolean;
   number: number;
   string: string;
 };
-export type QueryParamMode = "unique" | "collection";
+export type QueryParamMode = 'unique' | 'collection';
 export type QueryParamDefinition = Record<
   string,
   {
@@ -22,9 +22,9 @@ export type QueryParamDefinition = Record<
   }
 >;
 export type BuildQueryParamsType<T extends QueryParamDefinition> = {
-  [P in keyof T]?: T[P]["mode"] extends "collection"
-    ? QueryParamCastedTypes[T[P]["type"]][]
-    : QueryParamCastedTypes[T[P]["type"]];
+  [P in keyof T]?: T[P]['mode'] extends 'collection'
+    ? QueryParamCastedTypes[T[P]['type']][]
+    : QueryParamCastedTypes[T[P]['type']];
 };
 type ParamStringifyer = (
   queryValue: undefined | QueryParamType
@@ -35,11 +35,11 @@ const QUERY_PARAMS_TYPE_CASTERS: Record<
   (queryValue: string | undefined) => undefined | CastedQueryParamItem
 > = {
   boolean: (queryValue): undefined | boolean =>
-    queryValue === "true" ? true : queryValue === "false" ? false : undefined,
+    queryValue === 'true' ? true : queryValue === 'false' ? false : undefined,
   string: (queryValue): undefined | string =>
-    typeof queryValue === "string" ? queryValue : undefined,
+    typeof queryValue === 'string' ? queryValue : undefined,
   number: (queryValue): undefined | number =>
-    typeof queryValue !== "undefined" && Number.isFinite(parseFloat(queryValue))
+    typeof queryValue !== 'undefined' && Number.isFinite(parseFloat(queryValue))
       ? parseFloat(queryValue)
       : undefined,
 };
@@ -47,52 +47,52 @@ const QUERY_PARAMS_TYPE_STRINGIFYERS: Record<QueryParamType, ParamStringifyer> =
   {
     boolean: ((queryValue: boolean | undefined): string | undefined =>
       queryValue === true
-        ? "true"
+        ? 'true'
         : queryValue === false
-        ? "false"
+        ? 'false'
         : undefined) as ParamStringifyer,
     string: (queryValue: string | undefined): string | undefined =>
-      typeof queryValue === "string" ? queryValue : undefined,
+      typeof queryValue === 'string' ? queryValue : undefined,
     number: ((queryValue: number | undefined): string | undefined =>
-      typeof queryValue === "number"
+      typeof queryValue === 'number'
         ? queryValue.toString(10)
         : undefined) as ParamStringifyer,
   };
 
 export function readParams<T extends CastedQueryParams>(
   definitions: QueryParamDefinition,
-  query: NextRouter["query"]
+  query: NextRouter['query']
 ): T {
   return Object.keys(definitions).reduce((castedQuery, definitionName) => {
     const values: string[] =
-      typeof query[definitionName] === "undefined"
+      typeof query[definitionName] === 'undefined'
         ? []
-        : typeof query[definitionName] === "string"
+        : typeof query[definitionName] === 'string'
         ? [query[definitionName] as string]
         : (query[definitionName] as string[]);
     let castedValue: CastedQueryParam | undefined;
 
-    if (definitions[definitionName].mode === "collection") {
+    if (definitions[definitionName].mode === 'collection') {
       castedValue = values
         .map(QUERY_PARAMS_TYPE_CASTERS[definitions[definitionName].type])
         .filter(
-          (value) => typeof value !== "undefined"
+          (value) => typeof value !== 'undefined'
         ) as CastedQueryParamCollection;
 
       if (castedValue.length !== values.length) {
-        throw new YError("E_BAD_QUERY_PARAMS_TYPE", definitionName);
+        throw new YError('E_BAD_QUERY_PARAMS_TYPE', definitionName);
       }
     } else {
       castedValue = QUERY_PARAMS_TYPE_CASTERS[definitions[definitionName].type](
         values.length === 1 ? values[0] : undefined
       );
 
-      if (values.length && typeof castedValue === "undefined") {
-        throw new YError("E_BAD_QUERY_PARAM_TYPE", definitionName);
+      if (values.length && typeof castedValue === 'undefined') {
+        throw new YError('E_BAD_QUERY_PARAM_TYPE', definitionName);
       }
     }
 
-    if (typeof castedValue !== "undefined") {
+    if (typeof castedValue !== 'undefined') {
       return {
         ...castedQuery,
         [definitionName]: castedValue,
@@ -105,7 +105,7 @@ export function readParams<T extends CastedQueryParams>(
 
 export function buildPath<T extends CastedQueryParams>(
   definitions: QueryParamDefinition,
-  router: Pick<NextRouter, "basePath" | "pathname" | "query">,
+  router: Pick<NextRouter, 'basePath' | 'pathname' | 'query'>,
   addedParams: Partial<T>
 ): string {
   const currentParams: CastedQueryParams = readParams(
@@ -121,10 +121,10 @@ export function buildPath<T extends CastedQueryParams>(
       let addedParts: string[];
 
       if (!definition) {
-        throw new YError("E_UNDEFINED_QUERY_PARAM", paramKey);
+        throw new YError('E_UNDEFINED_QUERY_PARAM', paramKey);
       }
 
-      if (definition.mode === "collection") {
+      if (definition.mode === 'collection') {
         addedParts = Array.from(
           new Set([
             ...(
@@ -144,7 +144,7 @@ export function buildPath<T extends CastedQueryParams>(
             : currentParams[paramKey];
 
         addedParts =
-          typeof actualValue !== "undefined"
+          typeof actualValue !== 'undefined'
             ? [
                 QUERY_PARAMS_TYPE_STRINGIFYERS[definition.type](
                   actualValue as QueryParamType
@@ -155,7 +155,7 @@ export function buildPath<T extends CastedQueryParams>(
       return [
         ...parts,
         ...addedParts.map(
-          (value) => paramKey + "=" + encodeURIComponent(value)
+          (value) => paramKey + '=' + encodeURIComponent(value)
         ),
       ];
     }, [] as string[]);
@@ -163,6 +163,6 @@ export function buildPath<T extends CastedQueryParams>(
   return (
     router.basePath +
     router.pathname +
-    (parts.length ? "?" + parts.join("&") : "")
+    (parts.length ? '?' + parts.join('&') : '')
   );
 }

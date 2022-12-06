@@ -28,7 +28,7 @@ export type Metadata = {
     alt: string;
   };
   lang: string;
-  location: string
+  location: string;
 };
 export type Entry = {
   id: string;
@@ -172,7 +172,7 @@ export const entriesToBaseProps = (
   baseEntries: FrontMatterResult<Metadata>[]
 ): BaseProps => {
   const title = `Conférences`;
-  const description = "Découvrez le résumé de nos rencontres précédentes.";
+  const description = 'Découvrez le résumé de nos rencontres précédentes.';
   const entries = baseEntries
     .map<Entry>((entry) => ({
       ...entry.attributes,

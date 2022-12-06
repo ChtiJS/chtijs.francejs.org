@@ -1,7 +1,8 @@
 ---
 title: 'ChtiJS #19'
 description:
-  'Découvrez le contenu du ChtiJS n°19 avec les présentations de Xavier Coiffard et Florent Giraud.'
+  'Découvrez le contenu du ChtiJS n°19 avec les présentations de Xavier Coiffard
+  et Florent Giraud.'
 date: '2018-10-04T19:00:00Z'
 keywords:
   - NodeJS
@@ -27,7 +28,7 @@ Au menu pour cette 19ème édition :
   [Xavier Coiffard](https://twitter.com/angezanetti)
 - "Re-créer un framework js front, ça vous fait peur ?"
   [Florent Giraud](https://twitter.com/giraud_florent)
-  
+
 ## Compte rendu
 
 Retour du ChtiJS après une année d'absence, de nouvelles têtes, de la bonne

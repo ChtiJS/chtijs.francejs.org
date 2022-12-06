@@ -1,4 +1,4 @@
-import getConfig from "next/config";
+import getConfig from 'next/config';
 
 export type GlobalConfig = {
   publicRuntimeConfig: {

@@ -33,7 +33,7 @@ orientée NodeJS :
 - débat sur comment générer le site statique de ChtiJS avec NodeJS animé par
   0gust1 ([@0gust1](https://twitter.com/0gust1)) et Tom Panier
   ([@\_neemzy](https://twitter.com/_neemzy))
-  
+
 ## Compte rendu
 
 À venir.

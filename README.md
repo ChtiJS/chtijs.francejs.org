@@ -15,7 +15,9 @@ cd ./chtijs.francejs.org/
 npm install
 ```
 
-Then, create a [GitHub token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to be able to use their API and put it into a local env file :
+Then, create a
+[GitHub token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+to be able to use their API and put it into a local env file :
 
 ```sh
 cat "GH_TOKEN=mysecrettoken" > .env.local
