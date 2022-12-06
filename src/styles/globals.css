@@ -33,7 +33,7 @@
   /* Fonts */
   --writingFont: 'Open sans', 'Helvetica', 'Arial', sans-serif;
   --contentFont: 'Open sans', 'Helvetica', 'Arial', sans-serif;
-  --headingFont: 'Georgia', 'Times', serif;
+  --headingFont: 'Veranda', 'Times', sans-serif;
 
   /* Font sizes */
   --smallFontSize: calc(5 * var(--vGrid));
