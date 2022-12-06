@@ -1,12 +1,7 @@
 import Link from 'next/link';
-import Social from './social';
 import {
-  CSS_BREAKPOINT_END_L,
-  CSS_BREAKPOINT_END_M,
   CSS_BREAKPOINT_END_S,
-  CSS_BREAKPOINT_START_L,
   CSS_BREAKPOINT_START_M,
-  CSS_BREAKPOINT_START_XL,
   ORGANISATION_NAME,
 } from '../utils/constants';
 
@@ -15,7 +10,7 @@ const Footer = () => {
     <>
       <footer>
         <p>
-          <span>© {ORGANISATION_NAME} - Tous droits réservés</span> -{' '}
+          © {ORGANISATION_NAME} - Tous droits réservés -{' '}
           <Link href="/mentions-legales" legacyBehavior>
             <a>Mentions légales</a>
           </Link>
@@ -23,8 +18,8 @@ const Footer = () => {
       </footer>
       <style jsx>{`
         footer {
-          display: flex;
-          flex-direction: row;
+          display: block;
+          width: 100%;
           background-color: var(--dark);
         }
         p {
@@ -38,32 +33,22 @@ const Footer = () => {
         a:hover {
           color: var(--light);
         }
-
-        /*
         @media screen and (max-width: ${CSS_BREAKPOINT_END_S}) {
           footer {
-            width: 100%;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 4;
+            grid-row-end: 5;
           }
         }
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_M}) and (max-width: ${CSS_BREAKPOINT_END_M}) {
+        @media screen and (min-width: ${CSS_BREAKPOINT_START_M}) {
           footer {
-            width: calc(calc(var(--block) * 2) + calc(var(--gutter) * 3));
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 4;
+            grid-row-end: 5;
           }
         }
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_L}) and (max-width: ${CSS_BREAKPOINT_END_L}) {
-          footer {
-            width: calc(calc(var(--block) * 3) + calc(var(--gutter) * 4));
-          }
-          .bottom {
-            display: flex;
-            justify-content: center;
-          }
-        }
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_XL}) {
-          .contents {
-            width: calc(calc(var(--block) * 4) + calc(var(--gutter) * 5));
-          }
-        }*/
       `}</style>
     </>
   );

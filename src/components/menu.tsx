@@ -1,13 +1,9 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { publicRuntimeConfig } from "../utils/config";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import {
-  CSS_BREAKPOINT_END_M,
   CSS_BREAKPOINT_END_S,
-  CSS_BREAKPOINT_START_L,
   CSS_BREAKPOINT_START_M,
-  CSS_BREAKPOINT_START_XL,
-} from "../utils/constants";
+} from '../utils/constants';
 
 const Menu = () => {
   const router = useRouter();
@@ -17,7 +13,7 @@ const Menu = () => {
       <nav>
         <Link legacyBehavior href="/">
           <a
-            className={`home ${router.asPath === "/" ? "selected" : ""}`}
+            className={`home ${router.asPath === '/' ? 'selected' : ''}`}
             title="Revenir à l’accueil"
           >
             <span>Accueil</span>
@@ -25,7 +21,7 @@ const Menu = () => {
         </Link>
         <Link legacyBehavior href="/credits">
           <a
-            className={router.asPath.startsWith("/credits") ? "selected" : ""}
+            className={router.asPath.startsWith('/credits') ? 'selected' : ''}
             title="Les contributeurs du site"
           >
             <span>Crédits</span>
@@ -33,7 +29,7 @@ const Menu = () => {
         </Link>
         <Link legacyBehavior href="/membres">
           <a
-            className={router.asPath === "/membres" ? "selected" : ""}
+            className={router.asPath === '/membres' ? 'selected' : ''}
             title="Les membres du groupe"
           >
             <span>Membres</span>
@@ -41,7 +37,7 @@ const Menu = () => {
         </Link>
         <Link legacyBehavior href="/planete">
           <a
-            className={router.asPath === "/planete" ? "selected" : ""}
+            className={router.asPath === '/planete' ? 'selected' : ''}
             title="Voir les actus de nos membres"
           >
             <span>Planète</span>
@@ -49,7 +45,7 @@ const Menu = () => {
         </Link>
         <Link legacyBehavior href="/conferences">
           <a
-            className={router.asPath === "/conferences" ? "selected" : ""}
+            className={router.asPath === '/conferences' ? 'selected' : ''}
             title="Voir les conférences"
           >
             <span>Conférences</span>
@@ -57,7 +53,7 @@ const Menu = () => {
         </Link>
         <Link legacyBehavior href="/about">
           <a
-            className={router.asPath === "/about" ? "selected" : ""}
+            className={router.asPath === '/about' ? 'selected' : ''}
             title="En savoir plus sur nos habitudes"
           >
             <span>A propos</span>
@@ -66,14 +62,9 @@ const Menu = () => {
       </nav>
       <style jsx>{`
         nav {
-          grid-column-start: 1;
-          grid-column-end: 2;
-          grid-row-start: 2;
-          grid-row-end: 3;
           background-color: var(--light);
           display: flex;
           flex-direction: column;
-          border-right: 1px solid var(--grey);
         }
         nav a,
         nav a:visited {
@@ -100,36 +91,24 @@ const Menu = () => {
           display: block;
           padding: calc(var(--vRythm) / 2) var(--gutter);
         }
-        /*
+
         @media screen and (max-width: ${CSS_BREAKPOINT_END_S}) {
           nav {
-            width: 100%;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
           }
         }
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_M}) and (max-width: ${CSS_BREAKPOINT_END_M}) {
+        @media screen and (min-width: ${CSS_BREAKPOINT_START_M}) {
           nav {
-            width: calc(calc(var(--block) * 2) + calc(var(--gutter) * 3));
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 4;
+            border-right: 1px solid var(--grey);
           }
         }
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_L}) {
-          nav {
-            flex-direction: row;
-            width: calc(calc(var(--block) * 3) + calc(var(--gutter) * 4));
-          }
-          .newsletter span {
-            width: calc(var(--vRythm));
-            background: var(--light);
-            mask-repeat: no-repeat;
-            mask-position: center center;
-            mask-size: calc(var(--vRythm));
-            mask-image: url("${publicRuntimeConfig.buildPrefix}/images/icons/mail.svg");
-          }
-        }
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_XL}) {
-          nav {
-            width: calc(calc(var(--block) * 4) + calc(var(--gutter) * 5));
-          }
-        }*/
       `}</style>
     </>
   );

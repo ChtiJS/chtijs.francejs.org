@@ -1,11 +1,7 @@
 import React from 'react';
 import {
-  CSS_BREAKPOINT_END_L,
-  CSS_BREAKPOINT_END_M,
   CSS_BREAKPOINT_END_S,
-  CSS_BREAKPOINT_START_L,
   CSS_BREAKPOINT_START_M,
-  CSS_BREAKPOINT_START_XL,
   ORGANISATION_NAME,
 } from '../utils/constants';
 import Meta from '../components/meta';
@@ -32,25 +28,19 @@ const Layout = ({ children, title, description = '', image = '' }: Props) => {
       />
       <Menu />
       <Header />
-      <div className="contents">
-        <div className="wrapper">
-          {children}
-        </div>
-        <Footer />
-      </div>
+      <div className="contents">{children}</div>
+      <Footer />
       <style jsx>{`
         .root {
-          height: 100vh;
+          min-height: 100vh;
           display: grid;
           grid-template-columns: var(--block) 1fr;
-          grid-template-rows: calc(var(--vRythm) * 8) 1fr;
+          grid-template-rows:
+            calc(var(--vRythm) * 8) auto
+            auto minmax(calc(var(--vRythm) * 2), auto);
           background: var(--tertiary);
         }
         .contents {
-          grid-column-start: 2;
-          grid-column-end: 3;
-          grid-row-start: 1;
-          grid-row-end: 3;
           overflow: auto;
           height: 100%;
           display: flex;
@@ -60,36 +50,27 @@ const Layout = ({ children, title, description = '', image = '' }: Props) => {
           background: var(--light);
         }
         .contents :first-child {
-          flex:1;
+          flex: 1;
         }
-        /*
         @media screen and (max-width: ${CSS_BREAKPOINT_END_S}) {
           .contents {
-            background: yellow;
-            width: 100%;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 3;
+            grid-row-end: 4;
           }
         }
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_M}) and (max-width: ${CSS_BREAKPOINT_END_M}) {
+        @media screen and (min-width: ${CSS_BREAKPOINT_START_M}) {
+          .root {
+            height: 100vh;
+          }
           .contents {
-            background: blue;
-            width: calc(calc(var(--block) * 2) + calc(var(--gutter) * 3));
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 4;
           }
         }
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_L}) and (max-width: ${CSS_BREAKPOINT_END_L}) {
-          .contents {
-            background: red;
-            width: calc(calc(var(--block) * 3) + calc(var(--gutter) * 4));
-          }
-        }
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_XL}) {
-          .h1 {
-            color: #f2c80a;
-          }
-          .contents {
-            background: #ede5c2;
-            width: calc(calc(var(--block) * 4) + calc(var(--gutter) * 5));
-          }
-        }*/
       `}</style>
     </div>
   );
