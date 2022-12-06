@@ -7,8 +7,20 @@ import Strong from '../components/strong';
 import Anchor from '../components/a';
 import UnorderedList from '../components/ul';
 import ListItem from '../components/li';
+import { Client } from 'twitter-api-sdk';
+import { parseMarkdown, renderMarkdown } from '../utils/markdown';
+import type { MarkdownRootNode } from '../utils/markdown';
+import type { GetStaticProps } from 'next';
+import HorizontalRule from '../components/hr';
 
-const Page = () => {
+type Props = {
+  tweets: {
+    id: string;
+    content: MarkdownRootNode;
+  }[];
+};
+
+const Page = ({ tweets }: Props) => {
   return (
     <Layout
       title="La communauté JavaScript du Nord"
@@ -100,9 +112,36 @@ const Page = () => {
           qui fédère les acteurs de JavaScript afin de promouvoir ce langage et
           de faciliter son développement en France.
         </Paragraph>
+        <Heading2>Nos derniers tweets</Heading2>
+        {tweets.map((tweet) => (
+          <>
+            <HorizontalRule />
+            {renderMarkdown({ index: 0 }, tweet.content)}
+          </>
+        ))}
       </ContentBlock>
     </Layout>
   );
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const client = new Client(process.env.TWITTER_API_TOKEN as string);
+  const userId = (await client.users.findUserByUsername('chtijs')).data?.id;
+  const data = (await client.tweets.usersIdTweets(userId as string)).data;
+  const tweets = data
+    ?.map(({ id, text }) => {
+      return {
+        id,
+        content: parseMarkdown(
+          text
+            .replace(/#([\w_]+)/, '[#$1](https://twitter.com/hashtag/$1)')
+            .replace(/@([\w_]+)/, '[@$1](https://twitter.com/$1)')
+        ) as MarkdownRootNode,
+      };
+    })
+    .slice(0, 3);
+
+  return { props: { tweets } as Props };
 };
 
 export default Page;
