@@ -20,10 +20,9 @@ import Code from '../components/code';
 import Cite from '../components/cite';
 import Gallery from '../components/gallery';
 import { fixText } from './text';
+import Img from '../components/img';
 import YError from 'yerror';
-import { publicRuntimeConfig } from './config';
 import { toASCIIString } from './ascii';
-import { CSS_BREAKPOINT_START_L, CSS_BREAKPOINT_START_M } from './constants';
 import { parseYouTubeURL } from './youtube';
 import type { ReactNode } from 'react';
 
@@ -256,59 +255,21 @@ const blockquoteMap: NodeToElementMapper<MarkdownBlockquoteNode> = (
   </Blockquote>
 );
 const imageMap: NodeToElementMapper<MarkdownImageNode> = (context, node) => {
-  const finalTitle = (node.title || '').replace(/^🖼(➡️|⬅️)\s*/, '');
-
+  const position = node.title?.includes('➡️')
+    ? 'right'
+    : node.title?.includes('⬅️')
+    ? 'left'
+    : '';
+  const shape = node.title?.includes('⬛')
+    ? 'square'
+    : node.title?.includes('▬')
+    ? 'horizontalRectangle'
+    : node.title?.includes('▮')
+    ? 'verticalRectangle'
+    : '';
   return (
     <span key={context.index}>
-      <img
-        src={
-          node.url.startsWith('http')
-            ? node.url
-            : publicRuntimeConfig.baseURL +
-              publicRuntimeConfig.buildPrefix +
-              '/' +
-              node.url
-        }
-        alt={node.alt}
-        className={
-          node?.title?.startsWith('🖼➡️')
-            ? 'right'
-            : node?.title?.startsWith('🖼⬅️')
-            ? 'left'
-            : ''
-        }
-        {...(finalTitle ? { title: finalTitle } : {})}
-      />
-      <style jsx>{`
-        img {
-          clear: both;
-          display: block;
-          width: 100%;
-          max-width: 100%;
-        }
-
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_M}) {
-          img.left,
-          img.right {
-            width: var(--block);
-          }
-          img.left {
-            float: left;
-            margin-right: var(--gutter);
-          }
-          img.right {
-            float: right;
-            margin-left: var(--gutter);
-          }
-        }
-
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_L}) {
-          img.left,
-          img.right {
-            width: calc(calc(var(--column) * 4) + calc(var(--gutter) * 3));
-          }
-        }
-      `}</style>
+      <Img imageNode={node} shape={shape} position={position} />
     </span>
   );
 };
@@ -324,7 +285,6 @@ const hyperlinkMap: NodeToElementMapper<MarkdownLinkNode> = (context, node) => {
         src={`https://www.youtube.com/embed/${youtubeURL.videoId}${
           youtubeURL.startTime ? '?start=' + youtubeURL.startTime : ''
         }`}
-        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
