@@ -28,8 +28,10 @@ const Layout = ({ children, title, description = '', image = '' }: Props) => {
       />
       <Menu />
       <Header />
-      <div className="contents">{children}</div>
-      <Footer />
+      <div className="contents">
+        <div className="wrapper">{children}</div>
+        <Footer />
+      </div>
       <style jsx>{`
         .root {
           min-height: 100vh;

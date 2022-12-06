@@ -1,19 +1,17 @@
-import { join as pathJoin } from "path";
-import { readFile, readdir } from "fs";
-import { promisify } from "util";
-import fm from "front-matter";
-import type { FrontMatterResult } from "front-matter";
+import { join as pathJoin } from 'path';
+import { readFile, readdir } from 'fs';
+import { promisify } from 'util';
+import fm from 'front-matter';
+import type { FrontMatterResult } from 'front-matter';
 
-export async function readPaths(
-  dirPath: string
-): Promise<string[]> {
+export async function readPaths(dirPath: string): Promise<string[]> {
   return await promisify(readdir)(dirPath);
 }
 
 export async function readEntry<T>(
   filePath: string
 ): Promise<FrontMatterResult<T>> {
-  const content = await promisify(readFile)(filePath, "utf-8");
+  const content = await promisify(readFile)(filePath, 'utf-8');
 
   return fm(content);
 }

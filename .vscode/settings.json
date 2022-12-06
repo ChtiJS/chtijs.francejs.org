@@ -1,11 +1,5 @@
 {
-    "spellright.language": [
-        "fr"
-    ],
-    "spellright.documentTypes": [
-        "markdown",
-        "latex",
-        "plaintext"
-    ],
-    "typescript.tsdk": "node_modules/typescript/lib"
+  "spellright.language": ["fr"],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -115,7 +115,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     }, [])
     .filter((entry) => entry.entry.published)
     .sort((entryA, entryB) =>
-      Date.parse(entryA.entry.published as unknown as string) > Date.parse(entryB.entry.published as unknown as string)
+      Date.parse(entryA.entry.published as unknown as string) >
+      Date.parse(entryB.entry.published as unknown as string)
         ? -1
         : 1
     )

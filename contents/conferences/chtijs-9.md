@@ -23,7 +23,7 @@ Pour parler de l'évènement, utilisez le hashtag
 - Présentation des [iBeacons](https://fr.wikipedia.org/wiki/IBeacon) et leur
   utilisation en JavaScript par Johnathan Meunier
   ([@JohnathanSUP](https://twitter.com/JohnathanSUP)).
-  
+
 ## Compte rendu
 
 L'affluence était de retour pour ce neuvième ChtiJS ! Au programme, des talks de

@@ -1,12 +1,12 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 // import { darkBackground } from "../styles";
-import { publicRuntimeConfig } from "../utils/config";
+import { publicRuntimeConfig } from '../utils/config';
 import {
   ORGANISATION_NAME,
   ORGANISATION_PRIMARY_COLOR,
   TWITTER_ACCOUNT,
-} from "../utils/constants";
+} from '../utils/constants';
 
 type Props = {
   name: string;
@@ -17,22 +17,22 @@ type Props = {
 
 export default function Meta({ name, title, description, image }: Props) {
   const router = useRouter();
-  const fullTitle = `${title ? `${title} - ` : ""}${name}`;
+  const fullTitle = `${title ? `${title} - ` : ''}${name}`;
   const canonicalURL =
     publicRuntimeConfig.baseURL +
     publicRuntimeConfig.buildPrefix +
     router?.asPath;
   const imageURL =
-    typeof image === "string" && image && /^https?:\/\//.test(image)
+    typeof image === 'string' && image && /^https?:\/\//.test(image)
       ? image
       : image
       ? publicRuntimeConfig.baseURL +
         publicRuntimeConfig.buildPrefix +
-        (image.startsWith("/") ? "" : "/") +
+        (image.startsWith('/') ? '' : '/') +
         image
       : publicRuntimeConfig.baseURL +
         publicRuntimeConfig.buildPrefix +
-        "/images/banner.png";
+        '/images/banner.png';
 
   return (
     <Head>
@@ -47,19 +47,19 @@ export default function Meta({ name, title, description, image }: Props) {
       <link
         rel="icon"
         type="image/svg+xml"
-        href={publicRuntimeConfig.buildPrefix + "/images/favicon.svg"}
+        href={publicRuntimeConfig.buildPrefix + '/images/favicon.svg'}
         sizes="any"
       />
       <link
         rel="icon"
         type="image/png"
-        href={publicRuntimeConfig.buildPrefix + "/images/favicon-16.png"}
+        href={publicRuntimeConfig.buildPrefix + '/images/favicon-16.png'}
         sizes="16x16"
       />
       <link
         rel="icon shortcut"
         type="image/png"
-        href={publicRuntimeConfig.buildPrefix + "/images/favicon-128.png"}
+        href={publicRuntimeConfig.buildPrefix + '/images/favicon-128.png'}
         sizes="128x128"
       />
       <meta name="robots" content="index,follow" />
@@ -74,7 +74,7 @@ export default function Meta({ name, title, description, image }: Props) {
       <meta property="og:locale" content="fr_FR" />
       <meta
         property="og:type"
-        content={router?.pathname === "/actualite" ? "article" : "website"}
+        content={router?.pathname === '/actualite' ? 'article' : 'website'}
       />
       <meta property="og:url" content={canonicalURL} />
       <meta property="og:title" content={fullTitle} />

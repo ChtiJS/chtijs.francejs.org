@@ -47,7 +47,7 @@ export async function generateAtomFeed(
     </author>
   </entry>`
     )
-    .join("")}
+    .join('')}
 </feed>
 `;
 }
@@ -85,16 +85,16 @@ export async function generateRSSFeed(
         )}</pubDate>
       </item>`
       )
-      .join("")}
+      .join('')}
   </channel>
 </rss>`;
 }
 
 function xmlEscape(str: string): string {
   return str
-    .replace(/&/g, "&amp;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }

@@ -1,4 +1,7 @@
-import { CSS_BREAKPOINT_START_L, CSS_BREAKPOINT_START_XL } from "../utils/constants";
+import {
+  CSS_BREAKPOINT_START_L,
+  CSS_BREAKPOINT_START_XL,
+} from '../utils/constants';
 
 export default function ContentBlock({
   children,
@@ -8,7 +11,7 @@ export default function ContentBlock({
   className?: string;
 }): JSX.Element {
   return (
-    <section className={`root${className ? " " + className : ""}`}>
+    <section className={`root${className ? ' ' + className : ''}`}>
       {children}
       <style jsx>{`
         .root {

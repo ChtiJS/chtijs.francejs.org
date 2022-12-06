@@ -24,7 +24,7 @@ Au menu de cette nouvelle édition, que du premier choix :
 - Flux par [Tom Panier](https://twitter.com/_neemzy)
 - Lightning talk Device Light API avec la présentation d'un PoC de
   [Rémi Grumeau](https://twitter.com/remi_grumeau).
-  
+
 ## Compte rendu
 
 JavaScript en juillet, bronzé.

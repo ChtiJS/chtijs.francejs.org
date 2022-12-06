@@ -1,96 +1,96 @@
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import Anchor from "../components/a";
-import Anchored from "../components/anchored";
-import Blockquote from "../components/blockquote";
-import Heading1 from "../components/h1";
-import Heading2 from "../components/h2";
-import Heading3 from "../components/h3";
-import Heading4 from "../components/h4";
-import Heading5 from "../components/h5";
-import Heading6 from "../components/h6";
-import HorizontalRule from "../components/hr";
-import ListItem from "../components/li";
-import OrderedList from "../components/ol";
-import Paragraph from "../components/p";
-import UnorderedList from "../components/ul";
-import Strong from "../components/strong";
-import Emphasis from "../components/em";
-import Code from "../components/code";
-import Cite from "../components/cite";
-import Gallery from "../components/gallery";
-import { fixText } from "./text";
-import YError from "yerror";
-import { publicRuntimeConfig } from "./config";
-import { toASCIIString } from "./ascii";
-import { CSS_BREAKPOINT_START_L, CSS_BREAKPOINT_START_M } from "./constants";
-import { parseYouTubeURL } from "./youtube";
-import type { ReactNode } from "react";
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import Anchor from '../components/a';
+import Anchored from '../components/anchored';
+import Blockquote from '../components/blockquote';
+import Heading1 from '../components/h1';
+import Heading2 from '../components/h2';
+import Heading3 from '../components/h3';
+import Heading4 from '../components/h4';
+import Heading5 from '../components/h5';
+import Heading6 from '../components/h6';
+import HorizontalRule from '../components/hr';
+import ListItem from '../components/li';
+import OrderedList from '../components/ol';
+import Paragraph from '../components/p';
+import UnorderedList from '../components/ul';
+import Strong from '../components/strong';
+import Emphasis from '../components/em';
+import Code from '../components/code';
+import Cite from '../components/cite';
+import Gallery from '../components/gallery';
+import { fixText } from './text';
+import YError from 'yerror';
+import { publicRuntimeConfig } from './config';
+import { toASCIIString } from './ascii';
+import { CSS_BREAKPOINT_START_L, CSS_BREAKPOINT_START_M } from './constants';
+import { parseYouTubeURL } from './youtube';
+import type { ReactNode } from 'react';
 
 export type MarkdownRootNode = {
-  type: "root";
+  type: 'root';
   children: MarkdownNode[];
 };
 export type MarkdownParagraphNode = {
-  type: "paragraph";
+  type: 'paragraph';
   children: MarkdownNode[];
 };
 export type MarkdownTextNode = {
-  type: "text";
-  value: "string";
+  type: 'text';
+  value: 'string';
 };
 export type MarkdownBoldNode = {
-  type: "bold" | "strong";
-  value: "string";
+  type: 'bold' | 'strong';
+  value: 'string';
   children: MarkdownNode[];
 };
 export type MarkdownEmphasisNode = {
-  type: "emphasis";
-  value: "string";
+  type: 'emphasis';
+  value: 'string';
   children: MarkdownNode[];
 };
 export type MarkdownCodeNode = {
-  type: "inlineCode";
+  type: 'inlineCode';
   value: string;
 };
 export type MarkdownHeadingNode = {
-  type: "heading";
+  type: 'heading';
   depth: 1 | 2 | 3 | 4 | 5 | 6;
   children: MarkdownNode[];
 };
 export type MarkdownListNode = {
-  type: "list";
+  type: 'list';
   ordered: boolean;
   spread: boolean;
   children: MarkdownNode[];
 };
 export type MarkdownListItemNode = {
-  type: "listItem";
+  type: 'listItem';
   spread: boolean;
   children: MarkdownNode[];
 };
 export type MarkdownBlockquoteNode = {
-  type: "blockquote";
+  type: 'blockquote';
   children: MarkdownNode[];
 };
 export type MarkdownHRNode = {
-  type: "thematicBreak";
+  type: 'thematicBreak';
 };
 export type MarkdownImageNode = {
-  type: "image";
+  type: 'image';
   url: string;
   alt: string;
   title: string;
 };
 export type MarkdownLinkNode = {
-  type: "link";
+  type: 'link';
   url: string;
   title: string;
   children: MarkdownNode[];
 };
 export type MarkdownHTMLNode = {
-  type: "html";
-  value: "cite" | "abbr";
+  type: 'html';
+  value: 'cite' | 'abbr';
   children?: MarkdownNode[];
 };
 export type MarkdownNode =
@@ -108,7 +108,7 @@ export type MarkdownNode =
   | MarkdownLinkNode
   | MarkdownHTMLNode
   | MarkdownBlockquoteNode;
-export type MarkdownNodeType = MarkdownNode["type"];
+export type MarkdownNodeType = MarkdownNode['type'];
 export type MappingContext = { index: number };
 export type NodeToElementMapper<T extends MarkdownNode> = (
   context: MappingContext,
@@ -130,14 +130,14 @@ const paragraphMap: NodeToElementMapper<MarkdownParagraphNode> = (
     {node.children.length > 1 &&
     node.children.every(
       (childNode) =>
-        childNode.type === "image" ||
-        (childNode.type === "text" &&
-          childNode.value.replace(/[\r\n\s]+/, "") === "")
+        childNode.type === 'image' ||
+        (childNode.type === 'text' &&
+          childNode.value.replace(/[\r\n\s]+/, '') === '')
     ) ? (
       <Gallery
         imagesNodes={
           node.children.filter(
-            (childNode) => childNode.type === "image"
+            (childNode) => childNode.type === 'image'
           ) as MarkdownImageNode[]
         }
       />
@@ -238,7 +238,7 @@ const htmlMap: NodeToElementMapper<MarkdownHTMLNode> = (
   context: MappingContext,
   node
 ) =>
-  node.value === "cite" ? (
+  node.value === 'cite' ? (
     <Cite key={context.index}>
       {(node.children || []).map((node, index) =>
         renderMarkdown({ ...context, index }, node)
@@ -256,26 +256,26 @@ const blockquoteMap: NodeToElementMapper<MarkdownBlockquoteNode> = (
   </Blockquote>
 );
 const imageMap: NodeToElementMapper<MarkdownImageNode> = (context, node) => {
-  const finalTitle = (node.title || "").replace(/^🖼(➡️|⬅️)\s*/, "");
+  const finalTitle = (node.title || '').replace(/^🖼(➡️|⬅️)\s*/, '');
 
   return (
     <span key={context.index}>
       <img
         src={
-          node.url.startsWith("http")
+          node.url.startsWith('http')
             ? node.url
             : publicRuntimeConfig.baseURL +
               publicRuntimeConfig.buildPrefix +
-              "/" +
+              '/' +
               node.url
         }
         alt={node.alt}
         className={
-          node?.title?.startsWith("🖼➡️")
-            ? "right"
-            : node?.title?.startsWith("🖼⬅️")
-            ? "left"
-            : ""
+          node?.title?.startsWith('🖼➡️')
+            ? 'right'
+            : node?.title?.startsWith('🖼⬅️')
+            ? 'left'
+            : ''
         }
         {...(finalTitle ? { title: finalTitle } : {})}
       />
@@ -316,13 +316,13 @@ const imageMap: NodeToElementMapper<MarkdownImageNode> = (context, node) => {
 const hyperlinkMap: NodeToElementMapper<MarkdownLinkNode> = (context, node) => {
   const youtubeURL = parseYouTubeURL(node.url);
 
-  return youtubeURL && node?.title === "📺" ? (
+  return youtubeURL && node?.title === '📺' ? (
     <span className="root" key={context.index}>
       <iframe
         width="560"
         height="315"
         src={`https://www.youtube.com/embed/${youtubeURL.videoId}${
-          youtubeURL.startTime ? "?start=" + youtubeURL.startTime : ""
+          youtubeURL.startTime ? '?start=' + youtubeURL.startTime : ''
         }`}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -381,7 +381,7 @@ export function renderMarkdown<T extends MappingContext>(
   context: T,
   node: MarkdownNode
 ): ReactNode {
-  if ("children" in node) {
+  if ('children' in node) {
     node = eventuallyConvertHTMLNodes(node as MarkdownRootNode);
   }
 
@@ -394,17 +394,14 @@ export function renderMarkdown<T extends MappingContext>(
   return null;
 }
 
-export function collectMarkdownText(
-  node: MarkdownNode,
-  str: string = ""
-): string {
-  if ("children" in node) {
+export function collectMarkdownText(node: MarkdownNode, str = ''): string {
+  if ('children' in node) {
     str += (node.children || [])
       .map((children) => collectMarkdownText(children))
-      .join("");
+      .join('');
   }
 
-  if (node.type === "text") {
+  if (node.type === 'text') {
     str += node.value;
   }
 
@@ -415,18 +412,18 @@ function eventuallyConvertHTMLNodes(rootNode: MarkdownRootNode): MarkdownNode {
   let firstHTMLNode: MarkdownHTMLNode | undefined;
   do {
     firstHTMLNode = rootNode.children.find(
-      (node) => node.type === "html" && node.value.startsWith("<")
+      (node) => node.type === 'html' && node.value.startsWith('<')
     ) as MarkdownHTMLNode;
 
-    if (typeof firstHTMLNode !== "undefined") {
+    if (typeof firstHTMLNode !== 'undefined') {
       const firstHTMLNodeIndex = rootNode.children.indexOf(firstHTMLNode);
       const htmlType = firstHTMLNode.value
-        .replace(/^<(\w+)\s*[^>]*>$/i, "$1")
+        .replace(/^<(\w+)\s*[^>]*>$/i, '$1')
         .toLowerCase();
       let correspondingHTMLNode: MarkdownHTMLNode | undefined;
       let innerSameHTMLDepth = 0;
 
-      if (firstHTMLNode.value.endsWith("/>")) {
+      if (firstHTMLNode.value.endsWith('/>')) {
         correspondingHTMLNode = firstHTMLNode;
       } else {
         for (
@@ -436,7 +433,7 @@ function eventuallyConvertHTMLNodes(rootNode: MarkdownRootNode): MarkdownNode {
         ) {
           const children = rootNode.children[index];
 
-          if (children.type === "html") {
+          if (children.type === 'html') {
             if (children.value === `<${htmlType}>`) {
               innerSameHTMLDepth++;
             } else if (children.value === `</${htmlType}>`) {
@@ -453,7 +450,7 @@ function eventuallyConvertHTMLNodes(rootNode: MarkdownRootNode): MarkdownNode {
       }
 
       if (!correspondingHTMLNode) {
-        throw new YError("E_NO_CORRESPONDING_NODE", htmlType);
+        throw new YError('E_NO_CORRESPONDING_NODE', htmlType);
       }
 
       const correspondingHTMLNodeIndex = rootNode.children.indexOf(
@@ -467,7 +464,7 @@ function eventuallyConvertHTMLNodes(rootNode: MarkdownRootNode): MarkdownNode {
             ? rootNode.children.slice(0, firstHTMLNodeIndex)
             : []),
           {
-            type: "html",
+            type: 'html',
             value: firstHTMLNode.value.slice(1, -1),
             children:
               firstHTMLNodeIndex < correspondingHTMLNodeIndex - 1

@@ -24,7 +24,14 @@ const BlogPost = ({ entry }: Props) => {
       <ContentBlock>
         {renderMarkdown({ index: 0 }, entry.content)}
         <Paragraph>
-          Publié le {new Date(entry.date).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}.
+          Publié le{' '}
+          {new Date(entry.date).toLocaleDateString(undefined, {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+          .
         </Paragraph>
         <div className="clear"></div>
         <Paragraph>

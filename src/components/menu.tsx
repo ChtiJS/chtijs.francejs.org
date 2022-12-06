@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { publicRuntimeConfig } from '../utils/config';
 import {
   CSS_BREAKPOINT_END_S,
   CSS_BREAKPOINT_START_M,
+  CSS_BREAKPOINT_START_XL,
 } from '../utils/constants';
 
 const Menu = () => {
