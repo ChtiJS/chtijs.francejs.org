@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conférences - ChtiJS</title>
+    <description>Découvrez le résumé de nos rencontres précédentes.</description>
+    <link>https://chtijs.francejs.org/conferences</link>
+    <atom:link href="https://chtijs.francejs.org/conferences.rss" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Nov 2022 18:00:00 GMT</lastBuildDate>
+    <pubDate>Tue, 06 Dec 2022 13:29:25 GMT</pubDate>
+    <ttl>1800</ttl>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-24</guid>
+        <title>ChtiJS #24</title>
+        <description>Découvrez le contenu du ChtiJS n°24 avec les présentations de Mathys Visticot, Nicolas Froidure .</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-24</link>
+        <pubDate>Thu, 03 Nov 2022 18:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-23</guid>
+        <title>ChtiJS #23</title>
+        <description>Découvrez le contenu du ChtiJS n°23 avec les présentations de Julien Sadaoui, Hippolyte Durix et le duo Thomas FERRO / Edouard CATTEZ.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-23</link>
+        <pubDate>Tue, 04 Jun 2019 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-22</guid>
+        <title>ChtiJS #22</title>
+        <description>Découvrez le contenu du ChtiJS n°22 avec les présentations de Nicolas Delperdange et François Lecroart.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-22</link>
+        <pubDate>Thu, 28 Mar 2019 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-21</guid>
+        <title>ChtiJS #21</title>
+        <description>Découvrez le contenu du ChtiJS n°21 avec les présentations de Nicolas Froidure et Florent Giraud .</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-21</link>
+        <pubDate>Thu, 24 Jan 2019 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-20</guid>
+        <title>ChtiJS #20</title>
+        <description>Découvrez le contenu du ChtiJS n°20 avec les présentations de Xavier Van de Woestyne, Cyril Lakech et Laurent Thiebault.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-20</link>
+        <pubDate>Wed, 14 Nov 2018 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-19</guid>
+        <title>ChtiJS #19</title>
+        <description>Découvrez le contenu du ChtiJS n°19 avec les présentations de Xavier Coiffard et Florent Giraud.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-19</link>
+        <pubDate>Thu, 04 Oct 2018 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-18</guid>
+        <title>ChtiJS #18</title>
+        <description>Découvrez le contenu du ChtiJS n°18 avec les présentations de Emmanuel Demey, Kévin Dunglas et Nicolas Pennec.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-18</link>
+        <pubDate>Thu, 01 Jun 2017 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-17</guid>
+        <title>ChtiJS #17</title>
+        <description>Découvrez le contenu du ChtiJS n°17 avec les présentations de Nicolas Froidure, David Leuliette et Thomas Balouet.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-17</link>
+        <pubDate>Thu, 09 Feb 2017 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-16</guid>
+        <title>ChtiJS #16</title>
+        <description>Découvrez le contenu du ChtiJS n°16 avec les présentations de Jean-Baptiste Pionnier et Mathieu Acthernoene.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-16</link>
+        <pubDate>Thu, 30 Jun 2016 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-15</guid>
+        <title>ChtiJS #15</title>
+        <description>Découvrez le contenu du ChtiJS n°15 avec les présentations de Nicolas Froidure, Vincent Billey et Mathieu Acthernoene.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-15</link>
+        <pubDate>Thu, 25 Feb 2016 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-14</guid>
+        <title>ChtiJS #14</title>
+        <description>Découvrez le contenu du ChtiJS n°14 avec les présentations de Mathieu Acthernoene et de Adrien G.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-14</link>
+        <pubDate>Thu, 01 Oct 2015 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-13</guid>
+        <title>ChtiJS #13</title>
+        <description>Découvrez le contenu du ChtiJS n°13 avec les présentations de Nicolas Froidure, Tom Panier et Rémi Grumeau.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-13</link>
+        <pubDate>Thu, 02 Jul 2015 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-12</guid>
+        <title>ChtiJS #12</title>
+        <description>Découvrez le contenu du ChtiJS n°12 avec les présentations d&apos;Hubert Sablonnière et de Thomas Magdziarz.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-12</link>
+        <pubDate>Thu, 23 Apr 2015 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-11</guid>
+        <title>ChtiJS #11</title>
+        <description>Découvrez le contenu du ChtiJS n°11 avec les présentations d&apos;Emmanuel Demey, Johnathan Meunier et Xavier Van de Woestyne.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-11</link>
+        <pubDate>Thu, 19 Mar 2015 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-10</guid>
+        <title>ChtiJS #10</title>
+        <description>Découvrez le contenu du ChtiJS n°10 avec les présentations de Nicolas Froidure, François Lecroart et Tom Panier.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-10</link>
+        <pubDate>Thu, 05 Feb 2015 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-9</guid>
+        <title>ChtiJS #9</title>
+        <description>Découvrez le contenu du ChtiJS n°9 avec les présentations de Thomas Deconinck et Johnathan Meunier.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-9</link>
+        <pubDate>Thu, 09 Oct 2014 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-8</guid>
+        <title>ChtiJS #8</title>
+        <description>Découvrez le contenu du ChtiJS n°8 avec les présentations de Rémi Grumeau et François-Emmanuel Cortes.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-8</link>
+        <pubDate>Thu, 24 Jul 2014 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/embuscadejs-1</guid>
+        <title>EmbuscadeJS #1</title>
+        <description>Découvrez le contenu de la première embuscade JavaScript de notre groupe avec la présentation de Thomas Parisot.</description>
+        <link>https://chtijs.francejs.org/conferences/embuscadejs-1</link>
+        <pubDate>Thu, 06 Mar 2014 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-7</guid>
+        <title>ChtiJS #7</title>
+        <description>Découvrez le contenu du ChtiJS n°7 avec les présentations de Cyril Moreau et Rémi Grumeau.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-7</link>
+        <pubDate>Thu, 20 Feb 2014 19:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-6</guid>
+        <title>ChtiJS #6</title>
+        <description>Découvrez le contenu du ChtiJS n°6 avec les présentations de Jean-Baptiste Pionnier sur la stack MEAN, de Nicolas Froidure sur le partage de code entre front et back, et le retour d&apos;0gust1 et Tom Panier sur la création du site du groupe.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-6</link>
+        <pubDate>Thu, 12 Dec 2013 12:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-5</guid>
+        <title>ChtiJS #5</title>
+        <description>Découvrez le contenu du ChtiJS n°5 avec les présentations de Tom Panier, 0gust1 et un échange sur les tests unitaires en JS.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-5</link>
+        <pubDate>Thu, 31 Oct 2013 12:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-4</guid>
+        <title>ChtiJS #4</title>
+        <description>Découvrez le contenu du ChtiJS n°4 avec les présentations de Jean-Baptiste Pionnier sur AngularJS, Rémi Grumeau sur Emy et David Loeuillete sur Pokémon Breakpoint.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-4</link>
+        <pubDate>Thu, 19 Sep 2013 12:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-3</guid>
+        <title>ChtiJS #3</title>
+        <description>Découvrez le contenu du ChtiJS n°3 avec la présentation de Nicolas Froidure sur les promises et une table ronde sur la mise en production d&apos;applications NodeJS.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-3</link>
+        <pubDate>Thu, 25 Jul 2013 12:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-2</guid>
+        <title>ChtiJS #2</title>
+        <description>Découvrez le contenu du ChtiJS n°2 avec la présentation de Paul d&apos;Hubert sur les concepts d&apos;AngularJS.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-2</link>
+        <pubDate>Fri, 26 Apr 2013 12:00:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-1</guid>
+        <title>ChtiJS #1</title>
+        <description>Découvrez le contenu du ChtiJS n°1 avec la présentation de Nicolas Froidure sur le streaming HTTP et les promises.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-1</link>
+        <pubDate>Thu, 04 Apr 2013 12:00:00 GMT</pubDate>
+      </item>
+  </channel>
+</rss>
