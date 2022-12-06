@@ -15,8 +15,8 @@ const Footer = () => {
             <a>Mentions légales</a>
           </Link>
           <a href="https://github.com/ChtiJS/" title="Voir le compte GitHub de ChtiJS"></a>
-          <a href="http://twitter.com/ChtiJS"><img src="/images/twitter.png" alt="ChtiJS sur Twitter" /></a>
-          <a href="https://github.com/ChtiJS/"><img src="/images/github.png" alt="ChtiJS sur GitHub" /></a>
+          <a href="http://twitter.com/ChtiJS"><img src="/images/icons/uE001-twitter.svg" alt="ChtiJS sur Twitter" /></a>
+          <a href="https://github.com/ChtiJS/"><img src="/images/icons/uE001-github.svg" alt="ChtiJS sur GitHub" /></a>
         </p>
 
       </footer>
