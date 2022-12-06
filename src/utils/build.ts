@@ -5,7 +5,7 @@ import { generateAtomFeed, generateRSSFeed } from './feeds';
 import { publicRuntimeConfig } from './config';
 import { ORGANISATION_NAME } from './constants';
 import type { FeedDescription, FeedItem } from './feeds';
-import type { BaseProps } from '../pages/blog/index';
+import type { BaseProps } from '../pages/conferences';
 
 const doWriteFile = promisify(writeFile);
 
@@ -20,7 +20,7 @@ export async function buildAssets(props: BaseProps) {
       const feedItems = entries.map((entry) => ({
         title: entry.title,
         description: entry.description,
-        url: baseURL + '/blog/' + entry.id,
+        url: baseURL + '/conferences/' + entry.id,
         updatedAt: entry.date,
         publishedAt: entry.date,
         author: {
@@ -29,7 +29,7 @@ export async function buildAssets(props: BaseProps) {
       }));
       const commonDescription: Omit<FeedDescription, 'url'> = {
         title: `${title} - ${ORGANISATION_NAME}`,
-        sourceURL: baseURL + '/blog',
+        sourceURL: baseURL + '/conferences',
         description,
         updatedAt: new Date(
           entries.reduce(
@@ -56,12 +56,15 @@ async function buildAtomFeed(
   const content = await generateAtomFeed(
     {
       ...commonDescription,
-      url: baseURL + '/blog.atom',
+      url: baseURL + '/conferences.atom',
     },
     feedItems
   );
 
-  await doWriteFile(joinPath(PROJECT_DIR, 'public', 'blog.atom'), content);
+  await doWriteFile(
+    joinPath(PROJECT_DIR, 'public', 'conferences.atom'),
+    content
+  );
 }
 
 async function buildRSSFeed(
@@ -71,10 +74,13 @@ async function buildRSSFeed(
   const content = await generateRSSFeed(
     {
       ...commonDescription,
-      url: baseURL + '/blog.rss',
+      url: baseURL + '/conferences.rss',
     },
     feedItems
   );
 
-  await doWriteFile(joinPath(PROJECT_DIR, 'public', 'blog.rss'), content);
+  await doWriteFile(
+    joinPath(PROJECT_DIR, 'public', 'conferences.rss'),
+    content
+  );
 }
