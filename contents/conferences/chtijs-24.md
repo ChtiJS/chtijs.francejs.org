@@ -22,6 +22,8 @@ système de recherche universelle dans une app avec ElasticSearch et NodeJS.
 **Talk de [Nicolas Froidure](https://insertafter.com/fr/a_propos.html) :**
 Typage end to end avec TypeScript et OpenAPI.
 
+![Pictured](../../public/images/banner.png '▬')
+
 ## Pour info
 
 Pour la liste des participants, voir
