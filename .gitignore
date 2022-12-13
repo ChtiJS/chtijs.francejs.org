@@ -37,3 +37,10 @@ next-env.d.ts
 
 # eslint
 .eslintcache
+
+# Feeds
+conferences.atom
+conferences.rss
+
+# Search index
+conferencesSearchIndex.json
