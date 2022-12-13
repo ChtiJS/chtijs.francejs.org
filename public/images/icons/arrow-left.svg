@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
 <svg
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    version="1.1"
-   x="0"
-   y="0"
-   width="50"
+   width="80"
    height="150"
-   viewBox="0 0 150 150">
+   viewBox="0 0 80 150"
+   id="arrow-left">
+  <path
+     d="M 5,75 75,25 75,125 z"
+     id="icon"
+     style="fill:#050505;fill-opacity:1;stroke:none" />
 </svg>
