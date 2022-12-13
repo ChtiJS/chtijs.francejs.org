@@ -1,23 +1,22 @@
 import Layout from '../layouts/main';
 import ContentBlock from '../components/contentBlock';
+import TweetList from '../components/tweetList';
 import Heading1 from '../components/h1';
 import Heading2 from '../components/h2';
 import Paragraph from '../components/p';
 import Strong from '../components/strong';
 import Anchor from '../components/a';
+import HorizontalRule from '../components/hr';
 import UnorderedList from '../components/ul';
 import ListItem from '../components/li';
 import { Client } from 'twitter-api-sdk';
 import { parseMarkdown, renderMarkdown } from '../utils/markdown';
 import type { MarkdownRootNode } from '../utils/markdown';
 import type { GetStaticProps } from 'next';
-import HorizontalRule from '../components/hr';
+import type {Tweets} from '../components/tweetList';
 
 type Props = {
-  tweets: {
-    id: string;
-    content: MarkdownRootNode;
-  }[];
+  tweets:Tweets;
 };
 
 const Page = ({ tweets }: Props) => {
@@ -112,13 +111,7 @@ const Page = ({ tweets }: Props) => {
           qui fédère les acteurs de JavaScript afin de promouvoir ce langage et
           de faciliter son développement en France.
         </Paragraph>
-        <Heading2>Nos derniers tweets</Heading2>
-        {tweets.map((tweet) => (
-          <>
-            <HorizontalRule />
-            {renderMarkdown({ index: 0 }, tweet.content)}
-          </>
-        ))}
+        <TweetList tweets={tweets}/>
       </ContentBlock>
     </Layout>
   );
@@ -134,8 +127,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         id,
         content: parseMarkdown(
           text
-            .replace(/#([\w_]+)/, '[#$1](https://twitter.com/hashtag/$1)')
-            .replace(/@([\w_]+)/, '[@$1](https://twitter.com/$1)')
+            .replace(/#([\w_]+)/mg, '[#$1](https://twitter.com/hashtag/$1)')
+            .replace(/@([\w_]+)/mg, '[@$1](https://twitter.com/$1)')
         ) as MarkdownRootNode,
       };
     })
@@ -143,5 +136,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
   return { props: { tweets } as Props };
 };
-
 export default Page;
