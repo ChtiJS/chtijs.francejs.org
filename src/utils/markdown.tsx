@@ -1,4 +1,5 @@
 import { unified } from 'unified';
+import { publicRuntimeConfig } from '../utils/config';
 import remarkParse from 'remark-parse';
 import Anchor from '../components/a';
 import Anchored from '../components/anchored';
@@ -260,16 +261,29 @@ const imageMap: NodeToElementMapper<MarkdownImageNode> = (context, node) => {
     : node.title?.includes('⬅️')
     ? 'left'
     : '';
-  const shape = node.title?.includes('⬛')
+  const shape = node.title?.includes('◼')
     ? 'square'
-    : node.title?.includes('▬')
-    ? 'horizontalRectangle'
     : node.title?.includes('▮')
-    ? 'verticalRectangle'
-    : '';
+    ? 'portrait'
+    : 'landscape';
+  const src = node.url.startsWith('http')
+    ? node.url
+    : node.url.replace(/^(\.\/)?(\.\.\/)*public\//, '');
+  const title = (node.title || '')
+    .replace('⬅️', '')
+    .replace('➡️', '')
+    .replace('◼', '')
+    .replace('▮', '')
+    .replace('▬', '');
   return (
     <span key={context.index}>
-      <Img imageNode={node} shape={shape} position={position} />
+      <Img
+        src={src}
+        alt={node.alt}
+        shape={shape}
+        position={position}
+        title={title}
+      />
     </span>
   );
 };

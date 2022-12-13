@@ -1,35 +1,24 @@
-import { publicRuntimeConfig } from '../utils/config';
 import {
   CSS_BREAKPOINT_START_M,
   CSS_BREAKPOINT_START_L,
 } from '../utils/constants';
-import type { MarkdownImageNode } from '../utils/markdown';
+import ExportedImage, { ExportedImageProps } from 'next-image-export-optimizer';
 
 const Img = ({
-  imageNode,
-  shape,
-  position,
+  shape = 'landscape',
+  position = '',
+  ...props
 }: {
-  imageNode: MarkdownImageNode;
-  shape: 'square' | 'horizontalRectangle' | 'verticalRectangle' | '';
+  shape: 'square' | 'landscape' | 'portrait';
   position: 'left' | 'right' | '';
-}) => {
-  const finalTitle = imageNode.title || '';
-
+} & Omit<ExportedImageProps, 'width' | 'height'>) => {
   return (
     <>
-      <img
-        src={
-          imageNode.url.startsWith('http')
-            ? imageNode.url
-            : publicRuntimeConfig.baseURL +
-              publicRuntimeConfig.buildPrefix +
-              '/' +
-              imageNode.url
-        }
-        alt={imageNode.alt}
-        className={''.concat(shape ? shape : '', position ? position : '')}
-        {...(finalTitle ? { title: finalTitle } : {})}
+      <ExportedImage
+        width={shape === 'portrait' ? 768 : shape === 'square' ? 500 : 1024}
+        height={shape === 'portrait' ? 1024 : shape === 'square' ? 500 : 768}
+        className={`${position ? position + ' ' : ''}${props.className || ''}`}
+        {...props}
       />
       <style jsx>{`
         img {
@@ -37,12 +26,6 @@ const Img = ({
           display: block;
           width: 100%;
           max-width: 100%;
-        }
-        img.square {
-        }
-        img.horizontalRectangle {
-        }
-        img.verticalRectangle {
         }
 
         @media screen and (min-width: ${CSS_BREAKPOINT_START_M}) {
