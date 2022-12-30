@@ -1,14 +1,25 @@
 import Layout from '../layouts/main';
 import ContentBlock from '../components/contentBlock';
+import TweetList from '../components/tweetList';
 import Heading1 from '../components/h1';
 import Heading2 from '../components/h2';
 import Paragraph from '../components/p';
 import Strong from '../components/strong';
 import Anchor from '../components/a';
+import HorizontalRule from '../components/hr';
 import UnorderedList from '../components/ul';
 import ListItem from '../components/li';
+import { Client } from 'twitter-api-sdk';
+import { parseMarkdown, renderMarkdown } from '../utils/markdown';
+import type { MarkdownRootNode } from '../utils/markdown';
+import type { GetStaticProps } from 'next';
+import type {Tweets} from '../components/tweetList';
 
-const Page = () => {
+type Props = {
+  tweets:Tweets;
+};
+
+const Page = ({ tweets }: Props) => {
   return (
     <Layout
       title="La communauté JavaScript du Nord"
@@ -100,9 +111,29 @@ const Page = () => {
           qui fédère les acteurs de JavaScript afin de promouvoir ce langage et
           de faciliter son développement en France.
         </Paragraph>
+        <TweetList tweets={tweets}/>
       </ContentBlock>
     </Layout>
   );
 };
 
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const client = new Client(process.env.TWITTER_API_TOKEN as string);
+  const userId = (await client.users.findUserByUsername('chtijs')).data?.id;
+  const data = (await client.tweets.usersIdTweets(userId as string)).data;
+  const tweets = data
+    ?.map(({ id, text }) => {
+      return {
+        id,
+        content: parseMarkdown(
+          text
+            .replace(/#([\w_]+)/mg, '[#$1](https://twitter.com/hashtag/$1)')
+            .replace(/@([\w_]+)/mg, '[@$1](https://twitter.com/$1)')
+        ) as MarkdownRootNode,
+      };
+    })
+    .slice(0, 3);
+
+  return { props: { tweets } as Props };
+};
 export default Page;
