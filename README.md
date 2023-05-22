@@ -12,7 +12,7 @@ First, clone the repo locally and install the libs :
 ```sh
 git clone https://github.com/ChtiJS/chtijs.francejs.org.git
 cd ./chtijs.francejs.org/
-npm install
+npm ci
 ```
 
 Then, create a
