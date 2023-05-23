@@ -14,7 +14,7 @@ const Gallery = ({ imagesNodes }: { imagesNodes: MarkdownImageNode[] }) => {
             imagesNodes[selectedIndex].url.startsWith('http')
               ? imagesNodes[selectedIndex].url
               : publicRuntimeConfig.baseURL +
-                publicRuntimeConfig.buildPrefix +
+                publicRuntimeConfig.basePath +
                 '/' +
                 imagesNodes[selectedIndex].url
           }
@@ -30,7 +30,7 @@ const Gallery = ({ imagesNodes }: { imagesNodes: MarkdownImageNode[] }) => {
                   imageNode.url.startsWith('http')
                     ? imageNode.url
                     : publicRuntimeConfig.baseURL +
-                      publicRuntimeConfig.buildPrefix +
+                      publicRuntimeConfig.basePath +
                       '/' +
                       imageNode.url
                 }

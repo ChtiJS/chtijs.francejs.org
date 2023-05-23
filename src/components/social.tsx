@@ -52,10 +52,10 @@ export default function Social(): JSX.Element {
           mask-position: center bottom;
           mask-size: calc(var(--vRythm) * 1);
           -webkit-mask-size: calc(var(--vRythm) * 1);
-          mask-image: url('${publicRuntimeConfig.buildPrefix}/images/icons/twitter.svg');
+          mask-image: url('${publicRuntimeConfig.basePath}/images/icons/twitter.svg');
         }
         li.feed a {
-          mask-image: url('${publicRuntimeConfig.buildPrefix}/images/icons/feed.svg');
+          mask-image: url('${publicRuntimeConfig.basePath}/images/icons/feed.svg');
         }
         span {
           display: none;

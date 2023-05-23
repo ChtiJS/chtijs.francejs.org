@@ -157,7 +157,7 @@ const BlogEntries = ({
                 <Paragraph className="entry_illustration">
                   <Anchor href={`/conferences/${entry.id}`}>
                     <img
-                      src={'/' + entry.illustration.url}
+                      src={entry.illustration.url}
                       alt={entry.illustration.alt}
                     />
                   </Anchor>

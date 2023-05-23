@@ -33,7 +33,7 @@ const Header = () => {
           display: block;
           width: calc(var(--vRythm) * 8);
           height: calc(var(--vRythm) * 8);
-          background-image: url('${publicRuntimeConfig.buildPrefix}/images/chtijs.svg');
+          background-image: url('${publicRuntimeConfig.basePath}/images/chtijs.svg');
           background-size: contain;
           background-repeat: no-repeat;
         }

@@ -265,8 +265,8 @@ const imageMap: NodeToElementMapper<MarkdownImageNode> = (context, node) => {
           node.url.startsWith('http')
             ? node.url
             : publicRuntimeConfig.baseURL +
-              publicRuntimeConfig.buildPrefix +
-              '/' +
+              publicRuntimeConfig.basePath +
+              (node.url.startsWith('/') ? '' : '/') +
               node.url
         }
         alt={node.alt}
