@@ -36,6 +36,7 @@ jobs:
         env:
           CI: true
           NODE_ENV: production
+          TWITTER_API_TOKEN: ${{ secrets.TWITTER_API_TOKEN }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
