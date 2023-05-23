@@ -6,9 +6,16 @@
     <description>Découvrez le résumé de nos rencontres précédentes.</description>
     <link>https://chtijs.francejs.org/conferences</link>
     <atom:link href="https://chtijs.francejs.org/conferences.rss" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Thu, 03 Nov 2022 18:00:00 GMT</lastBuildDate>
-    <pubDate>Mon, 22 May 2023 11:57:42 GMT</pubDate>
+    <lastBuildDate>Thu, 27 Apr 2023 18:45:00 GMT</lastBuildDate>
+    <pubDate>Tue, 23 May 2023 09:10:13 GMT</pubDate>
     <ttl>1800</ttl>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-25</guid>
+        <title>ChtiJS #25</title>
+        <description>Découvrez le contenu du ChtiJS n°25 avec la présentation de Thomas VERHOKEN.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-25</link>
+        <pubDate>Thu, 27 Apr 2023 18:45:00 GMT</pubDate>
+      </item>
       <item>
         <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-24</guid>
         <title>ChtiJS #24</title>
