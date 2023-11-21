@@ -1,6 +1,5 @@
 import Layout from '../layouts/main';
 import ContentBlock from '../components/contentBlock';
-import TweetList from '../components/tweetList';
 import Heading1 from '../components/h1';
 import Heading2 from '../components/h2';
 import Paragraph from '../components/p';
@@ -8,17 +7,24 @@ import Strong from '../components/strong';
 import Anchor from '../components/a';
 import UnorderedList from '../components/ul';
 import ListItem from '../components/li';
-import { Client } from 'twitter-api-sdk';
 import { parseMarkdown } from '../utils/markdown';
+import TootList from '../components/tootList';
+import { NodeHtmlMarkdown } from "node-html-markdown";
+import {
+  MASTODON_ACCOUNT_ID,
+  MASTODON_SERVER,
+} from "../utils/constants";
 import type { MarkdownRootNode } from '../utils/markdown';
 import type { GetStaticProps } from 'next';
-import type {Tweets} from '../components/tweetList';
+import type {Toots} from '../components/tootList';
 
 type Props = {
-  tweets:Tweets;
+  toots:Toots;
 };
 
-const Page = ({ tweets }: Props) => {
+const htmlToMarkdown = new NodeHtmlMarkdown({});
+
+const Page = ({ toots }: Props) => {
   return (
     <Layout
       title="La communauté JavaScript du Nord"
@@ -110,29 +116,174 @@ const Page = ({ tweets }: Props) => {
           qui fédère les acteurs de JavaScript afin de promouvoir ce langage et
           de faciliter son développement en France.
         </Paragraph>
-        <TweetList tweets={tweets}/>
+        <TootList toots={toots}/>
       </ContentBlock>
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const client = new Client(process.env.TWITTER_API_TOKEN as string);
-  const userId = (await client.users.findUserByUsername('chtijs')).data?.id;
-  const data = (await client.tweets.usersIdTweets(userId as string)).data;
-  const tweets = data
-    ?.map(({ id, text }) => {
+  const body = (await (
+    await fetch(
+      `https://${MASTODON_SERVER}/api/v1/accounts/${MASTODON_ACCOUNT_ID}/statuses`,
+      {
+        headers: new Headers({
+          Authorization: `Bearer ${process.env.MASTODON_ACCESS_TOKEN}`,
+        }),
+        mode: "cors",
+        cache: "default",
+      }
+    )
+  ).json()) as Status[];
+  const toots = body
+    .filter((toot) => !toot.in_reply_to_id)
+    .filter((toot) => toot.content)
+    .map((toot) => {
+      const text = parseMarkdown(
+        htmlToMarkdown.translate(toot.content)
+      ) as MarkdownRootNode;
+
       return {
-        id,
-        content: parseMarkdown(
-          text
-            .replace(/#([\w_]+)/mg, '[#$1](https://twitter.com/hashtag/$1)')
-            .replace(/@([\w_]+)/mg, '[@$1](https://twitter.com/$1)')
-        ) as MarkdownRootNode,
+        id: toot.id,
+        createdAt: toot.created_at,
+        text,
+        url: toot.url,
       };
     })
     .slice(0, 3);
 
-  return { props: { tweets } as Props };
+  return { props: { toots } as Props };
 };
+
 export default Page;
+
+type Status = NonNullable<{
+  id: NonNullable<string>;
+  uri: NonNullable<string>;
+  created_at: NonNullable<string>;
+  account: Account;
+  content: NonNullable<string>;
+  visibility: "public" | "unlisted" | "private" | "direct";
+  sensitive: NonNullable<boolean>;
+  spoiler_text: NonNullable<string>;
+  media_attachements: NonNullable<Attachment[]>;
+  application: Application;
+  url?: NonNullable<string>;
+  in_reply_to_id?: NonNullable<string>;
+  in_reply_to_account_id?: NonNullable<string>;
+  reblog?: Status;
+  poll?: Poll;
+  card?: Card;
+  language?: NonNullable<string>;
+  text?: NonNullable<string>;
+  mentions: NonNullable<Mention[]>;
+  tags: NonNullable<Tag[]>;
+  emojis: NonNullable<Emoji[]>;
+  reblogs_count: NonNullable<number>;
+  favourites_count: NonNullable<number>;
+  replies_count: NonNullable<number>;
+  favourited?: NonNullable<boolean>;
+  reblogged?: NonNullable<boolean>;
+  muted?: NonNullable<string>;
+  bookmarked?: NonNullable<string>;
+  pinned?: NonNullable<string>;
+}>;
+type Field = NonNullable<{
+  name: NonNullable<string>;
+  value: NonNullable<string>;
+  verified_at?: NonNullable<string>;
+}>;
+type Emoji = NonNullable<{
+  shortcode: NonNullable<string>;
+  url: NonNullable<string>;
+  static_url: NonNullable<string>;
+  visible_in_picker: NonNullable<boolean>;
+  category?: NonNullable<string>;
+}>;
+type Attachment = NonNullable<{
+  id: NonNullable<string>;
+  url: NonNullable<string>;
+  preview_url: NonNullable<string>;
+  remote_url?: NonNullable<string>;
+  description?: NonNullable<string>;
+  blurhash?: NonNullable<string>;
+}>;
+type Poll = NonNullable<{
+  id: NonNullable<string>;
+  expires_at?: NonNullable<string>;
+  expired: NonNullable<boolean>;
+  multiple: NonNullable<boolean>;
+  votes_count: NonNullable<number>;
+  voters_count?: NonNullable<number>;
+  voted?: NonNullable<boolean>;
+  own_votes?: NonNullable<NonNullable<number>[]>;
+  options: NonNullable<
+    NonNullable<{
+      title: NonNullable<string>;
+      votes_count?: NonNullable<number>;
+    }>[]
+  >;
+  emojis: NonNullable<Emoji[]>;
+}>;
+type Card = NonNullable<{
+  url: NonNullable<string>;
+  title: NonNullable<string>;
+  description: NonNullable<string>;
+  type: "link" | "photo" | "video" | "rich";
+  author_name?: NonNullable<string>;
+  author_url?: NonNullable<string>;
+  provider_name?: NonNullable<string>;
+  provider_url?: NonNullable<string>;
+  html?: NonNullable<string>;
+  width?: NonNullable<number>;
+  height?: NonNullable<number>;
+  image?: NonNullable<string>;
+  embed_url?: NonNullable<string>;
+  blurhash?: NonNullable<string>;
+}>;
+type Mention = NonNullable<{
+  id: NonNullable<string>;
+  username: NonNullable<string>;
+  acct: NonNullable<string>;
+  url: NonNullable<string>;
+}>;
+type Tag = NonNullable<{
+  name: NonNullable<string>;
+  url: NonNullable<string>;
+  history?: NonNullable<History[]>;
+}>;
+type History = NonNullable<{
+  day: NonNullable<string>;
+  uses: NonNullable<string>;
+  accounts: NonNullable<string>;
+}>;
+type Account = NonNullable<{
+  id: NonNullable<string>;
+  username: NonNullable<string>;
+  acct: NonNullable<string>;
+  url: NonNullable<string>;
+  moved?: Account;
+  fields?: Field;
+  bot?: NonNullable<boolean>;
+  suspended?: NonNullable<boolean>;
+  mute_expires_at?: NonNullable<string>;
+  created_at: NonNullable<string>;
+  last_status_at?: NonNullable<string>;
+  statuses_count: NonNullable<number>;
+  followers_count: NonNullable<number>;
+  following_count: NonNullable<number>;
+  display_name: NonNullable<string>;
+  note: NonNullable<string>;
+  avatar: NonNullable<string>;
+  avatar_static: NonNullable<string>;
+  header: NonNullable<string>;
+  header_static: NonNullable<string>;
+  locked: NonNullable<boolean>;
+  emojis: NonNullable<Emoji[]>;
+  discoverable: NonNullable<string>;
+}>;
+type Application = NonNullable<{
+  name: NonNullable<string>;
+  website?: NonNullable<string>;
+  vapid_key?: NonNullable<string>;
+}>;

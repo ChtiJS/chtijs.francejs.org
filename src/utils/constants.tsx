@@ -4,6 +4,8 @@ export const ORGANISATION_PRIMARY_COLOR = '#f2c80a';
 export const PUBLISHER = 'ChtiJS';
 export const DOMAIN_NAME = 'chtijs.francejs.org';
 export const TWITTER_ACCOUNT = 'chtijs';
+export const MASTODON_ACCOUNT_ID = "111449166761360064";
+export const MASTODON_SERVER = "piaille.fr";
 
 // Sadly, breakpoints can't currently use CSS var() / calc()
 // so let's use those constants
