@@ -355,7 +355,7 @@ const hyperlinkMap: NodeToElementMapper<MarkdownLinkNode> = (context, node) => {
   );
 };
 
-const elementsMapping: Record<MarkdownNodeType, NodeToElementMapper<any>> = {
+const elementsMapping = {
   root: rootMap,
   paragraph: paragraphMap,
   heading: headingMap,
@@ -371,7 +371,7 @@ const elementsMapping: Record<MarkdownNodeType, NodeToElementMapper<any>> = {
   bold: boldMap,
   strong: boldMap,
   html: htmlMap,
-};
+} as const;
 
 export function parseMarkdown(input: string): MarkdownNode {
   return unified().use(remarkParse).parse(input) as unknown as MarkdownNode;
@@ -386,7 +386,7 @@ export function renderMarkdown<T extends MappingContext>(
   }
 
   if (elementsMapping[node.type]) {
-    return elementsMapping[node.type](context, node);
+    return elementsMapping[node.type as 'root'](context, node as MarkdownRootNode);
   }
 
   console.warn(`Unrecognized Markdown element:`, node);
