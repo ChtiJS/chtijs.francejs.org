@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import useSWR from 'swr';
-import lunr from 'lunr';
+import lunr, { type Index } from 'lunr';
 import { join as pathJoin } from 'path';
 import Layout from '../../layouts/main';
 import ContentBlock from '../../components/contentBlock';
@@ -70,7 +70,7 @@ const BlogEntries = ({
   pagesCount,
 }: Props) => {
   const [search, setSearch] = useState('');
-  const [searchIndex, setSearchIndex] = useState<any>();
+  const [searchIndex, setSearchIndex] = useState<Index>();
   const [searchResults, setSearchResults] = useState<
     { id: string; title: string; description: string }[]
   >([]);
@@ -92,11 +92,7 @@ const BlogEntries = ({
     if (searchIndex && search) {
       setSearchResults(
         (
-          searchIndex.search(search) as {
-            ref: string;
-            score: number;
-            metadata: Record<string, unknown>;
-          }[]
+          searchIndex.search(search)
         ).map((result) => ({
           result,
           id: result.ref,
