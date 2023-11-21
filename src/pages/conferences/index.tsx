@@ -275,7 +275,7 @@ export const entriesToBaseProps = (
       content: parseMarkdown(entry.body) as MarkdownRootNode,
     }))
     .filter((entry) => !entry.draft || process.env.NODE_ENV === 'development')
-    .sort(({ date: dateA }: any, { date: dateB }: any) =>
+    .sort(({ date: dateA }: { date: string }, { date: dateB }: { date: string }) =>
       Date.parse(dateA) > Date.parse(dateB) ? -1 : 1
     );
 
