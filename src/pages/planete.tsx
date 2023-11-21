@@ -7,7 +7,7 @@ import Strong from '../components/strong';
 import Anchor from '../components/a';
 import Article from '../components/article';
 import Cite from '../components/cite';
-import { read } from 'feed-reader';
+import { read } from '@extractus/feed-extractor';
 import type { GetStaticProps } from 'next';
 
 const BLOGS = [
