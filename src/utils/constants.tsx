@@ -1,6 +1,6 @@
 export const ORGANISATION_LEGAL_NAME = 'ChtiJS';
 export const ORGANISATION_NAME = 'ChtiJS';
-export const ORGANISATION_PRIMARY_COLOR = '#00ff00';
+export const ORGANISATION_PRIMARY_COLOR = '#f2c80a';
 export const PUBLISHER = 'ChtiJS';
 export const DOMAIN_NAME = 'chtijs.francejs.org';
 export const TWITTER_ACCOUNT = 'chtijs';
