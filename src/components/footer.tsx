@@ -14,7 +14,11 @@ const Footer = () => {
           <Link href="/mentions-legales" legacyBehavior>
             <a>Mentions légales</a>
           </Link>
+          <a href="https://github.com/ChtiJS/" title="Voir le compte GitHub de ChtiJS"></a>
+          <a href="http://twitter.com/ChtiJS"><img src="/images/icons/uE001-twitter.svg" alt="ChtiJS sur Twitter" /></a>
+          <a href="https://github.com/ChtiJS/"><img src="/images/icons/uE001-github.svg" alt="ChtiJS sur GitHub" /></a>
         </p>
+
       </footer>
       <style jsx>{`
         footer {
@@ -32,6 +36,12 @@ const Footer = () => {
         a:visited,
         a:hover {
           color: var(--light);
+        }
+        img{
+          width:40px;
+          float:right;
+          margin-right: 10px;
+          margin-top: 6px;
         }
         @media screen and (max-width: ${CSS_BREAKPOINT_END_S}) {
           footer {
