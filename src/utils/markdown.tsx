@@ -182,7 +182,7 @@ const headingMap: NodeToElementMapper<MarkdownHeadingNode> = (
   );
 };
 const textMap: NodeToElementMapper<MarkdownTextNode> = (context, node) => (
-  <span key={context.index}>{fixText(node.value)}</span>
+  fixText(node.value)
 );
 const boldMap: NodeToElementMapper<MarkdownEmphasisNode> = (context, node) => (
   <Strong key={context.index}>
