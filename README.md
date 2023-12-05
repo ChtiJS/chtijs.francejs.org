@@ -24,15 +24,6 @@ echo "GH_TOKEN=mysecrettoken\
 " >> .env.local
 ```
 
-Then create a [Twitter App](https://developer.twitter.com/):
-
-```sh
-echo "TWITTER_API_KEY=xxxxxx\
-TWITTER_API_KEY_SECRET=xxxxx\
-TWITTER_API_TOKEN=xxxxx\
-" >> .env.local
-```
-
 Then run the development server:
 
 ```bash
