@@ -7,7 +7,7 @@ import Strong from '../components/strong';
 import Anchor from '../components/a';
 import Article from '../components/article';
 import Cite from '../components/cite';
-import { read } from '@extractus/feed-extractor';
+import { extract } from '@extractus/feed-extractor';
 import type { GetStaticProps } from 'next';
 
 const BLOGS = [
@@ -29,8 +29,8 @@ const BLOGS = [
 ];
 
 type Entry = {
-  entry: Required<Awaited<ReturnType<typeof read>>>['entries'][number];
-  feedData: Omit<Awaited<ReturnType<typeof read>>, 'entries'>;
+  entry: Required<Awaited<ReturnType<typeof extract>>>['entries'][number];
+  feedData: Omit<Awaited<ReturnType<typeof extract>>, 'entries'>;
   blog: typeof BLOGS[number];
 };
 type Props = {
@@ -93,7 +93,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const entries = (
     await Promise.all(
       BLOGS.map(async (blog) => {
-        const { entries, ...data } = await read(blog.feed);
+        const { entries, ...data } = await extract(blog.feed);
 
         return {
           blog,
