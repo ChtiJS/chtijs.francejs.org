@@ -1,17 +1,11 @@
+import styles from './h5.module.scss';
 const Heading5 = ({
   children,
   ...props
 }: { children: React.ReactNode } & React.HTMLAttributes<HTMLElement>) => (
-  <h5 className="root" {...props}>
+  <h5 className={`${styles.root}$`} {...props}>
     {children}
-    <style jsx>{`
-      .root {
-        font-family: var(--headingFont);
-        font-size: var(--mediumFontSize);
-        line-height: var(--mediumLineHeight);
-        margin: 0 0 var(--vRythm) 0;
-      }
-    `}</style>
+    
   </h5>
 );
 
