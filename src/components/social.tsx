@@ -1,11 +1,15 @@
-import { TWITTER_ACCOUNT } from '../utils/constants';
-import { publicRuntimeConfig } from '../utils/config';
+import {
+  TWITTER_ACCOUNT,
+  MASTODON_SERVER,
+  MASTODON_ACCOUNT,
+} from '../utils/constants';
+import styles from './social.module.scss';
 
 export default function Social(): JSX.Element {
   return (
-    <nav>
+    <nav className={styles.root}>
       <ul>
-        <li className="twitter">
+        <li className={`${styles.twitter}${styles.twitter}`}>
           <a
             href={`https://twitter.com/${TWITTER_ACCOUNT}`}
             title="Suivre notre groupe sur Twitter"
@@ -15,52 +19,26 @@ export default function Social(): JSX.Element {
             <span>Twitter</span>
           </a>
         </li>
-        <li className="feed">
+        <li className={styles.mastodon}>
+          <a
+            href={`https://${MASTODON_SERVER}/@${MASTODON_ACCOUNT}`}
+            title="Suivre notre groupe sur Twitter"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>Mastodon</span>
+          </a>
+        </li>
+        <li className={styles.feed}>
           <a
             href="/blog.atom"
             title="S'abonner aux mises à jour"
             target="_blank"
           >
-            <span>Flux de syncdication</span>
+            <span>Flux de syndication</span>
           </a>
         </li>
       </ul>
-      <style jsx>{`
-        nav {
-          padding: 0 0 0 var(--gutter);
-          margin: 0;
-        }
-        ul {
-          display: flex;
-          justify-content: center;
-          list-style-type: none;
-          padding: 0;
-          margin: 0;
-        }
-        li {
-          display: block;
-          list-style-type: none;
-          padding: 0;
-          margin: 0;
-        }
-        a {
-          display: block;
-          width: var(--vRythm);
-          height: var(--vRythm);
-          background: var(--light);
-          mask-repeat: no-repeat;
-          mask-position: center bottom;
-          mask-size: calc(var(--vRythm) * 1);
-          -webkit-mask-size: calc(var(--vRythm) * 1);
-          mask-image: url('${publicRuntimeConfig.basePath}/images/icons/twitter.svg');
-        }
-        li.feed a {
-          mask-image: url('${publicRuntimeConfig.basePath}/images/icons/feed.svg');
-        }
-        span {
-          display: none;
-        }
-      `}</style>
     </nav>
   );
 }

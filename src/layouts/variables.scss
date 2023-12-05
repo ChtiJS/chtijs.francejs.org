@@ -1,0 +1,8 @@
+// Sadly, breakpoints can't currently use CSS var() / calc()
+// so let's use those constants
+$CSS_BREAKPOINT_END_S: 749px;
+$CSS_BREAKPOINT_START_M: 750px;
+$CSS_BREAKPOINT_END_M: 1049px;
+$CSS_BREAKPOINT_START_L: 1050px;
+$CSS_BREAKPOINT_END_L: 1399px;
+$CSS_BREAKPOINT_START_XL: 1400px;

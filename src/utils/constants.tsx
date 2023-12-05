@@ -6,6 +6,7 @@ export const DOMAIN_NAME = 'chtijs.francejs.org';
 export const TWITTER_ACCOUNT = 'chtijs';
 export const MASTODON_ACCOUNT_ID = "111449166761360064";
 export const MASTODON_SERVER = "piaille.fr";
+export const MASTODON_ACCOUNT = "chtijs";
 
 // Sadly, breakpoints can't currently use CSS var() / calc()
 // so let's use those constants

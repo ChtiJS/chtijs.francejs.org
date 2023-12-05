@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Social from './social';
 import {
   CSS_BREAKPOINT_END_S,
   CSS_BREAKPOINT_START_M,
@@ -14,6 +15,7 @@ const Footer = () => {
           <Link href="/mentions-legales" legacyBehavior>
             <a>Mentions légales</a>
           </Link>
+          <Social></Social>
         </p>
       </footer>
       <style jsx>{`
