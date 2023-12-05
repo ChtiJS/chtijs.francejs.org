@@ -1,0 +1,37 @@
+.root,
+.root:visited {
+  color: #c1a008;
+  transition: color 0.1s linear;
+  text-decoration: none;
+}
+.root:hover,
+.root:focus {
+  color: var(--primary);
+}
+.withIcon {
+  display: inline-flex;
+  gap: calc(var(--gutter) / 4);
+  span.icon {
+    display: flex;
+    height: var(--vRythm);
+    width: calc(var(--vRythm) * 0.55);
+    background: var(--primary);
+    mask-repeat: no-repeat;
+    mask-size: calc(var(--vRythm) * 0.55);
+    -webkit-mask-size: calc(var(--vRythm) * 0.55);
+    mask-position: left bottom;
+  }
+}
+
+.first {
+  flex-direction: row;
+  span.icon {
+    mask-image: url('/images/icons/arrow-left.svg');
+  }
+}
+.last {
+  flex-direction: row-reverse;
+  span.icon {
+    mask-image: url('/images/icons/arrow-right.svg');
+  }
+}
