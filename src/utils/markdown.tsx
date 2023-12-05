@@ -25,6 +25,7 @@ import { publicRuntimeConfig } from './config';
 import { toASCIIString } from './ascii';
 import { CSS_BREAKPOINT_START_L, CSS_BREAKPOINT_START_M } from './constants';
 import { parseYouTubeURL } from './youtube';
+import { Fragment } from 'react';
 import type { ReactNode } from 'react';
 
 export type MarkdownRootNode = {
@@ -76,6 +77,9 @@ export type MarkdownBlockquoteNode = {
 export type MarkdownHRNode = {
   type: 'thematicBreak';
 };
+export type MarkdownBreakNode = {
+  type: 'break';
+};
 export type MarkdownImageNode = {
   type: 'image';
   url: string;
@@ -98,6 +102,7 @@ export type MarkdownNode =
   | MarkdownHeadingNode
   | MarkdownTextNode
   | MarkdownBoldNode
+  | MarkdownBreakNode
   | MarkdownEmphasisNode
   | MarkdownCodeNode
   | MarkdownParagraphNode
@@ -182,7 +187,16 @@ const headingMap: NodeToElementMapper<MarkdownHeadingNode> = (
   );
 };
 const textMap: NodeToElementMapper<MarkdownTextNode> = (context, node) => (
+  node.value.includes('\n') ? 
   fixText(node.value)
+      .split(/\r?\n/gm)
+      .map((text, i) => (
+        <Fragment key={1}>
+          {i > 0 ? <br /> : null}
+          {text}
+        </Fragment>
+      ))
+  : fixText(node.value)
 );
 const boldMap: NodeToElementMapper<MarkdownEmphasisNode> = (context, node) => (
   <Strong key={context.index}>
@@ -355,6 +369,10 @@ const hyperlinkMap: NodeToElementMapper<MarkdownLinkNode> = (context, node) => {
   );
 };
 
+const breakMap: NodeToElementMapper<MarkdownBreakNode> = (context) => (
+  <br key={context.index} />
+);
+
 const elementsMapping = {
   root: rootMap,
   paragraph: paragraphMap,
@@ -371,6 +389,7 @@ const elementsMapping = {
   bold: boldMap,
   strong: boldMap,
   html: htmlMap,
+  break: breakMap,
 } as const;
 
 export function parseMarkdown(input: string): MarkdownNode {
