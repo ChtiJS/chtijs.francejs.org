@@ -1,0 +1,34 @@
+@import "../layouts/variables.scss"; 
+
+.footer {
+    display: block;
+    width: 100%;
+    background-color: var(--dark);
+  }
+  .p {
+    color: var(--light);
+    margin: 0 auto;
+    text-align: center;
+    line-height: var(--vRythm);
+  }
+  .a,
+  .a:visited,
+  .a:hover {
+    color: var(--light);
+  }
+  @media screen and (max-width: $CSS_BREAKPOINT_END_S) {
+    .footer {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 4;
+      grid-row-end: 5;
+    }
+  }
+  @media screen and (min-width: $CSS_BREAKPOINT_START_M) {
+    .footer {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 4;
+      grid-row-end: 5;
+    }
+  }

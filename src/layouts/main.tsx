@@ -25,7 +25,7 @@ const Layout = ({ children, title, description = '', image = '' }: Props) => {
       />
       <Menu />
       <Header />
-      <div className={styles.content}>{children}</div>
+      <div className={styles.contents}>{children}</div>
       <Footer />
     </div>
   );
