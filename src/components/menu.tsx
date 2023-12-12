@@ -1,16 +1,13 @@
 import Link from 'next/link';
+import styles from './menu.module.scss';
 import { useRouter } from 'next/router';
-import {
-  CSS_BREAKPOINT_END_S,
-  CSS_BREAKPOINT_START_M,
-} from '../utils/constants';
 
 const Menu = () => {
   const router = useRouter();
 
   return (
     <>
-      <nav>
+      <nav className={styles.nav}>
         <Link legacyBehavior href="/">
           <a
             className={`home ${router.asPath === '/' ? 'selected' : ''}`}
@@ -60,56 +57,6 @@ const Menu = () => {
           </a>
         </Link>
       </nav>
-      <style jsx>{`
-        nav {
-          background-color: var(--light);
-          display: flex;
-          flex-direction: column;
-        }
-        nav a,
-        nav a:visited {
-          display: block;
-          color: var(--dark);
-          font-size: var(--bigFontSize);
-          line-height: var(--bigLineHeight);
-          text-decoration: none;
-          transition: background-color var(--baseAnimationRate),
-            color var(--baseAnimationRate);
-        }
-        nav a.selected {
-          text-decoration: underline;
-          color: var(--light);
-          background-color: var(--grey);
-        }
-        nav a:hover,
-        nav a.selected:hover {
-          color: var(--light);
-          background-color: var(--primary);
-          text-decoration: underline;
-        }
-        nav span {
-          display: block;
-          padding: calc(var(--vRythm) / 2) var(--gutter);
-        }
-
-        @media screen and (max-width: ${CSS_BREAKPOINT_END_S}) {
-          nav {
-            grid-column-start: 1;
-            grid-column-end: 3;
-            grid-row-start: 2;
-            grid-row-end: 3;
-          }
-        }
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_M}) {
-          nav {
-            grid-column-start: 1;
-            grid-column-end: 2;
-            grid-row-start: 2;
-            grid-row-end: 4;
-            border-right: 1px solid var(--grey);
-          }
-        }
-      `}</style>
     </>
   );
 };
