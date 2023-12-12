@@ -9,7 +9,7 @@ export default function Social(): JSX.Element {
   return (
     <nav className={styles.root}>
       <ul>
-        <li className={`${styles.twitter}${styles.twitter}`}>
+        <li className={`${styles.twitter}`}>
           <a
             href={`https://twitter.com/${TWITTER_ACCOUNT}`}
             title="Suivre notre groupe sur Twitter"
