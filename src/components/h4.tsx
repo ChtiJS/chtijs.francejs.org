@@ -3,7 +3,7 @@ const Heading4 = ({
   children,
   ...props
 }: { children: React.ReactNode } & React.HTMLAttributes<HTMLElement>) => (
-  <h4 className={`${styles.root}$`} {...props}>
+  <h4 className={styles.root} {...props}>
     {children}
     
   </h4>
