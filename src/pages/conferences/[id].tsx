@@ -5,13 +5,12 @@ import Layout from '../../layouts/main';
 import ContentBlock from '../../components/contentBlock';
 import Paragraph from '../../components/p';
 import Anchor from '../../components/a';
+import styles from './id.module.scss';
 import { fixText } from '../../utils/text';
 import { renderMarkdown } from '../../utils/markdown';
 import type { Metadata } from './index';
 import type { Entry } from '.';
 import type { GetStaticProps, GetStaticPaths } from 'next';
-
-import styles from '[id].module.scss';
 
 type Params = { id: string };
 type Props = { entry: Entry };
@@ -35,25 +34,11 @@ const BlogPost = ({ entry }: Props) => {
           })}
           .
         </Paragraph>
-        <div className="clear"></div>
+        <div className={styles.clear}></div>
         <Paragraph>
           <Anchor href="/conferences">Retour</Anchor>
         </Paragraph>
       </ContentBlock>
-      <style jsx>{`
-        :global(p.illustration) {
-          float: left;
-          width: var(--block);
-          margin: 0 var(--gutter) 0 0;
-        }
-        img {
-          width: 100%;
-          margin: 0;
-        }
-        .clear {
-          clear: both;
-        }
-      `}</style>
     </Layout>
   );
 };

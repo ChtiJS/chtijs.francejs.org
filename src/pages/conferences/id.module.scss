@@ -1,0 +1,12 @@
+.illustration {
+  float: left;
+  width: var(--block);
+  margin: 0 var(--gutter) 0 0;
+}
+.image {
+  width: 100%;
+  margin: 0;
+}
+.clear {
+  clear: both;
+}

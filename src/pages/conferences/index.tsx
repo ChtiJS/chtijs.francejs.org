@@ -8,9 +8,9 @@ import Heading1 from '../../components/h1';
 import Heading2 from '../../components/h2';
 import Paragraph from '../../components/p';
 import Anchor from '../../components/a';
+import styles from './index.module.scss';
 import { readEntries } from '../../utils/frontmatter';
 import { toASCIIString } from '../../utils/ascii';
-import { CSS_BREAKPOINT_START_L } from '../../utils/constants';
 import { readParams } from '../../utils/params';
 import { parseMarkdown } from '../../utils/markdown';
 import { buildSearchIndex } from '../../utils/search';
@@ -18,8 +18,6 @@ import type { FrontMatterResult } from 'front-matter';
 import type { MarkdownRootNode } from '../../utils/markdown';
 import type { GetStaticProps } from 'next';
 import type { BuildQueryParamsType } from '../../utils/params';
-
-import styles from 'index.module.scss';
 
 export type Metadata = {
   leafname?: string;
@@ -93,9 +91,7 @@ const BlogEntries = ({
   useEffect(() => {
     if (searchIndex && search) {
       setSearchResults(
-        (
-          searchIndex.search(search)
-        ).map((result) => ({
+        searchIndex.search(search).map((result) => ({
           result,
           id: result.ref,
           ...data.metadata[result.ref],
@@ -115,12 +111,13 @@ const BlogEntries = ({
         </Paragraph>
         {page === 1 ? (
           <Paragraph>
-            <label>
+            <label className={styles.labels}>
               <span>Recherche :</span>
               <input
                 type="search"
                 placeholder="Rechercher une conference"
                 value={search}
+                className={styles.inputs}
                 onChange={(e) => {
                   setSearch(e.target.value);
                 }}
@@ -150,18 +147,19 @@ const BlogEntries = ({
               'id' | 'title' | 'description' | 'illustration'
             >[]
           ).map((entry) => (
-            <div className="entry_item" key={entry.id}>
+            <div className={styles.entry_item} key={entry.id}>
               {entry.illustration ? (
-                <Paragraph className="entry_illustration">
+                <Paragraph className={styles.entry_illustration}>
                   <Anchor href={`/conferences/${entry.id}`}>
                     <img
                       src={entry.illustration.url}
                       alt={entry.illustration.alt}
+                      className={styles.image}
                     />
                   </Anchor>
                 </Paragraph>
               ) : null}
-              <Heading2 className="entry_title">
+              <Heading2 className={styles.entry_title}>
                 <Anchor
                   href={`/conferences/${entry.id}`}
                   className="no_underline"
@@ -169,16 +167,16 @@ const BlogEntries = ({
                   {entry.title}
                 </Anchor>
               </Heading2>
-              <Paragraph className="entry_description">
+              <Paragraph className={styles.entry_description}>
                 {entry.description}
               </Paragraph>
               <Anchor href={`/conferences/${entry.id}`}>Lire la suite</Anchor>
-              <div className="clear"></div>
+              <div className={styles.clear}></div>
             </div>
           ))}
         </div>
         {!search ? (
-          <nav className="pagination">
+          <nav className={styles.pagination}>
             {page > 1 ? (
               <Anchor
                 icon="arrow-left"
@@ -203,64 +201,6 @@ const BlogEntries = ({
           </nav>
         ) : null}
       </ContentBlock>
-      <style jsx>{`
-        label {
-          display: flex;
-          flex-direction: row;
-          align-items: flex-start;
-          gap: var(--gutter);
-          font-weight: bold;
-        }
-        input {
-          height: var(--vRythm);
-          width: var(--block);
-          padding: 0 calc(var(--gutter) / 2);
-        }
-        :global(.entry_title) {
-          margin-top: 0 !important;
-        }
-        :global(.entry_title a) {
-          text-decoration: none !important;
-        }
-        :global(.entry_illustration) {
-          margin: 0 !important;
-        }
-        :global(.entry_description) {
-          margin: 0 !important;
-        }
-        .entry_item {
-          padding: var(--vRythm) 0;
-          border-bottom: var(--border) solid var(--dark);
-        }
-        .entry_item:first-child {
-          padding: 0 0 var(--vRythm) 0;
-        }
-        .entry_item:last-child {
-          border: none;
-          padding: var(--vRythm) 0 0 0;
-        }
-        .pagination {
-          display: flex;
-          gap: var(--gutter);
-          align-items: center;
-          justify-content: center;
-          padding: var(--vRythm) 0 0 0;
-        }
-        img {
-          width: 100%;
-        }
-
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_L}) {
-          img {
-            float: left;
-            width: var(--block);
-            margin-right: var(--gutter);
-          }
-          .clear {
-            clear: left;
-          }
-        }
-      `}</style>
     </Layout>
   );
 };
@@ -277,8 +217,9 @@ export const entriesToBaseProps = (
       content: parseMarkdown(entry.body) as MarkdownRootNode,
     }))
     .filter((entry) => !entry.draft || process.env.NODE_ENV === 'development')
-    .sort(({ date: dateA }: { date: string }, { date: dateB }: { date: string }) =>
-      Date.parse(dateA) > Date.parse(dateB) ? -1 : 1
+    .sort(
+      ({ date: dateA }: { date: string }, { date: dateB }: { date: string }) =>
+        Date.parse(dateA) > Date.parse(dateB) ? -1 : 1
     );
 
   return {

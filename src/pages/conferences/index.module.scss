@@ -1,37 +1,58 @@
-.layout {
-    padding: 20px;
-    background-color: #f0f0f0;
+@import '../../layouts/variables.scss';
+
+.labels {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--gutter);
+  font-weight: bold;
+}
+.inputs {
+  height: var(--vRythm);
+  width: var(--block);
+  padding: 0 calc(var(--gutter) / 2);
+}
+.entry_title {
+  margin-top: 0 !important;
+}
+.entry_title a {
+  text-decoration: none !important;
+}
+.entry_illustration {
+  margin: 0 !important;
+}
+.entry_description {
+  margin: 0 !important;
+}
+.entry_item {
+  padding: var(--vRythm) 0;
+  border-bottom: var(--border) solid var(--dark);
+}
+.entry_item:first-child {
+  padding: 0 0 var(--vRythm) 0;
+}
+.entry_item:last-child {
+  border: none;
+  padding: var(--vRythm) 0 0 0;
+}
+.pagination {
+  display: flex;
+  gap: var(--gutter);
+  align-items: center;
+  justify-content: center;
+  padding: var(--vRythm) 0 0 0;
+}
+.image {
+  width: 100%;
+}
+
+@media screen and (min-width: $CSS_BREAKPOINT_START_L) {
+  .image {
+    float: left;
+    width: var(--block);
+    margin-right: var(--gutter);
   }
-  
-  .content-block {
-    margin-bottom: 20px;
+  .clear {
+    clear: left;
   }
-  
-  .title {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-  }
-  
-  .entry-item {
-    padding: 20px;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-  }
-  
-  .entry-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .entry-description {
-    color: #666;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
+}
