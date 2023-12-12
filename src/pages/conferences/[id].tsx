@@ -11,6 +11,8 @@ import type { Metadata } from './index';
 import type { Entry } from '.';
 import type { GetStaticProps, GetStaticPaths } from 'next';
 
+import './blog-post.scss';
+
 type Params = { id: string };
 type Props = { entry: Entry };
 

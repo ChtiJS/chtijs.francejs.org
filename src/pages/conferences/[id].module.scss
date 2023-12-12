@@ -1,0 +1,27 @@
+
+.layout {
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .content-block {
+    margin-bottom: 20px;
+  }
+
+  .blog-post {
+    font-family: 'Arial', sans-serif;
+    p {
+      color: #333;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  

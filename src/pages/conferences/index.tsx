@@ -19,6 +19,8 @@ import type { MarkdownRootNode } from '../../utils/markdown';
 import type { GetStaticProps } from 'next';
 import type { BuildQueryParamsType } from '../../utils/params';
 
+import './blog-entries.scss';
+
 export type Metadata = {
   leafname?: string;
   title: string;
