@@ -1,17 +1,15 @@
+import React from 'react';
+import styles from './cite.module.scss';
+
+
 const Cite = ({
   children,
   ...props
 }: {
   children: React.ReactNode;
 } & React.HTMLAttributes<HTMLElement>) => (
-  <cite className="root" {...props}>
+  <cite className={styles.root} {...props}>
     {children}
-    <style jsx>{`
-      .root {
-        color: var(--primary);
-        text-decoration: underline;
-      }
-    `}</style>
   </cite>
 );
 

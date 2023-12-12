@@ -1,17 +1,14 @@
+import React from 'react';
+import styles from './code.module.scss';
+
 const Code = ({
   children,
   ...props
 }: {
   children: React.ReactNode;
 } & React.HTMLAttributes<HTMLElement>) => (
-  <code className="root" {...props}>
+  <code className={styles.root} {...props}>
     {children}
-    <style jsx>{`
-      .root {
-        text-decoration: none;
-        font-family: monospace;
-      }
-    `}</style>
   </code>
 );
 
