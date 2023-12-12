@@ -1,19 +1,12 @@
+import styles from './article.module.scss';
 const Article = ({
   children,
   ...props
 }: {
   children: React.ReactNode;
 } & React.HTMLAttributes<HTMLElement>) => (
-  <article className="root" {...props}>
+  <article className={styles.root} {...props}>
     {children}
-    <style jsx>{`
-      .root {
-        padding: var(--vRythm) 0;
-      }
-      .root:not(:last-child) {
-        border-bottom: var(--border) solid var(--dark);
-      }
-    `}</style>
   </article>
 );
 
