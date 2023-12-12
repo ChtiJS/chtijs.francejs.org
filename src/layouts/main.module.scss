@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: var(--block) 1fr;
   grid-template-rows:
-    calc(var(--vRythm) * 6) auto
+    calc(var(--vRythm) * 8) auto
     auto minmax(calc(var(--vRythm) * 2), auto);
   background: var(--tertiary);
 }
