@@ -1,19 +1,12 @@
+import styles from './li.module.scss';
 const ListItem = ({
   children,
   ...props
 }: {
   children: React.ReactNode;
 } & React.LiHTMLAttributes<HTMLLIElement>) => (
-  <li className="root" {...props}>
+  <li className={styles.root} {...props}>
     {children}
-    <style jsx>{`
-      .root > :global(:first-child:last-child) {
-        margin: 0;
-      }
-      li {
-        margin-left: 50px;
-      }
-    `}</style>
   </li>
 );
 

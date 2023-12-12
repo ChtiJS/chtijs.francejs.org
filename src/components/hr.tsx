@@ -1,14 +1,9 @@
 import { HTMLAttributes } from 'react';
+import styles from './hr.module.scss';
 
 const HorizontalRule = (props: HTMLAttributes<HTMLHRElement>) => (
   <>
-    <hr className="root" {...props} />
-    <style jsx>{`
-      .root {
-        border-bottom: var(--border) solid var(--green2);
-        margin: 0 0 var(--vRythm) 0;
-      }
-    `}</style>
+    <hr className={styles.root} {...props} />
   </>
 );
 
