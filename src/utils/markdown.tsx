@@ -19,11 +19,11 @@ import Emphasis from '../components/em';
 import Code from '../components/code';
 import Cite from '../components/cite';
 import Gallery from '../components/gallery';
-import { fixText } from './text';
 import YError from 'yerror';
+import styles from './markdown.module.scss';
+import { fixText } from './text';
 import { publicRuntimeConfig } from './config';
 import { toASCIIString } from './ascii';
-import { CSS_BREAKPOINT_START_L, CSS_BREAKPOINT_START_M } from './constants';
 import { parseYouTubeURL } from './youtube';
 import { Fragment } from 'react';
 import type { ReactNode } from 'react';
@@ -161,14 +161,14 @@ const headingMap: NodeToElementMapper<MarkdownHeadingNode> = (
     node.depth === 1
       ? Heading1
       : node.depth === 2
-      ? Heading2
-      : node.depth === 3
-      ? Heading3
-      : node.depth === 4
-      ? Heading4
-      : node.depth === 5
-      ? Heading5
-      : Heading6;
+        ? Heading2
+        : node.depth === 3
+          ? Heading3
+          : node.depth === 4
+            ? Heading4
+            : node.depth === 5
+              ? Heading5
+              : Heading6;
 
   return node.depth === 1 ? (
     <HeadingComponent key={context.index}>
@@ -186,18 +186,17 @@ const headingMap: NodeToElementMapper<MarkdownHeadingNode> = (
     </HeadingComponent>
   );
 };
-const textMap: NodeToElementMapper<MarkdownTextNode> = (context, node) => (
-  node.value.includes('\n') ? 
-  fixText(node.value)
-      .split(/\r?\n/gm)
-      .map((text, i) => (
-        <Fragment key={1}>
-          {i > 0 ? <br /> : null}
-          {text}
-        </Fragment>
-      ))
-  : fixText(node.value)
-);
+const textMap: NodeToElementMapper<MarkdownTextNode> = (context, node) =>
+  node.value.includes('\n')
+    ? fixText(node.value)
+        .split(/\r?\n/gm)
+        .map((text, i) => (
+          <Fragment key={1}>
+            {i > 0 ? <br /> : null}
+            {text}
+          </Fragment>
+        ))
+    : fixText(node.value);
 const boldMap: NodeToElementMapper<MarkdownEmphasisNode> = (context, node) => (
   <Strong key={context.index}>
     {node.children.map((node, index) =>
@@ -288,41 +287,11 @@ const imageMap: NodeToElementMapper<MarkdownImageNode> = (context, node) => {
           node?.title?.startsWith('🖼➡️')
             ? 'right'
             : node?.title?.startsWith('🖼⬅️')
-            ? 'left'
-            : ''
+              ? 'left'
+              : '' + ' ' + styles.image
         }
         {...(finalTitle ? { title: finalTitle } : {})}
       />
-      <style jsx>{`
-        img {
-          clear: both;
-          display: block;
-          width: 100%;
-          max-width: 100%;
-        }
-
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_M}) {
-          img.left,
-          img.right {
-            width: var(--block);
-          }
-          img.left {
-            float: left;
-            margin-right: var(--gutter);
-          }
-          img.right {
-            float: right;
-            margin-left: var(--gutter);
-          }
-        }
-
-        @media screen and (min-width: ${CSS_BREAKPOINT_START_L}) {
-          img.left,
-          img.right {
-            width: calc(calc(var(--column) * 4) + calc(var(--gutter) * 3));
-          }
-        }
-      `}</style>
     </span>
   );
 };
@@ -331,7 +300,7 @@ const hyperlinkMap: NodeToElementMapper<MarkdownLinkNode> = (context, node) => {
   const youtubeURL = parseYouTubeURL(node.url);
 
   return youtubeURL && node?.title === '📺' ? (
-    <span className="root" key={context.index}>
+    <span className={styles.root} key={context.index}>
       <iframe
         width="560"
         height="315"
@@ -342,23 +311,6 @@ const hyperlinkMap: NodeToElementMapper<MarkdownLinkNode> = (context, node) => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
-      <style jsx>{`
-        .root {
-          display: block;
-          overflow: hidden;
-          padding-bottom: 56.25%;
-          position: relative;
-          height: 0;
-        }
-
-        .root iframe {
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 100%;
-          position: absolute;
-        }
-      `}</style>
     </span>
   ) : (
     <Anchor href={node.url} title={node.title} key={context.index}>
@@ -405,7 +357,10 @@ export function renderMarkdown<T extends MappingContext>(
   }
 
   if (elementsMapping[node.type]) {
-    return elementsMapping[node.type as 'root'](context, node as MarkdownRootNode);
+    return elementsMapping[node.type as 'root'](
+      context,
+      node as MarkdownRootNode
+    );
   }
 
   console.warn(`Unrecognized Markdown element:`, node);

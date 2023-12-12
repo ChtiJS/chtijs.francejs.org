@@ -1,0 +1,46 @@
+@import '../layouts/variables.scss';
+
+.root {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.root iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.image {
+  clear: both;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media screen and (min-width: $CSS_BREAKPOINT_START_M) {
+  .image.left,
+  .image.right {
+    width: var(--block);
+  }
+  .image.left {
+    float: left;
+    margin-right: var(--gutter);
+  }
+  .image.right {
+    float: right;
+    margin-left: var(--gutter);
+  }
+}
+
+@media screen and (min-width: $CSS_BREAKPOINT_START_L) {
+  .image.left,
+  .image.right {
+    width: calc(calc(var(--column) * 4) + calc(var(--gutter) * 3));
+  }
+}
