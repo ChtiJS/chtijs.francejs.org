@@ -1,10 +1,9 @@
 .root {
-    color: var(--primary);
-    font-family: var(--headingFont);
-    font-size: var(--giantFontSize);
-    line-height: var(--giantLineHeight);
-    font-weight: bold;
-    margin: 0 0 calc(var(--vRythm) * 2) 0;
-    text-align: center;
-
+  color: var(--primary);
+  font-family: var(--headingFont);
+  font-size: var(--giantFontSize);
+  line-height: var(--giantLineHeight);
+  font-weight: bold;
+  margin: 0 0 calc(var(--vRythm) * 2) 0;
+  text-align: center;
 }
