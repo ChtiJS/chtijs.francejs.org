@@ -3,6 +3,7 @@
     "editorconfig.editorconfig",
     "dbaeumer.vscode-eslint",
     "ban.spellright",
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    "clinyong.vscode-css-modules"
   ]
 }
