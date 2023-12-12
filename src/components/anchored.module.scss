@@ -1,28 +1,28 @@
 .small {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 a.icon {
-display: none;
-width: var(--column);
-height: var(--vRythm);
-background: var(--tertiary);
-mask-repeat: no-repeat;
-mask-position: left center;
--webkit-mask-size: calc(var(--vRythm) * 1);
-mask-size: calc(var(--vRythm) * 1);
+  display: none;
+  width: var(--column);
+  height: var(--vRythm);
+  background: var(--tertiary);
+  mask-repeat: no-repeat;
+  mask-position: left center;
+  -webkit-mask-size: calc(var(--vRythm) * 1);
+  mask-size: calc(var(--vRythm) * 1);
 }
 
 .root:hover a.icon {
-display: inline-block;
-mask-image: url('/images/icons/link.svg');
+  display: inline-block;
+  mask-image: url('/images/icons/link.svg');
 }
 
 a.icon:target {
-display: inline-block;
-mask-image: url('/images/icons/target.svg');
+  display: inline-block;
+  mask-image: url('/images/icons/target.svg');
 }
 
 a.icon span {
-display: none;
+  display: none;
 }

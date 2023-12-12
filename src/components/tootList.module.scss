@@ -1,31 +1,31 @@
 .root {
-    margin: 0 0 var(--vRythm) 0;
+  margin: 0 0 var(--vRythm) 0;
 }
 
 .toot :global(a) {
-color: #205370;
+  color: #205370;
 }
 
 .toot :global(p) {
-margin-left: 2%;
+  margin-left: 2%;
 }
 
 .toot :global(a):hover {
-color: #14171a;
+  color: #14171a;
 }
 
 .tootList {
-margin-top: var(--vRythm);
-display: flex;
-flex-direction: row;
-gap: var(--gutter);
+  margin-top: var(--vRythm);
+  display: flex;
+  flex-direction: row;
+  gap: var(--gutter);
 }
 
 .toot {
-border-style: solid;
-border-color: var(--grey);
-border-width: var(--borderSize);
-border-radius: var(--borderRadius);
-width: var(--block);
-padding: calc(var(--vRythm) / 2) calc(var(--gutter) / 2);
+  border-style: solid;
+  border-color: var(--grey);
+  border-width: var(--borderSize);
+  border-radius: var(--borderRadius);
+  width: var(--block);
+  padding: calc(var(--vRythm) / 2) calc(var(--gutter) / 2);
 }

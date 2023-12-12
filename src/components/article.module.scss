@@ -1,6 +1,6 @@
-  .root {
-    padding: var(--vRythm) 0;
-  }
-  .root:not(:last-child) {
-    border-bottom: var(--border) solid var(--dark);
-  } 
+.root {
+  padding: var(--vRythm) 0;
+}
+.root:not(:last-child) {
+  border-bottom: var(--border) solid var(--dark);
+}
