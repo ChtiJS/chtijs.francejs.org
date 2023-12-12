@@ -1,0 +1,45 @@
+@import '../layouts/variables.scss';
+
+header.root {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light);
+}
+
+.root h1 {
+  display: block;
+  margin: 0 auto;
+  width: calc(var(--vRythm) * 8);
+  height: calc(var(--vRythm) * 8);
+}
+
+.root a {
+  display: block;
+  width: calc(var(--vRythm) * 8);
+  height: calc(var(--vRythm) * 8);
+  background-image: url('/images/chtijs.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.root span {
+  display: none;
+}
+
+@media screen and (max-width: $CSS_BREAKPOINT_END_S) {
+  header.root {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+}
+@media screen and (min-width: $CSS_BREAKPOINT_START_M) {
+  header.root {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border-right: 1px solid var(--grey);
+  }
+}
