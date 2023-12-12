@@ -7,6 +7,7 @@ import Strong from '../components/strong';
 import Anchor from '../components/a';
 import { Octokit } from '@octokit/rest';
 import Article from '../components/article';
+import style from './credits.module.scss';
 import type { GetStaticProps } from 'next';
 
 export type Contributors = Awaited<
@@ -32,6 +33,7 @@ const Page = ({ entries }: Props) => {
     <Layout
       title="Les contributeurs du site"
       description="Découvrez les personnes qui ont créé le site de ChtiJS."
+      
     >
       <ContentBlock>
         <Heading1>Les contributeurs du site</Heading1>
@@ -40,7 +42,7 @@ const Page = ({ entries }: Props) => {
             Découvrez les personnes qui ont créé le site de ChtiJS.
           </Strong>
         </Paragraph>
-        <div>
+        <div className={style.root}>
           {entries.map((entry) => (
             <Article key={entry.id}>
               <img src={entry.avatar_url} alt={`Avatar de ${entry.name}`} />
@@ -83,16 +85,7 @@ const Page = ({ entries }: Props) => {
           ))}
         </div>
       </ContentBlock>
-      <style jsx>{`
-        img {
-          float: left;
-          height: 6rem;
-          width: 6rem;
-          margin: 0 2rem 1.5rem 0;
-          border-radius: 50px;
-          box-shadow: 5px 5px 2px 1px #c1a008;
-        }
-      `}</style>
+      
     </Layout>
   );
 };
