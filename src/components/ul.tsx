@@ -3,7 +3,7 @@ const UnorderedList = ({
   children,
   ...props
 }: { children: React.ReactNode } & React.HTMLAttributes<HTMLUListElement>) => (
-  <ul className={`${styles.root}$`} {...props}>
+  <ul className={styles.root} {...props}>
     {children}
   </ul>
 );

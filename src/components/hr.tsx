@@ -3,7 +3,7 @@ import styles from './hr.module.scss';
 
 const HorizontalRule = (props: HTMLAttributes<HTMLHRElement>) => (
   <>
-    <hr className={`${styles.root}$`} {...props} />
+    <hr className={styles.root} {...props} />
   </>
 );
 

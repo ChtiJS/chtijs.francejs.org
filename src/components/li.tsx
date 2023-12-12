@@ -5,7 +5,7 @@ const ListItem = ({
 }: {
   children: React.ReactNode;
 } & React.LiHTMLAttributes<HTMLLIElement>) => (
-  <li className={`${styles.root}$`} {...props}>
+  <li className={styles.root} {...props}>
     {children}
   </li>
 );

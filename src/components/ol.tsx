@@ -5,7 +5,7 @@ const OrderedList = ({
 }: {
   children: React.ReactNode;
 } & React.OlHTMLAttributes<HTMLOListElement>) => (
-  <ol className={`${styles.root}$`} {...props}>
+  <ol className={styles.root} {...props}>
     {children}
   </ol>
 );

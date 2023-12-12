@@ -5,7 +5,7 @@ const Paragraph = ({
 }: {
   children: React.ReactNode;
 } & React.HTMLAttributes<HTMLParagraphElement>) => (
-  <p className={`${styles.root}$`} {...props}>
+  <p className={styles.root} {...props}>
     {children}
   </p>
 );
