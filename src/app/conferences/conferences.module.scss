@@ -1,0 +1,61 @@
+@import '../../variables.scss';
+
+.root {
+  img {
+    width: 100%;
+  }
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--gutter);
+    font-weight: bold;
+  }
+  input {
+    height: var(--vRythm);
+    width: var(--block);
+    padding: 0 calc(var(--gutter) / 2);
+  }
+  :global(.entry_title) {
+    margin-top: 0 !important;
+  }
+  :global(.entry_title a) {
+    text-decoration: none !important;
+  }
+  :global(.entry_illustration) {
+    margin: 0 !important;
+  }
+  :global(.entry_description) {
+    margin: 0 !important;
+  }
+}
+.entry_item {
+  padding: var(--vRythm) 0;
+  border-bottom: var(--border) solid var(--dark);
+}
+.entry_item:first-child {
+  padding: 0 0 var(--vRythm) 0;
+}
+.entry_item:last-child {
+  border: none;
+  padding: var(--vRythm) 0 0 0;
+}
+.pagination {
+  display: flex;
+  gap: var(--gutter);
+  align-items: center;
+  justify-content: center;
+  padding: var(--vRythm) 0 0 0;
+}
+@media screen and (min-width: $CSS_BREAKPOINT_START_L) {
+  .root {
+    img {
+      float: left;
+      width: var(--block);
+      margin-right: var(--gutter);
+    }
+    .clear {
+      clear: left;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { promisify } from 'util';
 import { join as joinPath } from 'path';
 import lunr from 'lunr';
 import { collectMarkdownText } from './markdown';
-import type { BaseProps } from '../pages/conferences';
+import type { BaseProps } from '../app/conferences/page';
 
 const doWriteFile = promisify(writeFile);
 
