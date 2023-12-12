@@ -7,6 +7,7 @@ import Strong from '../components/strong';
 import Anchor from '../components/a';
 import { Octokit } from '@octokit/rest';
 import Article from '../components/article';
+import styles from './membres.module.scss';
 import type { GetStaticProps } from 'next';
 
 export type Members = Awaited<
@@ -32,7 +33,7 @@ const Page = ({ entries }: Props) => {
         <Paragraph>
           <Strong>Découvrez la liste des membres de ChtiJS.</Strong>
         </Paragraph>
-        <div>
+        <div className={styles.root}>
           {entries.map((entry) => (
             <Article key={entry.id}>
               <img src={entry.avatar_url} alt={`Avatar de ${entry.name}`} />
@@ -70,16 +71,6 @@ const Page = ({ entries }: Props) => {
           ))}
         </div>
       </ContentBlock>
-      <style jsx>{`
-        img {
-          float: left;
-          height: 6rem;
-          width: 6rem;
-          margin: 0 2rem 1.5rem 0;
-          border-radius: 50px;
-          box-shadow: 5px 5px 2px 1px #c1a008;
-        }
-      `}</style>
     </Layout>
   );
 };
