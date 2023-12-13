@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import styles from './anchored.module.scss';
-import { publicRuntimeConfig } from '../utils/config';
 
 const Anchored = ({
   children,
