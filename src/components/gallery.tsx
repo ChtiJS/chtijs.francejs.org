@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import styles from './gallery.module.scss';
 import { publicRuntimeConfig } from '../utils/config';

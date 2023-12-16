@@ -5,7 +5,7 @@ import { generateAtomFeed, generateRSSFeed } from './feeds';
 import { publicRuntimeConfig } from './config';
 import { ORGANISATION_NAME } from './constants';
 import type { FeedDescription, FeedItem } from './feeds';
-import type { BaseProps } from '../pages/conferences';
+import type { BaseProps } from '../app/conferences/page';
 
 const doWriteFile = promisify(writeFile);
 
