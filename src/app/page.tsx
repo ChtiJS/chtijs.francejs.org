@@ -71,8 +71,8 @@ export default async function Page() {
       </Paragraph>
       <Paragraph>
         <Strong>Prochaine rencontre : </Strong>
-        Pour rester informé des rencontres ChtiJS, trois options (cumulables 😉)
-        :
+        Pour rester informé des rencontres ChtiJS, quatre options (cumulables
+        😉) :
       </Paragraph>
       <UnorderedList>
         <ListItem>
@@ -99,9 +99,19 @@ export default async function Page() {
           Le compte{' '}
           <Anchor
             href="https://twitter.com/chtijs"
-            title="Voir notre ocmpte Twitter"
+            title="Voir notre compte Twitter"
           >
             Twitter de ChtiJS
+          </Anchor>{' '}
+          ;
+        </ListItem>
+        <ListItem>
+          Le compte{' '}
+          <Anchor
+            href="https://mastodon.social/@chtijs@piaille.fr"
+            title="Voir notre compte Mastodon"
+          >
+            Mastodon de ChtiJS
           </Anchor>{' '}
           ;
         </ListItem>
