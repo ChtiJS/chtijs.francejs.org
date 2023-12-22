@@ -87,7 +87,10 @@ export default async function Page() {
         {entries.map((entry) => (
           <Article key={entry.entry.link}>
             <Heading2>
-              <Anchor href={entry.entry.link as string}>
+              <Anchor
+                href={entry.entry.link as string}
+                title="Voir l'article original"
+              >
                 {entry.entry.title}
               </Anchor>
             </Heading2>
@@ -104,14 +107,22 @@ export default async function Page() {
                 )}{' '}
                 par{' '}
                 <Cite>
-                  <Anchor href={entry.blog.url as string}>
+                  <Anchor
+                    href={entry.blog.url as string}
+                    title="Voir le blog de l'auteur"
+                  >
                     {entry.blog.author}
                   </Anchor>
                 </Cite>
               </>
             </Paragraph>
             <Paragraph>
-              <Anchor href={entry.entry.link as string}>Lire ➤</Anchor>
+              <Anchor
+                href={entry.entry.link as string}
+                title="Voir l'article original"
+              >
+                Lire ➤
+              </Anchor>
             </Paragraph>
           </Article>
         ))}

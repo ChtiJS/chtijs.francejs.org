@@ -119,7 +119,10 @@ export const Entries = ({ entries, page, pagesCount }: EntriesProps) => {
           <div className={styles.entry_item} key={entry.id}>
             {entry.illustration ? (
               <Paragraph className={styles.entry_illustration}>
-                <Anchor href={`/conferences/${entry.id}`}>
+                <Anchor
+                  href={`/conferences/${entry.id}`}
+                  title="Voir le résumé"
+                >
                   <img
                     src={entry.illustration.url}
                     alt={entry.illustration.alt}
@@ -128,12 +131,16 @@ export const Entries = ({ entries, page, pagesCount }: EntriesProps) => {
               </Paragraph>
             ) : null}
             <Heading2 className={styles.entry_title}>
-              <Anchor href={`/conferences/${entry.id}`}>{entry.title}</Anchor>
+              <Anchor href={`/conferences/${entry.id}`} title="Voir le résumé">
+                {entry.title}
+              </Anchor>
             </Heading2>
             <Paragraph className={styles.entry_title}>
               {entry.description}
             </Paragraph>
-            <Anchor href={`/conferences/${entry.id}`}>Lire la suite</Anchor>
+            <Anchor href={`/conferences/${entry.id}`} title="Voir le résumé">
+              Lire la suite
+            </Anchor>
             <div className={styles.clear}></div>
           </div>
         ))}
@@ -147,6 +154,7 @@ export const Entries = ({ entries, page, pagesCount }: EntriesProps) => {
                 page > 2 ? `/conferences/pages/${page - 1}` : '/conferences'
               }
               rel="previous"
+              title="Voir la page précédente"
             >
               Précédent
             </Anchor>
@@ -157,6 +165,7 @@ export const Entries = ({ entries, page, pagesCount }: EntriesProps) => {
               iconPosition="last"
               href={`/conferences/pages/${page + 1}`}
               rel="next"
+              title="Voir la page suivante"
             >
               Suivant
             </Anchor>

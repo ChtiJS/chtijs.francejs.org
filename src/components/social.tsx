@@ -22,7 +22,7 @@ export default function Social(): JSX.Element {
         <li className={styles.mastodon}>
           <a
             href={`https://${MASTODON_SERVER}/@${MASTODON_ACCOUNT}`}
-            title="Suivre notre groupe sur Twitter"
+            title="Suivre notre groupe sur Mastodon"
             target="_blank"
             rel="noreferrer"
           >
@@ -32,7 +32,7 @@ export default function Social(): JSX.Element {
         <li className={styles.feed}>
           <a
             href="/blog.atom"
-            title="S'abonner aux mises à jour"
+            title="S’abonner aux mises à jour"
             target="_blank"
           >
             <span>Flux de syndication</span>

@@ -77,7 +77,10 @@ export default async function Page() {
           <Article key={entry.id}>
             <img src={entry.avatar_url} alt={`Avatar de ${entry.name}`} />
             <Heading2>
-              <Anchor href={entry.html_url as string}>
+              <Anchor
+                href={entry.html_url as string}
+                title={`Se rendre sur le profil GitHub de ${entry.name}`}
+              >
                 {entry.name} alias {entry.login}
               </Anchor>
             </Heading2>
@@ -95,6 +98,7 @@ export default async function Page() {
                       (entry.blog.startsWith('http') ? '' : 'https://') +
                       entry.blog
                     }
+                    title={`Se rendre sur le blog de ${entry.name}`}
                   >
                     📰Blog
                   </Anchor>{' '}
@@ -104,12 +108,20 @@ export default async function Page() {
                 <>
                   <Anchor
                     href={'https://twitter.com/' + entry.twitter_username}
+                    title={`Se rendre sur le profil Twitter de ${entry.name}`}
                   >
                     📲Twitter
                   </Anchor>{' '}
                 </>
               ) : null}
-              {<Anchor href={entry.html_url as string}>💻GitHub</Anchor>}
+              {
+                <Anchor
+                  href={entry.html_url as string}
+                  title={`Se rendre sur le profil GitHub de ${entry.name}`}
+                >
+                  💻GitHub
+                </Anchor>
+              }
             </Paragraph>
           </Article>
         ))}
