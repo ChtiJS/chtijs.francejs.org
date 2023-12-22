@@ -1,5 +1,5 @@
 1:HL["https://chtijs.francejs.org/_next/static/css/8fb9098d8edf6633.css","style",{"crossOrigin":""}]
-0:["792CWsBEN62DncKmLyLbb",[[["",{"children":["credits",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"https://chtijs.francejs.org/_next/static/css/8fb9098d8edf6633.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["cKrAT6kUthPPfHl9mUiOZ",[[["",{"children":["credits",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"https://chtijs.francejs.org/_next/static/css/8fb9098d8edf6633.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 4:HL["https://chtijs.francejs.org/_next/static/css/1dba7a9b4b28898e.css","style",{"crossOrigin":""}]
 5:I[7900,["326","static/chunks/326-d388db25e957d48c.js","185","static/chunks/app/layout-ef1f15e665a05d16.js"],""]
 6:I[8326,["326","static/chunks/326-d388db25e957d48c.js","932","static/chunks/app/credits/page-e4ca787058308ee3.js"],""]

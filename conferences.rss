@@ -7,7 +7,7 @@
     <link>https://chtijs.francejs.org/conferences</link>
     <atom:link href="https://chtijs.francejs.org/conferences.rss" rel="self" type="application/rss+xml" />
     <lastBuildDate>Fri, 22 Dec 2023 18:45:00 GMT</lastBuildDate>
-    <pubDate>Fri, 22 Dec 2023 13:22:45 GMT</pubDate>
+    <pubDate>Fri, 22 Dec 2023 13:36:01 GMT</pubDate>
     <ttl>1800</ttl>
       <item>
         <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-27</guid>
@@ -15,6 +15,13 @@
         <description>Découvrez le contenu du ChtiJS n°27 avec la présentation de David Leuliette.</description>
         <link>https://chtijs.francejs.org/conferences/chtijs-27</link>
         <pubDate>Fri, 22 Dec 2023 18:45:00 GMT</pubDate>
+      </item>
+      <item>
+        <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-26</guid>
+        <title>ChtiJS #26</title>
+        <description>Découvrez le contenu du ChtiJS n°26 avec la présentation de Emmanuel DEMEY et Nicolas FROIDURE.</description>
+        <link>https://chtijs.francejs.org/conferences/chtijs-26</link>
+        <pubDate>Thu, 24 Aug 2023 18:45:00 GMT</pubDate>
       </item>
       <item>
         <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-25</guid>
