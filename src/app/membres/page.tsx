@@ -72,25 +72,27 @@ export default async function Page() {
               {entry.blog ? (
                 <>
                   <Anchor
+                    className={styles.link}
                     href={
                       (entry.blog.startsWith('http') ? '' : 'https://') +
                       entry.blog
                     }
                   >
-                    📰Blog
+                    📰 Blog
                   </Anchor>{' '}
                 </>
               ) : null}
               {entry.twitter_username ? (
                 <>
                   <Anchor
+                    className={styles.link} 
                     href={'https://twitter.com/' + entry.twitter_username}
                   >
-                    📲Twitter
+                    📲 Twitter
                   </Anchor>{' '}
                 </>
               ) : null}
-              {<Anchor href={entry.html_url as string}>💻GitHub</Anchor>}
+              {<Anchor className={styles.link} href={entry.html_url as string}>💻 GitHub</Anchor>}
             </Paragraph>
           </Article>
         ))}
