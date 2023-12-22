@@ -461,3 +461,16 @@ function eventuallyConvertHTMLNodes(rootNode: MarkdownRootNode): MarkdownNode {
 
   return rootNode;
 }
+
+// Change VSCode autocompleted paths to URLs
+export function qualifyPath(path: string): string {
+  if (/^https?:\/\//.test(path)) {
+    return path;
+  }
+  if (path.startsWith('/public/')) {
+    return (
+      (publicRuntimeConfig?.basePath || '') + path.replace('/public/', '/')
+    );
+  }
+  return path;
+}

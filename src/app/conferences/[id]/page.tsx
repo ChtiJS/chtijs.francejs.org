@@ -1,5 +1,4 @@
 import { join as pathJoin } from 'path';
-import { entriesToBaseProps } from '../page';
 import { readEntries } from '../../../utils/frontmatter';
 import ContentBlock from '../../../components/contentBlock';
 import Paragraph from '../../../components/p';
@@ -7,6 +6,7 @@ import Anchor from '../../../components/a';
 import { fixText } from '../../../utils/text';
 import { renderMarkdown } from '../../../utils/markdown';
 import buildMetadata from '../../../utils/metadata';
+import { entriesToBaseListingMetadata } from '../../../utils/conference';
 import styles from './conference.module.scss';
 import type { Metadata } from '../page';
 import type { Entry } from '../page';
@@ -14,10 +14,10 @@ import type { Entry } from '../page';
 type Params = { id: string };
 
 export async function generateMetadata({ params }: { params: Params }) {
-  const baseProps = entriesToBaseProps(
+  const baseListingMetadata = entriesToBaseListingMetadata(
     await readEntries<Metadata>(pathJoin('.', 'contents', 'conferences'))
   );
-  const entry = baseProps.entries.find(
+  const entry = baseListingMetadata.entries.find(
     ({ id }) => id === (params || {}).id
   ) as Entry;
 
@@ -25,15 +25,15 @@ export async function generateMetadata({ params }: { params: Params }) {
     title: fixText(entry.title),
     description: fixText(entry.description),
     image: entry.illustration?.url,
-    pathname: `/conference/${params.id}`,
+    pathname: `/conferences/${params.id}`,
   });
 }
 
 export default async function BlogPost({ params }: { params: Params }) {
-  const baseProps = entriesToBaseProps(
+  const baseListingMetadata = entriesToBaseListingMetadata(
     await readEntries<Metadata>(pathJoin('.', 'contents', 'conferences'))
   );
-  const entry = baseProps.entries.find(
+  const entry = baseListingMetadata.entries.find(
     ({ id }) => id === (params || {}).id
   ) as Entry;
 
@@ -59,10 +59,10 @@ export default async function BlogPost({ params }: { params: Params }) {
 }
 
 export async function generateStaticParams() {
-  const baseProps = entriesToBaseProps(
+  const baseListingMetadata = entriesToBaseListingMetadata(
     await readEntries<Metadata>(pathJoin('.', 'contents', 'conferences'))
   );
-  const paths = baseProps.entries.map((entry) => ({
+  const paths = baseListingMetadata.entries.map((entry) => ({
     id: entry.id,
   }));
 

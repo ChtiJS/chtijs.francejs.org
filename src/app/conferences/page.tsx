@@ -1,29 +1,44 @@
 import { join as pathJoin } from 'path';
 import { readEntries } from '../../utils/frontmatter';
-import { toASCIIString } from '../../utils/ascii';
 import { readParams } from '../../utils/params';
-import { parseMarkdown } from '../../utils/markdown';
-import { buildSearchIndex } from '../../utils/search';
 import { Entries } from './entries';
 import buildMetadata from '../../utils/metadata';
-import type { FrontMatterResult } from 'front-matter';
+import { entriesToBaseListingMetadata } from '../../utils/conference';
 import type { MarkdownRootNode } from '../../utils/markdown';
 import type { BuildQueryParamsType } from '../../utils/params';
+import { slicePage } from '../../utils/pagination';
+import { POSTS_PER_PAGE } from '../../utils/conference';
 
 export async function generateMetadata({
   params,
 }: {
-  params: { page: string };
+  params?: { page: string };
 }) {
   const page = params?.page || 1;
   const title = `Conférences${page && page !== 1 ? ` - page ${page}` : ''}`;
   const description = 'Découvrez le résumé de nos rencontres précédentes.';
 
-  return buildMetadata({
-    pathname: '/',
+  const metadata = await buildMetadata({
+    pathname: `/conferences${page && page !== 1 ? `/pages/${page}` : ''}`,
     title,
     description,
   });
+
+  return {
+    ...metadata,
+    alternates: {
+      ...(metadata.alternates || {}),
+      types: {
+        ...(metadata.alternates?.types || {}),
+        'application/rss+xml': [
+          { url: '/conferences.rss', title: `${title} (RSS)` },
+        ],
+        'application/atom+xml': [
+          { url: '/conferences.atom', title: `${title} (Atom)` },
+        ],
+      },
+    },
+  };
 }
 
 export type Metadata = {
@@ -65,8 +80,6 @@ const PARAMS_DEFINITIONS = {
 
 type Params = BuildQueryParamsType<typeof PARAMS_DEFINITIONS>;
 
-const POSTS_PER_PAGE = 10;
-
 export default async function BlogEntries({
   params,
 }: {
@@ -74,44 +87,16 @@ export default async function BlogEntries({
 }) {
   const castedParams = readParams(PARAMS_DEFINITIONS, params || {}) as Params;
   const page = castedParams?.page || 1;
-  const baseProps = entriesToBaseProps(
+  const baseListingMetadata = entriesToBaseListingMetadata(
     await readEntries<Metadata>(pathJoin('.', 'contents', 'conferences'))
   );
-  const entries = baseProps.entries.slice(
-    (page - 1) * POSTS_PER_PAGE,
-    (page - 1) * POSTS_PER_PAGE + POSTS_PER_PAGE
+  const entries = slicePage(baseListingMetadata.entries, page, POSTS_PER_PAGE);
+
+  return (
+    <Entries
+      entries={entries}
+      pagesCount={baseListingMetadata.pagesCount}
+      page={page}
+    />
   );
-  const pagesCount = Math.ceil(baseProps.entries.length / POSTS_PER_PAGE);
-
-  // WARNING: This is not a nice way to generate the search index
-  // but having scripts run in the NextJS build context is a real
-  // pain
-  await buildSearchIndex(baseProps);
-
-  return <Entries entries={entries} pagesCount={pagesCount} page={page} />;
 }
-
-export const entriesToBaseProps = (
-  baseEntries: FrontMatterResult<Metadata>[]
-): BaseProps => {
-  const title = `Conférences`;
-  const description = 'Découvrez le résumé de nos rencontres précédentes.';
-  const entries = baseEntries
-    .map<Entry>((entry) => ({
-      ...entry.attributes,
-      id: entry.attributes.leafname || toASCIIString(entry.attributes.title),
-      content: parseMarkdown(entry.body) as MarkdownRootNode,
-    }))
-    .filter((entry) => !entry.draft || process.env.NODE_ENV === 'development')
-    .sort(
-      ({ date: dateA }: { date: string }, { date: dateB }: { date: string }) =>
-        Date.parse(dateA) > Date.parse(dateB) ? -1 : 1
-    );
-
-  return {
-    title,
-    description,
-    entries,
-    pagesCount: Math.ceil(entries.length / POSTS_PER_PAGE),
-  };
-};
