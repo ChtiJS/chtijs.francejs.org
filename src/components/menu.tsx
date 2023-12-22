@@ -9,55 +9,49 @@ const Menu = () => {
 
   return (
     <nav className={styles.nav}>
-      <Link legacyBehavior href="/">
-        <a
-          className={`home ${pathname === '/' ? styles.selected : ''}`}
-          title="Revenir à l’accueil"
-        >
-          <span>Accueil</span>
-        </a>
+      <Link
+        href="/"
+        className={`home ${pathname === '/' ? styles.selected : ''}`}
+        title="Revenir à l’accueil"
+      >
+        <span>Accueil</span>
       </Link>
-      <Link legacyBehavior href="/credits">
-        <a
-          className={
-            (pathname || '').startsWith('/credits') ? styles.selected : ''
-          }
-          title="Les contributeurs du site"
-        >
-          <span>Crédits</span>
-        </a>
+      <Link
+        href="/credits"
+        className={
+          (pathname || '').startsWith('/credits') ? styles.selected : ''
+        }
+        title="Les contributeurs du site"
+      >
+        <span>Crédits</span>
       </Link>
-      <Link legacyBehavior href="/membres">
-        <a
-          className={pathname === '/membres' ? styles.selected : ''}
-          title="Les membres du groupe"
-        >
-          <span>Membres</span>
-        </a>
+      <Link
+        href="/membres"
+        className={pathname === '/membres' ? styles.selected : ''}
+        title="Les membres du groupe"
+      >
+        <span>Membres</span>
       </Link>
-      <Link legacyBehavior href="/planete">
-        <a
-          className={pathname === '/planete' ? styles.selected : ''}
-          title="Voir les actus de nos membres"
-        >
-          <span>Planète</span>
-        </a>
+      <Link
+        href="/planete"
+        className={pathname === '/planete' ? styles.selected : ''}
+        title="Voir les actus de nos membres"
+      >
+        <span>Planète</span>
       </Link>
-      <Link legacyBehavior href="/conferences">
-        <a
-          className={pathname === '/conferences' ? styles.selected : ''}
-          title="Voir les conférences"
-        >
-          <span>Conférences</span>
-        </a>
+      <Link
+        href="/conferences"
+        className={pathname === '/conferences' ? styles.selected : ''}
+        title="Voir les conférences"
+      >
+        <span>Conférences</span>
       </Link>
-      <Link legacyBehavior href="/about">
-        <a
-          className={pathname === '/about' ? styles.selected : ''}
-          title="En savoir plus sur nos habitudes"
-        >
-          <span>A propos</span>
-        </a>
+      <Link
+        href="/about"
+        className={pathname === '/about' ? styles.selected : ''}
+        title="En savoir plus sur nos habitudes"
+      >
+        <span>A propos</span>
       </Link>
     </nav>
   );

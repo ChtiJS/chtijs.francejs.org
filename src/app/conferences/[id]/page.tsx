@@ -52,7 +52,9 @@ export default async function BlogPost({ params }: { params: Params }) {
       </Paragraph>
       <div className={styles.clear}></div>
       <Paragraph>
-        <Anchor href="/conferences">Retour</Anchor>
+        <Anchor href="/conferences" title="Retourner à la page précédente">
+          Retour
+        </Anchor>
       </Paragraph>
     </ContentBlock>
   );

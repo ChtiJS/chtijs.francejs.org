@@ -14,20 +14,20 @@ export type Toots = {
 
 const TootList = ({ toots }: { toots: Toots }) => (
   <aside className={styles.root}>
-        <Heading2>Derniers messages Mastodon&nbsp;:</Heading2>
-        <div className={styles.tootList}>
-          {toots.map((toot) => (
-            <div key={toot.id} className={styles.toot}>
-              {renderMarkdown({ index: 0 }, toot.text)}
-              <Paragraph>
-                Publié le{" "}
-                <Anchor href={toot.url}>
-                  {new Date(toot.createdAt).toLocaleString()}.
-                </Anchor>
-              </Paragraph>
-            </div>
-          ))}
+    <Heading2>Derniers messages Mastodon&nbsp;:</Heading2>
+    <div className={styles.tootList}>
+      {toots.map((toot) => (
+        <div key={toot.id} className={styles.toot}>
+          {renderMarkdown({ index: 0 }, toot.text)}
+          <Paragraph>
+            Publié le{' '}
+            <Anchor href={toot.url} title="Voir le toot sur Mastodon">
+              {new Date(toot.createdAt).toLocaleString()}.
+            </Anchor>
+          </Paragraph>
         </div>
+      ))}
+    </div>
   </aside>
 );
 

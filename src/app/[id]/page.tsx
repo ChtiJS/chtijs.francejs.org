@@ -60,7 +60,9 @@ export default async function Page({ params }: { params: Params }) {
       {renderMarkdown({ index: 0 }, entry.content)}
       <div className="clear"></div>
       <Paragraph>
-        <Anchor href="/">Retour</Anchor>
+        <Anchor href="/" title="Revenir à la page précédente">
+          Retour
+        </Anchor>
       </Paragraph>
     </ContentBlock>
   );

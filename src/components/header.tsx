@@ -3,17 +3,13 @@ import styles from './header.module.scss';
 
 const Header = () => {
   return (
-    <>
-      <header className={styles.root}>
-        <h1>
-          <Link href="/" legacyBehavior>
-            <a>
-              <span>ChtiJS</span>
-            </a>
-          </Link>
-        </h1>
-      </header>
-    </>
+    <header className={styles.root}>
+      <h1>
+        <Link href="/" title="Retourner à l’accueil">
+          <span>ChtiJS</span>
+        </Link>
+      </h1>
+    </header>
   );
 };
 

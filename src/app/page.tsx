@@ -77,21 +77,33 @@ export default async function Page() {
       <UnorderedList>
         <ListItem>
           Le{' '}
-          <Anchor href="http://www.meetup.com/FranceJS/">
+          <Anchor
+            href="http://www.meetup.com/FranceJS/"
+            title="Rejoindre notre groupe Meetup"
+          >
             groupe Meetup de FranceJS
           </Anchor>{' '}
           ;
         </ListItem>
         <ListItem>
           Le{' '}
-          <Anchor href="https://groups.google.com/g/chtijs">
+          <Anchor
+            href="https://groups.google.com/g/chtijs"
+            title="Visiter notre groupe Google"
+          >
             groupe Google
           </Anchor>{' '}
           de ChtiJS (plus axé proposition de conférences et préparatifs) ;
         </ListItem>
         <ListItem>
           Le compte{' '}
-          <Anchor href="https://twitter.com/chtijs">Twitter de ChtiJS</Anchor> ;
+          <Anchor
+            href="https://twitter.com/chtijs"
+            title="Voir notre ocmpte Twitter"
+          >
+            Twitter de ChtiJS
+          </Anchor>{' '}
+          ;
         </ListItem>
       </UnorderedList>
       <Heading2>Concept</Heading2>
@@ -116,28 +128,47 @@ export default async function Page() {
       </Paragraph>
       <Paragraph>
         Signalez vous sur Twitter auprès de{' '}
-        <Anchor href="https://twitter.com/chtijs">@chtijs</Anchor>, ou inscrivez
-        vous sur la{' '}
-        <Anchor href="https://groups.google.com/g/chtijs">
+        <Anchor
+          href="https://twitter.com/chtijs"
+          title="Nous suivre sur Twitter"
+        >
+          @chtijs
+        </Anchor>
+        , ou inscrivez vous sur la{' '}
+        <Anchor
+          href="https://groups.google.com/g/chtijs"
+          title="S'abonner à notre liste de diffusion"
+        >
           liste de diffusion
         </Anchor>{' '}
         et rejoignez nous sur{' '}
-        <Anchor href="https://weblille.rocks/">slack</Anchor>.
+        <Anchor href="https://weblille.rocks/" title="Rejoindre notre Slack">
+          slack
+        </Anchor>
+        .
       </Paragraph>
       <Heading2>Site web</Heading2>
       <Paragraph>
         Notre site web est aussi ouvert aux contributions, contenus comme code.
         Il vous suffit de faire un pull request sur{' '}
-        <Anchor href="https://github.com/ChtiJS/chtijs.francejs.org">
+        <Anchor
+          href="https://github.com/ChtiJS/chtijs.francejs.org"
+          title="Voir notre depôt Git"
+        >
           le dépôt GitHub
         </Anchor>
         . Vous pouvez retrouver les contributeurs du site{' '}
-        <Anchor href="/credits/index.html">sur cette page</Anchor>.
+        <Anchor href="/credits/index.html" title="Voir nos contributeur/rices">
+          sur cette page
+        </Anchor>
+        .
       </Paragraph>
       <Heading2>FranceJS</Heading2>
       <Paragraph>
         ChtiJS fait partie de{' '}
-        <Anchor href="http://francejs.org">l&apos;initiative FranceJS</Anchor>{' '}
+        <Anchor href="http://francejs.org" title="Visite le site de FranceJS">
+          l&apos;initiative FranceJS
+        </Anchor>{' '}
         qui fédère les acteurs de JavaScript afin de promouvoir ce langage et de
         faciliter son développement en France.
       </Paragraph>

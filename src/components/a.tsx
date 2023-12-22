@@ -1,69 +1,51 @@
 import Link from 'next/link';
 import styles from './a.module.scss';
-import type { LinkProps } from 'next/link';
+import { type ComponentProps } from 'react';
 
-const Anchor = ({
+export default function Anchor({
   children,
   href,
-  as,
-  replace,
-  scroll,
-  shallow,
-  passHref,
-  prefetch,
-  locale,
   className,
   icon,
   iconPosition = 'first',
   ...props
 }: {
-  children: React.ReactNode;
-} & LinkProps & {
-    icon?: string;
-    iconPosition?: 'first' | 'last';
-  } & Exclude<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>) => {
+  title: string;
+  icon?: string;
+  iconPosition?: 'first' | 'last';
+} & Omit<ComponentProps<typeof Link>, 'target'>) {
   const isURLLink =
-    href.length > 30 &&
+    href.toString().length > 30 &&
     children instanceof Array &&
     typeof children[0] === 'string' &&
     href === children[0];
 
   return (
     <Link
-      legacyBehavior
       {...{
         href,
-        as,
-        replace,
-        scroll,
-        shallow,
-        passHref,
-        prefetch,
-        locale,
       }}
-    >
-      <a
-        className={`${styles.root}${className ? ' ' + className : ''}${
-          icon
-            ? ` ${styles.withIcon} ${
-                iconPosition === 'first' ? styles.first : styles.last
-              }`
-            : ''
-        }`}
-        {...props}
-        target={href.startsWith('http') ? '_blank' : '_self'}
-      >
-        {icon ? <span className={styles.icon} /> : null}
-        {isURLLink
+      className={[
+        styles.root,
+        ...(className ? [className] : []),
+        ...(icon
           ? [
-              href.replace(/(http|ftp)s?:\/\//, '').slice(0, 15) +
-                '…' +
-                href.slice(-5),
+              styles.withIcon,
+              iconPosition === 'first' ? styles.first : styles.last,
             ]
-          : children}
-      </a>
+          : []),
+      ].join(' ')}
+      {...props}
+      target={href.toString().startsWith('http') ? '_blank' : '_self'}
+    >
+      {icon ? <span className={styles.icon} aria-hidden="true" /> : null}
+      {isURLLink
+        ? [
+            href.replace(/(http|ftp)s?:\/\//, '').slice(0, 15) +
+              '…' +
+              href.slice(-5),
+          ]
+        : children}
     </Link>
   );
-};
-
-export default Anchor;
+}
