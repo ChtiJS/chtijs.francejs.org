@@ -90,7 +90,7 @@ export default async function Page() {
                 ? entry.contributions + ' contribution'
                 : entry.contributions + ' contributions'}
             </Paragraph>
-            <Paragraph>
+            <Paragraph className={styles.links}>
               {entry.blog ? (
                 <>
                   <Anchor
@@ -100,7 +100,7 @@ export default async function Page() {
                     }
                     title={`Se rendre sur le blog de ${entry.name}`}
                   >
-                    📰Blog
+                    📰 Blog
                   </Anchor>{' '}
                 </>
               ) : null}
@@ -110,16 +110,17 @@ export default async function Page() {
                     href={'https://twitter.com/' + entry.twitter_username}
                     title={`Se rendre sur le profil Twitter de ${entry.name}`}
                   >
-                    📲Twitter
+                    📲 Twitter
                   </Anchor>{' '}
                 </>
               ) : null}
+
               {
                 <Anchor
                   href={entry.html_url as string}
                   title={`Se rendre sur le profil GitHub de ${entry.name}`}
                 >
-                  💻GitHub
+                  💻 GitHub
                 </Anchor>
               }
             </Paragraph>

@@ -18,7 +18,7 @@
   align-content: flex-end;
   background: var(--light);
 }
-.contents :first-child {
+.contents > :first-child {
   flex: 1;
 }
 @media screen and (max-width: $CSS_BREAKPOINT_END_S) {

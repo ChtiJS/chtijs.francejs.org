@@ -6,3 +6,9 @@
   border-radius: 50px;
   box-shadow: 5px 5px 2px 1px #c1a008;
 }
+
+.links {
+  display: flex;
+  gap: var(--gutter);
+  justify-content: flex-start;
+}
