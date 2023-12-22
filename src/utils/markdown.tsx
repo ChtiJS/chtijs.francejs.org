@@ -25,7 +25,6 @@ import { fixText } from './text';
 import { publicRuntimeConfig } from './config';
 import { toASCIIString } from './ascii';
 import { parseYouTubeURL } from './youtube';
-import { Fragment } from 'react';
 import type { ReactNode } from 'react';
 
 export type MarkdownRootNode = {
