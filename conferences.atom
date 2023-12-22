@@ -2,7 +2,7 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">    
   <id>https://chtijs.francejs.org/conferences</id>
-  <title>Conférences - ChtiJS</title>
+  <title>Conférences - ChtiJS - ChtiJS</title>
   <subtitle>Découvrez le résumé de nos rencontres précédentes.</subtitle>
   <link href="https://chtijs.francejs.org/conferences.atom" rel="self" type="application/atom+xml" />
   <link href="https://chtijs.francejs.org/conferences" rel="alternate" type="text/html" />

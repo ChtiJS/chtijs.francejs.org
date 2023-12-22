@@ -2,12 +2,12 @@
 
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Conférences - ChtiJS</title>
+    <title>Conférences - ChtiJS - ChtiJS</title>
     <description>Découvrez le résumé de nos rencontres précédentes.</description>
     <link>https://chtijs.francejs.org/conferences</link>
     <atom:link href="https://chtijs.francejs.org/conferences.rss" rel="self" type="application/rss+xml" />
     <lastBuildDate>Thu, 27 Apr 2023 18:45:00 GMT</lastBuildDate>
-    <pubDate>Fri, 22 Dec 2023 10:14:16 GMT</pubDate>
+    <pubDate>Fri, 22 Dec 2023 10:53:23 GMT</pubDate>
     <ttl>1800</ttl>
       <item>
         <guid isPermaLink="true">https://chtijs.francejs.org/conferences/chtijs-25</guid>
