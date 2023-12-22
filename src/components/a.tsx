@@ -52,8 +52,10 @@ const Anchor = ({
         }`}
         {...props}
         target={href.startsWith('http') ? '_blank' : '_self'}
+        title={typeof children === 'string' ? children : ''}
+        aria-label={typeof children !== 'string' ? 'Link' : undefined}
       >
-        {icon ? <span className={styles.icon} /> : null}
+        {icon ? <span className={styles.icon} aria-hidden="true" /> : null}
         {isURLLink
           ? [
               href.replace(/(http|ftp)s?:\/\//, '').slice(0, 15) +

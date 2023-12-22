@@ -20,13 +20,17 @@ const Gallery = ({ imagesNodes }: { imagesNodes: MarkdownImageNode[] }) => {
                 '/' +
                 imagesNodes[selectedIndex].url
           }
-          alt={imagesNodes[selectedIndex].alt || ''}
+          alt={imagesNodes[selectedIndex].alt || 'Image'}
         />
       </p>
       <ul>
         {imagesNodes.map((imageNode, index) => (
           <li key={index}>
-            <a onClick={setSelectedIndex.bind(null, index)}>
+            <a
+              onClick={() => setSelectedIndex(index)}
+              aria-label={`Image ${index + 1}`} 
+              tabIndex={0} 
+            >
               <img
                 src={
                   imageNode.url.startsWith('http')
@@ -36,7 +40,7 @@ const Gallery = ({ imagesNodes }: { imagesNodes: MarkdownImageNode[] }) => {
                       '/' +
                       imageNode.url
                 }
-                alt={imageNode.alt || ''}
+                alt={imageNode.alt || `Image ${index + 1}`} 
               />
             </a>
           </li>
