@@ -12,14 +12,14 @@ export async function generateMetadata() {
   });
 }
 
-const Page = () => (
-  <ContentBlock>
-    <Heading1>Ooops!</Heading1>
-    <p className={styles.p}>
-      <img className={styles.img} src={'/images/404.png'} alt={`404.png`} />
-      <Paragraph>La page que vous recherchez n’existe pas ou plus.</Paragraph>
-    </p>
-  </ContentBlock>
-);
-
-export default Page;
+export default async function Page() {
+  return (
+    <ContentBlock>
+      <Heading1>Ooops!</Heading1>
+      <p className={styles.p}>
+        <img className={styles.img} src={'/images/404.png'} alt={`404.png`} />
+        <Paragraph>La page que vous recherchez n’existe pas ou plus.</Paragraph>
+      </p>
+    </ContentBlock>
+  );
+}

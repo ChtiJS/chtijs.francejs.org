@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   });
 }
 
-export async function BlogPost({ params }: { params: Params }) {
+export default async function BlogPost({ params }: { params: Params }) {
   const baseProps = entriesToBaseProps(
     await readEntries<Metadata>(pathJoin('.', 'contents', 'conferences'))
   );
@@ -57,8 +57,6 @@ export async function BlogPost({ params }: { params: Params }) {
     </ContentBlock>
   );
 }
-
-export default BlogPost;
 
 export async function generateStaticParams() {
   const baseProps = entriesToBaseProps(
