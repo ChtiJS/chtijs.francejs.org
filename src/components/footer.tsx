@@ -15,8 +15,8 @@ const Footer = () => {
         >
           Mentions légales
         </Link>
-        <Social />
       </p>
+      <Social />
     </footer>
   );
 };

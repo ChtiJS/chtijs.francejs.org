@@ -4,6 +4,7 @@
   background-color: var(--light);
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 .nav a,
 .nav a:visited {

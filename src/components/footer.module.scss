@@ -1,13 +1,15 @@
 @import '../styles/variables.scss';
 
 .footer {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gutter);
   width: 100%;
   background-color: var(--dark);
 }
 .p {
   color: var(--light);
-  margin: 0 auto;
   text-align: center;
   line-height: var(--vRhythm);
 }

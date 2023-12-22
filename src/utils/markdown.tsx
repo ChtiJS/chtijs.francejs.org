@@ -187,16 +187,7 @@ const headingMap: NodeToElementMapper<MarkdownHeadingNode> = (
   );
 };
 const textMap: NodeToElementMapper<MarkdownTextNode> = (context, node) =>
-  node.value.includes('\n')
-    ? fixText(node.value)
-        .split(/\r?\n/gm)
-        .map((text, i) => (
-          <Fragment key={1}>
-            {i > 0 ? <br /> : null}
-            {text}
-          </Fragment>
-        ))
-    : fixText(node.value);
+  fixText(node.value);
 const boldMap: NodeToElementMapper<MarkdownEmphasisNode> = (context, node) => (
   <Strong key={context.index}>
     {node.children.map((node, index) =>

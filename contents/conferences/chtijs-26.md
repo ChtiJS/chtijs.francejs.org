@@ -16,21 +16,25 @@ location: FR
 
 ## Programme
 
-1. L'accessibilité web, ou comment faire des applications web inclusives. par
-   Emmanuel DEMEY. Consultant spécialisé dans Angular / TypeScript /
-   ElasticSearch et Accessibilité Web. Speaker à ses heures perdues. Durant
-   cette conférence, nous présenterons les enjeux de l'accessibilité dans le
-   développement d'applications web. De la sémantique dans votre code HTML à la
-   gestion du focus qui peut être compliqué dans certains composants riches,
-   vous aurez à la fin une vision complète des problématiques à prendre en
-   compte pour votre prochaine application.
+### L'accessibilité web, ou comment faire des applications web inclusives
 
-2. useBatchLoader Et si on chargeait les ressources liées sans prise de tête ?
-   Par Nicolas FROIDURE
+Par Emmanuel DEMEY, consultant spécialisé dans Angular / TypeScript /
+ElasticSearch et Accessibilité Web. Speaker à ses heures perdues.
 
-- [Les slides](https://decks.insertafter.com/use-batch-loader.html#slide1 'Voir la présentation')
+Durant cette conférence, nous présenterons les enjeux de l'accessibilité dans le
+développement d'applications web. De la sémantique dans votre code HTML à la
+gestion du focus qui peut être compliqué dans certains composants riches, vous
+aurez à la fin une vision complète des problématiques à prendre en compte pour
+votre prochaine application.
+
+### useBatchLoader
+
+Par Nicolas FROIDURE.
+
+Et si on chargeait les ressources liées sans prise de tête ?
+[Voir les slides](https://decks.insertafter.com/use-batch-loader.html#slide1 'Voir la présentation')
 
 ## Pour info
 
 Pour la liste des participants, voir
-[l'évènement Meetup "Alle rsur la page de l'événement"](https://www.meetup.com/login/?returnUri=https%3A%2F%2Fwww.meetup.com%2Ffrancejs%2Fevents%2F295649164%2F).
+[l'évènement Meetup](https://www.meetup.com/login/?returnUri=https%3A%2F%2Fwww.meetup.com%2Ffrancejs%2Fevents%2F295649164%2F "Aller sur la page de l'événement").
