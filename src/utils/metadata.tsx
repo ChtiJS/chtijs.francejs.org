@@ -85,5 +85,8 @@ export default async function buildMetadata({
       site: `@${TWITTER_ACCOUNT}`,
       creator: `@${TWITTER_ACCOUNT}`,
     },
+    metadataBase: new URL(
+      publicRuntimeConfig.baseURL + publicRuntimeConfig.basePath
+    ),
   };
 }

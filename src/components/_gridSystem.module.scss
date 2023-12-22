@@ -1,0 +1,66 @@
+.grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.grid .vGrid,
+.grid .hGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  opacity: 0.3;
+  display: none;
+}
+.grid:target .vGrid,
+.grid:target .hGrid {
+  display: flex;
+}
+.grid .vGrid {
+  flex-direction: row;
+  opacity: 0.3;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+.grid .vGrid:target {
+  display: flex;
+}
+.grid .hGrid {
+  flex-direction: column;
+  opacity: 0.3;
+  overflow: hidden;
+}
+.grid .hGrid:target {
+  display: flex;
+}
+.grid .gutter {
+  width: var(--gutter);
+  flex: none;
+  background-color: #ccc;
+}
+.grid .column {
+  width: var(--column);
+  flex: none;
+  background-color: #ddd;
+}
+.grid .row {
+  width: 100vw;
+  height: var(--vRhythm);
+  flex: none;
+  background-color: #ccc;
+}
+.grid .row:nth-child(2n) {
+  background-color: #ddd;
+}

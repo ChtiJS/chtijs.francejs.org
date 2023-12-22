@@ -13,12 +13,12 @@
   gap: calc(var(--gutter) / 4);
   span.icon {
     display: flex;
-    height: var(--vRythm);
-    width: calc(var(--vRythm) * 0.55);
+    height: var(--vRhythm);
+    width: calc(var(--vRhythm) * 0.55);
     background: var(--primary);
     mask-repeat: no-repeat;
-    mask-size: calc(var(--vRythm) * 0.55);
-    -webkit-mask-size: calc(var(--vRythm) * 0.55);
+    mask-size: calc(var(--vRhythm) * 0.55);
+    -webkit-mask-size: calc(var(--vRhythm) * 0.55);
     mask-position: left bottom;
   }
 }

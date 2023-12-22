@@ -1,0 +1,9 @@
+@import "../../styles/variables.scss";
+
+:export {
+  vGrid: $CSS_GRID_V;
+  vRhythmRatio: $CSS_V_RYTHM_RATIO;
+  hGrid: $CSS_GRID_H;
+  columnRatio: $CSS_COLUMN_RATIO;
+  gutterRatio: $CSS_GUTTER_RATIO;
+}

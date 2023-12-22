@@ -5,12 +5,12 @@
 a.icon {
   display: none;
   width: var(--column);
-  height: var(--vRythm);
+  height: var(--vRhythm);
   background: var(--tertiary);
   mask-repeat: no-repeat;
   mask-position: left center;
-  -webkit-mask-size: calc(var(--vRythm) * 1);
-  mask-size: calc(var(--vRythm) * 1);
+  -webkit-mask-size: calc(var(--vRhythm) * 1);
+  mask-size: calc(var(--vRhythm) * 1);
 }
 
 .root:hover a.icon {

@@ -1,0 +1,120 @@
+@import './variables.scss';
+
+:root {
+  --dark: #747471;
+  --grey: #c6c6c6;
+  --light: #fff;
+
+  --primary: #f2c80a;
+  --secondary: #262626;
+  --tertiary: #747471;
+  --quaternary: #8c7718;
+  --quinary: #4d4d4c;
+  --senary: #bfa011;
+
+  --success: #5b8e7d;
+  --warning: #d78a2e;
+  --danger: #bc4b51;
+
+  /* Atomic values */
+  --hGrid: #{$CSS_GRID_H};
+  --gutterRatio: #{$CSS_GUTTER_RATIO};
+  --gutter: calc(var(--hGrid) * var(--gutterRatio));
+  --columnRatio: #{$CSS_COLUMN_RATIO};
+  --column: calc(var(--hGrid) * var(--columnRatio));
+  --block: calc(var(--column) * 3 + var(--gutter) * 2);
+  --vGrid: #{$CSS_GRID_V};
+  --vRhythmRatio: #{$CSS_V_RYTHM_RATIO};
+  --vRhythm: calc(var(--vGrid) * var(--vRhythmRatio));
+  --border: calc(var(--vGrid) / 2);
+  --borderRadius: calc(var(--hGrid));
+  --shadowX: calc(var(--vGrid) * 2);
+  --shadowY: calc(var(--hGrid) * 1);
+  --shadowBlur: calc(var(--vGrid) * 8);
+
+  /* Animations */
+  --baseAnimationRate: 0.3s;
+
+  /* Fonts */
+  --writingFont: 'Open sans', 'Helvetica', 'Arial', sans-serif;
+  --contentFont: 'Open sans', 'Helvetica', 'Arial', sans-serif;
+  --headingFont: 'Georgia', 'Times', serif;
+
+  /* Font sizes */
+  --smallFontSize: calc(5 * var(--vGrid));
+  --smallLineHeight: var(--vRhythm);
+  --smallFontWeight: 300;
+
+  --mediumFontSize: calc(6 * var(--vGrid));
+  --mediumLineHeight: var(--vRhythm);
+  --mediumFontWeight: 400;
+
+  --bigFontSize: calc(8 * var(--vGrid));
+  --bigLineHeight: calc(2 * var(--vRhythm));
+  --bigFontWeight: 700;
+
+  --greatFontSize: calc(10 * var(--vGrid));
+  --greatLineHeight: calc(2 * var(--vRhythm));
+  --greatFontWeight: 800;
+
+  --giantFontSize: calc(12 * var(--vGrid));
+  --giantLineHeight: calc(3 * var(--vRhythm));
+  --giantFontWeight: 800;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: var(--mediumFontSize);
+  line-height: var(--mediumLineHeight);
+  font-family: var(--contentFont);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.showScreenSizes::after {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  line-height: var(--giantLineHeight);
+  font-size: var(--giantFontSize);
+  font-weight: bold;
+  color: var(--dark);
+  text-shadow: var(--border) var(--border) 0 var(--light);
+  opacity: 0.5;
+  padding: calc(var(--vRhythm) / 2) var(--gutter);
+}
+
+@media screen and (max-width: $CSS_BREAKPOINT_END_S) {
+  body.showScreenSizes::after {
+    content: 'S';
+  }
+}
+
+@media screen and (min-width: $CSS_BREAKPOINT_START_M) and (max-width: $CSS_BREAKPOINT_END_M) {
+  body.showScreenSizes::after {
+    content: 'M';
+  }
+}
+
+@media screen and (min-width: $CSS_BREAKPOINT_START_L) and (max-width: $CSS_BREAKPOINT_END_L) {
+  body.showScreenSizes::after {
+    content: 'L';
+  }
+}
+
+@media screen and (min-width: $CSS_BREAKPOINT_START_XL) {
+  body.showScreenSizes::after {
+    content: 'XL';
+  }
+}

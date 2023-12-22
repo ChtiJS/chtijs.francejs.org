@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import '../../styles/variables.scss';
 
 .root {
   img {
@@ -12,7 +12,7 @@
     font-weight: bold;
   }
   input {
-    height: var(--vRythm);
+    height: var(--vRhythm);
     width: var(--block);
     padding: 0 calc(var(--gutter) / 2);
   }
@@ -30,22 +30,22 @@
   }
 }
 .entry_item {
-  padding: var(--vRythm) 0;
+  padding: var(--vRhythm) 0;
   border-bottom: var(--border) solid var(--dark);
 }
 .entry_item:first-child {
-  padding: 0 0 var(--vRythm) 0;
+  padding: 0 0 var(--vRhythm) 0;
 }
 .entry_item:last-child {
   border: none;
-  padding: var(--vRythm) 0 0 0;
+  padding: var(--vRhythm) 0 0 0;
 }
 .pagination {
   display: flex;
   gap: var(--gutter);
   align-items: center;
   justify-content: center;
-  padding: var(--vRythm) 0 0 0;
+  padding: var(--vRhythm) 0 0 0;
 }
 @media screen and (min-width: $CSS_BREAKPOINT_START_L) {
   .root {

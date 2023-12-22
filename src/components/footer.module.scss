@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@import '../styles/variables.scss';
 
 .footer {
   display: block;
@@ -9,7 +9,7 @@
   color: var(--light);
   margin: 0 auto;
   text-align: center;
-  line-height: var(--vRythm);
+  line-height: var(--vRhythm);
 }
 .a,
 .a:visited,

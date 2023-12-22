@@ -1,5 +1,5 @@
 .root {
-  margin: 0 0 var(--vRythm) 0;
+  margin: 0 0 var(--vRhythm) 0;
 }
 
 .toot :global(a) {
@@ -15,7 +15,7 @@
 }
 
 .tootList {
-  margin-top: var(--vRythm);
+  margin-top: var(--vRhythm);
   display: flex;
   flex-direction: row;
   gap: var(--gutter);
@@ -27,5 +27,5 @@
   border-width: var(--borderSize);
   border-radius: var(--borderRadius);
   width: var(--block);
-  padding: calc(var(--vRythm) / 2) calc(var(--gutter) / 2);
+  padding: calc(var(--vRhythm) / 2) calc(var(--gutter) / 2);
 }

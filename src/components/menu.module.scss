@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@import '../styles/variables.scss';
 
 .nav {
   background-color: var(--light);
@@ -29,7 +29,7 @@
 }
 .nav span {
   display: block;
-  padding: calc(var(--vRythm) / 2) var(--gutter);
+  padding: calc(var(--vRhythm) / 2) var(--gutter);
 }
 
 @media screen and (max-width: $CSS_BREAKPOINT_END_S) {

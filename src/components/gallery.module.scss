@@ -1,15 +1,15 @@
-@import '../variables.scss';
+@import '../styles/variables.scss';
 
 .root {
   clear: both;
   background: var(--secondary);
-  padding: calc(var(--vRythm) / 2) calc(var(--gutter) / 2);
+  padding: calc(var(--vRhythm) / 2) calc(var(--gutter) / 2);
 }
 .root p {
   text-align: center;
-  padding: calc(var(--vRythm) / 2) calc(var(--gutter) / 2);
+  padding: calc(var(--vRhythm) / 2) calc(var(--gutter) / 2);
   margin: 0;
-  height: calc(var(--vRythm) * 22);
+  height: calc(var(--vRhythm) * 22);
   background: var(--light);
 }
 .root p img {
@@ -29,11 +29,11 @@
   display: block;
   list-style-type: none;
   text-align: center;
-  padding: calc(var(--vRythm) / 2) 0 0 calc(var(--gutter) / 2);
+  padding: calc(var(--vRhythm) / 2) 0 0 calc(var(--gutter) / 2);
 }
 .root ul li a {
   display: block;
-  height: calc(var(--vRythm) * 4);
+  height: calc(var(--vRhythm) * 4);
   width: calc(var(--column) * 2);
   background: var(--light);
 }
@@ -45,10 +45,10 @@
 }
 @media screen and (max-width: $CSS_BREAKPOINT_END_M) {
   .root p {
-    height: calc(var(--vRythm) * 12);
+    height: calc(var(--vRhythm) * 12);
   }
   .root ul li a {
-    height: calc(var(--vRythm) * 2);
+    height: calc(var(--vRhythm) * 2);
     width: calc(var(--column) * 1);
   }
 }

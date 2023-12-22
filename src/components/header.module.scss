@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@import '../styles/variables.scss';
 
 header.root {
   display: flex;
@@ -9,14 +9,14 @@ header.root {
 .root h1 {
   display: block;
   margin: 0 auto;
-  width: calc(var(--vRythm) * 8);
-  height: calc(var(--vRythm) * 8);
+  width: calc(var(--vRhythm) * 8);
+  height: calc(var(--vRhythm) * 8);
 }
 
 .root a {
   display: block;
-  width: calc(var(--vRythm) * 8);
-  height: calc(var(--vRythm) * 8);
+  width: calc(var(--vRhythm) * 8);
+  height: calc(var(--vRhythm) * 8);
   background-image: url('/images/chtijs.svg');
   background-size: contain;
   background-repeat: no-repeat;
