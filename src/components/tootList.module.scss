@@ -16,16 +16,16 @@
 
 .tootList {
   margin-top: var(--vRhythm);
-  display: flex;
-  flex-direction: row;
-  gap: var(--gutter);
+  display: flex-block;
 }
 
 .toot {
-  border-style: solid;
-  border-color: var(--grey);
-  border-width: var(--borderSize);
-  border-radius: var(--borderRadius);
-  width: var(--block);
+  border-bottom: var(--border) solid var(--grey);
+  width: auto;
   padding: calc(var(--vRhythm) / 2) calc(var(--gutter) / 2);
+  overflow: hidden;
+}
+
+.toot:last-child {
+  border-bottom: none;
 }
