@@ -1,5 +1,5 @@
 export default function useCSSRemValue(fallbackSize = 16): number {
-  if (typeof navigator === "undefined") {
+  if (typeof navigator === 'undefined') {
     return fallbackSize;
   }
 

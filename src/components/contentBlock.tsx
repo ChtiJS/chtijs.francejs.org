@@ -8,7 +8,9 @@ export default function ContentBlock({
   className?: string;
 }): JSX.Element {
   return (
-    <section className={`${styles.root} root${className ? ' ' + className : ''}`}>
+    <section
+      className={`${styles.root} root${className ? ' ' + className : ''}`}
+    >
       {children}
     </section>
   );

@@ -28,8 +28,8 @@ export function datedPagesSorter<T extends { date: string }>(
   return Date.parse(dateA) === Date.parse(dateB)
     ? 0
     : Date.parse(dateA) > Date.parse(dateB)
-    ? -1
-    : 1;
+      ? -1
+      : 1;
 }
 
 export function titledPagesSorter<T extends { title: string }>(

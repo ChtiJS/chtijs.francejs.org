@@ -5,7 +5,7 @@ const Heading3 = ({
 }: { children: React.ReactNode } & React.HTMLAttributes<HTMLElement>) => (
   <h3 className={styles.root} {...props}>
     {children}
-      </h3>
+  </h3>
 );
 
 export default Heading3;

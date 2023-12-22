@@ -1,8 +1,9 @@
 .root,
 .root:visited {
-  color: #c1a008;
+  color: var(--senary);
+  font-weight: bold;
   transition: color 0.1s linear;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .root:hover,
 .root:focus {

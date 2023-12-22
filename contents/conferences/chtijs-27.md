@@ -14,7 +14,8 @@ location: FR
 
 ## Programme
 
-**Talk de [David Leuliette](https://github.com/flexbox 'Voir son profil GitHub') :**
+**Talk de
+[David Leuliette](https://github.com/flexbox 'Voir son profil GitHub') :**
 Découvrez comment développer 55% plus rapidement avec VSCode et GitHub Copilot
 
 "J'ai exploré le Chat de GitHub nommé Copilot, une extension que vous pouvez
@@ -30,4 +31,5 @@ les auteurs !
 
 ## Pour info
 
-Pour la liste des participants, voir [l'évènement Meetup](https://www.meetup.com/francejs/events/292749418/ "Aller sur la page de l'événement").
+Pour la liste des participants, voir
+[l'évènement Meetup](https://www.meetup.com/francejs/events/292749418/ "Aller sur la page de l'événement").

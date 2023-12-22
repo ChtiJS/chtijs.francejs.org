@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 
 const baseURL =
-  process.env.NODE_ENV === "production"
-    ? "https://chtijs.francejs.org"
-    : "http://chtijs.localhost:3000";
+  process.env.NODE_ENV === 'production'
+    ? 'https://chtijs.francejs.org'
+    : 'http://chtijs.localhost:3000';
 const basePath = '';
 const assetPrefix = `${baseURL}${basePath}`;
 
@@ -13,7 +13,7 @@ const config = {
   distDir: 'out',
   reactStrictMode: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   publicRuntimeConfig: {
     environment: process.env.NODE_ENV,

@@ -5,9 +5,11 @@ const Heading1 = ({
   className,
   ...props
 }: { children: React.ReactNode } & React.HTMLAttributes<HTMLElement>) => (
-  <h1 className={`${styles.root}${className ? ' ' + className : ''}`} {...props}>
+  <h1
+    className={`${styles.root}${className ? ' ' + className : ''}`}
+    {...props}
+  >
     {children}
-    
   </h1>
 );
 

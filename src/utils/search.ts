@@ -30,13 +30,16 @@ export async function buildSearchIndex(props: BaseProps) {
     joinPath(PROJECT_DIR, 'public', 'conferencesSearchIndex.json'),
     JSON.stringify({
       index: idx,
-      metadata: props.entries.reduce((allMetadata, entry) => ({
-        ...allMetadata,
-        [entry.id]: {
-          title: entry.title,
-          description: entry.description,
-        },
-      }), {}),
+      metadata: props.entries.reduce(
+        (allMetadata, entry) => ({
+          ...allMetadata,
+          [entry.id]: {
+            title: entry.title,
+            description: entry.description,
+          },
+        }),
+        {}
+      ),
     })
   );
 }

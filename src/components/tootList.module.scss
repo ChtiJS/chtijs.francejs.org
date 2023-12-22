@@ -2,18 +2,6 @@
   margin: 0 0 var(--vRhythm) 0;
 }
 
-.toot :global(a) {
-  color: #205370;
-}
-
-.toot :global(p) {
-  margin-left: 2%;
-}
-
-.toot :global(a):hover {
-  color: #14171a;
-}
-
 .tootList {
   margin-top: var(--vRhythm);
   display: flex-block;
@@ -22,7 +10,7 @@
 .toot {
   border-bottom: var(--border) solid var(--grey);
   width: auto;
-  padding: calc(var(--vRhythm) / 2) calc(var(--gutter) / 2);
+  padding: calc(var(--vRhythm) - var(--border)) 0 0 0;
   overflow: hidden;
 }
 

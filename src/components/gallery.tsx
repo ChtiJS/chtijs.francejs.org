@@ -25,8 +25,8 @@ const Gallery = ({ imagesNodes }: { imagesNodes: MarkdownImageNode[] }) => {
           <li key={index}>
             <a
               onClick={() => setSelectedIndex(index)}
-              aria-label={`Image ${index + 1}`} 
-              tabIndex={0} 
+              aria-label={`Image ${index + 1}`}
+              tabIndex={0}
             >
               <img
                 src={
@@ -37,7 +37,7 @@ const Gallery = ({ imagesNodes }: { imagesNodes: MarkdownImageNode[] }) => {
                       '/' +
                       imageNode.url
                 }
-                alt={imageNode.alt || `Image ${index + 1}`} 
+                alt={imageNode.alt || `Image ${index + 1}`}
               />
             </a>
           </li>

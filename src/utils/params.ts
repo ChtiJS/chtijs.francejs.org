@@ -49,8 +49,8 @@ const QUERY_PARAMS_TYPE_STRINGIFYERS: Record<QueryParamType, ParamStringifyer> =
       queryValue === true
         ? 'true'
         : queryValue === false
-        ? 'false'
-        : undefined) as ParamStringifyer,
+          ? 'false'
+          : undefined) as ParamStringifyer,
     string: (queryValue: string | undefined): string | undefined =>
       typeof queryValue === 'string' ? queryValue : undefined,
     number: ((queryValue: number | undefined): string | undefined =>
@@ -68,8 +68,8 @@ export function readParams<T extends CastedQueryParams>(
       typeof query[definitionName] === 'undefined'
         ? []
         : typeof query[definitionName] === 'string'
-        ? [query[definitionName] as string]
-        : (query[definitionName] as string[]);
+          ? [query[definitionName] as string]
+          : (query[definitionName] as string[]);
     let castedValue: CastedQueryParam | undefined;
 
     if (definitions[definitionName].mode === 'collection') {

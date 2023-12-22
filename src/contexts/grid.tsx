@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { type ReactNode, createContext } from "react";
-import useCSSVar from "../hooks/useCSSVar";
-import styles from "./grid.module.scss";
+import { type ReactNode, createContext } from 'react';
+import useCSSVar from '../hooks/useCSSVar';
+import styles from './grid.module.scss';
 
-const DEFAULT_GRID_H = parseFloat(styles.hGrid.replace("rem", ""));
-const DEFAULT_GRID_V = parseFloat(styles.vGrid.replace("rem", ""));
+const DEFAULT_GRID_H = parseFloat(styles.hGrid.replace('rem', ''));
+const DEFAULT_GRID_V = parseFloat(styles.vGrid.replace('rem', ''));
 const DEFAULT_V_RHYTHM_RATIO = parseFloat(styles.vRhythmRatio);
 const DEFAULT_COLUMN_RATIO = parseFloat(styles.columnRatio);
 const DEFAULT_GUTTER_RATIO = parseFloat(styles.gutterRatio);
@@ -23,21 +23,21 @@ export default function ProvideGridContext({
 }: {
   children: ReactNode;
 }): ReactNode {
-  const vGrid = useCSSVar("number", "--vGrid", DEFAULT_GRID_V);
-  const hGrid = useCSSVar("number", "--hGrid", DEFAULT_GRID_H);
+  const vGrid = useCSSVar('number', '--vGrid', DEFAULT_GRID_V);
+  const hGrid = useCSSVar('number', '--hGrid', DEFAULT_GRID_H);
   const vRhythmRatio = useCSSVar(
-    "number",
-    "--vRhythmRatio",
+    'number',
+    '--vRhythmRatio',
     DEFAULT_V_RHYTHM_RATIO
   );
   const gutterRatio = useCSSVar(
-    "number",
-    "--gutterRatio",
+    'number',
+    '--gutterRatio',
     DEFAULT_COLUMN_RATIO
   );
   const columnRatio = useCSSVar(
-    "number",
-    "--columnRatio",
+    'number',
+    '--columnRatio',
     DEFAULT_GUTTER_RATIO
   );
 

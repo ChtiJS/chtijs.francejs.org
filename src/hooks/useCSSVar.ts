@@ -1,9 +1,9 @@
-export default function useCSSVar<T extends "string" | "number">(
+export default function useCSSVar<T extends 'string' | 'number'>(
   type: T,
   name: string,
-  fallback: T extends "number" ? number : string
-): T extends "number" ? number : string {
-  if (typeof navigator === "undefined") {
+  fallback: T extends 'number' ? number : string
+): T extends 'number' ? number : string {
+  if (typeof navigator === 'undefined') {
     return fallback;
   }
 
@@ -11,8 +11,8 @@ export default function useCSSVar<T extends "string" | "number">(
     name
   );
 
-  if (type === "string") {
-    return cssValue as unknown as T extends "number" ? number : string;
+  if (type === 'string') {
+    return cssValue as unknown as T extends 'number' ? number : string;
   }
 
   const numberValue = parseFloat(cssValue);
@@ -21,5 +21,5 @@ export default function useCSSVar<T extends "string" | "number">(
     return fallback;
   }
 
-  return numberValue as unknown as T extends "number" ? number : string;
+  return numberValue as unknown as T extends 'number' ? number : string;
 }
